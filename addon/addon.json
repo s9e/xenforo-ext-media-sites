@@ -1,0 +1,14 @@
+{
+    "addon_id":        "s9e/mediasites",
+    "title":           "s9e Media Sites",
+    "description":     "",
+    "version_id":      10,
+    "version_string":  "0.0.1 Alpha",
+    "dev":             "",
+    "dev_url":         "",
+    "faq_url":         "",
+    "support_url":     "",
+    "extra_urls":      [],
+    "require":         [],
+    "icon":            ""
+}

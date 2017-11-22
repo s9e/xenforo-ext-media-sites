@@ -1,0 +1,4 @@
+- ~~Filter sites when installing~~ Nope: https://xenforo.com/community/threads/how-to-filter-media-sites-in-an-add-on.135316/#post-1181385
+- ~~Reinstall sites when toggling them in options~~ Nope
+- Account for new default media sites with more than one param
+- ~~Maybe don't overwrite existing sites on first install~~ Nope
