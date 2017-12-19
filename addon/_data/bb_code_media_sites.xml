@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bb_code_media_sites>
+  <site media_site_id="abcnews" site_title="ABC News" site_url="http://abcnews.go.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*abcnews\.go\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="abcnews" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//abcnews.go.com/video/embed?id={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="amazon" site_title="Amazon Product" site_url="http://affiliate-program.amazon.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*amazon\.(?:c(?:a|o(?:\.(?:jp|uk)|m))|de|es|fr|i[nt])/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="audioboom" site_title="audioBoom" site_url="https://audioboom.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*audioboo(?:\.f|m\.co)m/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="audioboom" allowfullscreen="" scrolling="no" src="//audioboom.com/posts/{$id}/embed/v3" style="border:0;height:150px;max-width:700px;width:100%"></iframe>]]></embed_html>
+  </site>
+  <site media_site_id="audiomack" site_title="Audiomack" site_url="http://www.audiomack.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*audiomack\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="bandcamp" site_title="Bandcamp" site_url="http://bandcamp.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*bandcamp\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="bbcnews" site_title="BBC News" site_url="http://www.bbc.com/news/video_and_audio/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*bbc\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="blab" site_title="Blab" site_url="https://blab.im/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*blab\.im/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="blab" style="display:inline-block;width:100%;max-width:400px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:100%"><iframe allowfullscreen="" scrolling="no" src="https://blab.im/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="bleacherreport" site_title="Bleacher Report videos" site_url="http://bleacherreport.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*bleacherreport\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="bleacherreport" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//bleacherreport.com/video_embed?id={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="break" site_title="Break" site_url="http://www.break.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*break\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="break" style="display:inline-block;width:100%;max-width:464px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:60.344828%"><iframe allowfullscreen="" scrolling="no" src="//break.com/embed/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="brightcove" site_title="Brightcove" site_url="https://www.brightcove.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:bcove\.me|link\.brightcove\.com)/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="brightcove" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="https://link.brightcove.com/services/player/bcpid{$bcpid}?bckey={$bckey}&amp;bctid={$bctid}&amp;secureConnections=true&amp;secureHTMLConnections=true&amp;autoStart=false&amp;height=100%25&amp;width=100%25" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="cbsnews" site_title="CBS News Video" site_url="http://www.cbsnews.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*cbsnews\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="cnbc" site_title="CNBC" site_url="http://www.cnbc.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*video\.cnbc\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="cnbc" style="display:inline-block;width:100%;max-width:400px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:95%"><object data="//plus.cnbc.com/rssvideosearch/action/player/id/{$id}/code/cnbcplayershare" style="height:100%;left:0;position:absolute;width:100%" type="application/x-shockwave-flash" typemustmatch=""><param name="allowfullscreen" value="true"/></object></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="cnn" site_title="CNN" site_url="http://edition.cnn.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*cnn\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="cnn" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//edition.cnn.com/video/api/embed.html#/video/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="cnnmoney" site_title="CNNMoney" site_url="http://money.cnn.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*money\.cnn\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="cnnmoney" style="display:inline-block;width:100%;max-width:560px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:64.285714%"><iframe allowfullscreen="" scrolling="no" src="//money.cnn.com/.element/ssi/video/7.0/players/embed.player.html?videoid=video/{$id}&amp;width=560&amp;height=360" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="collegehumor" site_title="CollegeHumor" site_url="http://www.collegehumor.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*collegehumor\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="collegehumor" style="display:inline-block;width:100%;max-width:600px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:61.5%"><iframe allowfullscreen="" scrolling="no" src="//www.collegehumor.com/e/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="comedycentral" site_title="Comedy Central" site_url="http://www.comedycentral.com/funny-videos" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*c(?:c|omedycentral)\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="comedycentral" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//media.mtvnservices.com/embed/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="coub" site_title="Coub" site_url="http://coub.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*coub\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="coub" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//coub.com/embed/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="dailymotion" site_title="Dailymotion" site_url="http://www.dailymotion.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*dai(?:\.ly|lymotion\.com)/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="democracynow" site_title="Democracy Now!" site_url="http://www.democracynow.org/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*democracynow\.org/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="dumpert" site_title="dumpert" site_url="http://www.dumpert.nl/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*dumpert\.nl/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="eighttracks" site_title="8tracks" site_url="http://8tracks.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*8tracks\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="eighttracks" style="display:inline-block;width:100%;max-width:400px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:100%"><iframe allowfullscreen="" scrolling="no" src="//8tracks.com/mixes/{$id}/player_v3_universal" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="espn" site_title="ESPN" site_url="http://www.espn.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*espn\.(?:go\.)?com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="espn" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//www.espn.com/core/video/iframe?id={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="facebook" site_title="Facebook" site_url="http://www.facebook.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*facebook\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="facebook" allowfullscreen="" onload="var a=Math.random();window.addEventListener('message',function(b){if(b.data.id==a)style.height=b.data.height+'px'});contentWindow.postMessage('s9e:'+a,'https://s9e.github.io')" scrolling="no" src="https://s9e.github.io/iframe/facebook.min.html#{$type}{$id}" style="border:0;height:360px;max-width:640px;width:100%"></iframe>]]></embed_html>
+  </site>
+  <site media_site_id="flickr" site_title="Flickr" site_url="https://www.flickr.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*flic(?:\.kr|kr\.com)/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="flickr" style="display:inline-block;width:100%;max-width:500px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:100%"><iframe allowfullscreen="" scrolling="no" src="https://www.flickr.com/photos/_/{$id}/player/" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="foratv" site_title="FORA.tv" site_url="http://fora.tv/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*fora\.tv/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="foratv" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//library.fora.tv/embed?id={$id}&amp;type=c" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="foxnews" site_title="Fox News" site_url="http://www.foxnews.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*video\.foxnews\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="foxnews" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//video.foxnews.com/v/video-embed.html?video_id={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="funnyordie" site_title="Funny or Die" site_url="http://www.funnyordie.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*funnyordie\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="funnyordie" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//www.funnyordie.com/embed/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="gamespot" site_title="Gamespot" site_url="http://www.gamespot.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*gamespot\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="gamespot" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:62.5%"><iframe allowfullscreen="" scrolling="no" src="//www.gamespot.com/videos/embed/{$id}/" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="gametrailers" site_title="GameTrailers" site_url="http://www.gametrailers.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*gametrailers\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="getty" site_title="Getty Images" site_url="http://www.gettyimages.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*g(?:ettyimages\.(?:[bs]e|c(?:n|o(?:\.(?:jp|uk)|m(?:\.au)?))|d[ek]|es|fr|i[et]|nl|pt)|ty\.im)/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="gfycat" site_title="Gfycat" site_url="http://gfycat.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*gfycat\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="gifs" site_title="Gifs.com" site_url="https://gifs.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*gifs\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="gist" site_title="GitHub Gist (via custom iframe)" site_url="https://gist.github.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*github\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="gist" allowfullscreen="" onload="var a=Math.random();window.addEventListener('message',function(b){if(b.data.id==a)style.height=b.data.height+'px'});contentWindow.postMessage('s9e:'+a,'https://s9e.github.io')" scrolling="" src="https://s9e.github.io/iframe/gist.min.html#{$id}" style="border:0;height:180px;width:100%"></iframe>]]></embed_html>
+  </site>
+  <site media_site_id="globalnews" site_title="Global News" site_url="http://globalnews.ca/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*globalnews\.ca/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="globalnews" style="display:inline-block;width:100%;max-width:560px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:67.321429%"><iframe allowfullscreen="" scrolling="no" src="//globalnews.ca/video/embed/{$id}/" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="gofundme" site_title="GoFundMe" site_url="http://www.gofundme.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*gofundme\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="gofundme" style="display:inline-block;width:100%;max-width:258px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:131.007752%"><object data="//funds.gofundme.com/Widgetflex.swf" style="height:100%;left:0;position:absolute;width:100%" type="application/x-shockwave-flash" typemustmatch=""><param name="allowfullscreen" value="true"/><param name="flashvars" value="page={$id}"/></object></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="googledrive" site_title="Google Drive" site_url="https://drive.google.com" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*drive\.google\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="googledrive" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:75%"><iframe allowfullscreen="" scrolling="no" src="//drive.google.com/file/d/{$id}/preview" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="googleplus" site_title="Google+" site_url="https://plus.google.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*plus\.google\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="googlesheets" site_title="Google Sheets" site_url="http://www.google.com/sheets/about/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*docs\.google\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="googlesheets" allowfullscreen="" scrolling="no" src="https://docs.google.com/spreadsheets/d/{$id}/pubhtml?widget=true&amp;headers=false#gid={$gid}" style="border:0;height:500px;resize:vertical;width:100%"></iframe>]]></embed_html>
+  </site>
+  <site media_site_id="healthguru" site_title="Healthguru" site_url="http://www.healthguru.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*healthguru\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="healthguru" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//www.healthguru.com/embed/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="hudl" site_title="Hudl" site_url="http://www.hudl.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*hudl\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="hudl" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//www.hudl.com/embed/athlete/{$athlete}/highlights/{$highlight}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="hulu" site_title="Hulu" site_url="http://www.hulu.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*hulu\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="hulu" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="https://secure.hulu.com/embed/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="humortvnl" site_title="HumorTV" site_url="http://humortv.vara.nl/pg.2.pg-home.html" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*humortv\.vara\.nl/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="humortvnl" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//humortv.vara.nl/embed.{$id}.html" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="ign" site_title="IGN" site_url="http://www.ign.com/videos/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*ign\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="ign" style="display:inline-block;width:100%;max-width:468px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.196581%"><iframe allowfullscreen="" scrolling="no" src="//widgets.ign.com/video/embed/content.html?url={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="imdb" site_title="IMDb" site_url="http://www.imdb.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*imdb\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="imdb" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//www.imdb.com/video/imdb/vi{$id}/imdb/embed?autoplay=false&amp;width=640" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="imgur" site_title="Imgur" site_url="http://imgur.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*imgur\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="imgur" allowfullscreen="" onload="var b=Math.random();window.addEventListener('message',function(a){a.data.id==b&amp;&amp;(style.height=a.data.height+'px',style.width=a.data.width+'px')});contentWindow.postMessage('s9e:'+b,'https://s9e.github.io')" scrolling="no" src="https://s9e.github.io/iframe/imgur.min.html#{$id}" style="border:0;height:450px;max-width:100%;width:568px"></iframe>]]></embed_html>
+  </site>
+  <site media_site_id="indiegogo" site_title="Indiegogo" site_url="http://www.indiegogo.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*indiegogo\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="indiegogo" style="display:inline-block;width:100%;max-width:222px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:200.45045%"><iframe allowfullscreen="" scrolling="no" src="//www.indiegogo.com/project/{$id}/embedded" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="instagram" site_title="Instagram" site_url="http://instagram.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*instagram\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="instagram" allowfullscreen="" onload="var a=Math.random();window.addEventListener('message',function(b){if(b.data.id==a)style.height=b.data.height+'px'});contentWindow.postMessage('s9e:'+a,'https://s9e.github.io')" scrolling="no" src="https://s9e.github.io/iframe/instagram.min.html#{$id}" style="border:0;height:640px;max-width:640px;width:100%"></iframe>]]></embed_html>
+  </site>
+  <site media_site_id="internetarchive" site_title="Internet Archive" site_url="https://archive.org/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*archive\.org/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="izlesene" site_title="İzlesene" site_url="http://www.izlesene.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*izlesene\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="izlesene" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//www.izlesene.com/embedplayer/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="jwplatform" site_title="JW Platform" site_url="https://www.jwplayer.com/products/jwplatform/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*jwplatform\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="jwplatform" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//content.jwplatform.com/players/{$id}.html" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="khl" site_title="Kontinental Hockey League (КХЛ)" site_url="http://www.khl.ru/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*video\.khl\.ru/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="khl" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//video.khl.ru/iframe/feed/start/{$id}?type_id=18&amp;width=560&amp;height=315" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="kickstarter" site_title="Kickstarter" site_url="http://www.kickstarter.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*kickstarter\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="kissvideo" site_title="Kiss Video" site_url="http://www.kissvideo.click/index.html" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*kissvideo\.click/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="kissvideo" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//www.kissvideo.click/embed.php?vid={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="libsyn" site_title="Libsyn" site_url="http://www.libsyn.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*libsyn\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="libsyn" allowfullscreen="" scrolling="no" src="//html5-player.libsyn.com/embed/episode/id/{$id}/height/45/width/900/theme/standard/direction/no/autoplay/no/autonext/no/thumbnail/no/preload/no/no_addthis/no/" style="border:0;height:45px;max-width:900px;width:100%"></iframe>]]></embed_html>
+  </site>
+  <site media_site_id="livecap" site_title="LiveCap" site_url="https://www.livecap.tv/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*livecap\.tv/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="livecap" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="https://www.livecap.tv/s/embed/{$channel}/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="liveleak" site_title="LiveLeak" site_url="http://www.liveleak.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*liveleak\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="liveleak" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//www.liveleak.com/ll_embed?i={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="livestream" site_title="Livestream" site_url="http://new.livestream.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*livestre(?:\.a|am\.co)m/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="mailru" site_title="Mail.Ru" site_url="http://my.mail.ru/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*my\.mail\.ru/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="mailru" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="https://my.mail.ru/video/embed/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="medium" site_title="Medium" site_url="https://medium.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*medium\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="metacafe" site_title="Metacafe" site_url="http://www.metacafe.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*metacafe\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="metacafe" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//www.metacafe.com/embed/{$id}/" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="mixcloud" site_title="Mixcloud" site_url="http://www.mixcloud.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*mixcloud\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="mixcloud" style="display:inline-block;width:100%;max-width:400px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:100%"><iframe allowfullscreen="" scrolling="no" src="//www.mixcloud.com/widget/iframe/?feed=http%3A%2F%2Fwww.mixcloud.com%2F{$id}%2F&amp;embed_type=widget_standard" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="mlb" site_title="MLB" site_url="http://mlb.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*mlb\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="mlb" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//m.mlb.com/shared/video/embed/embed.html?content_id={$id}&amp;width=640&amp;height=360" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="mrctv" site_title="MRCTV" site_url="http://www.mrctv.org/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*mrctv\.org/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="mrctv" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="https://www.mrctv.org/embed/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="msnbc" site_title="MSNBC" site_url="http://www.msnbc.com/watch" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*msnbc\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="msnbc" style="display:inline-block;width:100%;max-width:635px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:69.291339%"><iframe allowfullscreen="" scrolling="no" src="//player.theplatform.com/p/2E2eJC/EmbeddedOffSite?guid={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="natgeochannel" site_title="National Geographic Channel" site_url="http://channel.nationalgeographic.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*channel\.nationalgeographic\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="natgeochannel" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//channel.nationalgeographic.com/{$id}/embed/" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="natgeovideo" site_title="National Geographic Video" site_url="http://video.nationalgeographic.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*video\.nationalgeographic\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="natgeovideo" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//player.d.nationalgeographic.com/players/ngsvideo/share/?guid={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="nbcnews" site_title="NBC News" site_url="http://www.nbcnews.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*nbcnews\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="nbcnews" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//www.nbcnews.com/widget/video-embed/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="nbcsports" site_title="NBC Sports" site_url="http://www.nbcsports.com/video" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*nbcsports\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="nbcsports" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//vplayer.nbcsports.com/p/BxmELC/nbcsports_embed/select/media/{$id}?parentUrl=" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="nhl" site_title="NHL Videos and Highlights" site_url="https://www.nhl.com/video" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*nhl\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="npr" site_title="NPR" site_url="http://www.npr.org/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*n(?:\.pr|pr\.org)/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="npr" allowfullscreen="" scrolling="no" src="//www.npr.org/player/embed/{$i}/{$m}" style="border:0;height:228px;max-width:800px;width:100%"></iframe>]]></embed_html>
+  </site>
+  <site media_site_id="nytimes" site_title="The New York Times Video" site_url="http://www.nytimes.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*nytimes\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="nytimes" style="display:inline-block;width:100%;max-width:585px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:68.376068%"><iframe allowfullscreen="" scrolling="no" src="//graphics8.nytimes.com/video/players/offsite/index.html?videoId={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="oddshot" site_title="Oddshot" site_url="http://oddshot.tv/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*oddshot\.tv/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="oddshot" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="https://oddshot.tv/s/{$id}/embed" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="orfium" site_title="Orfium" site_url="https://www.orfium.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*orfium\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="pastebin" site_title="Pastebin" site_url="http://pastebin.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*pastebin\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="pastebin" allowfullscreen="" scrolling="" src="//pastebin.com/embed_iframe.php?i={$id}" style="border:0;height:300px;resize:vertical;width:100%"></iframe>]]></embed_html>
+  </site>
+  <site media_site_id="pinterest" site_title="Pinterest" site_url="https://www.pinterest.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*pinterest\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="playstv" site_title="Plays.tv" site_url="http://plays.tv/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*plays\.tv/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="playstv" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//plays.tv/embeds/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="podbean" site_title="Podbean" site_url="http://www.podbean.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*podbean\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="podbean" allowfullscreen="" scrolling="no" src="//www.podbean.com/media/player/{$id}" style="border:0;height:100px;max-width:900px;width:100%"></iframe>]]></embed_html>
+  </site>
+  <site media_site_id="prezi" site_title="Prezi" site_url="http://prezi.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*prezi\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="prezi" style="display:inline-block;width:100%;max-width:550px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:72.727273%"><iframe allowfullscreen="" scrolling="no" src="//prezi.com/embed/{$id}/" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="reddit" site_title="Reddit threads and comments" site_url="http://www.reddit.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*reddit\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="reddit" allowfullscreen="" onload="var a=Math.random();window.addEventListener('message',function(b){if(b.data.id==a)style.height=b.data.height+'px'});contentWindow.postMessage('s9e:'+a,'https://s9e.github.io')" scrolling="no" src="https://s9e.github.io/iframe/reddit.min.html#{$id}{$path}" style="border:0;height:165px;max-width:800px;width:100%"></iframe>]]></embed_html>
+  </site>
+  <site media_site_id="rutube" site_title="Rutube" site_url="http://rutube.ru/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*rutube\.ru/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="rutube" style="display:inline-block;width:100%;max-width:720px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//rutube.ru/play/embed/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="scribd" site_title="Scribd" site_url="http://www.scribd.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*scribd\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="scribd" allowfullscreen="" scrolling="no" src="https://www.scribd.com/embeds/{$id}/content?view_mode=scroll&amp;show_recommendations=false" style="border:0;height:500px;resize:vertical;width:100%"></iframe>]]></embed_html>
+  </site>
+  <site media_site_id="slideshare" site_title="SlideShare" site_url="http://www.slideshare.net/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*slideshare\.net/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="slideshare" style="display:inline-block;width:100%;max-width:427px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:83.372365%"><iframe allowfullscreen="" scrolling="no" src="//www.slideshare.net/slideshow/embed_code/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="soundcloud" site_title="SoundCloud" site_url="https://soundcloud.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*soundcloud\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="sportsnet" site_title="Sportsnet" site_url="http://www.sportsnet.ca/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*sportsnet\.ca/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="sportsnet" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="https://images.rogersdigitalmedia.com/video_service.php?videoId={$id}&amp;playerKey=AQ~~,AAAAAGWRwLc~,cRCmKE8Utf7OFWP38XQcokFZ80fR-u_y&amp;autoStart=false&amp;width=100%25&amp;height=100%25" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="spotify" site_title="Spotify" site_url="https://www.spotify.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:open|play)\.spotify\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="steamstore" site_title="Steam store" site_url="http://store.steampowered.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*store\.steampowered\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="steamstore" allowfullscreen="" scrolling="no" src="//store.steampowered.com/widget/{$id}" style="border:0;height:190px;max-width:900px;width:100%"></iframe>]]></embed_html>
+  </site>
+  <site media_site_id="stitcher" site_title="Stitcher" site_url="http://www.stitcher.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*stitcher\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="stitcher" allowfullscreen="" scrolling="no" src="//app.stitcher.com/splayer/f/{$fid}/{$eid}" style="border:0;height:150px;max-width:900px;width:100%"></iframe>]]></embed_html>
+  </site>
+  <site media_site_id="strawpoll" site_title="Straw Poll" site_url="http://strawpoll.me/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*strawpoll\.me/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="strawpoll" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="" src="//www.strawpoll.me/embed_1/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="streamable" site_title="Streamable" site_url="http://streamable.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*streamable\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="streamable" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//streamable.com/e/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="teamcoco" site_title="Team Coco" site_url="http://teamcoco.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*teamcoco\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="teamcoco" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:64.84375%"><iframe allowfullscreen="" scrolling="no" src="//teamcoco.com/embed/v/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="ted" site_title="TED Talks" site_url="http://www.ted.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*ted\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="theatlantic" site_title="The Atlantic Video" site_url="http://www.theatlantic.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*theatlantic\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="theatlantic" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//www.theatlantic.com/video/iframe/{$id}/" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="theguardian" site_title="The Guardian" site_url="http://www.theguardian.com/video" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*theguardian\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="theguardian" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//embed.theguardian.com/embed/video/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="theonion" site_title="The Onion" site_url="http://www.theonion.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*theonion\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="theonion" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//www.theonion.com/video_embed/?id={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="tinypic" site_title="TinyPic videos" site_url="http://tinypic.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*tinypic\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="tinypic" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:60.9375%;padding-bottom:calc(56.25% + 30px)"><object data="//tinypic.com/player.swf?file={$id}&amp;s={$s}" style="height:100%;left:0;position:absolute;width:100%" type="application/x-shockwave-flash" typemustmatch=""><param name="allowfullscreen" value="true"/></object></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="tmz" site_title="TMZ" site_url="http://www.tmz.com/videos" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*tmz\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="tmz" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//www.kaltura.com/index.php/kwidget/cache_st/133592691/wid/_591531/partner_id/591531/uiconf_id/9071262/entry_id/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="traileraddict" site_title="Trailer Addict" site_url="http://www.traileraddict.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*traileraddict\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="traileraddict" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//v.traileraddict.com/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="tumblr" site_title="Tumblr" site_url="https://www.tumblr.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*tumblr\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="tumblr" allowfullscreen="" onload="var a=Math.random();window.addEventListener('message',function(b){if(b.data.id==a)style.height=b.data.height+'px'});contentWindow.postMessage('s9e:'+a,'https://s9e.github.io')" scrolling="no" src="https://s9e.github.io/iframe/tumblr.min.html#{$key}/{$id}" style="border:0;height:180px;max-width:520px;width:100%"></iframe>]]></embed_html>
+  </site>
+  <site media_site_id="twitch" site_title="Twitch" site_url="http://www.twitch.tv/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*twitch\.tv/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="twitter" site_title="Twitter" site_url="https://twitter.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*twitter\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="twitter" allowfullscreen="" onload="var a=Math.random();window.addEventListener('message',function(b){if(b.data.id==a)style.height=b.data.height+'px'});contentWindow.postMessage('s9e:'+a,'https://s9e.github.io')" scrolling="no" src="https://s9e.github.io/iframe/twitter.min.html#{$id}" style="background:url(https://abs.twimg.com/favicons/favicon.ico) no-repeat 50% 50%;border:0;height:186px;max-width:500px;width:100%"></iframe>]]></embed_html>
+  </site>
+  <site media_site_id="ustream" site_title="Ustream" site_url="http://www.ustream.tv/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*ustream\.tv/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="vbox7" site_title="VBOX7" site_url="http://vbox7.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*vbox7\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="vbox7" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//vbox7.com/emb/external.php?vid={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="veoh" site_title="Veoh" site_url="http://www.veoh.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*veoh\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="veoh" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:62.5%;padding-bottom:calc(56.25% + 40px)"><object data="//www.veoh.com/swf/webplayer/WebPlayer.swf?version=AFrontend.5.7.0.1509&amp;permalinkId=v{$id}&amp;player=videodetailsembedded&amp;videoAutoPlay=0&amp;id=anonymous" style="height:100%;left:0;position:absolute;width:100%" type="application/x-shockwave-flash" typemustmatch=""><param name="allowfullscreen" value="true"/></object></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="vevo" site_title="VEVO" site_url="http://vevo.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*vevo\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="vevo" style="display:inline-block;width:100%;max-width:575px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.347826%"><iframe allowfullscreen="" scrolling="no" src="//cache.vevo.com/m/html/embed.html?video={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="viagame" site_title="Viagame" site_url="http://www.viagame.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*viagame\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="viagame" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:61.25%"><iframe allowfullscreen="" scrolling="no" src="//www.viagame.com/embed/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="videodetective" site_title="Video Detective" site_url="http://www.videodetective.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*videodetective\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="videodetective" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//www.videodetective.com/embed/video/?options=false&amp;autostart=false&amp;playlist=none&amp;publishedid={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="videomega" site_title="Videomega" site_url="http://videomega.tv/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*videomega\.tv/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="videomega" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//videomega.tv/iframe.php?ref={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="vimeo" site_title="Vimeo" site_url="http://vimeo.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*vimeo\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+  <site media_site_id="vine" site_title="Vine" site_url="https://vine.co/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*vine\.co/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="vine" style="display:inline-block;width:100%;max-width:480px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:100%"><iframe allowfullscreen="" scrolling="no" src="https://vine.co/v/{$id}/embed/simple?audio=1" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="vk" site_title="VK" site_url="https://vk.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*vk(?:\.com|ontakte\.ru)/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="vk" style="display:inline-block;width:100%;max-width:607px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:59.308072%"><iframe allowfullscreen="" scrolling="no" src="//vk.com/video_ext.php?oid={$oid}&amp;id={$vid}&amp;hash={$hash}&amp;hd=1" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="vocaroo" site_title="Vocaroo" site_url="http://vocaroo.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*vocaroo\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="vocaroo" style="display:inline-block;width:100%;max-width:148px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:29.72973%"><object data="//vocaroo.com/player.swf?playMediaID={$id}&amp;autoplay=0" style="height:100%;left:0;position:absolute;width:100%" type="application/x-shockwave-flash" typemustmatch=""><param name="allowfullscreen" value="true"/></object></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="vox" site_title="Vox" site_url="http://www.vox.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*vox\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="vox" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//player.ooyala.com/iframe.html#pbid=a637d53c5c0a43c7bf4e342886b9d8b0&amp;ec={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="washingtonpost" site_title="Washington Post Video" site_url="https://www.washingtonpost.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*washingtonpost\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="washingtonpost" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//www.washingtonpost.com/video/c/embed/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="wshh" site_title="WorldStarHipHop" site_url="http://www.worldstarhiphop.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*worldstarhiphop\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="wshh" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//www.worldstarhiphop.com/embed/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="wsj" site_title="The Wall Street Journal Online" site_url="http://www.wsj.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*wsj\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="wsj" style="display:inline-block;width:100%;max-width:512px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//video-api.wsj.com/api-video/player/iframe.html?guid={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="xboxclips" site_title="XboxClips" site_url="http://xboxclips.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*xboxclips\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="xboxclips" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//xboxclips.com/{$user}/{$id}/embed" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="xboxdvr" site_title="Xbox DVR" site_url="http://xboxdvr.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*xboxdvr\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="xboxdvr" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//xboxdvr.com/gamer/{$user}/video/{$id}/embed" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="yahooscreen" site_title="Yahoo! Screen" site_url="https://screen.yahoo.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*screen\.yahoo\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="yahooscreen" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="https://screen.yahoo.com/{$id}.html?format=embed" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="youku" site_title="Youku" site_url="http://www.youku.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*youku\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="youku" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:62.5%;padding-bottom:calc(56.25% + 40px)"><iframe allowfullscreen="" scrolling="no" src="https://players.youku.com/embed/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+  </site>
+  <site media_site_id="youtube" site_title="YouTube" site_url="http://www.youtube.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*youtu(?:\.be|be\.com)/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[]]></embed_html>
+  </site>
+</bb_code_media_sites>

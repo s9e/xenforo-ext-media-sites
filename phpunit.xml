@@ -20,7 +20,11 @@
 
 	<filter>
 		<whitelist>
+			<directory suffix=".php">addon</directory>
 			<directory suffix=".php">src</directory>
+			<exclude>
+				<directory>addon/_releases</directory>
+			</exclude>
 		</whitelist>
 	</filter>
 </phpunit>

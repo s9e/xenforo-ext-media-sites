@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="option.s9e_MediaSites_AMAZON_ASSOCIATE_TAG" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Amazon Associate tag (.com)]]></phrase>
+  <phrase title="option.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_CA" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Amazon Associate tag (.ca)]]></phrase>
+  <phrase title="option.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_DE" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Amazon Associate tag (.de)]]></phrase>
+  <phrase title="option.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_ES" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Amazon Associate tag (.es)]]></phrase>
+  <phrase title="option.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_FR" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Amazon Associate tag (.fr)]]></phrase>
+  <phrase title="option.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IN" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Amazon Associate tag (.in)]]></phrase>
+  <phrase title="option.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IT" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Amazon Associate tag (.it)]]></phrase>
+  <phrase title="option.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_JP" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Amazon Associate tag (.co.jp)]]></phrase>
+  <phrase title="option.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_UK" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Amazon Associate tag (.co.uk)]]></phrase>
+  <phrase title="option_explain.s9e_MediaSites_AMAZON_ASSOCIATE_TAG" version_id="20130" version_string="0.2.1 Beta"><![CDATA[]]></phrase>
+  <phrase title="option_explain.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_CA" version_id="20130" version_string="0.2.1 Beta"><![CDATA[]]></phrase>
+  <phrase title="option_explain.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_DE" version_id="20130" version_string="0.2.1 Beta"><![CDATA[]]></phrase>
+  <phrase title="option_explain.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_ES" version_id="20130" version_string="0.2.1 Beta"><![CDATA[]]></phrase>
+  <phrase title="option_explain.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_FR" version_id="20130" version_string="0.2.1 Beta"><![CDATA[]]></phrase>
+  <phrase title="option_explain.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IN" version_id="20130" version_string="0.2.1 Beta"><![CDATA[]]></phrase>
+  <phrase title="option_explain.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IT" version_id="20130" version_string="0.2.1 Beta"><![CDATA[]]></phrase>
+  <phrase title="option_explain.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_JP" version_id="20130" version_string="0.2.1 Beta"><![CDATA[]]></phrase>
+  <phrase title="option_explain.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_UK" version_id="20130" version_string="0.2.1 Beta"><![CDATA[]]></phrase>
+  <phrase title="option_group.s9e_MediaSites" version_id="20130" version_string="0.2.1 Beta"><![CDATA[s9e Media Sites]]></phrase>
+  <phrase title="option_group_description.s9e_MediaSites" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Options related to the media sites]]></phrase>
+</phrases>
