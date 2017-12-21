@@ -14,7 +14,7 @@
     <find><![CDATA[(^)]]></find>
     <replace><![CDATA[#editor_media_form ul
 {
-	max-height: 40vh;
+	max-height: 33vh;
 	overflow-y: scroll;
 }
 
