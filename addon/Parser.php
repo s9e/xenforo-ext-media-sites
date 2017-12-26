@@ -182,7 +182,7 @@ class Parser
 		}
 
 		$config = self::$sites[$siteId] + [[], [], [], []];
-		$vars   = $vars = self::getNamedCaptures($url, $config[0]) ?: [];
+		$vars   = self::getNamedCaptures($url, $config[0]) ?: [];
 		foreach ($config[2] as $scrape)
 		{
 			// Overwrite vars extracted from URL with vars extracted from content
