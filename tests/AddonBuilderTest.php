@@ -22,7 +22,12 @@ class AddonBuilderTest extends TestCase
 			'addon.json',
 			'Parser.php',
 			'Renderer.php',
-			'_data/options.xml'
+			'_data/bb_code_media_sites.xml',
+			'_data/code_event_listeners.xml',
+			'_data/option_groups.xml',
+			'_data/options.xml',
+			'_data/phrases.xml',
+			'_data/template_modifications.xml'
 		];
 		foreach ($files as $filename)
 		{
