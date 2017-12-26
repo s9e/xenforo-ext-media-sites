@@ -1,6 +1,6 @@
 {
 	"name": "s9e/xenforo-ext-media-sites",
-	"version": "1.0.0-rc",
+	"version": "1.0.0",
 	"type": "xenforo-extension",
 	"description": "Extension for XenForo 2.0",
 	"homepage": "https://github.com/s9e/xenforo-ext-media-sites/",
