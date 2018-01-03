@@ -182,14 +182,14 @@ class Parser
 		}
 
 		$config = self::$sites[$siteId] + [[], [], [], []];
-		$vars   = self::getNamedCaptures($url, $config[0]) ?: [];
-		foreach ($config[2] as $scrape)
+		$vars   = [];
+		self::addNamedCaptures($vars, $url, $config[0]);
+		foreach ($config[2] as $scrapeConfig)
 		{
-			// Overwrite vars extracted from URL with vars extracted from content
-			$vars = self::scrape($url, $scrape, $vars) + $vars;
+			$vars = self::scrape($vars, $url, $scrapeConfig);
 		}
-		$vars = self::filterVars($vars, $config[3]);
 
+		$vars = self::filterVars($vars, $config[3]);
 		if (empty($vars))
 		{
 			return false;
@@ -211,6 +211,36 @@ class Parser
 		}
 
 		return self::serializeVars($vars, $siteId);
+	}
+
+	/**
+	* Capture substrings from a string using a set of regular expressions and add them to given array
+	*
+	* @param  array    &$vars    Associative array
+	* @param  string    $string  Text to match
+	* @param  string[]  $regexps List of regexps
+	* @return bool               Whether any regexps matched the string
+	*/
+	protected static function addNamedCaptures(array &$vars, $string, array $regexps)
+	{
+		$matched = false;
+		foreach ($regexps as $regexp)
+		{
+			if (preg_match($regexp, $string, $m))
+			{
+				$matched = true;
+				foreach ($m as $k => $v)
+				{
+					// Add named captures to the vars without overwriting existing vars
+					if (!is_numeric($k) && !isset($vars[$k]) && $v !== '')
+					{
+						$vars[$k] = $v;
+					}
+				}
+			}
+		}
+
+		return $matched;
 	}
 
 	/**
@@ -306,36 +336,6 @@ class Parser
 	}
 
 	/**
-	* Capture substrings from a string using a set of regular expressions
-	*
-	* @param  string     $string  Text to match
-	* @param  string[]   $regexps List of regexps
-	* @return array|bool          Associative array of matched strings, or FALSE
-	*/
-	protected static function getNamedCaptures($string, array $regexps)
-	{
-		$matched = false;
-		$vars    = [];
-		foreach ($regexps as $regexp)
-		{
-			if (preg_match($regexp, $string, $m))
-			{
-				$matched = true;
-				foreach ($m as $k => $v)
-				{
-					// Add named captures to the vars without overwriting existing vars
-					if (!is_numeric($k) && !isset($vars[$k]) && $v !== '')
-					{
-						$vars[$k] = $v;
-					}
-				}
-			}
-		}
-
-		return ($matched) ? $vars : false;
-	}
-
-	/**
 	* Interpolate {@vars} in given string
 	*
 	* @param  string $str  Original string
@@ -357,25 +357,25 @@ class Parser
 	/**
 	* Scrape vars from given URL
 	*
-	* @param  string   $url
-	* @param  array    $scrape
 	* @param  string[] $vars
+	* @param  string   $url
+	* @param  array    $config
 	* @return array
 	*/
-	protected static function scrape($url, array $scrape, array $vars)
+	protected static function scrape(array $vars, $url, array $config)
 	{
-		$scrapeVars = (empty($scrape['match'])) ? [] : self::getNamedCaptures($url, $scrape['match']);
-		if ($scrapeVars === false)
+		$scrapeVars = [];
+		if (empty($config['match']) || self::addNamedCaptures($scrapeVars, $url, $config['match']))
 		{
-			return [];
+			if (isset($config['url']))
+			{
+				$url = self::interpolateVars($config['url'], $scrapeVars + $vars);
+			}
+
+			self::addNamedCaptures($vars, self::wget($url), $config['extract']);
 		}
 
-		if (isset($scrape['url']))
-		{
-			$url = self::interpolateVars($scrape['url'], $scrapeVars + $vars);
-		}
-
-		return self::getNamedCaptures(self::wget($url), $scrape['extract']) ?: [];
+		return $vars;
 	}
 
 	/**
