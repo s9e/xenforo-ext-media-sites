@@ -12,6 +12,9 @@
 		"Donate in EUR": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6P6985GT2DLGL",
 		"Donate in USD": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ABGFV5AGE98AG"
 	},
-    "require":         [],
+    "require": {
+        "XF": [2000010, "XenForo 2.0.0+"],
+        "php": ["5.5.0", "PHP 5.5.0+"]
+    },
     "icon":            "icon.png"
 }
