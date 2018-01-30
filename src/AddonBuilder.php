@@ -312,17 +312,17 @@ class AddonBuilder
 
 		foreach ($config['attributes'] as $attrName => $attribute)
 		{
-			if (isset($attribute['preFilter']))
+			if (empty($attribute['filterChain']))
 			{
-				$filters[$attrName][] = $attribute['preFilter'];
+				continue;
 			}
-			if (isset($attribute['type']))
+			foreach ($attribute['filterChain'] as $filter)
 			{
-				$filters[$attrName][] = 's9e\\MediaSites\\Parser::filter' . ucfirst($attribute['type']);
-			}
-			if (isset($attribute['postFilter']))
-			{
-				$filters[$attrName][] = $attribute['postFilter'];
+				if ($filter[0] === '#')
+				{
+					$filter = 's9e\\MediaSites\\Parser::filter' . ucfirst(substr($filter, 1));
+				}
+				$filters[$attrName][] = $filter;
 			}
 		}
 

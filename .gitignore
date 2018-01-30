@@ -1,6 +1,5 @@
 addon/_output
 addon/_releases
 cmd.php
-composer.lock
 tests/.cache
 vendor

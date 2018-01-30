@@ -48,12 +48,12 @@ class Parser
 		'audioboom'=>[['!audioboo(?:\\.f|m\\.co)m/(?:boo|post)s/(?<id>\\d+)!']],
 		'audiomack'=>[['!audiomack\\.com/(?<mode>album|song)/(?<id>[-\\w]+/[-\\w]+)!']],
 		'bandcamp'=>[[],[],[['extract'=>['!/album=(?<album_id>\\d+)!'],'match'=>['!bandcamp\\.com/album/.!']],['extract'=>['!"album_id":(?<album_id>\\d+)!','!"track_num":(?<track_num>\\d+)!','!/track=(?<track_id>\\d+)!'],'match'=>['!bandcamp\\.com/track/.!']]]],
-		'bbcnews'=>[[],[],[['extract'=>['!bbc\\.com\\\\/news\\\\/(?<id>[-\\\\\\w/]+)\\\\/embed!'],'match'=>['!bbc\\.com/news/\\w!']]]],
+		'bbcnews'=>[[],[],[['extract'=>['!bbc\\.com\\\\/news\\\\/av\\\\/embed\\\\/(?<id>[-\\\\\\w/]+)!'],'match'=>['!bbc\\.com/news/\\w!']]],['id'=>['stripslashes']]],
 		'blab'=>[['#blab\\.im/(?!about$|live$|replay$|scheduled$|search\\?)(?<id>[-\\w]+)#']],
 		'bleacherreport'=>[[],[],[['extract'=>['!id="video-(?<id>[-\\w]+)!'],'match'=>['!/articles/.!']]]],
 		'break'=>[['!break\\.com/video/.*-(?<id>\\d+)$!']],
 		'brightcove'=>[[],[],[['extract'=>['!meta name="twitter:player" content=".*?bcpid(?<bcpid>\\d+).*?bckey=(?<bckey>[-,~\\w]+).*?bctid=(?<bctid>\\d+)!'],'match'=>['!bcove\\.me/.!','!link\\.brightcove\\.com/services/player/!']]]],
-		'cbsnews'=>[['#cbsnews\\.com/video/watch/\\?id=(?<id>\\d+)#'],[],[['extract'=>['#"pid":"(?<pid>\\w+)"#'],'match'=>['#cbsnews\\.com/videos/(?!watch/)#']]]],
+		'cbsnews'=>[['#cbsnews\\.com/videos?/(?!watch/)(?<id>[-\\w]+)#','#cbsnews\\.com/video/watch/\\?id=(?<id>\\d+)#']],
 		'cnbc'=>[['!cnbc\\.com/gallery/\\?video=(?<id>\\d+)!']],
 		'cnn'=>[['!cnn.com/videos/(?<id>.*\\.cnn)!','!cnn\\.com/video/data/2\\.0/video/(?<id>.*\\.cnn)!']],
 		'cnnmoney'=>[['!money\\.cnn\\.com/video/(?<id>.*\\.cnnmoney)!']],
@@ -73,14 +73,14 @@ class Parser
 		'funnyordie'=>[['!funnyordie\\.com/videos/(?<id>[0-9a-f]+)!']],
 		'gamespot'=>[['!gamespot\\.com.*?/(?:events|videos)/.*?-(?<id>\\d+)/(?:[#?].*)?$!']],
 		'gametrailers'=>[[],[],[['extract'=>['!embed/(?<id>\\d+)!'],'match'=>['!gametrailers\\.com/(?:full-episode|review|video)s/!']]]],
-		'getty'=>[['!gty\\.im/(?<id>\\d+)!','!gettyimages\\.[.\\w]+/detail(?=/).*?/(?<id>\\d+)!','!#[-\\w]*picture-id(?<id>\\d+)$!'],[],[['extract'=>['!"height":[ "]*(?<height>\\d+)!','!"width":[ "]*(?<width>\\d+)!','!\\bid[=:][\'"]?(?<et>[-=\\w]+)!','!\\bsig[=:][\'"]?(?<sig>[-=\\w]+)!'],'match'=>['//'],'url'=>'http://embed.gettyimages.com/preview/{@id}']]],
-		'gfycat'=>[['!gfycat\\.com/(?:gifs/detail/)?(?<id>\\w+)!'],[],[['extract'=>['!meta name="twitter:player:height" content="(?<height>\\d+)!','!meta name="twitter:player:width" content="(?<width>\\d+)!'],'match'=>['//'],'url'=>'http://gfycat.com/iframe/{@id}']]],
-		'gifs'=>[['!gifs\\.com/(?:gif/)?(?<id>\\w+)!'],[],[['extract'=>['!meta property="og:image:width" content="(?<width>\\d+)!','!meta property="og:image:height" content="(?<height>\\d+)!'],'match'=>['//'],'url'=>'https://gifs.com/gif/{@id}']]],
+		'getty'=>[['!gty\\.im/(?<id>\\d+)!','!gettyimages\\.[.\\w]+/detail(?=/).*?/(?<id>\\d+)!','!#[-\\w]*picture-id(?<id>\\d+)$!'],[],[['extract'=>['!"height":[ "]*(?<height>\\d+)!','!"width":[ "]*(?<width>\\d+)!','!\\bid[=:][\'"]?(?<et>[-=\\w]+)!','!\\bsig[=:][\'"]?(?<sig>[-=\\w]+)!'],'match'=>['//'],'url'=>'http://embed.gettyimages.com/preview/{@id}']],['height'=>['s9e\\MediaSites\\Parser::filterUint'],'width'=>['s9e\\MediaSites\\Parser::filterUint']]],
+		'gfycat'=>[['!gfycat\\.com/(?:gifs/detail/)?(?<id>\\w+)!'],[],[['extract'=>['!meta name="twitter:player:height" content="(?<height>\\d+)!','!meta name="twitter:player:width" content="(?<width>\\d+)!'],'match'=>['//'],'url'=>'http://gfycat.com/iframe/{@id}']],['height'=>['s9e\\MediaSites\\Parser::filterUint'],'width'=>['s9e\\MediaSites\\Parser::filterUint']]],
+		'gifs'=>[['!gifs\\.com/(?:gif/)?(?<id>\\w+)!'],[],[['extract'=>['!meta property="og:image:width" content="(?<width>\\d+)!','!meta property="og:image:height" content="(?<height>\\d+)!'],'match'=>['//'],'url'=>'https://gifs.com/gif/{@id}']],['height'=>['s9e\\MediaSites\\Parser::filterUint'],'width'=>['s9e\\MediaSites\\Parser::filterUint']]],
 		'gist'=>[['!gist\\.github\\.com/(?<id>(?:\\w+/)?[\\da-f]+(?:/[\\da-f]+)?)!']],
 		'globalnews'=>[['!globalnews\\.ca/video/(?<id>\\d+)!']],
 		'gofundme'=>[['@gofundme\\.com/(?<id>\\w+)(?![^#?])@']],
 		'googledrive'=>[['!drive\\.google\\.com/.*?(?:file/d/|id=)(?<id>[-\\w]+)!']],
-		'googleplus'=>[['!//plus\\.google\\.com/(?:u/\\d+/)?(?:\\+(?<name>[^/]+)|(?<oid>\\d+))/posts/(?<pid>\\w+)!']],
+		'googleplus'=>[['!//plus\\.google\\.com/(?:u/\\d+/)?(?:\\+(?<name>[^/]+)|(?<oid>\\d+))/posts/(?<pid>\\w+)!'],[],[],['name'=>['urldecode']]],
 		'googlesheets'=>[['@docs\\.google\\.com/spreadsheet(?:/ccc\\?key=|s/d/)(?!e/)(?<id>[-\\w]+)[^#]*(?:#gid=(?<gid>\\d+))?@']],
 		'healthguru'=>[[],[],[['extract'=>['!healthguru\\.com/embed/(?<id>\\w+)!'],'match'=>['!healthguru\\.com/(?:content/)?video/.!']]]],
 		'hudl'=>[['!hudl\\.com/athlete/(?<athlete>\\d+)/highlights/(?<highlight>[\\da-f]+)!','!hudl\\.com/video/\\d+/(?<athlete>\\d+)/(?<highlight>[\\da-f]+)!'],[],[['extract'=>['!hudl\\.com/video/\\d+/(?<athlete>\\d+)/(?<highlight>[\\da-f]+)!'],'match'=>['!hudl\\.com/v/!']]]],
@@ -91,7 +91,7 @@ class Parser
 		'imgur'=>[['@imgur\\.com/(?!r/|user/)(?:t/[^/]+/)?(?<id>(?:a/|gallery/)?\\w+)(?!\\w|\\.(?:pn|jp)g)@']],
 		'indiegogo'=>[['!indiegogo\\.com/projects/(?<id>[-\\w]+)!']],
 		'instagram'=>[['!instagram\\.com/p/(?<id>[-\\w]+)!']],
-		'internetarchive'=>[[],[],[['extract'=>['!meta property="twitter:player" content="https://archive.org/embed/(?<id>[^/"]+)!','!meta property="og:video:width" content="(?<width>\\d+)!','!meta property="og:video:height" content="(?<height>\\d+)!'],'match'=>['!archive\\.org/details/!']]]],
+		'internetarchive'=>[[],[],[['extract'=>['!meta property="twitter:player" content="https://archive.org/embed/(?<id>[^/"]+)!','!meta property="og:video:width" content="(?<width>\\d+)!','!meta property="og:video:height" content="(?<height>\\d+)!'],'match'=>['!archive\\.org/details/!']]],['height'=>['s9e\\MediaSites\\Parser::filterUint'],'width'=>['s9e\\MediaSites\\Parser::filterUint']]],
 		'izlesene'=>[['!izlesene\\.com/video/[-\\w]+/(?<id>\\d+)!']],
 		'jwplatform'=>[['!jwplatform\\.com/\\w+/(?<id>[-\\w]+)!']],
 		'khl'=>[[],[],[['extract'=>['!/feed/start/(?<id>[/\\w]+)!'],'match'=>['!video\\.khl\\.ru/(?:event|quote)s/\\d!']]]],
@@ -151,7 +151,7 @@ class Parser
 		'viagame'=>[['!viagame\\.com/channels/[^/]+/(?<id>\\d+)!']],
 		'videodetective'=>[['!videodetective\\.com/\\w+/[-\\w]+/(?:trailer/P0*)?(?<id>\\d+)!']],
 		'videomega'=>[['!videomega\\.tv/\\?ref=(?<id>\\w+)!']],
-		'vimeo'=>[['!vimeo\\.com/(?:channels/[^/]+/|video/)?(?<id>\\d+)!','!#t=(?<t>[\\dhms]+)!']],
+		'vimeo'=>[['!vimeo\\.com/(?:channels/[^/]+/|video/)?(?<id>\\d+)!','!#t=(?<t>[\\dhms]+)!'],[],[],['t'=>['s9e\\MediaSites\\Parser::filterTimestamp']]],
 		'vine'=>[['!vine\\.co/v/(?<id>[^/]+)!']],
 		'vk'=>[['!vk(?:\\.com|ontakte\\.ru)/(?:[\\w.]+\\?z=)?video(?<oid>-?\\d+)_(?<vid>\\d+)!','!vk(?:\\.com|ontakte\\.ru)/video_ext\\.php\\?oid=(?<oid>-?\\d+)&id=(?<vid>\\d+)&hash=(?<hash>[0-9a-f]+)!'],[],[['extract'=>['!embed_hash=(?<hash>[0-9a-f]+)!'],'match'=>['!vk.*?video-?\\d+_\\d+!'],'url'=>'http://vk.com/video{@oid}_{@vid}']]],
 		'vocaroo'=>[['!vocaroo\\.com/i/(?<id>\\w+)!']],
@@ -163,7 +163,7 @@ class Parser
 		'xboxdvr'=>[['!xboxdvr\\.com/gamer/(?<user>[^/]+)/video/(?<id>\\d+)!']],
 		'yahooscreen'=>[['!screen\\.yahoo\\.com/(?:[-\\w]+/)?(?<id>[-\\w]+)\\.html!']],
 		'youku'=>[['!youku\\.com/v(?:_show|ideo)/id_(?<id>\\w+)!']],
-		'youtube'=>[['!youtube\\.com/(?:watch.*?v=|v/|attribution_link.*?v%3D)(?<id>[-\\w]+)!','!youtu\\.be/(?<id>[-\\w]+)!','@[#&?]t=(?<t>\\d[\\dhms]*)@','!&list=(?<list>[-\\w]+)!'],[],[['extract'=>['!/vi/(?<id>[-\\w]+)!'],'match'=>['!/shared\\?ci=!']]]]
+		'youtube'=>[['!youtube\\.com/(?:watch.*?v=|v/|attribution_link.*?v%3D)(?<id>[-\\w]+)!','!youtu\\.be/(?<id>[-\\w]+)!','@[#&?]t=(?<t>\\d[\\dhms]*)@','!&list=(?<list>[-\\w]+)!'],[],[['extract'=>['!/vi/(?<id>[-\\w]+)!'],'match'=>['!/shared\\?ci=!']]],['id'=>['s9e\\MediaSites\\Parser::filterIdentifier'],'t'=>['s9e\\MediaSites\\Parser::filterTimestamp']]]
 	];
 
 	/**
@@ -278,6 +278,17 @@ class Parser
 		}
 
 		return $vars;
+	}
+
+	/**
+	* Filter an identifier value
+	*
+	* @param  string $attrValue Original value
+	* @return mixed             Filtered value, or FALSE if invalid
+	*/
+	protected static function filterIdentifier($attrValue)
+	{
+		return (preg_match('/^[-0-9A-Za-z_]+$/D', $attrValue)) ? $attrValue : false;
 	}
 
 	/**
