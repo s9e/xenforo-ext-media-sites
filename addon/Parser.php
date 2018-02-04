@@ -135,6 +135,7 @@ class Parser
 		'streamable'=>[['!streamable\\.com/(?<id>\\w+)!']],
 		'teamcoco'=>[['!teamcoco\\.com/video/(?<id>\\d+)!'],[],[['extract'=>['!"id":(?<id>\\d+)!'],'match'=>['!teamcoco\\.com/video/.!']]]],
 		'ted'=>[['#ted\\.com/(?<id>(?:talk|playlist)s/[-\\w]+(?:\\.html)?)(?![-\\w]|/transcript)#i']],
+		'telegram'=>[['@//t.me/(?!addstickers/|joinchat/)(?<id>\\w+/\\d+)@']],
 		'theatlantic'=>[['!theatlantic\\.com/video/index/(?<id>\\d+)!']],
 		'theguardian'=>[['!theguardian\\.com/(?<id>\\w+/video/[-/\\w]+)!']],
 		'theonion'=>[['!theonion\\.com/video/[-\\w]+[-,](?<id>\\d+)!']],
