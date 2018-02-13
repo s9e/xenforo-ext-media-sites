@@ -88,7 +88,7 @@ class Parser
 		'humortvnl'=>[['!humortv\\.vara\\.nl/\\w+\\.(?<id>[-.\\w]+)\\.html!']],
 		'ign'=>[['!(?<id>https?://.*?ign\\.com/videos/.+)!i']],
 		'imdb'=>[['!imdb\\.com/[/\\w]+/vi(?<id>\\d+)!']],
-		'imgur'=>[['@imgur\\.com/(?!r/|user/)(?:t/[^/]+/)?(?<id>(?:a/|gallery/)?\\w+)(?!\\w|\\.(?:pn|jp)g)@']],
+		'imgur'=>[['@imgur\\.com/(?![rt]/|user/)(?<id>(?:\\w+/)?\\w{5,7})@']],
 		'indiegogo'=>[['!indiegogo\\.com/projects/(?<id>[-\\w]+)!']],
 		'instagram'=>[['!instagram\\.com/p/(?<id>[-\\w]+)!']],
 		'internetarchive'=>[[],[],[['extract'=>['!meta property="twitter:player" content="https://archive.org/embed/(?<id>[^/"]+)!','!meta property="og:video:width" content="(?<width>\\d+)!','!meta property="og:video:height" content="(?<height>\\d+)!'],'match'=>['!archive\\.org/details/!']]],['height'=>['s9e\\MediaSites\\Parser::filterUint'],'width'=>['s9e\\MediaSites\\Parser::filterUint']]],

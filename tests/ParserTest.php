@@ -135,10 +135,6 @@ class ParserTest extends TestCase
 				'UO1UrIx'
 			],
 			[
-				'https://imgur.com/t/current_events/0I30l',
-				'a/0I30l'
-			],
-			[
 				'http://www.reddit.com/r/pics/comments/304rms/cats_reaction_to_seeing_the_ceiling_fan_move_for/',
 				'pics/comments/304rms'
 			],
