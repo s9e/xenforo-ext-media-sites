@@ -330,7 +330,7 @@ class Renderer
 
 	protected static function renderSpotify($vars)
 	{
-		$vars+=['id'=>null,'path'=>null];$html='<span data-s9e-mediaembed="spotify" style="display:inline-block;width:100%;max-width:400px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:120%"><iframe allowfullscreen="" scrolling="no" src="https://embed.spotify.com/?view=coverart&amp;uri=spotify:'.htmlspecialchars(strtr($vars['id'],'/',':').strtr($vars['path'],'/',':'),2).'" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>';
+		$vars+=['id'=>null,'path'=>null];$html='<span data-s9e-mediaembed="spotify" style="display:inline-block;width:100%;max-width:400px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:100%"><iframe allow="encrypted-media" allowfullscreen="" scrolling="no" src="https://open.spotify.com/embed/'.htmlspecialchars(strtr($vars['id'],':','/').$vars['path'],2).'" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>';
 
 		return $html;
 	}
