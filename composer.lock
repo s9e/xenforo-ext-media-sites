@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cf906a54a6f30afb0e9a53d205b9bf66",
-    "content-hash": "0f71e6c929e493170f07c9c1f0f7c040",
+    "hash": "f3e99f95c8888b3ac92909bda293b77b",
+    "content-hash": "82b6d862e470694e5945631f51be23d8",
     "packages": [],
     "packages-dev": [
         {
@@ -889,12 +889,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "1d8456c115f9a820414b160e24b8c9cbeb5a7814"
+                "reference": "dce9241bb76e3bb3e6da8f38825e0e331d5e97a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/1d8456c115f9a820414b160e24b8c9cbeb5a7814",
-                "reference": "1d8456c115f9a820414b160e24b8c9cbeb5a7814",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/dce9241bb76e3bb3e6da8f38825e0e331d5e97a9",
+                "reference": "dce9241bb76e3bb3e6da8f38825e0e331d5e97a9",
                 "shasum": ""
             },
             "require": {
@@ -947,7 +947,7 @@
                 "parser",
                 "shortcodes"
             ],
-            "time": "2018-03-08 02:12:58"
+            "time": "2018-03-13 22:38:41"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
