@@ -6,6 +6,10 @@
 {
 	max-width: 250px !important;
 }
+.is-expandable:not(.is-expanded) [data-s9e-mediaembed] iframe
+{
+	position: unset !important;
+}
 
 
 ]]></replace>

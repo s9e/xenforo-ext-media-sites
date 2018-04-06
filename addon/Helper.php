@@ -2,7 +2,7 @@
 
 /**
 * @package   s9e\MediaSites
-* @copyright Copyright (c) 2017 The s9e Authors
+* @copyright Copyright (c) 2017-2018 The s9e Authors
 * @license   http://www.opensource.org/licenses/mit-license.php The MIT License
 */
 namespace s9e\MediaSites;
