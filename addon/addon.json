@@ -2,8 +2,8 @@
     "legacy_addon_id": "",
     "title": "s9e Media Sites",
     "description": "Comprehensive collection of responsive media sites",
-    "version_id": 1000970,
-    "version_string": "1.0.9",
+    "version_id": 1001070,
+    "version_string": "1.0.10",
     "dev": "JoshyPHP",
     "dev_url": "https://xenforo.com/community/resources/s9e-media-sites.5973/",
     "faq_url": "https://xenforo.com/community/resources/s9e-media-sites.5973/field?field=faq",
@@ -13,8 +13,14 @@
         "Donate in USD": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ABGFV5AGE98AG"
     },
     "require": {
-        "XF": [2000010, "XenForo 2.0.0+"],
-        "php": ["5.5.0", "PHP 5.5.0+"]
+        "XF": [
+            2000010,
+            "XenForo 2.0.0+"
+        ],
+        "php": [
+            "5.5.0",
+            "PHP 5.5.0+"
+        ]
     },
     "icon": "icon.png"
 }
