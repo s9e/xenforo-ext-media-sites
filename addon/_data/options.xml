@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <options>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG" edit_format="textbox" data_type="string">
-    <default_value/>
+    <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="0"/>
   </option>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_CA" edit_format="textbox" data_type="string">
-    <default_value/>
+    <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="1"/>
   </option>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_DE" edit_format="textbox" data_type="string">
-    <default_value/>
+    <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="2"/>
   </option>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_ES" edit_format="textbox" data_type="string">
-    <default_value/>
+    <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="3"/>
   </option>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_FR" edit_format="textbox" data_type="string">
-    <default_value/>
+    <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="4"/>
   </option>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IN" edit_format="textbox" data_type="string">
-    <default_value/>
+    <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="5"/>
   </option>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IT" edit_format="textbox" data_type="string">
-    <default_value/>
+    <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="6"/>
   </option>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_JP" edit_format="textbox" data_type="string">
-    <default_value/>
+    <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="7"/>
   </option>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_UK" edit_format="textbox" data_type="string">
-    <default_value/>
+    <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="8"/>
   </option>
 </options>

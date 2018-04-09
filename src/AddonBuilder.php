@@ -460,7 +460,8 @@ class AddonBuilder
 			$option->setAttribute('option_id',   's9e_MediaSites_' . $paramName);
 			$option->setAttribute('edit_format', 'textbox');
 			$option->setAttribute('data_type',   'string');
-			$option->appendChild($dom->createElement('default_value', $paramConfig['value']));
+			$option->appendChild($dom->createElement('default_value'))
+			       ->appendChild($dom->createTextNode($paramConfig['value']));
 
 			$relation = $option->appendChild($dom->createElement('relation'));
 			$relation->setAttribute('group_id',      's9e_MediaSites');
