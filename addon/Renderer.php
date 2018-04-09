@@ -272,6 +272,13 @@ class Renderer
 		return $html;
 	}
 
+	protected static function renderImgur($vars)
+	{
+		$vars+=['id'=>null,'type'=>null];$html='<iframe data-s9e-mediaembed="imgur" allowfullscreen="" onload="var b=Math.random();window.addEventListener(\'message\',function(a){a.data.id==b&amp;&amp;(style.height=a.data.height+\'px\',style.width=a.data.width+\'px\')});contentWindow.postMessage(\'s9e:\'+b,\'https://s9e.github.io\')" scrolling="no" style="border:0;height:450px;max-width:100%;width:568px" src="https://s9e.github.io/iframe/imgur.min.html#';if($vars['type']==='album'){$html.='a/';}$html.=htmlspecialchars($vars['id'],2).'"></iframe>';
+
+		return $html;
+	}
+
 	protected static function renderInternetarchive($vars)
 	{
 		$vars+=['height'=>360,'id'=>null,'width'=>640];$html='<span data-s9e-mediaembed="internetarchive" style="display:inline-block;width:100%;max-width:'.htmlspecialchars($vars['width'],2).'px"><span style="display:block;overflow:hidden;position:relative;';if($vars['width']>0){$html.='padding-bottom:'.htmlspecialchars(100*$vars['height']/$vars['width'],2).'%';}$html.='"><iframe allowfullscreen="" scrolling="no" src="https://archive.org/embed/'.htmlspecialchars($vars['id'],2).'" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>';

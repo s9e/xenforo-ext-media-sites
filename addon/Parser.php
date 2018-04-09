@@ -105,7 +105,7 @@ class Parser
 		'medium'=>[['!medium\\.com/[^/]*/(?:[-\\w]+-)?(?<id>[\\da-f]+)!']],
 		'metacafe'=>[['!metacafe\\.com/watch/(?<id>\\d+)!']],
 		'mixcloud'=>[['@mixcloud\\.com/(?!categories|tag)(?<id>[-\\w]+/[^/&]+)/@']],
-		'mlb'=>[['#mlb\\.com/[\\w/]*/v(?<id>\\d+)#','#mlb\\.com/r/video\\?content_id=(?<id>\\d+)#']],
+		'mlb'=>[['#mlb\\.com/video/(?:[-\\w/]+/)?(?:c-|v)(?<id>\\d+)#']],
 		'mrctv'=>[[],[],[['extract'=>['!mrctv\\.org/embed/(?<id>\\d+)!'],'match'=>['!mrctv\\.org/videos/.!']]]],
 		'msnbc'=>[[],[],[['extract'=>['@property="nv:videoId" content="(?<id>\\w+)@','@guid"?[=:]"?(?<id>\\w+)@'],'match'=>['@msnbc\\.com/[-\\w]+/watch/@','@on\\.msnbc\\.com/.@']]]],
 		'natgeochannel'=>[['@channel\\.nationalgeographic\\.com/(?<id>[-/\\w]+/videos/[-\\w]+)@']],
