@@ -43,7 +43,7 @@
 				if (isVisible(iframe))
 				{
 					iframe.contentWindow.location.replace(iframe.getAttribute(attrName));
-					iframe.removeAttribute(attrName)
+					iframe.removeAttribute(attrName);
 				}
 				else
 				{
