@@ -1,9 +1,18 @@
 (function(attrName)
 {
+	/* @const Zone in pixels above the visible area where iframes are considered visible */
+	const ABOVE_SCREEN = 200;
+
+	/* @const Zone in pixels below the visible area where iframes are considered visible */
+	const BELOW_SCREEN = 600;
+
+	/* @const Delay in milliseconds between scroll events and checking for visible iframes */
+	const REFRESH_DELAY = 32;
+
 	var nodes   = document.getElementsByTagName('iframe'),
 		i       = nodes.length,
 		iframes = [],
-		top     = -200,
+		top     = -ABOVE_SCREEN,
 		bottom  = 0,
 		timeout = 0;
 	while (--i >= 0)
@@ -14,7 +23,7 @@
 		}
 	}
 
-	addEventListener('scroll', scheduleLoading, { 'passive': true });
+	addEventListener('scroll', scheduleLoading);
 	addEventListener('resize', scheduleLoading);
 	loadIframes();
 
@@ -28,13 +37,13 @@
 	function scheduleLoading()
 	{
 		clearTimeout(timeout);
-		timeout = setTimeout(loadIframes, 30);
+		timeout = setTimeout(loadIframes, REFRESH_DELAY);
 	}
 
 	function loadIframes()
 	{
 		// Refresh the bottom fold
-		bottom = innerHeight + 600;
+		bottom = innerHeight + BELOW_SCREEN;
 
 		var newIframes = [];
 		iframes.forEach(
