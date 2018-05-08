@@ -25,13 +25,15 @@
 
 	addEventListener('scroll', scheduleLoading);
 	addEventListener('resize', scheduleLoading);
+	addEventListener('click', scheduleLoading);
 	loadIframes();
 
 	function isVisible(iframe)
 	{
 		var rect = iframe.getBoundingClientRect();
 
-		return (rect.bottom > top && rect.top < bottom);
+		// Test for width to ensure the iframe isn't hidden in a spoiler
+		return (rect.bottom > top && rect.top < bottom && rect.width);
 	}
 
 	function scheduleLoading()
@@ -66,6 +68,7 @@
 		{
 			removeEventListener('scroll', scheduleLoading);
 			removeEventListener('resize', scheduleLoading);
+			removeEventListener('click', scheduleLoading);
 		}
 	}
 })('data-s9e-lazyload-src');

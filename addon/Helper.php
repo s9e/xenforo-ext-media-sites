@@ -46,6 +46,6 @@ class Helper
 			$output
 		);
 
-		$output .= '<script>(function(e){function a(){clearTimeout(g);g=setTimeout(h,32)}function h(){k=innerHeight+600;var b=[];d.forEach(function(c){var a=c.getBoundingClientRect();-200<a.bottom&&a.top<k?(c.contentWindow.location.replace(c.getAttribute(e)),c.removeAttribute(e)):b.push(c)});d=b;d.length||(removeEventListener("scroll",a),removeEventListener("resize",a))}for(var b=document.getElementsByTagName("iframe"),f=b.length,d=[],k=0,g=0;0<=--f;)b[f].hasAttribute(e)&&d.push(b[f]);addEventListener("scroll",a);addEventListener("resize",a);h()})("data-s9e-lazyload-src")</script>';
+		$output .= '<script>(function(d){function a(){clearTimeout(f);f=setTimeout(g,32)}function g(){h=innerHeight+600;var c=[];b.forEach(function(a){var b=a.getBoundingClientRect();-200<b.bottom&&b.top<h&&b.width?(a.contentWindow.location.replace(a.getAttribute(d)),a.removeAttribute(d)):c.push(a)});b=c;b.length||(removeEventListener("scroll",a),removeEventListener("resize",a),removeEventListener("click",a))}for(var c=document.getElementsByTagName("iframe"),e=c.length,b=[],h=0,f=0;0<=--e;)c[e].hasAttribute(d)&&b.push(c[e]);addEventListener("scroll",a);addEventListener("resize",a);addEventListener("click",a);g()})("data-s9e-lazyload-src")</script>';
 	}
 }
