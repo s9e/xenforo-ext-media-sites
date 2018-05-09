@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7fde94324ad7ecdb3a96e7e1b2e72ce8",
-    "content-hash": "eb9b9380c8f2f30db500e449b4cb8b68",
+    "hash": "d5560a6d612077eb7cdf52c542189279",
+    "content-hash": "c5cc7b305e88685fc0b3d96f0ebca4ff",
     "packages": [],
     "packages-dev": [
         {
@@ -426,16 +426,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "6.0.3",
+            "version": "6.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "774a82c0c5da4c1c7701790c262035d235ab7856"
+                "reference": "52187754b0eed0b8159f62a6fa30073327e8c2ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/774a82c0c5da4c1c7701790c262035d235ab7856",
-                "reference": "774a82c0c5da4c1c7701790c262035d235ab7856",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/52187754b0eed0b8159f62a6fa30073327e8c2ca",
+                "reference": "52187754b0eed0b8159f62a6fa30073327e8c2ca",
                 "shasum": ""
             },
             "require": {
@@ -485,7 +485,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-04-06 15:39:20"
+            "time": "2018-04-29 14:59:09"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -675,16 +675,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.1.4",
+            "version": "7.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "6d51299e307dc510149e0b7cd1931dd11770e1cb"
+                "reference": "ca64dba53b88aba6af32aebc6b388068db95c435"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6d51299e307dc510149e0b7cd1931dd11770e1cb",
-                "reference": "6d51299e307dc510149e0b7cd1931dd11770e1cb",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ca64dba53b88aba6af32aebc6b388068db95c435",
+                "reference": "ca64dba53b88aba6af32aebc6b388068db95c435",
                 "shasum": ""
             },
             "require": {
@@ -703,7 +703,7 @@
                 "phpunit/php-text-template": "^1.2.1",
                 "phpunit/php-timer": "^2.0",
                 "phpunit/phpunit-mock-objects": "^6.1.1",
-                "sebastian/comparator": "^2.1 || ^3.0",
+                "sebastian/comparator": "^3.0",
                 "sebastian/diff": "^3.0",
                 "sebastian/environment": "^3.1",
                 "sebastian/exporter": "^3.1",
@@ -751,7 +751,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-04-18 13:41:53"
+            "time": "2018-04-29 15:09:19"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -889,12 +889,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "2a19775967fec38fa1fa339fc6f603265ad1d042"
+                "reference": "60d34cd25c87e569a9a2ed4bb64b5c28486f3b4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/2a19775967fec38fa1fa339fc6f603265ad1d042",
-                "reference": "2a19775967fec38fa1fa339fc6f603265ad1d042",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/60d34cd25c87e569a9a2ed4bb64b5c28486f3b4d",
+                "reference": "60d34cd25c87e569a9a2ed4bb64b5c28486f3b4d",
                 "shasum": ""
             },
             "require": {
@@ -947,7 +947,7 @@
                 "parser",
                 "shortcodes"
             ],
-            "time": "2018-04-26 23:57:31"
+            "time": "2018-04-30 10:23:16"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",

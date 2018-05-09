@@ -24,7 +24,7 @@ class HelperTest extends TestCase
 
 	public function getReplaceIframeSrcTests()
 	{
-		$script = '<script>(function(e){function a(){clearTimeout(g);g=setTimeout(h,30)}function h(){k=innerHeight+600;var b=[];d.forEach(function(c){var a=c.getBoundingClientRect();-200<a.bottom&&a.top<k?(c.contentWindow.location.replace(c.getAttribute(e)),c.removeAttribute(e)):b.push(c)});d=b;d.length||(removeEventListener("scroll",a),removeEventListener("resize",a))}for(var b=document.getElementsByTagName("iframe"),f=b.length,d=[],k=0,g=0;0<=--f;)b[f].hasAttribute(e)&&d.push(b[f]);addEventListener("scroll",a,{passive:!0});addEventListener("resize",a);h()})("data-s9e-lazyload-src")</script>';
+		$script = '<script>(function(d){function h(b){b("click",e);b("resize",e);b("scroll",e)}function e(){clearTimeout(k);k=setTimeout(l,32)}function l(){m=innerHeight+600;var b=[];a.forEach(function(c){var a=c.getBoundingClientRect();-200<a.bottom&&a.top<m&&a.width?(c.contentWindow.location.replace(c.getAttribute(d)),c.removeAttribute(d)):b.push(c)});a=b;a.length||h(removeEventListener)}for(var f=document.getElementsByTagName("iframe"),g=f.length,a=[],m=0,k=0;0<=--g;)f[g].hasAttribute(d)&&a.push(f[g]);h(addEventListener);l()})("data-s9e-lazyload-src")</script>';
 
 		return [
 			[
