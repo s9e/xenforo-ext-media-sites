@@ -23,10 +23,15 @@
 		}
 	}
 
-	addEventListener('scroll', scheduleLoading);
-	addEventListener('resize', scheduleLoading);
-	addEventListener('click', scheduleLoading);
+	prepareEvents(addEventListener);
 	loadIframes();
+
+	function prepareEvents(fn)
+	{
+		fn('click',  scheduleLoading);
+		fn('resize', scheduleLoading);
+		fn('scroll', scheduleLoading);
+	}
 
 	function isVisible(iframe)
 	{
@@ -66,9 +71,7 @@
 
 		if (!iframes.length)
 		{
-			removeEventListener('scroll', scheduleLoading);
-			removeEventListener('resize', scheduleLoading);
-			removeEventListener('click', scheduleLoading);
+			prepareEvents(removeEventListener);
 		}
 	}
 })('data-s9e-lazyload-src');
