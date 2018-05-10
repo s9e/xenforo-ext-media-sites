@@ -9,7 +9,7 @@
 	/* @const Delay in milliseconds between scroll events and checking for visible iframes */
 	const REFRESH_DELAY = 32;
 
-	var nodes   = document.getElementsByTagName('iframe'),
+	var nodes   = document.querySelectorAll('iframe[' + attrName + ']'),
 		i       = nodes.length,
 		iframes = [],
 		top     = -ABOVE_SCREEN,
@@ -17,10 +17,7 @@
 		timeout = 0;
 	while (--i >= 0)
 	{
-		if (nodes[i].hasAttribute(attrName))
-		{
-			iframes.push(nodes[i]);
-		}
+		iframes.push(nodes[i]);
 	}
 
 	prepareEvents(addEventListener);
