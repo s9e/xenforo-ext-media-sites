@@ -889,12 +889,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "60d34cd25c87e569a9a2ed4bb64b5c28486f3b4d"
+                "reference": "51916ccad11400da3e28aa9787e8ecc584d6c245"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/60d34cd25c87e569a9a2ed4bb64b5c28486f3b4d",
-                "reference": "60d34cd25c87e569a9a2ed4bb64b5c28486f3b4d",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/51916ccad11400da3e28aa9787e8ecc584d6c245",
+                "reference": "51916ccad11400da3e28aa9787e8ecc584d6c245",
                 "shasum": ""
             },
             "require": {
@@ -947,7 +947,7 @@
                 "parser",
                 "shortcodes"
             ],
-            "time": "2018-04-30 10:23:16"
+            "time": "2018-05-18 11:12:44"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",

@@ -132,7 +132,7 @@ class Parser
 		'stitcher'=>[[],[],[['extract'=>['!data-eid="(?<eid>\\d+)!','!data-fid="(?<fid>\\d+)!'],'match'=>['!/podcast/!']]]],
 		'strawpoll'=>[['!strawpoll\\.me/(?<id>\\d+)!']],
 		'streamable'=>[['!streamable\\.com/(?<id>\\w+)!']],
-		'teamcoco'=>[['!teamcoco\\.com/video/(?<id>\\d+)!'],[],[['extract'=>['!"id":(?<id>\\d+)!'],'match'=>['!teamcoco\\.com/video/.!']]]],
+		'teamcoco'=>[['!teamcoco\\.com/video/(?<id>\\d+)!'],[],[['extract'=>['!embed/v/(?<id>\\d+)!'],'match'=>['!teamcoco\\.com/video/.!']]]],
 		'ted'=>[['#ted\\.com/(?<id>(?:talk|playlist)s/[-\\w]+(?:\\.html)?)(?![-\\w]|/transcript)#i']],
 		'telegram'=>[['@//t.me/(?!addstickers/|joinchat/)(?<id>\\w+/\\d+)@']],
 		'theatlantic'=>[['!theatlantic\\.com/video/index/(?<id>\\d+)!']],
@@ -153,7 +153,7 @@ class Parser
 		'videomega'=>[['!videomega\\.tv/\\?ref=(?<id>\\w+)!']],
 		'vimeo'=>[['!vimeo\\.com/(?:channels/[^/]+/|video/)?(?<id>\\d+)!','!#t=(?<t>[\\dhms]+)!'],[],[],['t'=>['s9e\\MediaSites\\Parser::filterTimestamp']]],
 		'vine'=>[['!vine\\.co/v/(?<id>[^/]+)!']],
-		'vk'=>[['!vk(?:\\.com|ontakte\\.ru)/(?:[\\w.]+\\?z=)?video(?<oid>-?\\d+)_(?<vid>\\d+)!','!vk(?:\\.com|ontakte\\.ru)/video_ext\\.php\\?oid=(?<oid>-?\\d+)&id=(?<vid>\\d+)&hash=(?<hash>[0-9a-f]+)!'],[],[['extract'=>['!embed_hash=(?<hash>[0-9a-f]+)!'],'match'=>['!vk.*?video-?\\d+_\\d+!'],'url'=>'http://vk.com/video{@oid}_{@vid}']]],
+		'vk'=>[['!vk(?:\\.com|ontakte\\.ru)/(?:[\\w.]+\\?z=)?video(?<oid>-?\\d+)_(?<vid>\\d+)!','!vk(?:\\.com|ontakte\\.ru)/video_ext\\.php\\?oid=(?<oid>-?\\d+)&id=(?<vid>\\d+)&hash=(?<hash>[0-9a-f]+)!'],[],[['extract'=>['!embed_hash(?:=|":")(?<hash>[0-9a-f]+)!'],'match'=>['!vk.*?video-?\\d+_\\d+!'],'url'=>'http://vk.com/video{@oid}_{@vid}']]],
 		'vocaroo'=>[['!vocaroo\\.com/i/(?<id>\\w+)!']],
 		'vox'=>[['!vox.com/.*#ooid=(?<id>[-\\w]+)!']],
 		'washingtonpost'=>[['#washingtonpost\\.com/video/c/\\w+/(?<id>[-0-9a-f]+)#','#washingtonpost\\.com/video/[-/\\w]+/(?<id>[-0-9a-f]+)_video\\.html#']],
@@ -487,7 +487,7 @@ class Parser
 			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-			curl_setopt($curl, CURLOPT_USERAGENT,      'PHP (not Mozilla)');
+			curl_setopt($curl, CURLOPT_USERAGENT,      'User-agent: Mozilla/5.0 (Windows NT 6.2; Win64; rv:51.0) Gecko/20100101 Firefox/51.0');
 		}
 		curl_setopt($curl, CURLOPT_URL, $url);
 
