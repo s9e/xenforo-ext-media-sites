@@ -487,7 +487,7 @@ class Parser
 			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-			curl_setopt($curl, CURLOPT_USERAGENT,      'User-agent: Mozilla/5.0 (Windows NT 6.2; Win64; rv:51.0) Gecko/20100101 Firefox/51.0');
+			curl_setopt($curl, CURLOPT_USERAGENT,      'Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0');
 		}
 		curl_setopt($curl, CURLOPT_URL, $url);
 
