@@ -367,6 +367,25 @@ class Parser
 	}
 
 	/**
+	* Replace variables in given string
+	*
+	* @param  string $format Original string
+	* @param  array  $vars   Variables
+	* @return string         Formatted string
+	*/
+	protected static function replaceVars($format, $vars)
+	{
+		return preg_replace_callback(
+			'(\\$(\\w+))',
+			function ($m) use ($vars)
+			{
+				return $vars[$m[1]];
+			},
+			$format
+		);
+	}
+
+	/**
 	* Scrape vars from given URL
 	*
 	* @param  string[] $vars
@@ -414,14 +433,7 @@ class Parser
 			{
 				if ($keys === $customKeys)
 				{
-					return preg_replace_callback(
-						'(\\$(\\w+))',
-						function ($m) use ($vars)
-						{
-							return $vars[$m[1]];
-						},
-						$format
-					);
+					return self::replaceVars($format, $vars);
 				}
 			}
 		}
