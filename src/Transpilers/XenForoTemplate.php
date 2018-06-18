@@ -28,6 +28,8 @@ class XenForoTemplate implements TranspilerInterface
 			'((<iframe[^>]+?)/>)'                      => '$1></iframe>',
 			'( data-s9e-livepreview[^=]*="[^"]*")'     => '',
 
+			'(<xsl:if test="([^"]++)">)'               => '<xf:if is="$1">',
+			'(</xsl:if>)'                              => '</xf:if>',
 			'(<xsl:choose><xsl:when test="([^"]++)">)' => '<xf:if is="$1">',
 			'(</xsl:when><xsl:when test="([^"]++)">)'  => '<xf:elseif is="$1">',
 			'(</xsl:when><xsl:otherwise>)'             => '<xf:else/>',

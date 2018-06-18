@@ -45,6 +45,10 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 				</xsl:choose>',
 				'<xf:if is="$album">album<xf:else/>track</xf:if>'
 			],
+			[
+				'<xsl:if test="@foo">foo</xsl:if>',
+				'<xf:if is="$foo">foo</xf:if>'
+			],
 		];
 	}
 }
