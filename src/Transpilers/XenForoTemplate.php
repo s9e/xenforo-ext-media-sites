@@ -23,6 +23,8 @@ class XenForoTemplate implements TranspilerInterface
 	public function transpile($template)
 	{
 		$replacements = [
+			'(\\{\\{)'                             => '&#123;',
+			'(\\}\\})'                             => '&#125;',
 			'(\\{@(\\w+)\\})'                      => '{$$1}',
 			'(<xsl:value-of select="@(\\w+)"/>)'   => '{$$1}',
 			'((<iframe[^>]+?)/>)'                  => '$1></iframe>',
@@ -50,7 +52,7 @@ class XenForoTemplate implements TranspilerInterface
 		// Post-transpilation replacements
 		$replacements = [
 			'(<xf:if is="([^"]+)">([^\'"]+)<xf:else/>([^\'"]+)</xf:if>)'
-				=> "{{{{ \$1 ? '\$2' : '\$3' }}}}",
+				=> "{{ \$1 ? '\$2' : '\$3' }}"
 		];
 		$template = preg_replace(array_keys($replacements), array_values($replacements), $template);
 
@@ -63,7 +65,8 @@ class XenForoTemplate implements TranspilerInterface
 			throw new RuntimeException("Cannot transpile attribute value template '" . $m[0] . "'");
 		}
 
-		$template = strtr($template, ['{{' => '{', '}}' => '}']);
+		// Unescaped braces
+		$template = strtr($template, ['&#123;' => '{', '&#125;' => '}']);
 
 		return $template;
 	}

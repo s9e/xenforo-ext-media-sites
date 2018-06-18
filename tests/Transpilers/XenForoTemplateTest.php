@@ -31,6 +31,10 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 				new RuntimeException("Cannot transpile attribute value template '{foo()}'")
 			],
 			[
+				'<hr title="{{foo()}}"/>',
+				'<hr title="{foo()}"/>'
+			],
+			[
 				'<iframe data-s9e-mediaembed="audioboom" allowfullscreen="" scrolling="no" src="//audioboom.com/posts/{@id}/embed/v3" style="border:0;height:150px;max-width:700px;width:100%"/>',
 				'<iframe data-s9e-mediaembed="audioboom" allowfullscreen="" scrolling="no" src="//audioboom.com/posts/{$id}/embed/v3" style="border:0;height:150px;max-width:700px;width:100%"></iframe>'
 			],
