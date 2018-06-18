@@ -38,6 +38,13 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 				'<hr data-s9e-livepreview-ignore-attrs=""/>',
 				'<hr/>'
 			],
+			[
+				'<xsl:choose>
+					<xsl:when test="@album">album</xsl:when>
+					<xsl:otherwise>track</xsl:otherwise>
+				</xsl:choose>',
+				'<xf:if is="$album">album<xf:else/>track</xf:if>'
+			],
 		];
 	}
 }

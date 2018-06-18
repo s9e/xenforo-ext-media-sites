@@ -23,40 +23,25 @@ class XenForoTemplate implements TranspilerInterface
 	public function transpile($template)
 	{
 		$replacements = [
-			'(\\{@([-\\w]+)\\})'                         => '{$$1}',
-			'(<xsl:value-of select="@([-\\w]+)"/>)'      => '{$$1}',
-			'((<iframe[^>]+?)/>)'                        => '$1></iframe>',
-			'( data-s9e-livepreview[^=]*="[^"]*")'       => '',
+			'(\\{@([-\\w]+)\\})'                       => '{$$1}',
+			'(<xsl:value-of select="@([-\\w]+)"/>)'    => '{$$1}',
+			'((<iframe[^>]+?)/>)'                      => '$1></iframe>',
+			'( data-s9e-livepreview[^=]*="[^"]*")'     => '',
 
-//			'(<xsl:choose><xsl:when test="@([-\\w]+)">)' => '<xf:if is="$$1">',
-//			'(<xsl:when test="@([-\\w]+)">)'             => '<xf:elseif is="$$1"/>',
-//			'(<xsl:otherwise>)'                          => '<xf:else/>',
-//			'(</xsl:otherwise>)'                         => '',
-//			'(</xsl:when>)'                              => '',
-//			'(</xsl:choose>)'                            => '</xf:if>',
-//			'(<xf:if is="([^"]+)">([^\']+)<xf:else/>([^\']+)</xf:if>)'
-//				=> "{{ \$1 ? '\$2' : '\$3' }}"
+			'(<xsl:choose><xsl:when test="([^"]++)">)' => '<xf:if is="$1">',
+			'(</xsl:when><xsl:when test="([^"]++)">)'  => '<xf:elseif is="$1">',
+			'(</xsl:when><xsl:otherwise>)'             => '<xf:else/>',
+			'(</xsl:otherwise></xsl:choose>)'          => '</xf:if>',
 		];
-
-		// <b><xsl:attribute name="foo">
-		// <b foo="
-
-		// <b><xsl:choose><xsl:attribute name="foo">
-		// <b {{ $x ? 'foo=".."' : '' }}>
-
 		$template = preg_replace(array_keys($replacements), array_values($replacements), $template);
-
-
-/**
-		if (strpos($template, '<xf:if') !== false)
-		{
-			echo "\n===========================\n";
-			echo $template;
-			echo "\n===========================\n";
-
-			die('!');
-		}
-/**/
+		$template = preg_replace_callback(
+			'(<xf:(?:else)?if is="\\K[^"]++)',
+			function ($m)
+			{
+				return self::convertCondition($m[0]);
+			},
+			$template
+		);
 
 		if (strpos($template, '<xsl:') !== false)
 		{
@@ -70,5 +55,27 @@ class XenForoTemplate implements TranspilerInterface
 		$template = strtr($template, ['{{' => '{', '}}' => '}']);
 
 		return $template;
+	}
+
+	/**
+	* Convert an XPath expression to a XenForo expression
+	*
+	* @param  string $expr
+	* @return string
+	*/
+	protected static function convertCondition($expr)
+	{
+		$replacements = [
+			"(^@(\\w+)$)D"         => '$$1',
+			"(^@(\\w+)(='.*?')$)D" => '$$1=$2'
+		];
+
+		$expr = preg_replace(array_keys($replacements), array_values($replacements), $expr, -1, $cnt);
+		if (!$cnt)
+		{
+			throw new RuntimeException('Cannot convert ' . $expr);
+		}
+
+		return $expr;
 	}
 }

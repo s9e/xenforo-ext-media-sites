@@ -25,6 +25,7 @@
 	"autoload-dev": {
 		"classmap": ["tests/mocks"],
 		"psr-4": {
+			"s9e\\AddonBuilder\\MediaSites\\Tests\\": "tests",
 			"s9e\\MediaSites\\Tests\\": "tests"
 		}
 	}

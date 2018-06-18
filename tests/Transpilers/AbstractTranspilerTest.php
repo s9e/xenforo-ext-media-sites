@@ -22,6 +22,9 @@ abstract class AbstractTranspilerTest extends TestCase
 			$this->expectExceptionMessage($expected->getMessage());
 		}
 
+		// Remove inter-element whitespace for convenience
+		$original = preg_replace('(>\\n\\s*<)', '><', $original);
+
 		$this->assertSame($expected, $this->getTranspiler()->transpile($original, $siteConfig));
 	}
 }
