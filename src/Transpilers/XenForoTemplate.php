@@ -23,10 +23,12 @@ class XenForoTemplate implements TranspilerInterface
 	public function transpile($template)
 	{
 		$replacements = [
-			'(\\{@([-\\w]+)\\})'                       => '{$$1}',
-			'(<xsl:value-of select="@([-\\w]+)"/>)'    => '{$$1}',
-			'((<iframe[^>]+?)/>)'                      => '$1></iframe>',
-			'( data-s9e-livepreview[^=]*="[^"]*")'     => '',
+			'(\\{@(\\w+)\\})'                      => '{$$1}',
+			'(<xsl:value-of select="@(\\w+)"/>)'   => '{$$1}',
+			'((<iframe[^>]+?)/>)'                  => '$1></iframe>',
+			'( data-s9e-livepreview[^=]*="[^"]*")' => '',
+
+			'(><xsl:attribute name="([^"]+)">([^<]++)</xsl:attribute>)' => ' $1="$2">',
 
 			'(<xsl:if test="([^"]++)">)'               => '<xf:if is="$1">',
 			'(</xsl:if>)'                              => '</xf:if>',
@@ -44,6 +46,13 @@ class XenForoTemplate implements TranspilerInterface
 			},
 			$template
 		);
+
+		// Post-transpilation replacements
+		$replacements = [
+			'(<xf:if is="([^"]+)">([^\'"]+)<xf:else/>([^\'"]+)</xf:if>)'
+				=> "{{{{ \$1 ? '\$2' : '\$3' }}}}",
+		];
+		$template = preg_replace(array_keys($replacements), array_values($replacements), $template);
 
 		if (strpos($template, '<xsl:') !== false)
 		{

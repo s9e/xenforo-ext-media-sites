@@ -43,12 +43,27 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 					<xsl:when test="@album">album</xsl:when>
 					<xsl:otherwise>track</xsl:otherwise>
 				</xsl:choose>',
-				'<xf:if is="$album">album<xf:else/>track</xf:if>'
+				"{{ \$album ? 'album' : 'track' }}"
 			],
 			[
 				'<xsl:if test="@foo">foo</xsl:if>',
 				'<xf:if is="$foo">foo</xf:if>'
 			],
+			[
+				'<b><xsl:attribute name="title">foo</xsl:attribute></b>',
+				'<b title="foo"></b>'
+			],
+//			[
+//				'<iframe>
+//					<xsl:attribute name="src">
+//						<xsl:choose>
+//							<xsl:when test="@foo">foo</xsl:when>
+//							<xsl:otherwise>bar</xsl:otherwise>
+//						</xsl:choose>
+//					</xsl:attribute>
+//				</iframe>',
+//				'<iframe src="{{ $foo ? \'foo\' : \'bar\' }}"></iframe>',
+//			],
 		];
 	}
 }
