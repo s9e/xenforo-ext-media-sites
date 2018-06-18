@@ -65,7 +65,7 @@ class XenForoTemplate implements TranspilerInterface
 			throw new RuntimeException("Cannot transpile attribute value template '" . $m[0] . "'");
 		}
 
-		// Unescaped braces
+		// Unescape braces
 		$template = strtr($template, ['&#123;' => '{', '&#125;' => '}']);
 
 		return $template;
