@@ -24,10 +24,6 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*bbc\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[]]></embed_html>
   </site>
-  <site media_site_id="blab" site_title="Blab" site_url="https://blab.im/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*blab\.im/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="blab" style="display:inline-block;width:100%;max-width:400px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:100%"><iframe allowfullscreen="" scrolling="no" src="https://blab.im/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
-  </site>
   <site media_site_id="bleacherreport" site_title="Bleacher Report videos" site_url="http://bleacherreport.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*bleacherreport\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="bleacherreport" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//bleacherreport.com/video_embed?id={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
@@ -442,7 +438,7 @@
   </site>
   <site media_site_id="vk" site_title="VK" site_url="https://vk.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*vk(?:\.com|ontakte\.ru)/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="vk" style="display:inline-block;width:100%;max-width:607px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:59.308072%"><iframe allowfullscreen="" scrolling="no" src="//vk.com/video_ext.php?oid={$oid}&amp;id={$vid}&amp;hash={$hash}&amp;hd=1" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="vk" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//vk.com/video_ext.php?oid={$oid}&amp;id={$vid}&amp;hash={$hash}&amp;hd=1" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="vocaroo" site_title="Vocaroo" site_url="http://vocaroo.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*vocaroo\.com/.(?'id'))i]]></match_urls>
@@ -478,7 +474,7 @@
   </site>
   <site media_site_id="youku" site_title="Youku" site_url="http://www.youku.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*youku\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="youku" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:62.5%;padding-bottom:calc(56.25% + 40px)"><iframe allowfullscreen="" scrolling="no" src="https://players.youku.com/embed/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="youku" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//player.youku.com/embed/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="youtube" site_title="YouTube" site_url="http://www.youtube.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*youtu(?:\.be|be\.com)/.(?'id'))i]]></match_urls>

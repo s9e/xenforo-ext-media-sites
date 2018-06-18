@@ -49,7 +49,6 @@ class Parser
 		'audiomack'=>[['!audiomack\\.com/(?<mode>album|song)/(?<id>[-\\w]+/[-\\w]+)!']],
 		'bandcamp'=>[[],[],[['extract'=>['!/album=(?<album_id>\\d+)!'],'match'=>['!bandcamp\\.com/album/.!']],['extract'=>['!"album_id":(?<album_id>\\d+)!','!"track_num":(?<track_num>\\d+)!','!/track=(?<track_id>\\d+)!'],'match'=>['!bandcamp\\.com/track/.!']]]],
 		'bbcnews'=>[[],[],[['extract'=>['!bbc\\.com\\\\/news\\\\/av\\\\/embed\\\\/(?<id>[-\\\\\\w/]+)!'],'match'=>['!bbc\\.com/news/\\w!']]],['id'=>['stripslashes']]],
-		'blab'=>[['#blab\\.im/(?!about$|live$|replay$|scheduled$|search\\?)(?<id>[-\\w]+)#']],
 		'bleacherreport'=>[[],[],[['extract'=>['!id="video-(?<id>[-\\w]+)!'],'match'=>['!/articles/.!']]]],
 		'break'=>[['!break\\.com/video/.*-(?<id>\\d+)$!']],
 		'brightcove'=>[[],[],[['extract'=>['!meta name="twitter:player" content=".*?bcpid(?<bcpid>\\d+).*?bckey=(?<bckey>[-,~\\w]+).*?bctid=(?<bctid>\\d+)!'],'match'=>['!bcove\\.me/.!','!link\\.brightcove\\.com/services/player/!']]]],
@@ -113,7 +112,7 @@ class Parser
 		'nbcnews'=>[['!nbcnews\\.com/(?:widget/video-embed/|video/[-\\w]+?-)(?<id>\\d+)!']],
 		'nbcsports'=>[[],[],[['extract'=>['!select/media/(?<id>\\w+)!'],'match'=>['!nbcsports\\.com/video/.!']]]],
 		'nhl'=>[['#nhl\\.com/(?:\\w+/)?video(?:/(?![ct]-)[-\\w]+)?(?:/t-(?<t>\\d+))?(?:/c-(?<c>\\d+))?#']],
-		'npr'=>[[],[],[['extract'=>['!player/embed/(?<i>\\d+)/(?<m>\\d+)!'],'match'=>['!npr\\.org/[/\\w]+/\\d+!','!n\\.pr/\\w!']]]],
+		'npr'=>[[],[],[['extract'=>['!player/embed/(?<i>\\d+)/(?<m>\\d+)!'],'header'=>'Cookie: trackingChoice=false; choiceVersion=1','match'=>['!npr\\.org/[/\\w]+/\\d+!','!n\\.pr/\\w!']]]],
 		'nytimes'=>[['!nytimes\\.com/video/[a-z]+/(?:[a-z]+/)?(?<id>\\d+)!','!nytimes\\.com/video/\\d+/\\d+/\\d+/[a-z]+/(?<id>\\d+)!'],[],[['extract'=>['!/video/movies/(?<id>\\d+)!'],'match'=>["!nytimes\\.com/movie(?:s/movie)?/(?'playlist'\\d+)/[-\\w]+/trailers!"],'url'=>'http://www.nytimes.com/svc/video/api/playlist/{@playlist}?externalId=true']]],
 		'orfium'=>[['@album/(?<album_id>\\d+)@','@playlist/(?<playlist_id>\\d+)@','@live-set/(?<set_id>\\d+)@','@track/(?<track_id>\\d+)@']],
 		'pastebin'=>[['@pastebin\\.com/(?!u/)(?:\\w+(?:\\.php\\?i=|/))?(?<id>\\w+)@']],
@@ -125,7 +124,7 @@ class Parser
 		'rutube'=>[['!rutube\\.ru/tracks/(?<id>\\d+)!'],[],[['extract'=>['!rutube\\.ru/play/embed/(?<id>\\d+)!'],'match'=>['!rutube\\.ru/video/[0-9a-f]{32}!']]]],
 		'scribd'=>[['!scribd\\.com/(?:mobile/)?doc(?:ument)?/(?<id>\\d+)!']],
 		'slideshare'=>[['!slideshare\\.net/[^/]+/[-\\w]+-(?<id>\\d{6,})$!'],[],[['extract'=>['!"presentationId":(?<id>\\d+)!'],'match'=>['@slideshare\\.net/[^/]+/\\w(?![-\\w]+-\\d{6,}$)@']]]],
-		'soundcloud'=>[['@https?://(?:api\\.)?soundcloud\\.com/(?!pages/)(?<id>[-/\\w]+/[-/\\w]+|^[^/]+/[^/]+$)@i','@api\\.soundcloud\\.com/playlists/(?<playlist_id>\\d+)@','@api\\.soundcloud\\.com/tracks/(?<track_id>\\d+)(?:\\?secret_token=(?<secret_token>[-\\w]+))?@','@soundcloud\\.com/(?!playlists|tracks)[-\\w]+/[-\\w]+/(?=s-)(?<secret_token>[-\\w]+)@'],[],[['extract'=>['@soundcloud:tracks:(?<track_id>\\d+)@'],'match'=>['@soundcloud\\.com/(?!playlists/\\d|tracks/\\d)[-\\w]+/[-\\w]@']],['extract'=>['@soundcloud://playlists:(?<playlist_id>\\d+)@'],'match'=>['@soundcloud\\.com/\\w+/sets/@']]]],
+		'soundcloud'=>[['@https?://(?:api\\.)?soundcloud\\.com/(?!pages/)(?<id>[-/\\w]+/[-/\\w]+|^[^/]+/[^/]+$)@i','@api\\.soundcloud\\.com/playlists/(?<playlist_id>\\d+)@','@api\\.soundcloud\\.com/tracks/(?<track_id>\\d+)(?:\\?secret_token=(?<secret_token>[-\\w]+))?@','@soundcloud\\.com/(?!playlists|tracks)[-\\w]+/[-\\w]+/(?=s-)(?<secret_token>[-\\w]+)@'],[],[['extract'=>['@soundcloud:tracks:(?<track_id>\\d+)@'],'header'=>'User-agent: PHP (not Mozilla)','match'=>['@soundcloud\\.com/(?!playlists/\\d|tracks/\\d)[-\\w]+/[-\\w]@']],['extract'=>['@soundcloud://playlists:(?<playlist_id>\\d+)@'],'header'=>'User-agent: PHP (not Mozilla)','match'=>['@soundcloud\\.com/\\w+/sets/@']]]],
 		'sportsnet'=>[[],[],[['extract'=>['/vid(?:eoId)?=(?<id>\\d+)/','/param name="@videoPlayer" value="(?<id>\\d+)"/'],'match'=>['//']]]],
 		'spotify'=>[['!(?:open|play)\\.spotify\\.com/(?<id>(?:album|artist|track|user)(?:[:/][-.\\w]+)+)!']],
 		'steamstore'=>[['!store.steampowered.com/app/(?<id>\\d+)!']],
@@ -153,7 +152,7 @@ class Parser
 		'videomega'=>[['!videomega\\.tv/\\?ref=(?<id>\\w+)!']],
 		'vimeo'=>[['!vimeo\\.com/(?:channels/[^/]+/|video/)?(?<id>\\d+)!','!#t=(?<t>[\\dhms]+)!'],[],[],['t'=>['s9e\\MediaSites\\Parser::filterTimestamp']]],
 		'vine'=>[['!vine\\.co/v/(?<id>[^/]+)!']],
-		'vk'=>[['!vk(?:\\.com|ontakte\\.ru)/(?:[\\w.]+\\?z=)?video(?<oid>-?\\d+)_(?<vid>\\d+)!','!vk(?:\\.com|ontakte\\.ru)/video_ext\\.php\\?oid=(?<oid>-?\\d+)&id=(?<vid>\\d+)&hash=(?<hash>[0-9a-f]+)!'],[],[['extract'=>['!embed_hash(?:=|":")(?<hash>[0-9a-f]+)!'],'match'=>['!vk.*?video-?\\d+_\\d+!'],'url'=>'http://vk.com/video{@oid}_{@vid}']]],
+		'vk'=>[['!vk(?:\\.com|ontakte\\.ru)/(?:[\\w.]+\\?z=)?video(?<oid>-?\\d+)_(?<vid>\\d+)!','!vk(?:\\.com|ontakte\\.ru)/video_ext\\.php\\?oid=(?<oid>-?\\d+)&id=(?<vid>\\d+)&hash=(?<hash>[0-9a-f]+)!'],[],[['extract'=>['!embed_hash(?:=|":")(?<hash>[0-9a-f]+)!'],'header'=>'User-agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0','match'=>['!vk.*?video-?\\d+_\\d+!'],'url'=>'http://vk.com/video{@oid}_{@vid}']]],
 		'vocaroo'=>[['!vocaroo\\.com/i/(?<id>\\w+)!']],
 		'vox'=>[['!vox.com/.*#ooid=(?<id>[-\\w]+)!']],
 		'washingtonpost'=>[['#washingtonpost\\.com/video/c/\\w+/(?<id>[-0-9a-f]+)#','#washingtonpost\\.com/video/[-/\\w]+/(?<id>[-0-9a-f]+)_video\\.html#']],
@@ -162,7 +161,7 @@ class Parser
 		'xboxclips'=>[['@xboxclips\\.com/(?<user>[^/]+)/(?!screenshots/)(?<id>[-0-9a-f]+)@']],
 		'xboxdvr'=>[['!xboxdvr\\.com/gamer/(?<user>[^/]+)/video/(?<id>\\d+)!']],
 		'yahooscreen'=>[['!screen\\.yahoo\\.com/(?:[-\\w]+/)?(?<id>[-\\w]+)\\.html!']],
-		'youku'=>[['!youku\\.com/v(?:_show|ideo)/id_(?<id>\\w+)!']],
+		'youku'=>[['!youku\\.com/v(?:_show|ideo)/id_(?<id>\\w+=*)!']],
 		'youtube'=>[['!youtube\\.com/(?:watch.*?v=|v/|attribution_link.*?v%3D)(?<id>[-\\w]+)!','!youtu\\.be/(?<id>[-\\w]+)!','@[#&?]t=(?<t>\\d[\\dhms]*)@','!&list=(?<list>[-\\w]+)!'],[],[['extract'=>['!/vi/(?<id>[-\\w]+)!'],'match'=>['!/shared\\?ci=!']]],['id'=>['s9e\\MediaSites\\Parser::filterIdentifier'],'t'=>['s9e\\MediaSites\\Parser::filterTimestamp']]]
 	];
 
