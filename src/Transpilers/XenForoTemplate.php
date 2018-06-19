@@ -102,9 +102,9 @@ class XenForoTemplate implements TranspilerInterface
 	protected static function convertXPath($expr)
 	{
 		$replacements = [
-			"(^@(\\w+)$)D"                 => '$$1',
+			'(^@(\\w+)$)D'                 => '$$1',
 			"(^@(\\w+)(='.*?')$)D"         => '$$1=$2',
-			"(^@(\\w+)>(\\d+)$)D"          => '$$1>$2',
+			'(^@(\\w+)>(\\d+)$)D'          => '$$1>$2',
 			'(^100\\*@height div@width$)D' => '100*$height/$width',
 			'(^100\\*\\(@height\\+(\\d+)\\)div@width$)D' => '100*($height+$1)/$width'
 		];
