@@ -122,11 +122,11 @@
   </site>
   <site media_site_id="gfycat" site_title="Gfycat" site_url="http://gfycat.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*gfycat\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="gfycat" style="display:inline-block;width:100%;max-width:{$width}px"><span style="display:block;overflow:hidden;position:relative;{{ $width>0 ? 'padding-bottom:' . (100*$height/$width) . '%' : '' }}"><iframe allowfullscreen="" scrolling="no" src="//gfycat.com/iframe/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="gifs" site_title="Gifs.com" site_url="https://gifs.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*gifs\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="gifs" style="display:inline-block;width:100%;max-width:{$width}px"><span style="display:block;overflow:hidden;position:relative;{{ $width>0 ? 'padding-bottom:' . (100*$height/$width) . '%' : '' }}"><iframe allowfullscreen="" scrolling="no" src="//gifs.com/embed/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="gist" site_title="GitHub Gist (via custom iframe)" site_url="https://gist.github.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*github\.com/.(?'id'))i]]></match_urls>
@@ -190,7 +190,7 @@
   </site>
   <site media_site_id="internetarchive" site_title="Internet Archive" site_url="https://archive.org/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*archive\.org/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="internetarchive" style="display:inline-block;width:100%;max-width:{$width}px"><span style="display:block;overflow:hidden;position:relative;{{ $width>0 ? 'padding-bottom:' . (100*$height/$width) . '%' : '' }}"><iframe allowfullscreen="" scrolling="no" src="https://archive.org/embed/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="izlesene" site_title="İzlesene" site_url="http://www.izlesene.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*izlesene\.com/.(?'id'))i]]></match_urls>

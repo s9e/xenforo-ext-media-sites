@@ -237,27 +237,6 @@ class Renderer
 		return $html;
 	}
 
-	protected static function renderGfycat($vars)
-	{
-		$vars+=['height'=>360,'id'=>null,'width'=>640];$html='<span data-s9e-mediaembed="gfycat" style="display:inline-block;width:100%;max-width:'.htmlspecialchars($vars['width'],2).'px"><span style="display:block;overflow:hidden;position:relative;';if($vars['width']>0){$html.='padding-bottom:'.htmlspecialchars(100*$vars['height']/$vars['width'],2).'%';}$html.='"><iframe allowfullscreen="" scrolling="no" src="//gfycat.com/iframe/'.htmlspecialchars($vars['id'],2).'" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>';
-
-		return $html;
-	}
-
-	protected static function renderGifs($vars)
-	{
-		$vars+=['height'=>360,'id'=>null,'width'=>640];$html='<span data-s9e-mediaembed="gifs" style="display:inline-block;width:100%;max-width:'.htmlspecialchars($vars['width'],2).'px"><span style="display:block;overflow:hidden;position:relative;';if($vars['width']>0){$html.='padding-bottom:'.htmlspecialchars(100*$vars['height']/$vars['width'],2).'%';}$html.='"><iframe allowfullscreen="" scrolling="no" src="//gifs.com/embed/'.htmlspecialchars($vars['id'],2).'" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>';
-
-		return $html;
-	}
-
-	protected static function renderInternetarchive($vars)
-	{
-		$vars+=['height'=>360,'id'=>null,'width'=>640];$html='<span data-s9e-mediaembed="internetarchive" style="display:inline-block;width:100%;max-width:'.htmlspecialchars($vars['width'],2).'px"><span style="display:block;overflow:hidden;position:relative;';if($vars['width']>0){$html.='padding-bottom:'.htmlspecialchars(100*$vars['height']/$vars['width'],2).'%';}$html.='"><iframe allowfullscreen="" scrolling="no" src="https://archive.org/embed/'.htmlspecialchars($vars['id'],2).'" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>';
-
-		return $html;
-	}
-
 	protected static function renderKickstarter($vars)
 	{
 		$vars+=['id'=>null,'video'=>null];$html='<span data-s9e-mediaembed="kickstarter"';if(isset($vars['video'])){$html.=' style="display:inline-block;width:100%;max-width:480px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:75%"><iframe allowfullscreen="" scrolling="no" src="//www.kickstarter.com/projects/'.htmlspecialchars($vars['id'],2).'/widget/video.html" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span>';}else{$html.=' style="display:inline-block;width:100%;max-width:220px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:190.909091%"><iframe allowfullscreen="" scrolling="no" src="//www.kickstarter.com/projects/'.htmlspecialchars($vars['id'],2).'/widget/card.html" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span>';}$html.='</span>';

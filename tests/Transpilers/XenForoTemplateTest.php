@@ -107,6 +107,10 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 				'<iframe><xsl:attribute name="style">padding-bottom:<xsl:value-of select="100*@height div@width"/></xsl:attribute></iframe>',
 				'<iframe style="padding-bottom:{{ 100*$height/$width }}"></iframe>'
 			],
+			[
+				'<span><xsl:attribute name="style"><xsl:if test="@width&gt;0">padding-bottom:<xsl:value-of select="100*@height div@width"/></xsl:if></xsl:attribute></span>',
+				'<span style="{{ $width>0 ? \'padding-bottom:\' . (100*$height/$width) : \'\' }}"></span>'
+			],
 		];
 	}
 }

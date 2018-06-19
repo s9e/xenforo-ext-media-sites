@@ -104,9 +104,11 @@ class XenForoTemplate implements TranspilerInterface
 		$replacements = [
 			"(^@(\\w+)$)D"                 => '$$1',
 			"(^@(\\w+)(='.*?')$)D"         => '$$1=$2',
+			"(^@(\\w+)>(\\d+)$)D"          => '$$1>$2',
 			'(^100\\*@height div@width$)D' => '100*$height/$width'
 		];
 
+		$expr = html_entity_decode($expr);
 		$expr = preg_replace(array_keys($replacements), array_values($replacements), $expr, -1, $cnt);
 		if (!$cnt)
 		{
