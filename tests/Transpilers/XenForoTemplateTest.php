@@ -62,6 +62,10 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 				'<iframe title="foo"></iframe>'
 			],
 			[
+				'<span><xsl:attribute name="title">foo</xsl:attribute></span>',
+				'<span title="foo"></span>'
+			],
+			[
 				'<iframe>
 					<xsl:attribute name="src">
 						<xsl:choose>

@@ -65,11 +65,11 @@ class XenForoTemplate implements TranspilerInterface
 			$template
 		);
 
-		// Inline xsl:attribute elements in iframes
+		// Inline xsl:attribute elements in HTML elements
 		do
 		{
 			$template = preg_replace(
-				'((<iframe[^>]*)><xsl:attribute name="(\\w+)">(.*?)</xsl:attribute>)',
+				'((<(?!\\w+:)[^>]*)><xsl:attribute name="(\\w+)">(.*?)</xsl:attribute>)',
 				'$1 $2="$3">',
 				$template,
 				1,
