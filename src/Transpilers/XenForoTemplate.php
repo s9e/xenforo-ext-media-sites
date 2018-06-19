@@ -42,7 +42,7 @@ class XenForoTemplate implements TranspilerInterface
 			'(<xf:(?:else)?if is="\\K[^"]++)',
 			function ($m)
 			{
-				return self::convertCondition($m[0]);
+				return self::convertXPath($m[0]);
 			},
 			$template
 		);
@@ -91,7 +91,7 @@ class XenForoTemplate implements TranspilerInterface
 	* @param  string $expr
 	* @return string
 	*/
-	protected static function convertCondition($expr)
+	protected static function convertXPath($expr)
 	{
 		$replacements = [
 			"(^@(\\w+)$)D"         => '$$1',
