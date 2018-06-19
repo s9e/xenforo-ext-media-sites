@@ -402,7 +402,10 @@ class Parser
 				$url = self::interpolateVars($config['url'], $scrapeVars + $vars);
 			}
 
-			self::addNamedCaptures($vars, self::wget($url), $config['extract']);
+			$headers = (isset($config['header'])) ? (array) $config['header'] : [];
+			$body    = self::wget($url, $headers);
+
+			self::addNamedCaptures($vars, $body, $config['extract']);
 		}
 
 		return $vars;
@@ -456,24 +459,25 @@ class Parser
 	/**
 	* Retrieve content from given URL
 	*
-	* @param  string $url Target URL
-	* @return string      Response body
+	* @param  string   $url     Request URL
+	* @param  string[] $headers Extra request headers
+	* @return string            Response body
 	*/
-	protected static function wget($url)
+	protected static function wget($url, $headers = [])
 	{
 		$url = preg_replace('(#.*)s', '', $url);
 
 		// Return the content from the cache if applicable
 		if (isset(self::$cacheDir) && file_exists(self::$cacheDir))
 		{
-			$cacheFile = self::$cacheDir . '/http.' . crc32($url) . '.html';
+			$cacheFile = self::$cacheDir . '/http.' . crc32(serialize([$url, $headers])) . '.html';
 			if (file_exists($cacheFile))
 			{
 				return file_get_contents($cacheFile);
 			}
 		}
 
-		$html = self::wgetCurl($url);
+		$html = self::wgetCurl($url, $headers);
 		if ($html && isset($cacheFile))
 		{
 			file_put_contents($cacheFile, $html);
@@ -485,10 +489,11 @@ class Parser
 	/**
 	* Retrieve content from given URL via cURL
 	*
-	* @param  string $url Target URL
-	* @return string      Response body
+	* @param  string   $url     Request URL
+	* @param  string[] $headers Extra request headers
+	* @return string            Response body
 	*/
-	protected static function wgetCurl($url)
+	protected static function wgetCurl($url, $headers = [])
 	{
 		static $curl;
 		if (!isset($curl))
@@ -498,9 +503,9 @@ class Parser
 			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-			curl_setopt($curl, CURLOPT_USERAGENT,      'Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0');
 		}
-		curl_setopt($curl, CURLOPT_URL, $url);
+		curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($curl, CURLOPT_URL,        $url);
 
 		return curl_exec($curl);
 	}
