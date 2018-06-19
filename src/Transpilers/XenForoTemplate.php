@@ -30,8 +30,6 @@ class XenForoTemplate implements TranspilerInterface
 			'((<iframe[^>]+?)/>)'                  => '$1></iframe>',
 			'( data-s9e-livepreview[^=]*="[^"]*")' => '',
 
-			'(><xsl:attribute name="([^"]+)">([^<]++)</xsl:attribute>)' => ' $1="$2">',
-
 			'(<xsl:if test="([^"]++)">)'               => '<xf:if is="$1">',
 			'(</xsl:if>)'                              => '</xf:if>',
 			'(<xsl:choose><xsl:when test="([^"]++)">)' => '<xf:if is="$1">',
@@ -49,12 +47,28 @@ class XenForoTemplate implements TranspilerInterface
 			$template
 		);
 
-		// Post-transpilation replacements
-		$replacements = [
-			'(<xf:if is="([^"]+)">([^\'"]+)<xf:else/>([^\'"]+)</xf:if>)'
-				=> "{{ \$1 ? '\$2' : '\$3' }}"
-		];
-		$template = preg_replace(array_keys($replacements), array_values($replacements), $template);
+		// Replace xf:if with inline ternaries in attributes
+		$template = preg_replace_callback(
+			'(<xsl:attribute[^>]+>\\K.*?(?=</xsl:attribute))',
+			function ($m)
+			{
+				return $this->convertTernaries($m[0]);
+			},
+			$template
+		);
+
+		// Inline xsl:attribute elements in iframes
+		do
+		{
+			$template = preg_replace(
+				'((<iframe[^>]*)><xsl:attribute name="(\\w+)">(.*?)</xsl:attribute>)',
+				'$1 $2="$3">',
+				$template,
+				1,
+				$cnt
+			);
+		}
+		while ($cnt > 0);
 
 		if (strpos($template, '<xsl:') !== false)
 		{
@@ -91,5 +105,70 @@ class XenForoTemplate implements TranspilerInterface
 		}
 
 		return $expr;
+	}
+
+	/**
+	* Convert template content to be used in a ternary
+	*
+	* @param  string $str
+	* @return string
+	*/
+	protected function convertMixedContent($str)
+	{
+		// Escape ternaries
+		$str = preg_replace_callback(
+			'(\\{\\{\\s*(.*?)\\s*\\}\\})',
+			function ($m)
+			{
+				return '@' . base64_encode($m[1]) . '@';
+			},
+			$str
+		);
+		$str = "'" . $str . "'";
+		$str = preg_replace('(\\{(\\$\\w+)\\})', "'.$1.'", $str);
+
+		// Unescape ternaries
+		$str = preg_replace_callback(
+			'(@([^@]++)@)',
+			function ($m)
+			{
+				return "'.(" . base64_decode($m[1]) . ").'";
+			},
+			$str
+		);
+
+		// Remove empty concatenations
+		$str = str_replace("''.", '', $str);
+		$str = str_replace(".''", '', $str);
+
+		return $str;
+	}
+
+	/**
+	* Convert xf:if elements into inline ternaries
+	*
+	* @param  string $template
+	* @return string
+	*/
+	protected function convertTernaries($template)
+	{
+		$old       = $template;
+		$template = preg_replace_callback(
+			'(<xf:if is="([^"]+)">([^<]+)(?:<xf:else/>([^<]+))?</xf:if>)',
+			function ($m)
+			{
+				$true  = $this->convertMixedContent($m[2]);
+				$false = (isset($m[3])) ? $this->convertMixedContent($m[3]) : "''";
+
+				return '{{ ' . $m[1] . ' ? ' . $true . ' : ' . $false . ' }}';
+			},
+			$template
+		);
+		if ($template !== $old)
+		{
+			$template = $this->convertTernaries($template);
+		}
+
+		return $template;
 	}
 }

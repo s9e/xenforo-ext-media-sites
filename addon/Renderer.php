@@ -195,13 +195,6 @@ class Renderer
 		return $html;
 	}
 
-	protected static function renderBandcamp($vars)
-	{
-		$vars+=['album_id'=>null,'track_id'=>null,'track_num'=>null];$html='<span data-s9e-mediaembed="bandcamp" style="display:inline-block;width:100%;max-width:400px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:100%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//bandcamp.com/EmbeddedPlayer/size=large/minimal=true/';if(isset($vars['album_id'])){$html.='album='.htmlspecialchars($vars['album_id'],2);if(isset($vars['track_num'])){$html.='/t='.htmlspecialchars($vars['track_num'],2);}}else{$html.='track='.htmlspecialchars($vars['track_id'],2);}$html.='"></iframe></span></span>';
-
-		return $html;
-	}
-
 	protected static function renderBbcnews($vars)
 	{
 		$vars+=['id'=>null,'playlist'=>null];$html='<span data-s9e-mediaembed="bbcnews" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//www.bbc.com';if((strpos($vars['id'],'av/')===0)){$html.='/news/'.htmlspecialchars($vars['id'],2).'/embed';}elseif((strpos($vars['playlist'],'/news/')===0)&&(strpos($vars['playlist'],'A')!==false)){$html.=htmlspecialchars(strstr($vars['playlist'],'A',true),2).'/embed';}else{$html.='/news/av/embed/'.htmlspecialchars($vars['id'],2);}$html.='"></iframe></span></span>';
@@ -212,13 +205,6 @@ class Renderer
 	protected static function renderCbsnews($vars)
 	{
 		$vars+=['id'=>null,'pid'=>null];$html='<span data-s9e-mediaembed="cbsnews" style="display:inline-block;width:100%;max-width:640px"><span';if((strpos($vars['id'],'-')!==false)){$html.=' style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="https://www.cbsnews.com/embed/videos/'.htmlspecialchars($vars['id'],2).'/" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe>';}elseif(isset($vars['pid'])){$html.=' style="display:block;overflow:hidden;position:relative;padding-bottom:62.1875%;padding-bottom:calc(56.25% + 38px)"><object data="//www.cbsnews.com/common/video/cbsnews_player.swf" style="height:100%;left:0;position:absolute;width:100%" type="application/x-shockwave-flash" typemustmatch=""><param name="allowfullscreen" value="true"><param name="flashvars" value="pType=embed&amp;si=254&amp;pid='.htmlspecialchars($vars['pid'],2).'"></object>';}else{$html.=' style="display:block;overflow:hidden;position:relative;padding-bottom:62.5%;padding-bottom:calc(56.25% + 40px)"><object data="//i.i.cbsi.com/cnwk.1d/av/video/cbsnews/atlantis2/cbsnews_player_embed.swf" style="height:100%;left:0;position:absolute;width:100%" type="application/x-shockwave-flash" typemustmatch=""><param name="allowfullscreen" value="true"><param name="flashvars" value="si=254&amp;contentValue='.htmlspecialchars($vars['id'],2).'"></object>';}$html.='</span></span>';
-
-		return $html;
-	}
-
-	protected static function renderDailymotion($vars)
-	{
-		$vars+=['id'=>null,'t'=>null];$html='<span data-s9e-mediaembed="dailymotion" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//www.dailymotion.com/embed/video/'.htmlspecialchars($vars['id'],2);if(isset($vars['t'])){$html.='?start='.htmlspecialchars($vars['t'],2);}$html.='"></iframe></span></span>';
 
 		return $html;
 	}
@@ -265,20 +251,6 @@ class Renderer
 		return $html;
 	}
 
-	protected static function renderGoogleplus($vars)
-	{
-		$vars+=['name'=>null,'oid'=>null,'pid'=>null];$html='<iframe data-s9e-mediaembed="googleplus" allowfullscreen="" onload="var a=Math.random();window.addEventListener(\'message\',function(b){if(b.data.id==a)style.height=b.data.height+\'px\'});contentWindow.postMessage(\'s9e:\'+a,\'https://s9e.github.io\')" scrolling="no" style="border:0;height:240px;max-width:450px;width:100%" src="https://s9e.github.io/iframe/googleplus.min.html#';if(isset($vars['oid'])){$html.=htmlspecialchars($vars['oid'],2);}else{$html.='+'.htmlspecialchars($vars['name'],2);}$html.='/posts/'.htmlspecialchars($vars['pid'],2).'"></iframe>';
-
-		return $html;
-	}
-
-	protected static function renderImgur($vars)
-	{
-		$vars+=['id'=>null,'type'=>null];$html='<iframe data-s9e-mediaembed="imgur" allowfullscreen="" onload="var b=Math.random();window.addEventListener(\'message\',function(a){a.data.id==b&amp;&amp;(style.height=a.data.height+\'px\',style.width=a.data.width+\'px\')});contentWindow.postMessage(\'s9e:\'+b,\'https://s9e.github.io\')" scrolling="no" style="border:0;height:450px;max-width:100%;width:568px" src="https://s9e.github.io/iframe/imgur.min.html#';if($vars['type']==='album'){$html.='a/';}$html.=htmlspecialchars($vars['id'],2).'"></iframe>';
-
-		return $html;
-	}
-
 	protected static function renderInternetarchive($vars)
 	{
 		$vars+=['height'=>360,'id'=>null,'width'=>640];$html='<span data-s9e-mediaembed="internetarchive" style="display:inline-block;width:100%;max-width:'.htmlspecialchars($vars['width'],2).'px"><span style="display:block;overflow:hidden;position:relative;';if($vars['width']>0){$html.='padding-bottom:'.htmlspecialchars(100*$vars['height']/$vars['width'],2).'%';}$html.='"><iframe allowfullscreen="" scrolling="no" src="https://archive.org/embed/'.htmlspecialchars($vars['id'],2).'" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>';
@@ -293,23 +265,9 @@ class Renderer
 		return $html;
 	}
 
-	protected static function renderLivestream($vars)
-	{
-		$vars+=['account_id'=>null,'channel'=>null,'clip_id'=>null,'event_id'=>null,'video_id'=>null];$html='<span data-s9e-mediaembed="livestream" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//';if(isset($vars['clip_id'])){$html.='cdn.livestream.com/embed/'.htmlspecialchars($vars['channel'],2).'?layout=4&amp;autoplay=false&amp;clip='.htmlspecialchars($vars['clip_id'],2);}else{$html.='livestream.com/accounts/'.htmlspecialchars($vars['account_id'],2).'/events/'.htmlspecialchars($vars['event_id'],2);if(isset($vars['video_id'])){$html.='/videos/'.htmlspecialchars($vars['video_id'],2);}$html.='/player?autoPlay=false';}$html.='"></iframe></span></span>';
-
-		return $html;
-	}
-
 	protected static function renderMedium($vars)
 	{
 		$vars+=['id'=>null];$html='<iframe data-s9e-mediaembed="medium" allowfullscreen="" onload="window.addEventListener(\'message\',function(a){a=a.data.split(\'::\');\'m\'===a[0]&amp;&amp;0&lt;src.indexOf(a[1])&amp;&amp;a[2]&amp;&amp;(style.height=a[2]+\'px\')})" scrolling="no" src="https://api.medium.com/embed?type=story&amp;path=%2F%2F'.htmlspecialchars($vars['id'],2).'&amp;id='.htmlspecialchars(strtr($vars['id'],'abcdef','111111'),2).'" style="border:1px solid;border-color:#eee #ddd #bbb;border-radius:5px;box-shadow:rgba(0,0,0,.15) 0 1px 3px;height:400px;max-width:400px;width:100%"></iframe>';
-
-		return $html;
-	}
-
-	protected static function renderNhl($vars)
-	{
-		$vars+=['c'=>null,'t'=>null];$html='<span data-s9e-mediaembed="nhl" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="https://www.nhl.com/video/embed';if(isset($vars['t'])){$html.='/t-'.htmlspecialchars($vars['t'],2);}if(isset($vars['c'])){$html.='/c-'.htmlspecialchars($vars['c'],2);}$html.='?autostart=false"></iframe></span></span>';
 
 		return $html;
 	}
@@ -345,34 +303,6 @@ class Renderer
 	protected static function renderTed($vars)
 	{
 		$vars+=['id'=>null];$html='<span data-s9e-mediaembed="ted" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//embed.ted.com/'.htmlspecialchars($vars['id'],2);if((strpos($vars['id'],'.html')===false)){$html.='.html';}$html.='"></iframe></span></span>';
-
-		return $html;
-	}
-
-	protected static function renderTwitch($vars)
-	{
-		$vars+=['channel'=>null,'clip_id'=>null,'t'=>null,'video_id'=>null];$html='<span data-s9e-mediaembed="twitch" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//';if(isset($vars['clip_id'])){$html.='clips.twitch.tv/embed?autoplay=false&amp;clip=';if(isset($vars['channel'])){$html.=htmlspecialchars($vars['channel'],2).'/';}$html.=htmlspecialchars($vars['clip_id'],2);}else{$html.='player.twitch.tv/?autoplay=false&amp;';if(isset($vars['video_id'])){$html.='video=v'.htmlspecialchars($vars['video_id'],2);}else{$html.='channel='.htmlspecialchars($vars['channel'],2);}if(isset($vars['t'])){$html.='&amp;time='.htmlspecialchars($vars['t'],2);}}$html.='"></iframe></span></span>';
-
-		return $html;
-	}
-
-	protected static function renderUstream($vars)
-	{
-		$vars+=['cid'=>null,'vid'=>null];$html='<span data-s9e-mediaembed="ustream" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//www.ustream.tv/embed/';if(isset($vars['vid'])){$html.='recorded/'.htmlspecialchars($vars['vid'],2);}else{$html.=htmlspecialchars($vars['cid'],2);}$html.='?html5ui"></iframe></span></span>';
-
-		return $html;
-	}
-
-	protected static function renderVimeo($vars)
-	{
-		$vars+=['id'=>null,'t'=>null];$html='<span data-s9e-mediaembed="vimeo" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//player.vimeo.com/video/'.htmlspecialchars($vars['id'],2);if(isset($vars['t'])){$html.='#t='.htmlspecialchars($vars['t'],2);}$html.='"></iframe></span></span>';
-
-		return $html;
-	}
-
-	protected static function renderYoutube($vars)
-	{
-		$vars+=['id'=>null,'list'=>null,'t'=>null];$html='<span data-s9e-mediaembed="youtube" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" style="background:url(https://i.ytimg.com/vi/'.htmlspecialchars($vars['id'],2).'/hqdefault.jpg) 50% 50% / cover;border:0;height:100%;left:0;position:absolute;width:100%" src="https://www.youtube.com/embed/'.htmlspecialchars($vars['id'],2);if(isset($vars['list'])){$html.='?list='.htmlspecialchars($vars['list'],2);}if(isset($vars['t'])){if(isset($vars['list'])){$html.='&amp;';}else{$html.='?';}$html.='start='.htmlspecialchars($vars['t'],2);}$html.='"></iframe></span></span>';
 
 		return $html;
 	}

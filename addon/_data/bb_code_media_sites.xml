@@ -18,7 +18,7 @@
   </site>
   <site media_site_id="bandcamp" site_title="Bandcamp" site_url="http://bandcamp.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*bandcamp\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="bandcamp" style="display:inline-block;width:100%;max-width:400px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:100%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//bandcamp.com/EmbeddedPlayer/size=large/minimal=true/{{ $album_id ? 'album='.$album_id.($track_num ? '/t='.$track_num : '') : 'track='.$track_id }}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="bbcnews" site_title="BBC News" site_url="http://www.bbc.com/news/video_and_audio/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*bbc\.com/.(?'id'))i]]></match_urls>
@@ -66,7 +66,7 @@
   </site>
   <site media_site_id="dailymotion" site_title="Dailymotion" site_url="http://www.dailymotion.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*dai(?:\.ly|lymotion\.com)/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="dailymotion" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//www.dailymotion.com/embed/video/{$id}{{ $t ? '?start='.$t : '' }}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="democracynow" site_title="Democracy Now!" site_url="http://www.democracynow.org/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*democracynow\.org/.(?'id'))i]]></match_urls>
@@ -146,7 +146,7 @@
   </site>
   <site media_site_id="googleplus" site_title="Google+" site_url="https://plus.google.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*plus\.google\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="googleplus" allowfullscreen="" onload="var a=Math.random();window.addEventListener('message',function(b){if(b.data.id==a)style.height=b.data.height+'px'});contentWindow.postMessage('s9e:'+a,'https://s9e.github.io')" scrolling="no" style="border:0;height:240px;max-width:450px;width:100%" src="https://s9e.github.io/iframe/googleplus.min.html#{{ $oid ? $oid : '+'.$name }}/posts/{$pid}"></iframe>]]></embed_html>
   </site>
   <site media_site_id="googlesheets" site_title="Google Sheets" site_url="http://www.google.com/sheets/about/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*docs\.google\.com/.(?'id'))i]]></match_urls>
@@ -178,7 +178,7 @@
   </site>
   <site media_site_id="imgur" site_title="Imgur" site_url="http://imgur.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*imgur\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="imgur" allowfullscreen="" onload="var b=Math.random();window.addEventListener('message',function(a){a.data.id==b&amp;&amp;(style.height=a.data.height+'px',style.width=a.data.width+'px')});contentWindow.postMessage('s9e:'+b,'https://s9e.github.io')" scrolling="no" style="border:0;height:450px;max-width:100%;width:568px" src="https://s9e.github.io/iframe/imgur.min.html#{{ $type=='album' ? 'a/' : '' }}{$id}"></iframe>]]></embed_html>
   </site>
   <site media_site_id="indiegogo" site_title="Indiegogo" site_url="http://www.indiegogo.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*indiegogo\.com/.(?'id'))i]]></match_urls>
@@ -226,7 +226,7 @@
   </site>
   <site media_site_id="livestream" site_title="Livestream" site_url="http://new.livestream.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*livestre(?:\.a|am\.co)m/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="livestream" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//{{ $clip_id ? 'cdn.livestream.com/embed/'.$channel.'?layout=4&amp;autoplay=false&amp;clip='.$clip_id : 'livestream.com/accounts/'.$account_id.'/events/'.$event_id.($video_id ? '/videos/'.$video_id : '').'/player?autoPlay=false' }}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="mailru" site_title="Mail.Ru" site_url="http://my.mail.ru/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*my\.mail\.ru/.(?'id'))i]]></match_urls>
@@ -274,7 +274,7 @@
   </site>
   <site media_site_id="nhl" site_title="NHL Videos and Highlights" site_url="https://www.nhl.com/video" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*nhl\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="nhl" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="https://www.nhl.com/video/embed{{ $t ? '/t-'.$t : '' }}{{ $c ? '/c-'.$c : '' }}?autostart=false"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="npr" site_title="NPR" site_url="http://www.npr.org/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*n(?:\.pr|pr\.org)/.(?'id'))i]]></match_urls>
@@ -394,7 +394,7 @@
   </site>
   <site media_site_id="twitch" site_title="Twitch" site_url="http://www.twitch.tv/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*twitch\.tv/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="twitch" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//{{ $clip_id ? 'clips.twitch.tv/embed?autoplay=false&amp;clip='.($channel ? $channel.'/' : '').$clip_id : 'player.twitch.tv/?autoplay=false&amp;'.($video_id ? 'video=v'.$video_id : 'channel='.$channel).($t ? '&amp;time='.$t : '') }}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="twitter" site_title="Twitter" site_url="https://twitter.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*twitter\.com/.(?'id'))i]]></match_urls>
@@ -402,7 +402,7 @@
   </site>
   <site media_site_id="ustream" site_title="Ustream" site_url="http://www.ustream.tv/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*ustream\.tv/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="ustream" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//www.ustream.tv/embed/{{ $vid ? 'recorded/'.$vid : $cid }}?html5ui"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="vbox7" site_title="VBOX7" site_url="http://vbox7.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*vbox7\.com/.(?'id'))i]]></match_urls>
@@ -430,7 +430,7 @@
   </site>
   <site media_site_id="vimeo" site_title="Vimeo" site_url="http://vimeo.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*vimeo\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="vimeo" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//player.vimeo.com/video/{$id}{{ $t ? '#t='.$t : '' }}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="vine" site_title="Vine" site_url="https://vine.co/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*vine\.co/.(?'id'))i]]></match_urls>
@@ -478,6 +478,6 @@
   </site>
   <site media_site_id="youtube" site_title="YouTube" site_url="http://www.youtube.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*youtu(?:\.be|be\.com)/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="youtube" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" style="background:url(https://i.ytimg.com/vi/{$id}/hqdefault.jpg) 50% 50% / cover;border:0;height:100%;left:0;position:absolute;width:100%" src="https://www.youtube.com/embed/{$id}{{ $list ? '?list='.$list : '' }}{{ $t ? ($list ? '&amp;' : '?').'start='.$t : '' }}"></iframe></span></span>]]></embed_html>
   </site>
 </bb_code_media_sites>
