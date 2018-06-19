@@ -45,7 +45,9 @@ class XF
 			return '';
 		}
 
-		return preg_replace_callback(
+		$template = self::$templates[$siteId];
+		$template = self::renderTernaries($template, $vars);
+		$template = preg_replace_callback(
 			'(\\{\\$(\\w+)\\})',
 			function ($m) use ($vars)
 			{
@@ -53,7 +55,26 @@ class XF
 
 				return (isset($vars[$varName])) ? $vars[$varName] : '';
 			},
-			self::$templates[$siteId]
+			$template
+		);
+
+		return $template;
+	}
+	protected static function renderTernaries($template, array $vars)
+	{
+		preg_match_all('(\\$(\\w+))', $template, $matches);
+		$vars += array_fill_keys($matches[1], '');
+
+		return preg_replace_callback(
+			'(\\{\\{(.+?)\\}\\})',
+			function ($m) use ($vars)
+			{
+				$php    = preg_replace('(\\$(\\w+))', '$vars["$1"]', $m[1]);
+				$result = eval('return ' . $php . ';');
+
+				return $result;
+			},
+			$template
 		);
 	}
 }
