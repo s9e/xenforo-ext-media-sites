@@ -105,7 +105,8 @@ class XenForoTemplate implements TranspilerInterface
 			"(^@(\\w+)$)D"                 => '$$1',
 			"(^@(\\w+)(='.*?')$)D"         => '$$1=$2',
 			"(^@(\\w+)>(\\d+)$)D"          => '$$1>$2',
-			'(^100\\*@height div@width$)D' => '100*$height/$width'
+			'(^100\\*@height div@width$)D' => '100*$height/$width',
+			'(^100\\*\\(@height\\+(\\d+)\\)div@width$)D' => '100*($height+$1)/$width'
 		];
 
 		$expr = html_entity_decode($expr);
