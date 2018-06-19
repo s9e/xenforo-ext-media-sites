@@ -72,6 +72,17 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 				'<iframe>
 					<xsl:attribute name="src">
 						<xsl:choose>
+							<xsl:when test="@foo">foo<xsl:value-of select="@foo"/></xsl:when>
+							<xsl:otherwise>bar</xsl:otherwise>
+						</xsl:choose>
+					</xsl:attribute>
+				</iframe>',
+				'<iframe src="{{ $foo ? \'foo\' . $foo : \'bar\' }}"></iframe>',
+			],
+			[
+				'<iframe>
+					<xsl:attribute name="src">
+						<xsl:choose>
 							<xsl:when test="@foo">
 								<xsl:choose>
 									<xsl:when test="@bar">foobar</xsl:when>

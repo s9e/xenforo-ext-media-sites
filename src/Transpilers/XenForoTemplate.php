@@ -125,21 +125,21 @@ class XenForoTemplate implements TranspilerInterface
 			$str
 		);
 		$str = "'" . $str . "'";
-		$str = preg_replace('(\\{(\\$\\w+)\\})', "'.$1.'", $str);
+		$str = preg_replace('(\\{(\\$\\w+)\\})', "' . $1 . '", $str);
 
 		// Unescape ternaries
 		$str = preg_replace_callback(
 			'(@([^@]++)@)',
 			function ($m)
 			{
-				return "'.(" . base64_decode($m[1]) . ").'";
+				return "' . (" . base64_decode($m[1]) . ") . '";
 			},
 			$str
 		);
 
 		// Remove empty concatenations
-		$str = str_replace("''.", '', $str);
-		$str = str_replace(".''", '', $str);
+		$str = str_replace("'' . ", '', $str);
+		$str = str_replace(" . ''", '', $str);
 
 		return $str;
 	}
