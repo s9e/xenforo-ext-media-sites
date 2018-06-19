@@ -23,8 +23,12 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 				''
 			],
 			[
-				'<xsl:value-of select="foo()"/>',
+				'<xsl:apply-templates/>',
 				new RuntimeException('Cannot transpile XSL element')
+			],
+			[
+				'<xsl:value-of select="foo()"/>',
+				new RuntimeException('Cannot convert foo()')
 			],
 			[
 				'<hr title="{foo()}"/>',
@@ -94,6 +98,10 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 					</xsl:attribute>
 				</iframe>',
 				'<iframe src="{{ $foo ? ($bar ? \'foobar\' : \'foobaz\') : \'bar\' }}"></iframe>',
+			],
+			[
+				'<iframe><xsl:attribute name="style">padding-bottom:<xsl:value-of select="100*@height div@width"/></xsl:attribute></iframe>',
+				'<iframe style="padding-bottom:{{ 100*$height/$width }}"></iframe>'
 			],
 		];
 	}

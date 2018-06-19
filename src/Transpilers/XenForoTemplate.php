@@ -46,6 +46,14 @@ class XenForoTemplate implements TranspilerInterface
 			},
 			$template
 		);
+		$template = preg_replace_callback(
+			'(<xsl:value-of select="(.*?)"/>)',
+			function ($m)
+			{
+				return '{{ ' . self::convertXPath($m[1]) . ' }}';
+			},
+			$template
+		);
 
 		// Replace xf:if with inline ternaries in attributes
 		$template = preg_replace_callback(
@@ -94,8 +102,9 @@ class XenForoTemplate implements TranspilerInterface
 	protected static function convertXPath($expr)
 	{
 		$replacements = [
-			"(^@(\\w+)$)D"         => '$$1',
-			"(^@(\\w+)(='.*?')$)D" => '$$1=$2'
+			"(^@(\\w+)$)D"                 => '$$1',
+			"(^@(\\w+)(='.*?')$)D"         => '$$1=$2',
+			'(^100\\*@height div@width$)D' => '100*$height/$width'
 		];
 
 		$expr = preg_replace(array_keys($replacements), array_values($replacements), $expr, -1, $cnt);
