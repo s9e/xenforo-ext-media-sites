@@ -294,7 +294,7 @@
   </site>
   <site media_site_id="pinterest" site_title="Pinterest" site_url="https://www.pinterest.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*pinterest\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="pinterest" allowfullscreen="" onload="var a=Math.random();window.addEventListener('message',function(b){if(b.data.id==a)style.height=b.data.height+'px'});contentWindow.postMessage('s9e:'+a,'https://s9e.github.io')" scrolling="no" src="https://s9e.github.io/iframe/pinterest.min.html#{$id}" style="border:0;height:360px;max-width:{{ contains($id,'/') ? '730' : '345' }}px;width:100%"></iframe>]]></embed_html>
   </site>
   <site media_site_id="playstv" site_title="Plays.tv" site_url="http://plays.tv/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*plays\.tv/.(?'id'))i]]></match_urls>
@@ -358,7 +358,7 @@
   </site>
   <site media_site_id="ted" site_title="TED Talks" site_url="http://www.ted.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*ted\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="ted" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//embed.ted.com/{$id}{{ not(contains($id,'.html')) ? '.html' : '' }}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="telegram" site_title="Telegram" site_url="https://telegram.org/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*t\.me/.(?'id'))i]]></match_urls>

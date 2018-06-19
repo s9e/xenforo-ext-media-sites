@@ -115,6 +115,14 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 				'<span><xsl:attribute name="style"><xsl:if test="@width&gt;0">padding-bottom:<xsl:value-of select="100*(@height+49)div@width"/></xsl:if></xsl:attribute></span>',
 				'<span style="{{ $width>0 ? \'padding-bottom:\' . (100*($height+49)/$width) : \'\' }}"></span>'
 			],
+			[
+				'<xsl:if test="contains(@foo,\'/\')">x</xsl:if>',
+				'<xf:if is="contains($foo,\'/\')">x</xf:if>'
+			],
+			[
+				'<xsl:if test="not(contains(@foo,\'/\'))">x</xsl:if>',
+				'<xf:if is="not(contains($foo,\'/\'))">x</xf:if>'
+			],
 		];
 	}
 }
