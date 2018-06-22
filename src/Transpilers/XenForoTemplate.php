@@ -94,34 +94,6 @@ class XenForoTemplate implements TranspilerInterface
 	}
 
 	/**
-	* Convert an XPath expression to a XenForo expression
-	*
-	* @param  string $expr
-	* @return string
-	*/
-	protected static function convertXPath($expr)
-	{
-		$replacements = [
-			'(^@(\\w+)$)D'                 => '$$1',
-			"(^@(\\w+)(='.*')$)D"          => '$$1=$2',
-			'(^@(\\w+)>(\\d+)$)D'          => '$$1>$2',
-			'(^100\\*@height div@width$)D' => '100*$height/$width',
-			'(^100\\*\\(@height\\+(\\d+)\\)div@width$)D'  => '100*($height+$1)/$width',
-			"(^contains\\(@(\\w+,'[^']+')\\)$)D"          => 'contains($$1)',
-			"(^not\\(contains\\(@(\\w+,'[^']+')\\)\\)$)D" => 'not(contains($$1))',
-		];
-
-		$expr = html_entity_decode($expr);
-		$expr = preg_replace(array_keys($replacements), array_values($replacements), $expr, -1, $cnt);
-		if (!$cnt)
-		{
-			throw new RuntimeException('Cannot convert ' . $expr);
-		}
-
-		return $expr;
-	}
-
-	/**
 	* Convert template content to be used in a ternary
 	*
 	* @param  string $str
@@ -166,15 +138,12 @@ class XenForoTemplate implements TranspilerInterface
 	*/
 	protected function convertTernaries($template)
 	{
-		$old       = $template;
+		$old      = $template;
 		$template = preg_replace_callback(
-			'(<xf:if is="([^"]+)">([^<]+)(?:<xf:else/>([^<]+))?</xf:if>)',
+			'(<xf:if is="[^"]+">[^<]+(?:<xf:else.*?/>[^<]+)*</xf:if>)',
 			function ($m)
 			{
-				$true  = $this->convertMixedContent($m[2]);
-				$false = (isset($m[3])) ? $this->convertMixedContent($m[3]) : "''";
-
-				return '{{ ' . $m[1] . ' ? ' . $true . ' : ' . $false . ' }}';
+				return $this->convertTernary($m[0]);
 			},
 			$template
 		);
@@ -184,5 +153,69 @@ class XenForoTemplate implements TranspilerInterface
 		}
 
 		return $template;
+	}
+
+	/**
+	* Convert given xf:if element into inline ternaries
+	*
+	* @param  string $template
+	* @return string
+	*/
+	protected function convertTernary($template)
+	{
+		preg_match_all('(<xf:(?:else)?if is="([^"]+)">([^<]+))', $template, $m, PREG_SET_ORDER);
+
+		$expr = '{{ ';
+		foreach ($m as $i => list($match, $condition, $content))
+		{
+			if ($i > 0)
+			{
+				$expr .= '(';
+			}
+			$expr .= $condition . ' ? ' . $this->convertMixedContent($content) . ' : ';
+		}
+		if (preg_match('(<xf:else/>\\K[^<]++)', $template, $m))
+		{
+			$expr .= $this->convertMixedContent($m[0]);
+		}
+		else
+		{
+			$expr .= "''";
+		}
+		if ($i > 0)
+		{
+			$expr .= str_repeat(')', $i);
+		}
+		$expr .= ' }}';
+
+		return $expr;
+	}
+
+	/**
+	* Convert an XPath expression to a XenForo expression
+	*
+	* @param  string $expr
+	* @return string
+	*/
+	protected static function convertXPath($expr)
+	{
+		$replacements = [
+			'(^@(\\w+)$)D'                 => '$$1',
+			"(^@(\\w+)(='.*')$)D"          => '$$1=$2',
+			'(^@(\\w+)>(\\d+)$)D'          => '$$1>$2',
+			'(^100\\*@height div@width$)D' => '100*$height/$width',
+			'(^100\\*\\(@height\\+(\\d+)\\)div@width$)D'  => '100*($height+$1)/$width',
+			"(^contains\\(@(\\w+,'[^']+')\\)$)D"          => 'contains($$1)',
+			"(^not\\(contains\\(@(\\w+,'[^']+')\\)\\)$)D" => 'not(contains($$1))',
+		];
+
+		$expr = html_entity_decode($expr);
+		$expr = preg_replace(array_keys($replacements), array_values($replacements), $expr, -1, $cnt);
+		if (!$cnt)
+		{
+			throw new RuntimeException('Cannot convert ' . $expr);
+		}
+
+		return $expr;
 	}
 }

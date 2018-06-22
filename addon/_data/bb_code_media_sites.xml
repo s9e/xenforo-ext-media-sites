@@ -286,7 +286,7 @@
   </site>
   <site media_site_id="orfium" site_title="Orfium" site_url="https://www.orfium.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*orfium\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="orfium" allowfullscreen="" scrolling="no" src="https://www.orfium.com/embedded/{{ $album_id ? 'album/' . $album_id : ($playlist_id ? 'playlist/' . $playlist_id : ($set_id ? 'live-set/' . $set_id : 'track/' . $track_id)) }}" style="border:0;height:{{ $album_id ? '550' : '275' }}px;max-width:900px;width:100%"></iframe>]]></embed_html>
   </site>
   <site media_site_id="pastebin" site_title="Pastebin" site_url="http://pastebin.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*pastebin\.com/.(?'id'))i]]></match_urls>

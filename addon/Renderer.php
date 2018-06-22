@@ -244,13 +244,6 @@ class Renderer
 		return $html;
 	}
 
-	protected static function renderOrfium($vars)
-	{
-		$vars+=['album_id'=>null,'playlist_id'=>null,'set_id'=>null,'track_id'=>null];$html='<iframe data-s9e-mediaembed="orfium" allowfullscreen="" scrolling="no" src="https://www.orfium.com/embedded/';if(isset($vars['album_id'])){$html.='album/'.htmlspecialchars($vars['album_id'],2);}elseif(isset($vars['playlist_id'])){$html.='playlist/'.htmlspecialchars($vars['playlist_id'],2);}elseif(isset($vars['set_id'])){$html.='live-set/'.htmlspecialchars($vars['set_id'],2);}else{$html.='track/'.htmlspecialchars($vars['track_id'],2);}$html.='" style="border:0;height:';if(isset($vars['album_id'])){$html.='550';}else{$html.='275';}$html.='px;max-width:900px;width:100%"></iframe>';
-
-		return $html;
-	}
-
 	protected static function renderSoundcloud($vars)
 	{
 		$vars+=['id'=>null,'playlist_id'=>null,'secret_token'=>null,'track_id'=>null];$html='<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=';if(isset($vars['playlist_id'])){$html.='https%3A//api.soundcloud.com/playlists/'.htmlspecialchars($vars['playlist_id'],2);}elseif(isset($vars['track_id'])){$html.='https%3A//api.soundcloud.com/tracks/'.htmlspecialchars($vars['track_id'],2).'&amp;secret_token='.htmlspecialchars($vars['secret_token'],2);}else{if((strpos($vars['id'],'://')===false)){$html.='https%3A//soundcloud.com/';}$html.=htmlspecialchars($vars['id'],2);}$html.='" style="border:0;height:';if(isset($vars['playlist_id'])||(strpos($vars['id'],'/sets/')!==false)){$html.='450';}else{$html.='166';}$html.='px;max-width:900px;width:100%"></iframe>';
