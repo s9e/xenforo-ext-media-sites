@@ -182,11 +182,7 @@ class XenForoTemplate implements TranspilerInterface
 		{
 			$expr .= "''";
 		}
-		if ($i > 0)
-		{
-			$expr .= str_repeat(')', $i);
-		}
-		$expr .= ' }}';
+		$expr .= str_repeat(')', $i) . ' }}';
 
 		return $expr;
 	}
