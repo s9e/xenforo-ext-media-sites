@@ -147,7 +147,6 @@ class Parser
 		'vbox7'=>[['!vbox7\\.com/play:(?<id>[\\da-f]+)!']],
 		'veoh'=>[['!veoh\\.com/(?:m/watch\\.php\\?v=|watch/)v(?<id>\\w+)!']],
 		'vevo'=>[['!vevo\\.com/watch/(.*?/)?(?<id>[A-Z]+\\d+)!']],
-		'viagame'=>[['!viagame\\.com/channels/[^/]+/(?<id>\\d+)!']],
 		'videodetective'=>[['!videodetective\\.com/\\w+/[-\\w]+/(?:trailer/P0*)?(?<id>\\d+)!']],
 		'videomega'=>[['!videomega\\.tv/\\?ref=(?<id>\\w+)!']],
 		'vimeo'=>[['!vimeo\\.com/(?:channels/[^/]+/|video/)?(?<id>\\d+)!','!#t=(?<t>[\\dhms]+)!'],[],[],['t'=>['s9e\\MediaSites\\Parser::filterTimestamp']]],

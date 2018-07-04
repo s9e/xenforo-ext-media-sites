@@ -110,7 +110,7 @@
   </site>
   <site media_site_id="gamespot" site_title="Gamespot" site_url="http://www.gamespot.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*gamespot\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="gamespot" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:62.5%"><iframe allowfullscreen="" scrolling="no" src="//www.gamespot.com/videos/embed/{$id}/" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="gamespot" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//www.gamespot.com/videos/embed/{$id}/" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="gametrailers" site_title="GameTrailers" site_url="http://www.gametrailers.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*gametrailers\.com/.(?'id'))i]]></match_urls>
@@ -254,7 +254,7 @@
   </site>
   <site media_site_id="msnbc" site_title="MSNBC" site_url="http://www.msnbc.com/watch" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*msnbc\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="msnbc" style="display:inline-block;width:100%;max-width:635px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:69.291339%"><iframe allowfullscreen="" scrolling="no" src="//player.theplatform.com/p/2E2eJC/EmbeddedOffSite?guid={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="msnbc" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:68.75%;padding-bottom:calc(56.25% + 80px)"><iframe allowfullscreen="" scrolling="no" src="//player.theplatform.com/p/7wvmTC/MSNBCEmbeddedOffSite?guid={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="natgeochannel" site_title="National Geographic Channel" site_url="http://channel.nationalgeographic.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*channel\.nationalgeographic\.com/.(?'id'))i]]></match_urls>
@@ -415,10 +415,6 @@
   <site media_site_id="vevo" site_title="Vevo" site_url="https://vevo.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*vevo\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="vevo" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="https://embed.vevo.com/?isrc={$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
-  </site>
-  <site media_site_id="viagame" site_title="Viagame" site_url="http://www.viagame.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*viagame\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="viagame" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:61.25%"><iframe allowfullscreen="" scrolling="no" src="//www.viagame.com/embed/{$id}" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="videodetective" site_title="Video Detective" site_url="http://www.videodetective.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*videodetective\.com/.(?'id'))i]]></match_urls>
