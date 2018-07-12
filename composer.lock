@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "528d2ceca871e7a24973cab90ae614a2",
+    "content-hash": "a3b6023d83c8fcf98d665d519038f013",
     "packages": [],
     "packages-dev": [
         {
@@ -839,12 +839,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "8d212aa727e98f841824e47937dbf597b218ed84"
+                "reference": "5e3a5e2cf03754b32e5b7c7869d6619fc40ccf3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/8d212aa727e98f841824e47937dbf597b218ed84",
-                "reference": "8d212aa727e98f841824e47937dbf597b218ed84",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/5e3a5e2cf03754b32e5b7c7869d6619fc40ccf3a",
+                "reference": "5e3a5e2cf03754b32e5b7c7869d6619fc40ccf3a",
                 "shasum": ""
             },
             "require": {
@@ -896,7 +896,7 @@
                 "parser",
                 "shortcodes"
             ],
-            "time": "2018-07-03T14:58:38+00:00"
+            "time": "2018-07-11T20:17:08+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -945,16 +945,16 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "591a30922f54656695e59b1f39501aec513403da"
+                "reference": "5de4fc177adf9bce8df98d8d141a7559d7ccf6da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/591a30922f54656695e59b1f39501aec513403da",
-                "reference": "591a30922f54656695e59b1f39501aec513403da",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/5de4fc177adf9bce8df98d8d141a7559d7ccf6da",
+                "reference": "5de4fc177adf9bce8df98d8d141a7559d7ccf6da",
                 "shasum": ""
             },
             "require": {
@@ -1005,7 +1005,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2018-06-14T15:05:28+00:00"
+            "time": "2018-07-12T15:12:46+00:00"
         },
         {
             "name": "sebastian/diff",

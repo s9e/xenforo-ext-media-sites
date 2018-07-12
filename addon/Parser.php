@@ -131,6 +131,7 @@ class Parser
 		'stitcher'=>[[],[],[['extract'=>['!data-eid="(?<eid>\\d+)!','!data-fid="(?<fid>\\d+)!'],'match'=>['!/podcast/!']]]],
 		'strawpoll'=>[['!strawpoll\\.me/(?<id>\\d+)!']],
 		'streamable'=>[['!streamable\\.com/(?<id>\\w+)!']],
+		'streamja'=>[['@streamja\\.com/(?!login|signup|terms|videos)(?<id>\\w+)@']],
 		'teamcoco'=>[['!teamcoco\\.com/video/(?<id>\\d+)!'],[],[['extract'=>['!embed/v/(?<id>\\d+)!'],'match'=>['!teamcoco\\.com/video/.!']]]],
 		'ted'=>[['#ted\\.com/(?<id>(?:talk|playlist)s/[-\\w]+(?:\\.html)?)(?![-\\w]|/transcript)#i']],
 		'telegram'=>[['@//t.me/(?!addstickers/|joinchat/)(?<id>\\w+/\\d+)@']],
