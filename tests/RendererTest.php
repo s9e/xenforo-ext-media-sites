@@ -31,13 +31,13 @@ class RendererTest extends TestCase
 			[
 				'amazon',
 				'B002MUC0ZY',
-				'<span data-s9e-mediaembed="amazon" style="display:inline-block;width:100%;max-width:120px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:200%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&amp;OneJS=1&amp;Operation=GetAdHtml&amp;MarketPlace=US&amp;ad_type=product_link&amp;tracking_id=&amp;marketplace=amazon&amp;region=US&amp;asins=B002MUC0ZY&amp;show_border=true&amp;link_opens_in_new_window=true"></iframe></span></span>',
+				'<span data-s9e-mediaembed="amazon" style="display:inline-block;width:100%;max-width:120px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:200%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//ws-na.assoc-amazon.com/widgets/cm?l=as1&amp;f=ifr&amp;o=1&amp;t=&amp;asins=B002MUC0ZY"></iframe></span></span>',
 				['s9e_MediaSites_AMAZON_ASSOCIATE_TAG' => null]
 			],
 			[
 				'amazon',
 				'B002MUC0ZY',
-				'<span data-s9e-mediaembed="amazon" style="display:inline-block;width:100%;max-width:120px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:200%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&amp;OneJS=1&amp;Operation=GetAdHtml&amp;MarketPlace=US&amp;ad_type=product_link&amp;tracking_id=foo-20&amp;marketplace=amazon&amp;region=US&amp;asins=B002MUC0ZY&amp;show_border=true&amp;link_opens_in_new_window=true"></iframe></span></span>',
+				'<span data-s9e-mediaembed="amazon" style="display:inline-block;width:100%;max-width:120px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:200%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//ws-na.assoc-amazon.com/widgets/cm?l=as1&amp;f=ifr&amp;o=1&amp;t=foo-20&amp;asins=B002MUC0ZY"></iframe></span></span>',
 				['s9e_MediaSites_AMAZON_ASSOCIATE_TAG' => 'foo-20']
 			],
 			[

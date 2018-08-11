@@ -51,7 +51,7 @@ class Parser
 		'bbcnews'=>[[],[],[['extract'=>['!bbc\\.com\\\\/news\\\\/av\\\\/embed\\\\/(?<id>[-\\\\\\w/]+)!'],'match'=>['!bbc\\.com/news/\\w!']]],['id'=>['stripslashes']]],
 		'bleacherreport'=>[[],[],[['extract'=>['!id="video-(?<id>[-\\w]+)!'],'match'=>['!/articles/.!']]]],
 		'break'=>[['!break\\.com/video/.*-(?<id>\\d+)$!']],
-		'brightcove'=>[[],[],[['extract'=>['!meta name="twitter:player" content=".*?bcpid(?<bcpid>\\d+).*?bckey=(?<bckey>[-,~\\w]+).*?bctid=(?<bctid>\\d+)!'],'match'=>['!bcove\\.me/.!','!link\\.brightcove\\.com/services/player/!']]]],
+		'brightcove'=>[['@link\\.brightcove\\.com/services/player/bcpid(?<bcpid>\\d+).*?bckey=(?<bckey>[-,~\\w]+).*?bctid=(?<bctid>\\d+)@','@players\\.brightcove\\.net/(?<bcpid>\\d+)/.*?videoId=(?<bctid>\\d+)@']],
 		'cbsnews'=>[['#cbsnews\\.com/videos?/(?!watch/)(?<id>[-\\w]+)#','#cbsnews\\.com/video/watch/\\?id=(?<id>\\d+)#']],
 		'cnbc'=>[['!cnbc\\.com/gallery/\\?video=(?<id>\\d+)!']],
 		'cnn'=>[['!cnn.com/videos/(?<id>.*\\.cnn)!','!cnn\\.com/video/data/2\\.0/video/(?<id>.*\\.cnn)!']],
