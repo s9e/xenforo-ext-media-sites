@@ -145,8 +145,8 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 				'<xf:if is="contains($foo,\'/\')">x</xf:if>'
 			],
 			[
-				'<xsl:if test="not(contains(@foo,\'/\'))">x</xsl:if>',
-				'<xf:if is="not(contains($foo,\'/\'))">x</xf:if>'
+				'<xsl:if test="!contains(@foo,\'/\')">x</xsl:if>',
+				'<xf:if is="!contains($foo,\'/\')">x</xf:if>'
 			],
 		];
 	}
