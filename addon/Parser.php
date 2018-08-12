@@ -20,23 +20,11 @@ class Parser
 	* @var array
 	*/
 	protected static $customFormats = [
-		'dailymotion' => [
-			[['id', 't'],       '$id:$t']
-		],
-		'facebook' => [
-			[['id', 'post', 'user'], '$user/posts/$id']
-		],
-		'twitch'      => [
-			[['channel'],       '$channel'],
-			[['clip_id'],       'clip:$clip_id'],
-			[['t', 'video_id'], '$video_id:$t']
-		],
-		'vimeo'      => [
-			[['id', 't'],       '$id:$t']
-		],
-		'youtube'     => [
-			[['id', 't'],       '$id:$t']
-		]
+		'dailymotion' => ['$id:$t'],
+		'facebook'    => ['$user/$posts/$id'],
+		'twitch'      => ['$channel', 'clip:$clip_id', '$video_id:$t'],
+		'vimeo'       => ['$id:$t'],
+		'youtube'     => ['$id:$t']
 	];
 
 	/**
@@ -251,9 +239,9 @@ class Parser
 	*/
 	protected static function adjustVarsFacebook(array $vars)
 	{
-		if (isset($vars['type'], $vars['user']) && $vars['type'] === 'post')
+		if (isset($vars['id'], $vars['type'], $vars['user']) && $vars['type'] === 'post')
 		{
-			$vars = ['id' => $vars['id'], 'post' => 'post', 'user' => $vars['user']];
+			$vars = ['id' => $vars['id'], 'posts' => 'posts', 'user' => $vars['user']];
 		}
 
 		return $vars;
@@ -431,8 +419,12 @@ class Parser
 
 		if (isset(self::$customFormats[$siteId]))
 		{
-			foreach (self::$customFormats[$siteId] as list($customKeys, $format))
+			foreach (self::$customFormats[$siteId] as $format)
 			{
+				preg_match_all('(\\$(\\w+))', $format, $matches);
+				$customKeys = $matches[1];
+				sort($customKeys);
+
 				if ($keys === $customKeys)
 				{
 					return self::replaceVars($format, $vars);
