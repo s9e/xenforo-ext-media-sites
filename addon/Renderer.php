@@ -216,13 +216,6 @@ class Renderer
 		return $html;
 	}
 
-	protected static function renderDumpert($vars)
-	{
-		$vars+=['id'=>null];$html='<span data-s9e-mediaembed="dumpert" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//www.dumpert.nl/embed/'.htmlspecialchars(strtr($vars['id'],'_','/'),2).'/" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>';
-
-		return $html;
-	}
-
 	protected static function renderGametrailers($vars)
 	{
 		$vars+=['id'=>null];$html='<span data-s9e-mediaembed="gametrailers" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//';if((strpos($vars['id'],'mgid:')===0)){$html.='media.mtvnservices.com/embed/'.htmlspecialchars($vars['id'],2);}else{$html.='embed.gametrailers.com/embed/'.htmlspecialchars($vars['id'],2).'?embed=1&amp;suppressBumper=1';}$html.='"></iframe></span></span>';
@@ -247,13 +240,6 @@ class Renderer
 	protected static function renderSoundcloud($vars)
 	{
 		$vars+=['id'=>null,'playlist_id'=>null,'secret_token'=>null,'track_id'=>null];$html='<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=';if(isset($vars['playlist_id'])){$html.='https%3A//api.soundcloud.com/playlists/'.htmlspecialchars($vars['playlist_id'],2);}elseif(isset($vars['track_id'])){$html.='https%3A//api.soundcloud.com/tracks/'.htmlspecialchars($vars['track_id'],2).'&amp;secret_token='.htmlspecialchars($vars['secret_token'],2);}else{if((strpos($vars['id'],'://')===false)){$html.='https%3A//soundcloud.com/';}$html.=htmlspecialchars($vars['id'],2);}$html.='" style="border:0;height:';if(isset($vars['playlist_id'])||(strpos($vars['id'],'/sets/')!==false)){$html.='450';}else{$html.='166';}$html.='px;max-width:900px;width:100%"></iframe>';
-
-		return $html;
-	}
-
-	protected static function renderSpotify($vars)
-	{
-		$vars+=['id'=>null,'path'=>null];$html='<span data-s9e-mediaembed="spotify" style="display:inline-block;width:100%;max-width:400px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:100%"><iframe allow="encrypted-media" allowfullscreen="" scrolling="no" src="https://open.spotify.com/embed/'.htmlspecialchars(strtr($vars['id'],':','/').$vars['path'],2).'" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>';
 
 		return $html;
 	}

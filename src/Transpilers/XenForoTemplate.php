@@ -23,12 +23,13 @@ class XenForoTemplate implements TranspilerInterface
 	public function transpile($template)
 	{
 		$replacements = [
-			'(\\{\\{)'                             => '&#123;',
-			'(\\}\\})'                             => '&#125;',
-			'(\\{@(\\w+)\\})'                      => '{$$1}',
-			'(<xsl:value-of select="@(\\w+)"/>)'   => '{$$1}',
-			'((<iframe[^>]+?)/>)'                  => '$1></iframe>',
-			'( data-s9e-livepreview[^=]*="[^"]*")' => '',
+			'(\\{\\{)'                               => '&#123;',
+			'(\\}\\})'                               => '&#125;',
+			'(\\{@(\\w+)\\})'                        => '{$$1}',
+			'(<xsl:value-of select="@(\\w+)"/>)'     => '{$$1}',
+			'((<iframe[^>]+?)/>)'                    => '$1></iframe>',
+			'( data-s9e-livepreview[^=]*="[^"]*")'   => '',
+			"(\\{translate\\(@id,'(.)','(.)'\\)\\})" => "{\$id|replace('\$1','\$2')}",
 
 			'(<xsl:if test="([^"]++)">)'               => '<xf:if is="$1">',
 			'(</xsl:if>)'                              => '</xf:if>',

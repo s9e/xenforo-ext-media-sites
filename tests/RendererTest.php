@@ -156,16 +156,6 @@ class RendererTest extends TestCase
 				'<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/cnn/newsday062413" style="border:0;height:166px;max-width:900px;width:100%"></iframe>'
 			],
 			[
-				'spotify',
-				'user:ozmoetr:playlist:4yRrCWNhWOqWZx5lmFqZvt',
-				'<span data-s9e-mediaembed="spotify" style="display:inline-block;width:100%;max-width:400px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:100%"><iframe allow="encrypted-media" allowfullscreen="" scrolling="no" src="https://open.spotify.com/embed/user/ozmoetr/playlist/4yRrCWNhWOqWZx5lmFqZvt" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>'
-			],
-			[
-				'spotify',
-				'path=user%3Aozmoetr%3Aplaylist%3A4yRrCWNhWOqWZx5lmFqZvt',
-				'<span data-s9e-mediaembed="spotify" style="display:inline-block;width:100%;max-width:400px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:100%"><iframe allow="encrypted-media" allowfullscreen="" scrolling="no" src="https://open.spotify.com/embed/user:ozmoetr:playlist:4yRrCWNhWOqWZx5lmFqZvt" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>'
-			],
-			[
 				'tumblr',
 				'did=5f3b4bc6718317df9c2b1e77c20839ab94f949cd;id=104191225637;key=uFhWDPKj-bGU0ZlDAnUyxg;name=mrbenvey',
 				'<iframe data-s9e-mediaembed="tumblr" allowfullscreen="" onload="var a=Math.random();window.addEventListener(\'message\',function(b){if(b.data.id==a)style.height=b.data.height+\'px\'});contentWindow.postMessage(\'s9e:\'+a,\'https://s9e.github.io\')" scrolling="no" src="https://s9e.github.io/iframe/tumblr.min.html#uFhWDPKj-bGU0ZlDAnUyxg/104191225637" style="border:0;height:180px;max-width:520px;width:100%"></iframe>'

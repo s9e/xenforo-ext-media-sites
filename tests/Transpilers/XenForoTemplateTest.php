@@ -148,6 +148,10 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 				'<xsl:if test="not(contains(@foo,\'/\'))">x</xsl:if>',
 				'<xf:if is="!contains($foo,\'/\')">x</xf:if>'
 			],
+			[
+				"<iframe src=\"{translate(@id,'_','/')}\"></iframe>",
+				"<iframe src=\"{\$id|replace('_','/')}\"></iframe>"
+			],
 		];
 	}
 }
