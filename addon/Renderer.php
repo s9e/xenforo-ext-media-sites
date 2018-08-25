@@ -236,11 +236,4 @@ class Renderer
 
 		return $html;
 	}
-
-	protected static function renderSoundcloud($vars)
-	{
-		$vars+=['id'=>null,'playlist_id'=>null,'secret_token'=>null,'track_id'=>null];$html='<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=';if(isset($vars['playlist_id'])){$html.='https%3A//api.soundcloud.com/playlists/'.htmlspecialchars($vars['playlist_id'],2);}elseif(isset($vars['track_id'])){$html.='https%3A//api.soundcloud.com/tracks/'.htmlspecialchars($vars['track_id'],2).'&amp;secret_token='.htmlspecialchars($vars['secret_token'],2);}else{if((strpos($vars['id'],'://')===false)){$html.='https%3A//soundcloud.com/';}$html.=htmlspecialchars($vars['id'],2);}$html.='" style="border:0;height:';if(isset($vars['playlist_id'])||(strpos($vars['id'],'/sets/')!==false)){$html.='450';}else{$html.='166';}$html.='px;max-width:900px;width:100%"></iframe>';
-
-		return $html;
-	}
 }

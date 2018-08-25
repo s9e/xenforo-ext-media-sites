@@ -60,6 +60,10 @@ class XF
 
 		return $template;
 	}
+	protected static function contains($haystack, $needle)
+	{
+		return strpos($haystack, $needle) !== false;
+	}
 	protected static function renderTernaries($template, array $vars)
 	{
 		preg_match_all('(\\$(\\w+))', $template, $matches);
@@ -69,7 +73,9 @@ class XF
 			'(\\{\\{(.+?)\\}\\})',
 			function ($m) use ($vars)
 			{
-				$php    = preg_replace('(\\$(\\w+))', '$vars["$1"]', $m[1]);
+				$php    = $m[1];
+				$php    = preg_replace('(\\$(\\w+))', '$vars["$1"]', $php);
+				$php    = str_replace('contains(', 'XF::contains(', $php);
 				$result = eval('return ' . $php . ';');
 
 				return $result;

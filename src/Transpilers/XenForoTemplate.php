@@ -201,9 +201,11 @@ class XenForoTemplate implements TranspilerInterface
 			"(^@(\\w+)(='.*')$)D"          => '$$1=$2',
 			'(^@(\\w+)>(\\d+)$)D'          => '$$1>$2',
 			'(^100\\*@height div@width$)D' => '100*$height/$width',
-			'(^100\\*\\(@height\\+(\\d+)\\)div@width$)D'  => '100*($height+$1)/$width',
-			"(^contains\\(@(\\w+,'[^']+')\\)$)D"          => 'contains($$1)',
-			"(^not\\(contains\\(@(\\w+,'[^']+')\\)\\)$)D" => '!contains($$1)',
+			'(^100\\*\\(@height\\+(\\d+)\\)div@width$)D'       => '100*($height+$1)/$width',
+			"(^contains\\(@(\\w+,'[^']+')\\)$)D"               => 'contains($$1)',
+			"(^not\\(contains\\(@(\\w+,'[^']+')\\)\\)$)D"      => '!contains($$1)',
+			"(^@(\\w+) or contains\\(@(\\w+,'[^']+')\\)$)D"    => '($$1 or contains($$2))',
+			"(^@(\\w+) and contains\\(('[^']+'),@(\\w+)\\)$)D" => '($$1 and contains($2,$$3))',
 		];
 
 		$expr = html_entity_decode($expr);
