@@ -181,13 +181,6 @@ class Renderer
 		return $vars;
 	}
 
-	protected static function renderAmazon($vars)
-	{
-		$vars+=['id'=>null,'tld'=>null];$options=XF::options();$html='<span data-s9e-mediaembed="amazon" style="display:inline-block;width:100%;max-width:120px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:200%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//ws-';if($vars['tld']==='jp'){$html.='fe';}elseif(isset($vars['tld'])&&(strpos('desfrinituk',$vars['tld'])!==false)){$html.='eu';}else{$html.='na';}$html.='.assoc-amazon.com/widgets/cm?l=as1&amp;f=ifr&amp;o=';switch($vars['tld']){case'ca':$html.='15&amp;t='.htmlspecialchars($options->s9e_MediaSites_AMAZON_ASSOCIATE_TAG_CA,2);break;case'de':$html.='3&amp;t='.htmlspecialchars($options->s9e_MediaSites_AMAZON_ASSOCIATE_TAG_DE,2);break;case'es':$html.='30&amp;t='.htmlspecialchars($options->s9e_MediaSites_AMAZON_ASSOCIATE_TAG_ES,2);break;case'fr':$html.='8&amp;t='.htmlspecialchars($options->s9e_MediaSites_AMAZON_ASSOCIATE_TAG_FR,2);break;case'in':$html.='31&amp;t='.htmlspecialchars($options->s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IN,2);break;case'it':$html.='29&amp;t='.htmlspecialchars($options->s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IT,2);break;case'jp':$html.='9&amp;t='.htmlspecialchars($options->s9e_MediaSites_AMAZON_ASSOCIATE_TAG_JP,2);break;case'uk':$html.='2&amp;t='.htmlspecialchars($options->s9e_MediaSites_AMAZON_ASSOCIATE_TAG_UK,2);break;default:$html.='1&amp;t='.htmlspecialchars($options->s9e_MediaSites_AMAZON_ASSOCIATE_TAG,2);}$html.='&amp;asins='.htmlspecialchars($vars['id'],2).'"></iframe></span></span>';
-
-		return $html;
-	}
-
 	protected static function renderAudiomack($vars)
 	{
 		$vars+=['id'=>null,'mode'=>null];$html='<iframe data-s9e-mediaembed="audiomack" allowfullscreen="" scrolling="no"';if($vars['mode']==='album'){$html.=' src="https://www.audiomack.com/embed/album/'.htmlspecialchars($vars['id'],2).'" style="border:0;height:400px;max-width:900px;width:100%"';}else{$html.=' src="https://www.audiomack.com/embed/song/'.htmlspecialchars($vars['id'],2).'" style="border:0;height:252px;max-width:900px;width:100%"';}$html.='></iframe>';

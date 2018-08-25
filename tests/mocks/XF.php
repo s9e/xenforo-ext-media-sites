@@ -74,6 +74,7 @@ class XF
 			function ($m) use ($vars)
 			{
 				$php    = $m[1];
+				$php    = preg_replace('(\\$xf\\.options\\.(\\w+))', 'XF::options()->$1', $php);
 				$php    = preg_replace('(\\$(\\w+))', '$vars["$1"]', $php);
 				$php    = str_replace('contains(', 'XF::contains(', $php);
 				$result = eval('return ' . $php . ';');

@@ -27,6 +27,7 @@ class XenForoTemplate implements TranspilerInterface
 			'(\\}\\})'                               => '&#125;',
 			'(\\{@(\\w+)\\})'                        => '{$$1}',
 			'(<xsl:value-of select="@(\\w+)"/>)'     => '{$$1}',
+			'(<xsl:value-of select="\\$(\\w+)"/>)'   => '{{$xf.options.s9e_MediaSites_$1}}',
 			'((<iframe[^>]+?)/>)'                    => '$1></iframe>',
 			'( data-s9e-livepreview[^=]*="[^"]*")'   => '',
 			"(\\{translate\\(@id,'(.)','(.)'\\)\\})" => "{\$id|replace('\$1','\$2')}",
@@ -197,6 +198,9 @@ class XenForoTemplate implements TranspilerInterface
 	protected static function convertXPath($expr)
 	{
 		$replacements = [
+			"(^\\$(\\w+)(='.*')$)D"                => '$xf.options.s9e_MediaSites_$1=$2',
+			"(^contains\\(\\$(\\w+,'[^']+')\\)$)D" => 'contains($xf.options.s9e_MediaSites_$1)',
+
 			'(^@(\\w+)$)D'                 => '$$1',
 			"(^@(\\w+)(='.*')$)D"          => '$$1=$2',
 			'(^@(\\w+)>(\\d+)$)D'          => '$$1>$2',
