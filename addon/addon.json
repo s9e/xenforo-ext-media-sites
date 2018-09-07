@@ -1,9 +1,9 @@
 {
     "legacy_addon_id": "",
-    "title": "s9e Media Sites",
+    "title": "s9e/MediaSites",
     "description": "Comprehensive collection of responsive media sites",
-    "version_id": 2000770,
-    "version_string": "2.0.7",
+    "version_id": 2000870,
+    "version_string": "2.0.8",
     "dev": "JoshyPHP",
     "dev_url": "https://xenforo.com/community/resources/s9e-media-sites.5973/",
     "faq_url": "https://xenforo.com/community/resources/s9e-media-sites.5973/field?field=faq",
