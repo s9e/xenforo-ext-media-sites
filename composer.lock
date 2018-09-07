@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "43eff0778de646dc60ee05569030227f",
+    "content-hash": "f70c9baea97b063be3df6d1aa62dcbb9",
     "packages": [],
     "packages-dev": [
         {
@@ -677,16 +677,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.3.2",
+            "version": "7.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "34705f81bddc3f505b9599a2ef96e2b4315ba9b8"
+                "reference": "0356331bf62896dc56e3a15030b23b73f38b2935"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/34705f81bddc3f505b9599a2ef96e2b4315ba9b8",
-                "reference": "34705f81bddc3f505b9599a2ef96e2b4315ba9b8",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/0356331bf62896dc56e3a15030b23b73f38b2935",
+                "reference": "0356331bf62896dc56e3a15030b23b73f38b2935",
                 "shasum": ""
             },
             "require": {
@@ -757,7 +757,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-08-22T06:39:21+00:00"
+            "time": "2018-09-05T09:58:53+00:00"
         },
         {
             "name": "s9e/regexp-builder",
@@ -839,12 +839,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "51a90152549f6d2591c2fb77240b236fc0a323d7"
+                "reference": "f73f8c737029b57c2b184e00c502addc30988be6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/51a90152549f6d2591c2fb77240b236fc0a323d7",
-                "reference": "51a90152549f6d2591c2fb77240b236fc0a323d7",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/f73f8c737029b57c2b184e00c502addc30988be6",
+                "reference": "f73f8c737029b57c2b184e00c502addc30988be6",
                 "shasum": ""
             },
             "require": {
@@ -896,7 +896,7 @@
                 "parser",
                 "shortcodes"
             ],
-            "time": "2018-08-18T10:12:24+00:00"
+            "time": "2018-09-07T19:11:11+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
