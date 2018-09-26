@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <template_modifications>
+  <modification type="public" template="_media_site_embed_youtube" modification_key="s9e_MediaSites_YouTube_Privacy" description="Enables YouTube's privacy-enhanced mode." execution_order="10" enabled="0" action="str_replace">
+    <find><![CDATA[src="https://www.youtube.com/embed/]]></find>
+    <replace><![CDATA[src="https://www.youtube-nocookie.com/embed/]]></replace>
+  </modification>
   <modification type="public" template="bb_code.less" modification_key="s9e_MediaSites_EmbedsInQuotes" description="Limits the size of embeds within expandable quotes" execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[(^)]]></find>
     <replace><![CDATA[.is-expandable:not(.is-expanded) [data-s9e-mediaembed]
@@ -10,9 +14,7 @@
 {
 	position: unset !important;
 }
-
-
-]]></replace>
+$0]]></replace>
   </modification>
   <modification type="public" template="editor.less" modification_key="s9e_MediaSites_InsertMediaScroller" description="Adds a scrollbar to the list of media sites in the Insert Media dialog" execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[(^)]]></find>
@@ -21,9 +23,7 @@
 	max-height: 33vh;
 	overflow-y: scroll;
 }
-
-
-]]></replace>
+$0]]></replace>
   </modification>
   <modification type="public" template="xfmg_media_list.less" modification_key="s9e_MediaSites_XFMG" description="Removes the size limits of embedded media in XFMG" execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[(^)]]></find>
@@ -31,8 +31,6 @@
 {
 	max-width: 100% !important;
 }
-
-
-]]></replace>
+$0]]></replace>
   </modification>
 </template_modifications>
