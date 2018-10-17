@@ -1,12 +1,12 @@
 (function(attrName)
 {
-	/* @const Zone in pixels above the visible area where iframes are considered visible */
+	// Zone in pixels above the visible area where iframes are considered visible
 	const ABOVE_SCREEN = 200;
 
-	/* @const Zone in pixels below the visible area where iframes are considered visible */
+	// Zone in pixels below the visible area where iframes are considered visible
 	const BELOW_SCREEN = 600;
 
-	/* @const Delay in milliseconds between scroll events and checking for visible iframes */
+	// Delay in milliseconds between scroll events and checking for visible iframes
 	const REFRESH_DELAY = 32;
 
 	var nodes   = document.querySelectorAll('iframe[' + attrName + ']'),
