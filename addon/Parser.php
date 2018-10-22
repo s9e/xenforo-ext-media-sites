@@ -77,12 +77,11 @@ class Parser
 		'imgur'=>[['@imgur\\.com/(?<id>a/\\w+)@','@i\\.imgur\\.com/(?<id>\\w{5,7})[lms]?\\.@','@imgur\\.com/(?<id>\\w+)(?![\\w./])@'],[],[['extract'=>['@data-id="(?<id>[\\w/]+)"@'],'match'=>["@imgur\\.com/(?![art]/|user/)(?'path'(?:gallery/)?\\w+)(?![\\w.])@"],'url'=>'https://api.imgur.com/oembed.xml?url=/{@path}']]],
 		'indiegogo'=>[['!indiegogo\\.com/projects/(?<id>[-\\w]+)!']],
 		'instagram'=>[['!instagram\\.com/(?:p|tv)/(?<id>[-\\w]+)!']],
-		'internetarchive'=>[[],[],[['extract'=>['!meta property="twitter:player" content="https://archive.org/embed/(?<id>[^/"]+)!','!meta property="og:video:width" content="(?<width>\\d+)!','!meta property="og:video:height" content="(?<height>\\d+)!'],'match'=>['!archive\\.org/details/!']]],['height'=>['s9e\\MediaSites\\Parser::filterUint'],'width'=>['s9e\\MediaSites\\Parser::filterUint']]],
+		'internetarchive'=>[[],[],[['extract'=>['!meta property="twitter:player" content="https://archive.org/embed/(?<id>[^/"]+)!','!meta property="og:video:width" content="(?<width>\\d+)!','!meta property="og:video:height" content="(?<height>\\d+)!'],'match'=>['!archive\\.org/(?:details|embed)/!']]],['height'=>['s9e\\MediaSites\\Parser::filterUint'],'width'=>['s9e\\MediaSites\\Parser::filterUint']]],
 		'izlesene'=>[['!izlesene\\.com/video/[-\\w]+/(?<id>\\d+)!']],
 		'jwplatform'=>[['!jwplatform\\.com/\\w+/(?<id>[-\\w]+)!']],
 		'khl'=>[[],[],[['extract'=>['!/feed/start/(?<id>[/\\w]+)!'],'match'=>['!video\\.khl\\.ru/(?:event|quote)s/\\d!']]]],
 		'kickstarter'=>[['!kickstarter\\.com/projects/(?<id>[^/]+/[^/?]+)(?:/widget/(?:(?<card>card)|(?<video>video)))?!']],
-		'kissvideo'=>[['!kissvideo\\.click/[^_]*_(?<id>[0-9a-f]+)!']],
 		'libsyn'=>[[],[],[['extract'=>['!embed/episode/id/(?<id>\\d+)!'],'match'=>['@(?!\\.mp3)....$@']]]],
 		'livecap'=>[['!livecap.tv/[st]/(?<channel>\\w+)/(?<id>\\w+)!']],
 		'liveleak'=>[['!liveleak\\.com/(?:e/|view\\?i=)(?<id>\\w+)!'],[],[['extract'=>['!liveleak\\.com/e/(?<id>\\w+)!'],'match'=>['!liveleak\\.com/view\\?t=!']]]],
@@ -136,7 +135,6 @@ class Parser
 		'veoh'=>[['!veoh\\.com/(?:m/watch\\.php\\?v=|watch/)v(?<id>\\w+)!']],
 		'vevo'=>[['!vevo\\.com/watch/(.*?/)?(?<id>[A-Z]+\\d+)!']],
 		'videodetective'=>[['!videodetective\\.com/\\w+/[-\\w]+/(?:trailer/P0*)?(?<id>\\d+)!']],
-		'videomega'=>[['!videomega\\.tv/\\?ref=(?<id>\\w+)!']],
 		'vimeo'=>[['!vimeo\\.com/(?:channels/[^/]+/|video/)?(?<id>\\d+)!','!#t=(?<t>[\\dhms]+)!'],[],[],['t'=>['s9e\\MediaSites\\Parser::filterTimestamp']]],
 		'vine'=>[['!vine\\.co/v/(?<id>[^/]+)!']],
 		'vk'=>[['!vk(?:\\.com|ontakte\\.ru)/(?:[\\w.]+\\?z=)?video(?<oid>-?\\d+)_(?<vid>\\d+).*?hash=(?<hash>[0-9a-f]+)!','!vk(?:\\.com|ontakte\\.ru)/video_ext\\.php\\?oid=(?<oid>-?\\d+)&id=(?<vid>\\d+)&hash=(?<hash>[0-9a-f]+)!']],
@@ -149,7 +147,7 @@ class Parser
 		'xboxdvr'=>[['!xboxdvr\\.com/gamer/(?<user>[^/]+)/video/(?<id>\\d+)!']],
 		'yahooscreen'=>[['!screen\\.yahoo\\.com/(?:[-\\w]+/)?(?<id>[-\\w]+)\\.html!']],
 		'youku'=>[['!youku\\.com/v(?:_show|ideo)/id_(?<id>\\w+=*)!']],
-		'youtube'=>[['!youtube\\.com/(?:watch.*?v=|v/|attribution_link.*?v%3D)(?<id>[-\\w]+)!','!youtu\\.be/(?<id>[-\\w]+)!','@[#&?]t=(?<t>\\d[\\dhms]*)@','!&list=(?<list>[-\\w]+)!'],[],[['extract'=>['!/vi/(?<id>[-\\w]+)!'],'match'=>['!/shared\\?ci=!']]],['id'=>['s9e\\MediaSites\\Parser::filterIdentifier'],'t'=>['s9e\\MediaSites\\Parser::filterTimestamp']]]
+		'youtube'=>[['!youtube\\.com/(?:watch.*?v=|v/|attribution_link.*?v%3D)(?<id>[-\\w]+)!','!youtu\\.be/(?<id>[-\\w]+)!','@[#&?]t=(?<t>\\d[\\dhms]*)@','![&?]list=(?<list>[-\\w]+)!'],[],[['extract'=>['!/vi/(?<id>[-\\w]+)!'],'match'=>['!/shared\\?ci=!']]],['id'=>['s9e\\MediaSites\\Parser::filterIdentifier'],'t'=>['s9e\\MediaSites\\Parser::filterTimestamp']]]
 	];
 
 	/**
