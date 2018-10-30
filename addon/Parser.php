@@ -69,7 +69,7 @@ class Parser
 		'googleplus'=>[['!//plus\\.google\\.com/(?:u/\\d+/)?(?:\\+(?<name>[^/]+)|(?<oid>\\d+))/posts/(?<pid>\\w+)!'],[],[],['name'=>['urldecode']]],
 		'googlesheets'=>[['@docs\\.google\\.com/spreadsheet(?:/ccc\\?key=|s/d/)(?!e/)(?<id>[-\\w]+)[^#]*(?:#gid=(?<gid>\\d+))?@']],
 		'healthguru'=>[[],[],[['extract'=>['!healthguru\\.com/embed/(?<id>\\w+)!'],'match'=>['!healthguru\\.com/(?:content/)?video/.!']]]],
-		'hudl'=>[['!hudl\\.com/athlete/(?<athlete>\\d+)/highlights/(?<highlight>[\\da-f]+)!','!hudl\\.com/video/\\d+/(?<athlete>\\d+)/(?<highlight>[\\da-f]+)!'],[],[['extract'=>['!hudl\\.com/video/\\d+/(?<athlete>\\d+)/(?<highlight>[\\da-f]+)!'],'match'=>['!hudl\\.com/v/!']]]],
+		'hudl'=>[['!hudl\\.com/athlete/(?<athlete>\\d+)/highlights/(?<highlight>[\\da-f]+)!','!hudl\\.com/video/\\d+/(?<athlete>\\d+)/(?<highlight>[\\da-f]+)!','@hudl\\.com/video/(?<id>\\w+)(?![\\w/])@'],[],[['extract'=>['!hudl\\.com/video/\\d+/(?<athlete>\\d+)/(?<highlight>[\\da-f]+)!','@hudl\\.com/video/(?<id>\\w+)(?![\\w/])@'],'match'=>['!hudl\\.com/v/!']]]],
 		'hulu'=>[[],[],[['extract'=>['!eid=(?<id>[-\\w]+)!'],'match'=>['!hulu\\.com/watch/!']]]],
 		'humortvnl'=>[['!humortv\\.vara\\.nl/\\w+\\.(?<id>[-.\\w]+)\\.html!']],
 		'ign'=>[['!(?<id>https?://.*?ign\\.com/videos/.+)!i']],
