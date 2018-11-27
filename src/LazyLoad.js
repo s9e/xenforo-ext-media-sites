@@ -10,14 +10,14 @@
 	const REFRESH_DELAY = 32;
 
 	var nodes   = document.querySelectorAll('iframe[' + attrName + ']'),
-		i       = nodes.length,
+		i       = 0,
 		iframes = [],
 		top     = -ABOVE_SCREEN,
 		bottom  = 0,
 		timeout = 0;
-	while (--i >= 0)
+	while (i < nodes.length)
 	{
-		iframes.push(nodes[i]);
+		iframes.push(nodes[i++]);
 	}
 
 	prepareEvents(addEventListener);
