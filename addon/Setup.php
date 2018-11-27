@@ -34,6 +34,20 @@ class Setup extends AbstractSetup
 	{
 	}
 
+	public static function validateExperimentalInstagramIframe($newValue, Option $option)
+	{
+		self::setTemplateModification($option, 'Instagram_v2', (bool) $newValue);
+
+		return true;
+	}
+
+	public static function validateExperimentalTwitterIframe($newValue, Option $option)
+	{
+		self::setTemplateModification($option, 'Twitter_v2', (bool) $newValue);
+
+		return true;
+	}
+
 	public static function validateFooter($newValue, Option $option)
 	{
 		self::setTemplateModification($option, 'Footer', ($newValue === 'show'));

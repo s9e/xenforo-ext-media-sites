@@ -30,7 +30,7 @@
   </option>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_JP" edit_format="textbox" data_type="string">
     <default_value></default_value>
-    <relation group_id="s9e_MediaSites" display_order="7"/>
+    <relation group_id="s9e_MediaSites" display_order="17"/>
   </option>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_UK" edit_format="textbox" data_type="string">
     <default_value></default_value>
@@ -42,8 +42,16 @@
 hide=I do not want to display a link to this add-on</edit_format_params>
     <relation group_id="s9e_MediaSites" display_order="1"/>
   </option>
+  <option option_id="s9e_MediaSites_Instagram_v2" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateExperimentalInstagramIframe">
+    <default_value>1</default_value>
+    <relation group_id="s9e_MediaSites" display_order="2"/>
+  </option>
+  <option option_id="s9e_MediaSites_Twitter_v2" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateExperimentalTwitterIframe">
+    <default_value>1</default_value>
+    <relation group_id="s9e_MediaSites" display_order="3"/>
+  </option>
   <option option_id="s9e_MediaSites_YouTube_Privacy" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateYouTubePrivacy">
     <default_value></default_value>
-    <relation group_id="s9e_MediaSites" display_order="2"/>
+    <relation group_id="s9e_MediaSites" display_order="4"/>
   </option>
 </options>

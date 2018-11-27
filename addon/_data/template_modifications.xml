@@ -4,6 +4,14 @@
     <find><![CDATA[((\s*)(\{\{ phrase\('extra_copyright'\) \}\}))]]></find>
     <replace><![CDATA[$1$2$1| <a class="u-concealed" dir="ltr" target="_blank" href="https://xenforo.com/community/resources/s9e-media-sites.5973/">Media embeds via s9e/MediaSites</a>]]></replace>
   </modification>
+  <modification type="public" template="_media_site_embed_instagram" modification_key="s9e_MediaSites_Instagram_v2" description="Enables the experimental Instagram iframe resizing" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[(onload="[^"]*"(.*?)src="[^"]*")]]></find>
+    <replace><![CDATA[onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])"$1src="https://s9e.github.io/iframe/2/instagram.min.html#{$id}"]]></replace>
+  </modification>
+  <modification type="public" template="_media_site_embed_twitter" modification_key="s9e_MediaSites_Twitter_v2" description="Enables the experimental Twitter iframe resizing" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[(onload="[^"]*"(.*?)src="[^"]*")]]></find>
+    <replace><![CDATA[onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])"$1src="https://s9e.github.io/iframe/2/twitter.min.html#{$id}"]]></replace>
+  </modification>
   <modification type="public" template="_media_site_embed_youtube" modification_key="s9e_MediaSites_YouTube_Privacy" description="Enables YouTube's privacy-enhanced mode." execution_order="10" enabled="0" action="str_replace">
     <find><![CDATA[src="https://www.youtube.com/embed/]]></find>
     <replace><![CDATA[src="https://www.youtube-nocookie.com/embed/]]></replace>
