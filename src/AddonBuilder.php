@@ -102,8 +102,8 @@ class AddonBuilder
 			$this->addSite($root, $siteId);
 		}
 
-		$this->patchOptions();
-		$this->patchPhrases();
+//		$this->patchOptions();
+//		$this->patchPhrases();
 		$this->patchParser();
 		$this->patchRenderer();
 
@@ -453,7 +453,7 @@ class AddonBuilder
 		$dom  = $this->createDOM('options');
 		$root = $dom->documentElement;
 
-		$order = 0;
+		$order = 10;
 		foreach ($this->params as $paramName => $paramConfig)
 		{
 			$option = $root->appendChild($dom->createElement('option'));
