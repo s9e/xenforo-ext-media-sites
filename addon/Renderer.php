@@ -47,7 +47,13 @@ class Renderer
 		}
 
 		// Use XenForo's default template
-		return XF::app()->templater()->renderTemplate('public:_media_site_embed_' . $siteId, $vars);
+		$html = @XF::app()->templater()->renderTemplate('public:_media_site_embed_' . $siteId, $vars);
+		if (empty($html))
+		{
+			$html = '<div class="blockMessage blockMessage--error blockMessage--iconic">Template public:_media_site_embed_' . $siteId . ' not found.</div>';
+		}
+
+		return $html;
 	}
 
 	/**
