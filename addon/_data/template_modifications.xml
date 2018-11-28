@@ -28,6 +28,12 @@
 }
 $0]]></replace>
   </modification>
+  <modification type="public" template="core.less" modification_key="s9e_MediaSites_SmoothIframes" description="Adds a short CSS transition for dynamically-sized iframes" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[(^)]]></find>
+    <replace><![CDATA[iframe[data-s9e-mediaembed] { transition: height .2s }
+
+$0]]></replace>
+  </modification>
   <modification type="public" template="editor.less" modification_key="s9e_MediaSites_InsertMediaScroller" description="Adds a scrollbar to the list of media sites in the Insert Media dialog" execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[(^)]]></find>
     <replace><![CDATA[#editor_media_form ul
