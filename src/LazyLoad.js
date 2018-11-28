@@ -1,7 +1,7 @@
 (function(attrName)
 {
-	// Zone in pixels above the viewport where iframes are considered visible
-	const ABOVE_SCREEN = 0;
+	// Zone in pixels above the viewport where static iframes are considered visible
+	const ABOVE_SCREEN = 200;
 
 	// Zone in pixels below the viewport where iframes are considered visible
 	const BELOW_SCREEN = 600;
@@ -12,7 +12,7 @@
 	var nodes   = document.querySelectorAll('iframe[' + attrName + ']'),
 		i       = 0,
 		iframes = [],
-		top     = -ABOVE_SCREEN,
+		top     = 0 - ABOVE_SCREEN,
 		bottom  = 0,
 		timeout = 0;
 	while (i < nodes.length)
@@ -35,7 +35,7 @@
 		var rect = iframe.getBoundingClientRect();
 
 		// Test for width to ensure the iframe isn't hidden in a spoiler
-		return (rect.bottom > top && rect.top < bottom && rect.width);
+		return (rect.bottom > (iframe.hasAttribute('onload') ? 0 : top) && rect.top < bottom && rect.width);
 	}
 
 	function scheduleLoading()
