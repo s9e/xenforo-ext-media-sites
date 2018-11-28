@@ -1,9 +1,9 @@
 (function(attrName)
 {
-	// Zone in pixels above the visible area where iframes are considered visible
-	const ABOVE_SCREEN = 200;
+	// Zone in pixels above the viewport where iframes are considered visible
+	const ABOVE_SCREEN = 0;
 
-	// Zone in pixels below the visible area where iframes are considered visible
+	// Zone in pixels below the viewport where iframes are considered visible
 	const BELOW_SCREEN = 600;
 
 	// Delay in milliseconds between scroll events and checking for visible iframes
