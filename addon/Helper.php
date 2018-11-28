@@ -46,6 +46,6 @@ class Helper
 			$output
 		);
 
-		$output .= '<script>(function(d){function f(b){b("click",e);b("resize",e);b("scroll",e)}function e(){clearTimeout(g);g=setTimeout(h,32)}function h(){k=innerHeight+600;var b=[];a.forEach(function(c){var a=c.getBoundingClientRect();a.bottom>(c.hasAttribute("onload")?0:-200)&&a.top<k&&a.width?(c.contentWindow.location.replace(c.getAttribute(d)),c.removeAttribute(d)):b.push(c)});a=b;a.length||f(removeEventListener)}for(var l=document.querySelectorAll("iframe["+d+"]"),m=0,a=[],k=0,g=0;m<l.length;)a.push(l[m++]);f(addEventListener);h()})("data-s9e-lazyload-src")</script>';
+		$output .= '<script>(function(f,d,g){function h(){k(f);l()}function k(b){b("click",e);b("resize",e);b("scroll",e)}function e(){clearTimeout(m);m=setTimeout(l,32)}function l(){n=innerHeight+600;var b=[];a.forEach(function(c){var a=c.getBoundingClientRect();a.bottom>(c.hasAttribute("onload")?0:-200)&&a.top<n&&a.width?(c.contentWindow.location.replace(c.getAttribute(d)),c.removeAttribute(d)):b.push(c)});a=b;a.length||k(removeEventListener)}for(var p=g.querySelectorAll("iframe["+d+"]"),q=0,a=[],n=0,m=0;q<p.length;)a.push(p[q++]);"complete"===g.readyState?h():f("load",h)})(addEventListener,"data-s9e-lazyload-src",document)</script>';
 	}
 }

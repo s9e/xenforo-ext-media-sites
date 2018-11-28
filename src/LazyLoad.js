@@ -1,4 +1,4 @@
-(function(attrName)
+(function(addEventListener, attrName, document)
 {
 	// Zone in pixels above the viewport where static iframes are considered visible
 	const ABOVE_SCREEN = 200;
@@ -20,8 +20,21 @@
 		iframes.push(nodes[i++]);
 	}
 
-	prepareEvents(addEventListener);
-	loadIframes();
+	// Wait until the document is loaded to leave the browser time to scroll to the URL's target
+	if (document.readyState === 'complete')
+	{
+		init();
+	}
+	else
+	{
+		addEventListener('load', init);
+	}
+
+	function init()
+	{
+		prepareEvents(addEventListener);
+		loadIframes();
+	}
 
 	function prepareEvents(fn)
 	{
@@ -71,4 +84,4 @@
 			prepareEvents(removeEventListener);
 		}
 	}
-})('data-s9e-lazyload-src');
+})(addEventListener, 'data-s9e-lazyload-src', document);
