@@ -28,17 +28,21 @@ class Helper
 		}
 
 		$output = preg_replace_callback(
-			'((<(?:span data-s9e-mediaembed="[^>]++><span[^>]++><iframe|iframe data-s9e-mediaembed=")[^>]+? src=")([^>]++))S',
+			'((<(?:span data-s9e-mediaembed="[^>]++><span[^>]++><iframe|iframe data-s9e-mediaembed=")[^>]+? )(src="[^>]++))S',
 			function ($m)
 			{
-				$html = $m[1] . 'data:text/html," data-s9e-lazyload-src="' . $m[2];
+				$html = $m[1] . 'data-s9e-mediaembed-' . $m[2];
 				if (strpos($html, ' onload="') !== false)
 				{
-					$html = preg_replace(
-						'( onload="([^"]++)")',
-						' onload="if(!hasAttribute(\'data-s9e-lazyload-src\')){$1}"',
-						$html
-					);
+					if (strpos($html, 'data-s9e-mediaembed-api') === false)
+					{
+						$replace = ' onload="if(!contentDocument){$1}"';
+					}
+					else
+					{
+						$replace = '';
+					}
+					$html = preg_replace('( onload="([^"]++)")', $replace, $html);
 				}
 
 				return $html;
@@ -46,6 +50,6 @@ class Helper
 			$output
 		);
 
-		$output .= '<script>(function(f,d,g){function h(){k(f);l()}function k(b){b("click",e);b("resize",e);b("scroll",e)}function e(){clearTimeout(m);m=setTimeout(l,32)}function l(){n=innerHeight+600;var b=[];a.forEach(function(c){var a=c.getBoundingClientRect();a.bottom>(c.hasAttribute("onload")?0:-200)&&a.top<n&&a.width?(c.contentWindow.location.replace(c.getAttribute(d)),c.removeAttribute(d)):b.push(c)});a=b;a.length||k(removeEventListener)}for(var p=g.querySelectorAll("iframe["+d+"]"),q=0,a=[],n=0,m=0;q<p.length;)a.push(p[q++]);"complete"===g.readyState?h():f("load",h)})(addEventListener,"data-s9e-lazyload-src",document)</script>';
+		$output .= '<script>(function(h,e,f){function k(){l(h);m()}function l(a){a("click",g);a("resize",g);a("scroll",g)}function g(){clearTimeout(n);n=setTimeout(m,32)}function t(a){var d=a.contentWindow,c=a.getAttribute(e+"src");2==a.getAttribute(e+"api")&&(a.onload=function(){var b=new MessageChannel,e=c.substr(0,c.indexOf("/",8));d.postMessage("s9e:init",e,[b.port2]);b.port1.onmessage=function(c){c=(""+c.data).split(" ");var b=a.style,d=30>a.getBoundingClientRect().top?f.body.getBoundingClientRect().height:0;d&&(b.transition="none");b.height=c[0]+"px";c[1]&&(b.width=c[1]+"px");d&&(scrollBy(0,f.body.getBoundingClientRect().height-d),b.transition="")}});if(a.contentDocument)d.location.replace(c);else if(a.onload)a.onload()}function m(){p=innerHeight+600;var a=[];b.forEach(function(b){var c=b.getBoundingClientRect();-400<c.bottom&&c.top<p&&c.width?t(b):a.push(b)});b=a;b.length||l(removeEventListener)}for(var q=f.querySelectorAll("iframe["+e+"src]"),r=0,b=[],p=0,n=0;r<q.length;)b.push(q[r++]);"complete"===f.readyState?k():h("load",k)})(addEventListener,"data-s9e-mediaembed-",document)</script>';
 	}
 }

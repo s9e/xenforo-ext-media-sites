@@ -1,15 +1,18 @@
-(function(addEventListener, attrName, document)
+(function(addEventListener, prefix, document)
 {
-	// Zone in pixels above the viewport where static iframes are considered visible
-	const ABOVE_SCREEN = 200;
+	// Zone in pixels above the viewport where iframes are loaded
+	const ABOVE_SCREEN = 400;
 
-	// Zone in pixels below the viewport where iframes are considered visible
+	// Zone in pixels below the viewport where iframes are loaded
 	const BELOW_SCREEN = 600;
+
+	// Zone in pixels at the top of the viewport that is expected to be obstructed by the header
+	const HEADER_HEIGHT = 30;
 
 	// Delay in milliseconds between scroll events and checking for visible iframes
 	const REFRESH_DELAY = 32;
 
-	var nodes   = document.querySelectorAll('iframe[' + attrName + ']'),
+	var nodes   = document.querySelectorAll('iframe[' + prefix + 'src]'),
 		i       = 0,
 		iframes = [],
 		top     = 0 - ABOVE_SCREEN,
@@ -43,18 +46,73 @@
 		fn('scroll', scheduleLoading);
 	}
 
-	function isVisible(iframe)
+	function isInRange(iframe)
 	{
 		var rect = iframe.getBoundingClientRect();
 
 		// Test for width to ensure the iframe isn't hidden in a spoiler
-		return (rect.bottom > (iframe.hasAttribute('onload') ? 0 : top) && rect.top < bottom && rect.width);
+		return (rect.bottom > top && rect.top < bottom && rect.width);
 	}
 
 	function scheduleLoading()
 	{
 		clearTimeout(timeout);
 		timeout = setTimeout(loadIframes, REFRESH_DELAY);
+	}
+
+	function getBodyHeight()
+	{
+		return document.body.getBoundingClientRect().height;
+	}
+
+	function loadIframe(iframe)
+	{
+		var contentWindow = iframe.contentWindow,
+			src           = iframe.getAttribute(prefix + 'src');
+		if (iframe.getAttribute(prefix + 'api') == 2)
+		{
+			iframe.onload = function ()
+			{
+				var channel = new MessageChannel,
+					origin  = src.substr(0, src.indexOf('/', 8));
+
+				contentWindow.postMessage('s9e:init', origin, [channel.port2]);
+				channel.port1.onmessage = function (e)
+				{
+					var dimensions = ("" + e.data).split(' '),
+						style      = iframe.style,
+						oldHeight  = (iframe.getBoundingClientRect().top < HEADER_HEIGHT) ? getBodyHeight() : 0;
+					if (oldHeight)
+					{
+						style.transition = 'none';
+					}
+
+					style.height = dimensions[0] + 'px';
+					if (dimensions[1])
+					{
+						style.width = dimensions[1] + 'px';
+					}
+
+					if (oldHeight)
+					{
+						scrollBy(0, getBodyHeight() - oldHeight);
+						style.transition = '';
+					}
+				};
+			};
+		}
+
+		if (iframe.contentDocument)
+		{
+			// Replace the iframe's location if it still holds the empty document
+			contentWindow.location.replace(src);
+		}
+		else if (iframe.onload)
+		{
+			// Mannually trigger the iframe's onload if the iframe was preloaded by the browser.
+			// That can happen on Chrome when using back/forward navigation
+			iframe.onload();
+		}
 	}
 
 	function loadIframes()
@@ -66,10 +124,9 @@
 		iframes.forEach(
 			function (iframe)
 			{
-				if (isVisible(iframe))
+				if (isInRange(iframe))
 				{
-					iframe.contentWindow.location.replace(iframe.getAttribute(attrName));
-					iframe.removeAttribute(attrName);
+					loadIframe(iframe);
 				}
 				else
 				{
@@ -84,4 +141,4 @@
 			prepareEvents(removeEventListener);
 		}
 	}
-})(addEventListener, 'data-s9e-lazyload-src', document);
+})(addEventListener, 'data-s9e-mediaembed-', document);
