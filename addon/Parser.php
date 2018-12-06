@@ -87,7 +87,7 @@ class Parser
 		'liveleak'=>[['!liveleak\\.com/(?:e/|view\\?i=)(?<id>\\w+)!'],[],[['extract'=>['!liveleak\\.com/e/(?<id>\\w+)!'],'match'=>['!liveleak\\.com/view\\?t=!']]]],
 		'livestream'=>[['!livestream\\.com/accounts/(?<account_id>\\d+)/events/(?<event_id>\\d+)!','!/videos/(?<video_id>\\d+)!','!original\\.livestream\\.com/(?<channel>\\w+)/video\\?clipId=(?<clip_id>[-\\w]+)!'],[],[['extract'=>['!accounts/(?<account_id>\\d+)/events/(?<event_id>\\d+)!'],'match'=>['@livestream\\.com/(?!accounts/\\d+/events/\\d)@']],['extract'=>['!//original\\.livestream\\.com/(?<channel>\\w+)/video/(?<clip_id>[-\\w]+)!'],'match'=>['!livestre.am!']]]],
 		'mailru'=>[[],[],[['extract'=>['!"itemId": ?"?(?<id>\\d+)!'],'match'=>['!my\\.mail\\.ru/\\w+/\\w+/video/\\w+/\\d!']]]],
-		'medium'=>[['!medium\\.com/[^/]*/(?:[-\\w]+-)?(?<id>[\\da-f]+)!']],
+		'medium'=>[['!medium\\.com/(?:s/)?[^/]*/(?:[-\\w]+-)?(?<id>[\\da-f]+)!']],
 		'metacafe'=>[['!metacafe\\.com/watch/(?<id>\\d+)!']],
 		'mixcloud'=>[['@mixcloud\\.com/(?!categories|tag)(?<id>[-\\w]+/[^/&]+)/@']],
 		'mlb'=>[['#mlb\\.com/video/(?:[-\\w/]+/)?(?:c-|v)(?<id>\\d+)#']],

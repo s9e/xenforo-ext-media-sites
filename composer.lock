@@ -4,8 +4,74 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "12ae6c6c924db3a33e1ddd4c4ec41ccf",
-    "packages": [],
+    "content-hash": "2cdd82d9ee9b159ba72d81800ca694e7",
+    "packages": [
+        {
+            "name": "s9e/text-formatter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/s9e/TextFormatter.git",
+                "reference": "1ba5d66857b95dbfb7fdf625ef930b2b137531b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/1ba5d66857b95dbfb7fdf625ef930b2b137531b4",
+                "reference": "1ba5d66857b95dbfb7fdf625ef930b2b137531b4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-filter": "*",
+                "lib-pcre": ">=7.2",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "matthiasmullie/minify": "*",
+                "php-coveralls/php-coveralls": "*",
+                "s9e/regexp-builder": "1.*"
+            },
+            "suggest": {
+                "ext-curl": "Improves the performance of the MediaEmbed plugin and some JavaScript minifiers",
+                "ext-intl": "Allows international URLs to be accepted by the URL filter",
+                "ext-json": "Enables the generation of a JavaScript parser",
+                "ext-mbstring": "Improves the performance of the PHP renderer",
+                "ext-tokenizer": "Improves the performance of the PHP renderer",
+                "ext-xsl": "Enables the XSLT renderer",
+                "ext-zlib": "Enables gzip compression when scraping content via the MediaEmbed plugin"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "s9e\\TextFormatter\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Multi-purpose text formatting and markup library. Plugins offer support for BBCodes, Markdown, emoticons, HTML, embedding media (YouTube, etc...), enhanced typography and more.",
+            "homepage": "https://github.com/s9e/TextFormatter/",
+            "keywords": [
+                "bbcode",
+                "bbcodes",
+                "blog",
+                "censor",
+                "embed",
+                "emoji",
+                "emoticons",
+                "engine",
+                "forum",
+                "html",
+                "markdown",
+                "markup",
+                "media",
+                "parser",
+                "shortcodes"
+            ],
+            "time": "2018-12-06T00:00:27+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "doctrine/instantiator",
@@ -680,16 +746,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.4.4",
+            "version": "7.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "b1be2c8530c4c29c3519a052c9fb6cee55053bbd"
+                "reference": "61d34e8dd6eb3555900f0f2a2fa9e7e570730102"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b1be2c8530c4c29c3519a052c9fb6cee55053bbd",
-                "reference": "b1be2c8530c4c29c3519a052c9fb6cee55053bbd",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/61d34e8dd6eb3555900f0f2a2fa9e7e570730102",
+                "reference": "61d34e8dd6eb3555900f0f2a2fa9e7e570730102",
                 "shasum": ""
             },
             "require": {
@@ -710,7 +776,7 @@
                 "phpunit/php-timer": "^2.0",
                 "sebastian/comparator": "^3.0",
                 "sebastian/diff": "^3.0",
-                "sebastian/environment": "^3.1 || ^4.0",
+                "sebastian/environment": "^4.0",
                 "sebastian/exporter": "^3.1",
                 "sebastian/global-state": "^2.0",
                 "sebastian/object-enumerator": "^3.0.3",
@@ -760,7 +826,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-11-14T16:52:02+00:00"
+            "time": "2018-12-03T05:01:24+00:00"
         },
         {
             "name": "s9e/regexp-builder",
@@ -835,71 +901,6 @@
                 "source"
             ],
             "time": "2017-12-01T02:24:51+00:00"
-        },
-        {
-            "name": "s9e/text-formatter",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "7651e0c8ad36ac73d8a8ca0c951a03870cdebf04"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/7651e0c8ad36ac73d8a8ca0c951a03870cdebf04",
-                "reference": "7651e0c8ad36ac73d8a8ca0c951a03870cdebf04",
-                "shasum": ""
-            },
-            "require": {
-                "ext-dom": "*",
-                "ext-filter": "*",
-                "lib-pcre": ">=7.2",
-                "php": ">=5.6.0"
-            },
-            "require-dev": {
-                "matthiasmullie/minify": "*",
-                "php-coveralls/php-coveralls": "*",
-                "s9e/regexp-builder": "1.*"
-            },
-            "suggest": {
-                "ext-curl": "Improves the performance of the MediaEmbed plugin and some JavaScript minifiers",
-                "ext-intl": "Allows international URLs to be accepted by the URL filter",
-                "ext-json": "Enables the generation of a JavaScript parser",
-                "ext-mbstring": "Improves the performance of the PHP renderer",
-                "ext-tokenizer": "Improves the performance of the PHP renderer",
-                "ext-xsl": "Enables the XSLT renderer",
-                "ext-zlib": "Enables gzip compression when scraping content via the MediaEmbed plugin"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "s9e\\TextFormatter\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Multi-purpose text formatting and markup library. Plugins offer support for BBCodes, Markdown, emoticons, HTML, embedding media (YouTube, etc...), enhanced typography and more.",
-            "homepage": "https://github.com/s9e/TextFormatter/",
-            "keywords": [
-                "bbcode",
-                "bbcodes",
-                "blog",
-                "censor",
-                "embed",
-                "emoji",
-                "emoticons",
-                "engine",
-                "forum",
-                "html",
-                "markdown",
-                "markup",
-                "media",
-                "parser",
-                "shortcodes"
-            ],
-            "time": "2018-11-28T12:35:56+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
