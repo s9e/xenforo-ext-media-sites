@@ -1,7 +1,7 @@
 {
 	"name": "s9e/xenforo-ext-media-sites",
 	"type": "xenforo-extension",
-	"description": "Extension for XenForo 2.0",
+	"description": "Extension for XenForo 2.x",
 	"homepage": "https://github.com/s9e/xenforo-ext-media-sites/",
 	"keywords": ["embed","media"],
 	"license": "MIT",
