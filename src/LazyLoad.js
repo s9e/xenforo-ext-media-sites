@@ -1,13 +1,10 @@
-(function(addEventListener, prefix, document)
+(function(prefix, document)
 {
 	// Zone in pixels above the viewport where iframes are loaded
 	const ABOVE_SCREEN = 400;
 
 	// Zone in pixels below the viewport where iframes are loaded
 	const BELOW_SCREEN = 600;
-
-	// Zone in pixels at the top of the viewport that is expected to be obstructed by the header
-	const HEADER_HEIGHT = 30;
 
 	// Delay in milliseconds between scroll events and checking for visible iframes
 	const REFRESH_DELAY = 32;
@@ -60,9 +57,9 @@
 		timeout = setTimeout(loadIframes, REFRESH_DELAY);
 	}
 
-	function getBodyHeight()
+	function getPageHeight()
 	{
-		return document.body.getBoundingClientRect().height;
+		return document.documentElement.getBoundingClientRect().height;
 	}
 
 	function loadIframe(iframe)
@@ -75,29 +72,11 @@
 			{
 				var channel = new MessageChannel,
 					origin  = src.substr(0, src.indexOf('/', 8));
-
 				contentWindow.postMessage('s9e:init', origin, [channel.port2]);
 				channel.port1.onmessage = function (e)
 				{
-					var dimensions = ("" + e.data).split(' '),
-						style      = iframe.style,
-						oldHeight  = (iframe.getBoundingClientRect().top < HEADER_HEIGHT) ? getBodyHeight() : 0;
-					if (oldHeight)
-					{
-						style.transition = 'none';
-					}
-
-					style.height = dimensions[0] + 'px';
-					if (dimensions[1])
-					{
-						style.width = dimensions[1] + 'px';
-					}
-
-					if (oldHeight)
-					{
-						scrollBy(0, getBodyHeight() - oldHeight);
-						style.transition = '';
-					}
+					var dimensions = ("" + e.data).split(' ');
+					resizeIframe(iframe, dimensions[0], dimensions[1] || 0);
 				};
 			};
 		}
@@ -113,6 +92,79 @@
 			// That can happen on Chrome when using back/forward navigation
 			iframe.onload();
 		}
+	}
+
+	function iframeIsVisible(iframe)
+	{
+		var rect         = iframe.getBoundingClientRect(),
+			stickyHeader = document.querySelector('.p-navSticky'),
+			headerHeight = (stickyHeader) ? stickyHeader.getBoundingClientRect().height : 0;
+
+		return (rect.top >= headerHeight && rect.bottom < innerHeight);
+	}
+
+	// Iframe's position in relation to viewport
+	const ABOVE = 0;
+	const VISIBLE = 1;
+	const BELOW = 2;
+
+	function getIframePosition(iframe)
+	{
+		var rect = iframe.getBoundingClientRect();
+		if (rect.bottom > innerHeight)
+		{
+			return BELOW;
+		}
+
+		var stickyHeader = document.querySelector('.p-navSticky'),
+			headerHeight = (stickyHeader) ? stickyHeader.getBoundingClientRect().height : 0;
+		if (rect.top < headerHeight)
+		{
+			return ABOVE;
+		}
+
+		return VISIBLE;
+	}
+
+	function resizeIframe(iframe, height, width)
+	{
+		var iframePosition = getIframePosition(iframe),
+			oldDistance    = (iframePosition === ABOVE) ? getDistanceFromBottom() : 0,
+			style          = iframe.style;
+
+		// Temporarily disable transitions if the iframe isn't visible
+		if (iframePosition !== VISIBLE)
+		{
+			style.transition = 'none';
+			setTimeout(
+				function ()
+				{
+					style.transition = '';
+				},
+				0
+			);
+		}
+
+		style.height = height + 'px';
+		if (width)
+		{
+			style.width = width + 'px';
+		}
+
+		if (oldDistance)
+		{
+			var newDistance = getDistanceFromBottom(),
+				scrollDiff  = newDistance - oldDistance;
+			if (scrollDiff)
+			{
+				scrollBy(0, scrollDiff);
+			}
+		}
+	}
+
+	function getDistanceFromBottom()
+	{
+		return document.documentElement.getBoundingClientRect().height - pageYOffset;
 	}
 
 	function loadIframes()
@@ -141,4 +193,4 @@
 			prepareEvents(removeEventListener);
 		}
 	}
-})(addEventListener, 'data-s9e-mediaembed-', document);
+})('data-s9e-mediaembed-', document);
