@@ -9,6 +9,11 @@
 	// Delay in milliseconds between scroll events and checking for visible iframes
 	const REFRESH_DELAY = 32;
 
+	// Iframe's position in relation to viewport
+	const ABOVE   = 0;
+	const VISIBLE = 1;
+	const BELOW   = 2;
+
 	var nodes   = document.querySelectorAll('iframe[' + prefix + 'src]'),
 		i       = 0,
 		iframes = [],
@@ -93,20 +98,6 @@
 			iframe.onload();
 		}
 	}
-
-	function iframeIsVisible(iframe)
-	{
-		var rect         = iframe.getBoundingClientRect(),
-			stickyHeader = document.querySelector('.p-navSticky'),
-			headerHeight = (stickyHeader) ? stickyHeader.getBoundingClientRect().height : 0;
-
-		return (rect.top >= headerHeight && rect.bottom < innerHeight);
-	}
-
-	// Iframe's position in relation to viewport
-	const ABOVE = 0;
-	const VISIBLE = 1;
-	const BELOW = 2;
 
 	function getIframePosition(iframe)
 	{
