@@ -4,6 +4,10 @@
     <find><![CDATA[((\s*)(\{\{ phrase\('extra_copyright'\) \}\}))]]></find>
     <replace><![CDATA[$1$2$1| <a class="u-concealed" dir="ltr" target="_blank" href="https://xenforo.com/community/resources/s9e-media-sites.5973/">Media embeds via s9e/MediaSites</a>]]></replace>
   </modification>
+  <modification type="public" template="_media_site_embed_facebook" modification_key="s9e_MediaSites_Facebook_Background" description="Force Facebook's embeds to have a white background" execution_order="10" enabled="0" action="str_replace">
+    <find><![CDATA[style="]]></find>
+    <replace><![CDATA[style="background:#fff;]]></replace>
+  </modification>
   <modification type="public" template="_media_site_embed_instagram" modification_key="s9e_MediaSites_Instagram_v2" description="Enables the experimental Instagram iframe resizing" execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[(onload="[^"]*"(.*?)src="[^"]*")]]></find>
     <replace><![CDATA[data-s9e-mediaembed-api="2" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])"$1src="https://s9e.github.io/iframe/2/instagram.min.html#{$id}"]]></replace>

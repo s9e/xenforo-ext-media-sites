@@ -34,30 +34,16 @@ class Setup extends AbstractSetup
 	{
 	}
 
-	public static function validateExperimentalInstagramIframe($newValue, Option $option)
+	public static function validateTemplateModification($newValue, Option $option)
 	{
-		self::setTemplateModification($option, 'Instagram_v2', (bool) $newValue);
-
-		return true;
-	}
-
-	public static function validateExperimentalTwitterIframe($newValue, Option $option)
-	{
-		self::setTemplateModification($option, 'Twitter_v2', (bool) $newValue);
+		self::setTemplateModification($option, $option->option_id, (bool) $newValue);
 
 		return true;
 	}
 
 	public static function validateFooter($newValue, Option $option)
 	{
-		self::setTemplateModification($option, 'Footer', ($newValue === 'show'));
-
-		return true;
-	}
-
-	public static function validateYouTubePrivacy($newValue, Option $option)
-	{
-		self::setTemplateModification($option, 'YouTube_Privacy', (bool) $newValue);
+		self::setTemplateModification($option, 's9e_MediaSites_Footer', ($newValue === 'show'));
 
 		return true;
 	}
@@ -66,7 +52,7 @@ class Setup extends AbstractSetup
 	{
 		$entity = $option->em()
 			->getFinder('XF:TemplateModification')
-			->where('modification_key', 's9e_MediaSites_' . $key)
+			->where('modification_key', $key)
 			->fetchOne();
 		if ($entity)
 		{
