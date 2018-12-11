@@ -53,7 +53,35 @@
 		var rect = iframe.getBoundingClientRect();
 
 		// Test for width to ensure the iframe isn't hidden in a spoiler
-		return (rect.bottom > top && rect.top < bottom && rect.width);
+		if (rect.bottom < top || rect.top > bottom || !rect.width)
+		{
+			return false;
+		}
+
+		// Iframes in a non-expanded quotes are limited to a 270px width. This is not a perfect
+		// indicator but it works well enough to cover the overwhelming majority of embeds
+		if (rect.width === 270 && isHiddenInQuote(iframe, rect.top))
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+	function isHiddenInQuote(iframe, top)
+	{
+		var parentNode = iframe.parentNode,
+			block      = parentNode;
+		while (parentNode.tagName !== 'BODY')
+		{
+			if (parentNode.className.indexOf('bbCodeBlock-expandContent') >= 0)
+			{
+				block = parentNode;
+			}
+			parentNode = parentNode.parentNode;
+		}
+
+		return (top > block.getBoundingClientRect().bottom);
 	}
 
 	function scheduleLoading()
