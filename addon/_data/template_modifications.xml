@@ -20,15 +20,12 @@
     <find><![CDATA[src="https://www.youtube.com/embed/]]></find>
     <replace><![CDATA[src="https://www.youtube-nocookie.com/embed/]]></replace>
   </modification>
-  <modification type="public" template="bb_code.less" modification_key="s9e_MediaSites_EmbedsInQuotes" description="Limits the size of embeds within expandable quotes" execution_order="10" enabled="1" action="preg_replace">
+  <modification type="public" template="bb_code.less" modification_key="s9e_MediaSites_EmbedsInQuotes" description="Limits the size of embeds and removes transitions within expandable quotes" execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[(^)]]></find>
     <replace><![CDATA[.is-expandable:not(.is-expanded) [data-s9e-mediaembed]
 {
-	max-width: 250px !important;
-}
-.is-expandable:not(.is-expanded) [data-s9e-mediaembed] iframe
-{
-	position: unset !important;
+	max-width: 270px !important;
+	transition: none;
 }
 $0]]></replace>
   </modification>
