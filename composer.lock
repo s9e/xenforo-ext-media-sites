@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "1ba5d66857b95dbfb7fdf625ef930b2b137531b4"
+                "reference": "148e19da1c836e3d1953d6b078ccbc04989b8954"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/1ba5d66857b95dbfb7fdf625ef930b2b137531b4",
-                "reference": "1ba5d66857b95dbfb7fdf625ef930b2b137531b4",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/148e19da1c836e3d1953d6b078ccbc04989b8954",
+                "reference": "148e19da1c836e3d1953d6b078ccbc04989b8954",
                 "shasum": ""
             },
             "require": {
@@ -69,7 +69,7 @@
                 "parser",
                 "shortcodes"
             ],
-            "time": "2018-12-06T00:00:27+00:00"
+            "time": "2018-12-11T23:23:50+00:00"
         }
     ],
     "packages-dev": [
@@ -746,16 +746,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.4.5",
+            "version": "7.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "61d34e8dd6eb3555900f0f2a2fa9e7e570730102"
+                "reference": "520723129e2b3fc1dc4c0953e43c9d40e1ecb352"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/61d34e8dd6eb3555900f0f2a2fa9e7e570730102",
-                "reference": "61d34e8dd6eb3555900f0f2a2fa9e7e570730102",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/520723129e2b3fc1dc4c0953e43c9d40e1ecb352",
+                "reference": "520723129e2b3fc1dc4c0953e43c9d40e1ecb352",
                 "shasum": ""
             },
             "require": {
@@ -800,7 +800,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "7.4-dev"
+                    "dev-master": "7.5-dev"
                 }
             },
             "autoload": {
@@ -826,7 +826,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-12-03T05:01:24+00:00"
+            "time": "2018-12-07T07:08:12+00:00"
         },
         {
             "name": "s9e/regexp-builder",

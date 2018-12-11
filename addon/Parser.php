@@ -129,7 +129,7 @@ class Parser
 		'traileraddict'=>[[],[],[['extract'=>['@v\\.traileraddict\\.com/(?<id>\\d+)@'],'match'=>['@traileraddict\\.com/(?!tags/)[^/]+/.@']]]],
 		'tumblr'=>[['!(?<name>[-\\w]+)\\.tumblr\\.com/post/(?<id>\\d+)!'],[],[['extract'=>['!did=\\\\u0022(?<did>[-\\w]+)!','!embed\\\\/post\\\\/(?<key>[-\\w]+)!'],'match'=>['!\\w\\.tumblr\\.com/post/\\d!'],'url'=>'http://www.tumblr.com/oembed/1.0?url=http://{@name}.tumblr.com/post/{@id}']]],
 		'twitch'=>[['#twitch\\.tv/(?:videos|\\w+/v)/(?<video_id>\\d+)?#','#www\\.twitch\\.tv/(?!videos/)(?<channel>\\w+)#','#t=(?<t>(?:(?:\\d+h)?\\d+m)?\\d+s)#','#clips\\.twitch\\.tv/(?:(?<channel>\\w+)/)?(?<clip_id>\\w+)#']],
-		'twitter'=>[['@twitter\\.com/(?:#!/)?\\w+/status(?:es)?/(?<id>\\d+)@']],
+		'twitter'=>[['@twitter\\.com/(?:#!/|i/)?\\w+/(?:status(?:es)?|tweet)/(?<id>\\d+)@']],
 		'ustream'=>[['!ustream\\.tv/recorded/(?<vid>\\d+)!'],[],[['extract'=>['!embed/(?<cid>\\d+)!'],'match'=>['#ustream\\.tv/(?!explore/|platform/|recorded/|search\\?|upcoming$|user/)(?:channel/)?[-\\w]+#']]]],
 		'vbox7'=>[['!vbox7\\.com/play:(?<id>[\\da-f]+)!']],
 		'veoh'=>[['!veoh\\.com/(?:m/watch\\.php\\?v=|watch/)v(?<id>\\w+)!']],
