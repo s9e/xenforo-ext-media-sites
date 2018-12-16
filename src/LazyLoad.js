@@ -90,11 +90,6 @@
 		timeout = setTimeout(loadIframes, REFRESH_DELAY);
 	}
 
-	function getPageHeight()
-	{
-		return document.documentElement.getBoundingClientRect().height;
-	}
-
 	function loadIframe(iframe)
 	{
 		var contentWindow = iframe.contentWindow,
