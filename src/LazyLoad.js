@@ -25,7 +25,7 @@
 		iframes.push(nodes[i++]);
 	}
 
-	// Wait until the document is loaded to leave the browser time to scroll to the URL's target
+	// Give the browser some time to scroll to the URL's target if the document is loading
 	if (document.readyState === 'complete')
 	{
 		init();
@@ -33,12 +33,19 @@
 	else
 	{
 		addEventListener('load', init);
+
+		// Ensure we still initialize within 3s even if the browser is stuck loading other assets
+		setTimeout(init, 3000);
 	}
 
 	function init()
 	{
-		prepareEvents(addEventListener);
-		loadIframes();
+		// Prevent multiple executions by testing whether bottom has been set
+		if (!bottom)
+		{
+			prepareEvents(addEventListener);
+			loadIframes();
+		}
 	}
 
 	function prepareEvents(fn)
