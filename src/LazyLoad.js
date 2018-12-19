@@ -1,4 +1,4 @@
-(function(document, prefix)
+(function (document, prefix)
 {
 	// Zone in pixels above the viewport where iframes are loaded
 	const ABOVE_SCREEN = 400;
