@@ -1,4 +1,4 @@
-(function (document, prefix)
+(function (window, document, prefix)
 {
 	// Zone in pixels above the viewport where iframes are loaded
 	const ABOVE_SCREEN = 400;
@@ -32,7 +32,7 @@
 	}
 	else
 	{
-		addEventListener('load', init);
+		window.addEventListener('load', init);
 
 		// Ensure we still initialize within 3s even if the browser is stuck loading other assets
 		setTimeout(init, 3000);
@@ -43,7 +43,7 @@
 		// Prevent multiple executions by testing whether bottom has been set
 		if (!bottom)
 		{
-			prepareEvents(addEventListener);
+			prepareEvents(window.addEventListener);
 			loadIframes();
 		}
 	}
@@ -132,7 +132,7 @@
 	function getIframePosition(iframe)
 	{
 		var rect = iframe.getBoundingClientRect();
-		if (rect.bottom > innerHeight)
+		if (rect.bottom > window.innerHeight)
 		{
 			return BELOW;
 		}
@@ -178,7 +178,7 @@
 				scrollDiff  = newDistance - oldDistance;
 			if (scrollDiff)
 			{
-				scrollBy(0, scrollDiff);
+				window.scrollBy(0, scrollDiff);
 			}
 		}
 	}
@@ -186,13 +186,13 @@
 	function getDistanceFromBottom()
 	{
 		// NOTE: scrollY has higher IE requirements than scrollBy()
-		return document.documentElement.getBoundingClientRect().height - scrollY;
+		return document.documentElement.getBoundingClientRect().height - window.scrollY;
 	}
 
 	function loadIframes()
 	{
 		// Refresh the bottom fold
-		bottom = innerHeight + BELOW_SCREEN;
+		bottom = window.innerHeight + BELOW_SCREEN;
 
 		var newIframes = [];
 		iframes.forEach(
@@ -212,7 +212,7 @@
 
 		if (!iframes.length)
 		{
-			prepareEvents(removeEventListener);
+			prepareEvents(window.removeEventListener);
 		}
 	}
-})(document, 'data-s9e-mediaembed-');
+})(window, document, 'data-s9e-mediaembed-');
