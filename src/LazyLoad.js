@@ -1,24 +1,24 @@
 (function (window, document, prefix)
 {
-	// Zone in pixels above the viewport where iframes are loaded
-	const ABOVE_SCREEN = 400;
-
-	// Zone in pixels below the viewport where iframes are loaded
-	const BELOW_SCREEN = 600;
-
-	// Delay in milliseconds between scroll events and checking for visible iframes
+	// Delay in milliseconds between events and checking for visible iframes
 	const REFRESH_DELAY = 32;
 
-	// Iframe's position in relation to viewport
+	// Enum indicating an iframe's position in relation to viewport
 	const ABOVE   = 0;
 	const VISIBLE = 1;
 	const BELOW   = 2;
 
+	// Enum indicating the scrolling direction
+	const SCROLL_DOWN = 0;
+	const SCROLL_UP   = 1;
+
 	var nodes   = document.querySelectorAll('iframe[' + prefix + 'src]'),
 		i       = 0,
 		iframes = [],
-		top     = 0 - ABOVE_SCREEN,
+		top     = 0,
 		bottom  = 0,
+		lastScrollY     = 0,
+		scrollDirection = SCROLL_DOWN,
 		timeout = 0;
 	while (i < nodes.length)
 	{
@@ -191,8 +191,15 @@
 
 	function loadIframes()
 	{
-		// Refresh the bottom fold
-		bottom = window.innerHeight + BELOW_SCREEN;
+		if (lastScrollY !== window.scrollY)
+		{
+			scrollDirection = (lastScrollY > (lastScrollY = window.scrollY)) ? SCROLL_UP : SCROLL_DOWN;
+		}
+
+		// Refresh the loading zone. Extend it by an extra screen at the bottom and between half a
+		// screen and a full screen at the top depending on whether we're scrolling down or up
+		bottom = window.innerHeight * 2;
+		top    = -bottom / ((scrollDirection === SCROLL_DOWN) ? 4 : 2);
 
 		var newIframes = [];
 		iframes.forEach(
