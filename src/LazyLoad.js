@@ -1,4 +1,4 @@
-(function(prefix, document)
+(function(document, prefix)
 {
 	// Zone in pixels above the viewport where iframes are loaded
 	const ABOVE_SCREEN = 400;
@@ -178,7 +178,8 @@
 
 	function getDistanceFromBottom()
 	{
-		return document.documentElement.getBoundingClientRect().height - pageYOffset;
+		// NOTE: scrollY has higher IE requirements than scrollBy()
+		return document.documentElement.getBoundingClientRect().height - scrollY;
 	}
 
 	function loadIframes()
@@ -207,4 +208,4 @@
 			prepareEvents(removeEventListener);
 		}
 	}
-})('data-s9e-mediaembed-', document);
+})(document, 'data-s9e-mediaembed-');
