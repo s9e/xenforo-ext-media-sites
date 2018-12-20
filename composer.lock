@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "148e19da1c836e3d1953d6b078ccbc04989b8954"
+                "reference": "9dc6edfb29959e12d785102d0620188cc3afec9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/148e19da1c836e3d1953d6b078ccbc04989b8954",
-                "reference": "148e19da1c836e3d1953d6b078ccbc04989b8954",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/9dc6edfb29959e12d785102d0620188cc3afec9d",
+                "reference": "9dc6edfb29959e12d785102d0620188cc3afec9d",
                 "shasum": ""
             },
             "require": {
@@ -69,7 +69,7 @@
                 "parser",
                 "shortcodes"
             ],
-            "time": "2018-12-11T23:23:50+00:00"
+            "time": "2018-12-20T21:31:16+00:00"
         }
     ],
     "packages-dev": [
@@ -746,16 +746,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.5.0",
+            "version": "7.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "520723129e2b3fc1dc4c0953e43c9d40e1ecb352"
+                "reference": "c23d78776ad415d5506e0679723cb461d71f488f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/520723129e2b3fc1dc4c0953e43c9d40e1ecb352",
-                "reference": "520723129e2b3fc1dc4c0953e43c9d40e1ecb352",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c23d78776ad415d5506e0679723cb461d71f488f",
+                "reference": "c23d78776ad415d5506e0679723cb461d71f488f",
                 "shasum": ""
             },
             "require": {
@@ -826,7 +826,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-12-07T07:08:12+00:00"
+            "time": "2018-12-12T07:20:32+00:00"
         },
         {
             "name": "s9e/regexp-builder",

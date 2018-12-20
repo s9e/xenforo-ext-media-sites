@@ -122,7 +122,7 @@ class AddonBuilder
 	public static function normalizeTemplate(DOMElement $template)
 	{
 		$xpath = new DOMXPath($template->ownerDocument);
-		foreach ($xpath->query('//iframe[@onload][contains(@src, "iframe/2")]') as $iframe)
+		foreach ($xpath->query('//iframe[@onload]') as $iframe)
 		{
 			$iframe->setAttribute('data-s9e-mediaembed-api', '2');
 		}
