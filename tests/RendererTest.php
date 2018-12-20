@@ -13,7 +13,10 @@ class RendererTest extends TestCase
 {
 	public function testUnknown()
 	{
-		$this->assertSame('', Renderer::render('foo', [], 'foo'));
+		$this->assertSame(
+			'<div class="blockMessage blockMessage--error blockMessage--iconic">Template public:_media_site_embed_foo not found.</div>',
+			Renderer::render('foo', [], 'foo')
+		);
 	}
 
 	/**
@@ -43,7 +46,7 @@ class RendererTest extends TestCase
 			[
 				'gfycat',
 				'height=338;id=SereneIllfatedCapybara;width=600',
-				'<span data-s9e-mediaembed="gfycat" style="display:inline-block;width:100%;max-width:600px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.333333333333%"><iframe allowfullscreen="" scrolling="no" src="//gfycat.com/iframe/SereneIllfatedCapybara" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>'
+				'<span data-s9e-mediaembed="gfycat" style="display:inline-block;width:100%;max-width:600px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:63.666666666667%;padding-bottom:calc(56.333333333333% + 44px)"><iframe allowfullscreen="" scrolling="no" src="//gfycat.com/ifr/SereneIllfatedCapybara" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span></span>'
 			],
 			[
 				'dailymotion',
