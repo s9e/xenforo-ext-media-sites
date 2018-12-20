@@ -9,6 +9,7 @@ namespace s9e\AddonBuilder\MediaSites;
 
 use DOMDocument;
 use DOMElement;
+use DOMXPath;
 use RuntimeException;
 use s9e\AddonBuilder\MediaSites\Transpilers\PHPSource;
 use s9e\AddonBuilder\MediaSites\Transpilers\XenForoTemplate;
@@ -81,6 +82,8 @@ class AddonBuilder
 		$this->sites         = iterator_to_array($this->configurator->MediaEmbed->defaultSites);
 		$this->xfTranspiler  = new XenForoTemplate;
 
+		$this->configurator->templateNormalizer->add(__CLASS__ . '::normalizeTemplate');
+
 		$this->storeVersion();
 		$this->normalizeSites();
 		$this->storeParams();
@@ -108,6 +111,21 @@ class AddonBuilder
 		$this->patchRenderer();
 
 		$dom->save($this->dir . '/_data/bb_code_media_sites.xml');
+	}
+
+	/**
+	* Normalize a site's template
+	*
+	* @param  DOMElement $template
+	* @return void
+	*/
+	public static function normalizeTemplate(DOMElement $template)
+	{
+		$xpath = new DOMXPath($template->ownerDocument);
+		foreach ($xpath->query('//iframe[@onload][contains(@src, "iframe/2")]') as $iframe)
+		{
+			$iframe->setAttribute('data-s9e-mediaembed-api', '2');
+		}
 	}
 
 	/**
