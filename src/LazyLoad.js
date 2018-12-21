@@ -150,11 +150,12 @@
 	function resizeIframe(iframe, height, width)
 	{
 		var iframePosition = getIframePosition(iframe),
-			oldDistance    = (iframePosition === ABOVE) ? getDistanceFromBottom() : 0,
+			expandUpward   = (iframePosition === ABOVE || (iframePosition === VISIBLE && scrollDirection === SCROLL_UP)),
+			oldDistance    = (expandUpward) ? getDistanceFromBottom() : 0,
 			style          = iframe.style;
 
-		// Temporarily disable transitions if the iframe isn't visible
-		if (iframePosition !== VISIBLE)
+		// Temporarily disable transitions if the iframe isn't visible or we need to scroll the page
+		if (iframePosition !== VISIBLE || expandUpward)
 		{
 			style.transition = 'none';
 			setTimeout(
@@ -172,13 +173,14 @@
 			style.width = width + 'px';
 		}
 
-		if (oldDistance)
+		if (expandUpward)
 		{
 			var newDistance = getDistanceFromBottom(),
 				scrollDiff  = newDistance - oldDistance;
 			if (scrollDiff)
 			{
 				window.scrollBy(0, scrollDiff);
+				lastScrollY = window.scrollY;
 			}
 		}
 	}
