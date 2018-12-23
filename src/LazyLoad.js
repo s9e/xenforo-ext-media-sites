@@ -180,8 +180,11 @@
 			if (scrollDiff)
 			{
 				window.scrollBy(0, scrollDiff);
-				lastScrollY = window.scrollY;
 			}
+
+			// Update lastScrollY regardless of scrollDiff because some browsers (Firefox?) may
+			// automatically preserve the scrolling position when an element's height change
+			lastScrollY = window.scrollY;
 		}
 	}
 
