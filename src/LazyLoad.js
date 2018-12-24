@@ -17,9 +17,10 @@
 		iframes = [],
 		top     = 0,
 		bottom  = 0,
+		timeout = 0,
+		hasScrolled     = false,
 		lastScrollY     = 0,
-		scrollDirection = SCROLL_DOWN,
-		timeout = 0;
+		scrollDirection = SCROLL_DOWN;
 	while (i < nodes.length)
 	{
 		iframes.push(nodes[i++]);
@@ -43,6 +44,8 @@
 		// Prevent multiple executions by testing whether bottom has been set
 		if (!bottom)
 		{
+			// Initialize the last scroll position at current scroll position
+			lastScrollY = window.scrollY;
 			prepareEvents(window.addEventListener);
 			loadIframes();
 		}
@@ -137,14 +140,26 @@
 			return BELOW;
 		}
 
-		var stickyHeader = document.querySelector('.p-navSticky'),
-			headerHeight = (stickyHeader) ? stickyHeader.getBoundingClientRect().height : 0;
-		if (rect.top < headerHeight)
+		var top = -1;
+		if (!hasScrolled && location.hash)
 		{
-			return ABOVE;
+			// If the page hasn't been scrolled, use the top of the URL's target as the boundary
+			top = getElementRectProperty(location.hash, 'top');
+		}
+		if (top < 0)
+		{
+			// Otherwise, use the bottom of the sticky header as the boundary
+			top = getElementRectProperty('.p-navSticky', 'bottom');
 		}
 
-		return VISIBLE;
+		return (rect.top < top) ? ABOVE : VISIBLE;
+	}
+
+	function getElementRectProperty(selector, prop)
+	{
+		var el = document.querySelector(selector);
+
+		return (el) ? el.getBoundingClientRect()[prop] : -1;
 	}
 
 	function resizeIframe(iframe, height, width)
@@ -191,13 +206,14 @@
 	function getDistanceFromBottom()
 	{
 		// NOTE: scrollY has higher IE requirements than scrollBy()
-		return document.documentElement.getBoundingClientRect().height - window.scrollY;
+		return getElementRectProperty('html', 'height') - window.scrollY;
 	}
 
 	function loadIframes()
 	{
 		if (lastScrollY !== window.scrollY)
 		{
+			hasScrolled     = true;
 			scrollDirection = (lastScrollY > (lastScrollY = window.scrollY)) ? SCROLL_UP : SCROLL_DOWN;
 		}
 
