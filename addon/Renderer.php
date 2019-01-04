@@ -222,6 +222,13 @@ class Renderer
 		return $html;
 	}
 
+	protected static function renderGooglesheets($vars)
+	{
+		$vars+=['gid'=>null,'id'=>null];$html='<iframe data-s9e-mediaembed="googlesheets" allowfullscreen="" scrolling="no" style="border:0;height:500px;resize:vertical;width:100%" src="https://docs.google.com/spreadsheets/d/'.htmlspecialchars($vars['id'],2).'/p';if((strpos($vars['id'],'e/')===0)){$html.='ubhtml?widget=true&amp;headers=false';}else{$html.='review';}$html.='#gid='.htmlspecialchars($vars['gid'],2).'"></iframe>';
+
+		return $html;
+	}
+
 	protected static function renderKickstarter($vars)
 	{
 		$vars+=['id'=>null,'video'=>null];$html='<span data-s9e-mediaembed="kickstarter"';if(isset($vars['video'])){$html.=' style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//www.kickstarter.com/projects/'.htmlspecialchars($vars['id'],2).'/widget/video.html" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span>';}else{$html.=' style="display:inline-block;width:100%;max-width:220px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:190.909091%"><iframe allowfullscreen="" scrolling="no" src="//www.kickstarter.com/projects/'.htmlspecialchars($vars['id'],2).'/widget/card.html" style="border:0;height:100%;left:0;position:absolute;width:100%"></iframe></span>';}$html.='</span>';
