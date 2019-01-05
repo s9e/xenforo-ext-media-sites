@@ -68,17 +68,11 @@ class XenForoTemplate implements TranspilerInterface
 		);
 
 		// Inline xsl:attribute elements in HTML elements
-		do
-		{
-			$template = preg_replace(
-				'((<(?!xsl:)[^>]*)><xsl:attribute name="(\\w+)">(.*?)</xsl:attribute>)',
-				'$1 $2="$3">',
-				$template,
-				1,
-				$cnt
-			);
-		}
-		while ($cnt > 0);
+		$template = $this->loopReplace(
+			'((<(?!xsl:)[^>]*)><xsl:attribute name="(\\w+)">(.*?)</xsl:attribute>)',
+			'$1 $2="$3">',
+			$template
+		);
 
 		if (strpos($template, '<xsl:') !== false)
 		{
@@ -220,5 +214,24 @@ class XenForoTemplate implements TranspilerInterface
 		}
 
 		return $expr;
+	}
+
+	/**
+	* Repeatedly perform given pattern replacement until it stops matching
+	*
+	* @param  string $match   Match regexp
+	* @param  string $replace Replacement
+	* @param  string $str     Original string
+	* @return string          Modified string
+	*/
+	protected function loopReplace($match, $replace, $str)
+	{
+		do
+		{
+			$str = preg_replace($match, $replace, $str, 1, $cnt);
+		}
+		while ($cnt > 0);
+
+		return $str;
 	}
 }
