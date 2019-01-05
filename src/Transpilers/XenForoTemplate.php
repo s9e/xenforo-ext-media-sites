@@ -71,7 +71,7 @@ class XenForoTemplate implements TranspilerInterface
 		do
 		{
 			$template = preg_replace(
-				'((<(?!\\w+:)[^>]*)><xsl:attribute name="(\\w+)">(.*?)</xsl:attribute>)',
+				'((<(?!xsl:)[^>]*)><xsl:attribute name="(\\w+)">(.*?)</xsl:attribute>)',
 				'$1 $2="$3">',
 				$template,
 				1,
