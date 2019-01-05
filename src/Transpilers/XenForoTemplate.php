@@ -50,6 +50,16 @@ class XenForoTemplate implements TranspilerInterface
 			},
 			$template
 		);
+		$template = $this->loopReplace(
+			'((<xf:if[^>]+>)(\\{+[^{}]+\\}+|[^<{])([^<]*)(<xf:else/>)\\2)',
+			'$2$1$3$4',
+			$template
+		);
+		$template = $this->loopReplace(
+			'((<xf:if[^>]+>(\\{+[^{}]+\\}+|[^<{])*?)((?2))(<xf:else/>(?2)*)\\3(</xf:if>))',
+			'$1$4$5$3',
+			$template
+		);
 		$template = preg_replace_callback(
 			'(<xsl:value-of select="(.*?)"/>)',
 			function ($m)
@@ -71,7 +81,7 @@ class XenForoTemplate implements TranspilerInterface
 
 		// Inline xsl:attribute elements in HTML elements
 		$template = $this->loopReplace(
-			'((<(?!xsl:)[^>]*)><xsl:attribute name="(\\w+)">(.*?)</xsl:attribute>)',
+			'((<(?!\\w+:)[^>]*)><xsl:attribute name="(\\w+)">(.*?)</xsl:attribute>)',
 			'$1 $2="$3">',
 			$template
 		);
@@ -138,7 +148,7 @@ class XenForoTemplate implements TranspilerInterface
 	{
 		$old      = $template;
 		$template = preg_replace_callback(
-			'(<xf:if is="[^"]+">[^<]+(?:<xf:else.*?/>[^<]+)*</xf:if>)',
+			'(<xf:if is="[^"]+">[^<]*(?:<xf:else.*?/>[^<]*)*</xf:if>)',
 			function ($m)
 			{
 				return $this->convertTernary($m[0]);
@@ -161,7 +171,7 @@ class XenForoTemplate implements TranspilerInterface
 	*/
 	protected function convertTernary($template)
 	{
-		preg_match_all('(<xf:(?:else)?if is="([^"]+)">([^<]+))', $template, $m, PREG_SET_ORDER);
+		preg_match_all('(<xf:(?:else)?if is="([^"]+)">([^<]*))', $template, $m, PREG_SET_ORDER);
 
 		$expr = '{{ ';
 		foreach ($m as $i => list($match, $condition, $content))
@@ -172,7 +182,7 @@ class XenForoTemplate implements TranspilerInterface
 			}
 			$expr .= $condition . ' ? ' . $this->convertMixedContent($content) . ' : ';
 		}
-		if (preg_match('(<xf:else/>\\K[^<]++)', $template, $m))
+		if (preg_match('(<xf:else/>\\K[^<]*)', $template, $m))
 		{
 			$expr .= $this->convertMixedContent($m[0]);
 		}
