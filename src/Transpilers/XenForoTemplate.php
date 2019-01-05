@@ -32,6 +32,8 @@ class XenForoTemplate implements TranspilerInterface
 			'( data-s9e-livepreview[^=]*="[^"]*")'   => '',
 			"(\\{translate\\(@id,'(.)','(.)'\\)\\})" => "{\$id|replace('\$1','\$2')}",
 
+			'((<xsl:choose>)(<xsl:when[^>]+>)(<xsl:attribute[^>]+>)(.*?)(</xsl:attribute>)(<xsl:attribute[^>]+>)(.*?)</xsl:attribute>(</xsl:when><xsl:otherwise>)\\3(.*?)</xsl:attribute>\\6(.*?)</xsl:attribute>(</xsl:otherwise></xsl:choose>))' => '$3$1$2$4$8$9${11}$5$6$1$2$7$8${10}${11}$5',
+
 			'(<xsl:if test="([^"]++)">)'               => '<xf:if is="$1">',
 			'(</xsl:if>)'                              => '</xf:if>',
 			'(<xsl:choose><xsl:when test="([^"]++)">)' => '<xf:if is="$1">',

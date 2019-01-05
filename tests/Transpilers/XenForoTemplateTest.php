@@ -152,6 +152,10 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 				"<iframe src=\"{translate(@id,'_','/')}\"></iframe>",
 				"<iframe src=\"{\$id|replace('_','/')}\"></iframe>"
 			],
+			[
+				'<iframe><xsl:choose><xsl:when test="@mode"><xsl:attribute name="src">https://1</xsl:attribute><xsl:attribute name="style">width:3px</xsl:attribute></xsl:when><xsl:otherwise><xsl:attribute name="src">https://2</xsl:attribute><xsl:attribute name="style">width:4px</xsl:attribute></xsl:otherwise></xsl:choose></iframe>',
+				"<iframe src=\"{{ \$mode ? 'https://1' : 'https://2' }}\" style=\"{{ \$mode ? 'width:3px' : 'width:4px' }}\"></iframe>"
+			],
 		];
 	}
 }
