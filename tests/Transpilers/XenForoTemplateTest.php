@@ -126,7 +126,7 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 						</xsl:choose>
 					</xsl:attribute>
 				</iframe>',
-				"<iframe src=\"{{ \$foo ? 'fooba' . (\$bar ? 'r' : 'z') : 'bar' }}\"></iframe>",
+				"<iframe src=\"{{ \$foo ? (\$bar ? 'foobar' : 'foobaz') : 'bar' }}\"></iframe>",
 			],
 			[
 				'<iframe><xsl:attribute name="style">padding-bottom:<xsl:value-of select="100*@height div@width"/></xsl:attribute></iframe>',
@@ -151,14 +151,6 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 			[
 				"<iframe src=\"{translate(@id,'_','/')}\"></iframe>",
 				"<iframe src=\"{\$id|replace('_','/')}\"></iframe>"
-			],
-			[
-				'<iframe><xsl:choose><xsl:when test="@mode"><xsl:attribute name="src">https://1</xsl:attribute><xsl:attribute name="style">width:3px</xsl:attribute></xsl:when><xsl:otherwise><xsl:attribute name="src">https://2</xsl:attribute><xsl:attribute name="style">width:4px</xsl:attribute></xsl:otherwise></xsl:choose></iframe>',
-				"<iframe src=\"https://{{ \$mode ? '1' : '2' }}\" style=\"width:{{ \$mode ? '3' : '4' }}px\"></iframe>"
-			],
-			[
-				'<iframe><xsl:attribute name="src"><xsl:choose><xsl:when test="@mode">/1/<xsl:value-of select="@id"/></xsl:when><xsl:otherwise>/2/<xsl:value-of select="@id"/></xsl:otherwise></xsl:choose></xsl:attribute></iframe>',
-				"<iframe src=\"/{{ \$mode ? '1' : '2' }}/{\$id}\"></iframe>"
 			],
 		];
 	}

@@ -32,8 +32,6 @@ class XenForoTemplate implements TranspilerInterface
 			'( data-s9e-livepreview[^=]*="[^"]*")'   => '',
 			"(\\{translate\\(@id,'(.)','(.)'\\)\\})" => "{\$id|replace('\$1','\$2')}",
 
-			'((<xsl:choose>)(<xsl:when[^>]+>)(<xsl:attribute[^>]+>)(.*?)(</xsl:attribute>)(<xsl:attribute[^>]+>)(.*?)</xsl:attribute>(</xsl:when><xsl:otherwise>)\\3(.*?)</xsl:attribute>\\6(.*?)</xsl:attribute>(</xsl:otherwise></xsl:choose>))' => '$3$1$2$4$8$9${11}$5$6$1$2$7$8${10}${11}$5',
-
 			'(<xsl:if test="([^"]++)">)'               => '<xf:if is="$1">',
 			'(</xsl:if>)'                              => '</xf:if>',
 			'(<xsl:choose><xsl:when test="([^"]++)">)' => '<xf:if is="$1">',
@@ -48,16 +46,6 @@ class XenForoTemplate implements TranspilerInterface
 			{
 				return self::convertXPath($m[0]);
 			},
-			$template
-		);
-		$template = $this->loopReplace(
-			'((<xf:if[^>]+>)(\\{+[^{}]+\\}+|[^<{])([^<]*)(<xf:else/>)\\2)',
-			'$2$1$3$4',
-			$template
-		);
-		$template = $this->loopReplace(
-			'((<xf:if[^>]+>(\\{+[^{}]+\\}+|[^<{])*?)((?2))(<xf:else/>(?2)*)\\3(</xf:if>))',
-			'$1$4$5$3',
 			$template
 		);
 		$template = preg_replace_callback(
@@ -86,6 +74,7 @@ class XenForoTemplate implements TranspilerInterface
 			$template
 		);
 
+		// Test whether we've been able to transpile everything
 		if (strpos($template, '<xsl:') !== false)
 		{
 			throw new RuntimeException('Cannot transpile XSL element');
