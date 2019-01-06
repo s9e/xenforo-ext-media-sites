@@ -35,7 +35,7 @@ class XenForoTemplate implements TranspilerInterface
 			'(<xsl:if test="([^"]++)">)'               => '<xf:if is="$1">',
 			'(</xsl:if>)'                              => '</xf:if>',
 			'(<xsl:choose><xsl:when test="([^"]++)">)' => '<xf:if is="$1">',
-			'(</xsl:when><xsl:when test="([^"]++)">)'  => '<xf:elseif is="$1">',
+			'(</xsl:when><xsl:when test="([^"]++)">)'  => '<xf:elseif is="$1"/>',
 			'(</xsl:when><xsl:otherwise>)'             => '<xf:else/>',
 			'(</xsl:otherwise></xsl:choose>)'          => '</xf:if>',
 		];
@@ -160,7 +160,7 @@ class XenForoTemplate implements TranspilerInterface
 	*/
 	protected function convertTernary($template)
 	{
-		preg_match_all('(<xf:(?:else)?if is="([^"]+)">([^<]*))', $template, $m, PREG_SET_ORDER);
+		preg_match_all('(<xf:(?:else)?if is="([^"]+)"/?>([^<]*))', $template, $m, PREG_SET_ORDER);
 
 		$expr = '{{ ';
 		foreach ($m as $i => list($match, $condition, $content))
