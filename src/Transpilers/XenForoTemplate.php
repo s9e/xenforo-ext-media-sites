@@ -192,6 +192,21 @@ class XenForoTemplate implements TranspilerInterface
 	*/
 	protected static function convertXPath($expr)
 	{
+		$expr = preg_replace_callback(
+			"(^starts-with\\(@(\\w+), *'([^']+)'\\)$)",
+			function ($m)
+			{
+				return '($' . $m[1] . " >= '" . $m[2] . '\' && $' . $m[1] . " < '" . substr($m[2], 0, -1) . chr(1 + ord(substr($m[2], -1))) . "')";
+			},
+			$expr,
+			1,
+			$cnt
+		);
+		if ($cnt)
+		{
+			return $expr;
+		}
+
 		$replacements = [
 			"(^\\$(\\w+)(='.*')$)D"                => '$xf.options.s9e_MediaSites_$1=$2',
 			"(^contains\\(\\$(\\w+,'[^']+')\\)$)D" => 'contains($xf.options.s9e_MediaSites_$1)',

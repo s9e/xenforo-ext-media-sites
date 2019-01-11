@@ -200,18 +200,4 @@ class Renderer
 
 		return $html;
 	}
-
-	protected static function renderGametrailers($vars)
-	{
-		$vars+=['id'=>null];$html='<span data-s9e-mediaembed="gametrailers" style="display:inline-block;width:100%;max-width:640px"><span style="display:block;overflow:hidden;position:relative;padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" style="border:0;height:100%;left:0;position:absolute;width:100%" src="//';if((strpos($vars['id'],'mgid:')===0)){$html.='media.mtvnservices.com/embed/'.htmlspecialchars($vars['id'],2);}else{$html.='embed.gametrailers.com/embed/'.htmlspecialchars($vars['id'],2).'?embed=1&amp;suppressBumper=1';}$html.='"></iframe></span></span>';
-
-		return $html;
-	}
-
-	protected static function renderGooglesheets($vars)
-	{
-		$vars+=['gid'=>null,'id'=>null];$html='<iframe data-s9e-mediaembed="googlesheets" allowfullscreen="" scrolling="no" style="border:0;height:500px;resize:vertical;width:100%" src="https://docs.google.com/spreadsheets/d/'.htmlspecialchars($vars['id'],2).'/p';if((strpos($vars['id'],'e/')===0)){$html.='ubhtml?widget=true&amp;headers=false';}else{$html.='review';}$html.='#gid='.htmlspecialchars($vars['gid'],2).'"></iframe>';
-
-		return $html;
-	}
 }
