@@ -124,6 +124,7 @@ class Parser
 		'theatlantic'=>[['!theatlantic\\.com/video/index/(?<id>\\d+)!']],
 		'theguardian'=>[['!theguardian\\.com/(?<id>\\w+/video/20(?:0[0-9]|1[0-7])[-/\\w]+)!']],
 		'theonion'=>[['!theonion\\.com/video/[-\\w]+[-,](?<id>\\d+)!']],
+		'tiktok'=>[['@tiktok\\.com/(?:v|i18n/share/video)/(?<id>\\d+)@'],[],[['extract'=>['@tiktok\\.com/v/(?<id>\\d+)@','@musically://musical\\?id=(?<id>\\d+)@'],'header'=>'User-agent: PHP','match'=>['@//vm\\.tiktok\\.com/.@']]]],
 		'tinypic'=>[['!tinypic\\.com/player\\.php\\?v=(?<id>\\w+)&s=(?<s>\\d+)!','!tinypic\\.com/r/(?<id>\\w+)/(?<s>\\d+)!'],[],[['extract'=>['!file=(?<id>\\w+)&amp;s=(?<s>\\d+)!'],'match'=>['!tinypic\\.com/(?:m|usermedia)/!']]]],
 		'tmz'=>[['@tmz\\.com/videos/(?<id>\\w+)@']],
 		'traileraddict'=>[[],[],[['extract'=>['@v\\.traileraddict\\.com/(?<id>\\d+)@'],'match'=>['@traileraddict\\.com/(?!tags/)[^/]+/.@']]]],
