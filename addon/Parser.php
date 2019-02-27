@@ -112,7 +112,7 @@ class Parser
 		'slideshare'=>[['!slideshare\\.net/[^/]+/[-\\w]+-(?<id>\\d{6,})$!'],[],[['extract'=>['!"presentationId":(?<id>\\d+)!'],'match'=>['@slideshare\\.net/[^/]+/\\w(?![-\\w]+-\\d{6,}$)@']]]],
 		'soundcloud'=>[['@https?://(?:api\\.)?soundcloud\\.com/(?!pages/)(?<id>[-/\\w]+/[-/\\w]+|^[^/]+/[^/]+$)@i','@api\\.soundcloud\\.com/playlists/(?<playlist_id>\\d+)@','@api\\.soundcloud\\.com/tracks/(?<track_id>\\d+)(?:\\?secret_token=(?<secret_token>[-\\w]+))?@','@soundcloud\\.com/(?!playlists|tracks)[-\\w]+/[-\\w]+/(?=s-)(?<secret_token>[-\\w]+)@'],[],[['extract'=>['@soundcloud:tracks:(?<track_id>\\d+)@'],'header'=>'User-agent: PHP (not Mozilla)','match'=>['@soundcloud\\.com/(?!playlists/\\d|tracks/\\d)[-\\w]+/[-\\w]@']],['extract'=>['@soundcloud://playlists:(?<playlist_id>\\d+)@'],'header'=>'User-agent: PHP (not Mozilla)','match'=>['@soundcloud\\.com/\\w+/sets/@']]]],
 		'sportsnet'=>[[],[],[['extract'=>['/vid(?:eoId)?=(?<id>\\d+)/','/param name="@videoPlayer" value="(?<id>\\d+)"/'],'match'=>['//']]]],
-		'spotify'=>[['!(?:open|play)\\.spotify\\.com/(?<id>(?:album|artist|track|user)(?:[:/][-.\\w]+)+)!']],
+		'spotify'=>[['!(?:open|play)\\.spotify\\.com/(?<id>(?:user/[-.\\w]+/)?(?:album|artist|playlist|track)(?:[:/][-.\\w]+)+)!']],
 		'steamstore'=>[['!store.steampowered.com/app/(?<id>\\d+)!']],
 		'stitcher'=>[[],[],[['extract'=>['!data-eid="(?<eid>\\d+)!','!data-fid="(?<fid>\\d+)!'],'match'=>['!/podcast/!']]]],
 		'strawpoll'=>[['!strawpoll\\.me/(?<id>\\d+)!']],
