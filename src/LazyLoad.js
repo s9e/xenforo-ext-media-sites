@@ -130,6 +130,8 @@
 			// That can happen on Chrome when using back/forward navigation
 			iframe.onload();
 		}
+
+		prepareMiniplayer(iframe);
 	}
 
 	function getIframePosition(iframe)
@@ -242,5 +244,67 @@
 		{
 			prepareEvents(window.removeEventListener);
 		}
+	}
+
+	var activeMiniplayerSpan = null;
+	function handleMiniplayerClick(e)
+	{
+		var span   = e.target,
+			iframe = span.firstChild,
+			rect   = span.getBoundingClientRect(),
+			root   = document.documentElement,
+			style  = iframe.style;
+
+		style.bottom = (root.clientHeight - rect.bottom) + 'px';
+		style.height = rect.height + 'px';
+		style.right  = (root.clientWidth - rect.right) + 'px';
+		style.width  = rect.width + 'px';
+
+		// Force a layout calc on Firefox
+		iframe.offsetHeight;
+
+		if (/inactive/.test(span.className))
+		{
+			span.className = 's9e-miniplayer-active-tn';
+			iframe.removeAttribute('style');
+
+			if (activeMiniplayerSpan)
+			{
+				activeMiniplayerSpan.click();
+			}
+			activeMiniplayerSpan = span;
+		}
+		else
+		{
+			span.className = 's9e-miniplayer-inactive-tn';
+			activeMiniplayerSpan = null;
+		}
+	}
+
+	function handleMiniplayerTransition(e)
+	{
+		var iframe = e.target,
+			span   = iframe.parentNode;
+
+		if (/-tn/.test(span.className))
+		{
+			span.className = span.className.replace('-tn', '');
+			iframe.removeAttribute('style');
+		}
+	}
+
+	function prepareMiniplayer(iframe)
+	{
+		var span = iframe.parentNode;
+		if (iframe.hasAttribute('data-s9e-mediaembed') || span.hasAttribute('style'))
+		{
+			return;
+		}
+
+		span.className = 's9e-miniplayer-inactive';
+		span.onclick   = handleMiniplayerClick;
+
+		// NOTE: Chrome doesn't seem to support iframe.ontransitionend
+		iframe.addEventListener('transitionend', handleMiniplayerTransition);
 	}
 })(window, document, 'data-s9e-mediaembed-');

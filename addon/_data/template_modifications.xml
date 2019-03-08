@@ -58,6 +58,82 @@ span[data-s9e-mediaembed] > span > iframe
 
 $0]]></replace>
   </modification>
+  <modification type="public" template="core_bbcode.less" modification_key="s9e_MediaSites_Miniplayer" description="Adds a miniplayer button to some video players, limited to the wide layout" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[(^)]]></find>
+    <replace><![CDATA[@media (min-width: @xf-responsiveWide)
+{
+	span[data-s9e-mediaembed] > span.s9e-miniplayer-active      > iframe,
+	span[data-s9e-mediaembed] > span.s9e-miniplayer-active-tn   > iframe,
+	span[data-s9e-mediaembed] > span.s9e-miniplayer-inactive-tn > iframe
+	{
+		left:       unset;
+		position:   fixed;
+		transition: bottom @xf-animationSpeed, height @xf-animationSpeed, right @xf-animationSpeed, width @xf-animationSpeed;
+	}
+	span[data-s9e-mediaembed] > span.s9e-miniplayer-active    > iframe,
+	span[data-s9e-mediaembed] > span.s9e-miniplayer-active-tn > iframe
+	{
+		bottom:  10px;
+		height:  225px;
+		right:   10px;
+		width:   400px;
+		z-index: 1000;
+	}
+	span[data-s9e-mediaembed] > span.s9e-miniplayer-active > iframe
+	{
+		box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .3), 0 2px 4px 0 rgba(0, 0, 0, .3);
+	}
+	.s9e-miniplayer-active,
+	.s9e-miniplayer-active::after,
+	.s9e-miniplayer-active-tn,
+	.s9e-miniplayer-inactive::after,
+	.s9e-miniplayer-inactive-tn
+	{
+		background: center no-repeat url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3e%3cpath d='M5 8v17h22V8z' stroke-width='2' stroke='%23fff' fill='none' stroke-linejoin='round'/%3e%3cpath fill='%23fff' d='M15 16h9v6h-9z'/%3e%3c/svg%3e") #000;
+		cursor:     pointer;
+	}
+	.s9e-miniplayer-active::after,
+	.s9e-miniplayer-inactive::after
+	{
+		border-radius: 4px;
+		bottom:        -26px;
+		content:       "";
+		display:       block;
+		height:        32px;
+		opacity:       .05;
+		position:      absolute;
+		right:         -26px;
+		transition:    bottom .1s, opacity .1s, right .1s;
+		width:         32px;
+		z-index:       1000;
+	}
+	.s9e-miniplayer-active:hover::after,
+	.s9e-miniplayer-inactive:hover::after
+	{
+		box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .3);
+		opacity:    .85;
+	}
+	/* Declare the active style last as a tiebreaker for CSS specificity */
+	.s9e-miniplayer-active::after
+	{
+		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath d='M5 3l3 3 3-3 2 2-3 3 3 3-2 2-3-3-3 3-2-2 3-3-3-3z' fill='%23fff'/%3e%3c/svg%3e");
+		bottom:           229px;
+		border-radius:    100%;
+		height:           26px;
+		position:         fixed;
+		right:            406px;
+		width:            26px;
+	}
+	.s9e-miniplayer-active:hover::after
+	{
+		bottom: 231px;
+		right:  408px;
+	}
+}
+
+
+$0]]></replace>
+  </modification>
   <modification type="public" template="editor.less" modification_key="s9e_MediaSites_InsertMediaScroller" description="Adds a scrollbar to the list of media sites in the Insert Media dialog" execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[(^)]]></find>
     <replace><![CDATA[#editor_media_form ul

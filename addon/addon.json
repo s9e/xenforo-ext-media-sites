@@ -1,9 +1,9 @@
 {
     "legacy_addon_id": "",
     "title": "s9e/MediaSites",
-    "description": "Carefully curated collection of high-performance, responsive media sites",
-    "version_id": 2021170,
-    "version_string": "2.2.11",
+    "description": "Improves the performance and usability of media sites, and adds many popular new sites",
+    "version_id": 2030070,
+    "version_string": "2.3.0",
     "dev": "JoshyPHP",
     "dev_url": "https://xenforo.com/community/resources/s9e-media-sites.5973/",
     "faq_url": "https://xenforo.com/community/resources/s9e-media-sites.5973/field?field=faq",
