@@ -27,6 +27,37 @@ $0]]></replace>
 
 $0]]></replace>
   </modification>
+  <modification type="public" template="core_bbcode.less" modification_key="s9e_MediaSites_Embeds" description="Adds the default style used by the add-on's embeds" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[(^)]]></find>
+    <replace><![CDATA[iframe[data-s9e-mediaembed]
+{
+	border: 0;
+	width:  100%;
+}
+span[data-s9e-mediaembed]
+{
+	display:   inline-block;
+	max-width: 640px;
+	width:     100%;
+}
+span[data-s9e-mediaembed] > span
+{
+	display: block;
+	padding-bottom: 56.25%;
+	position: relative;
+}
+span[data-s9e-mediaembed] > span > iframe
+{
+	border:   0;
+	height:   100%;
+	left:     0;
+	position: absolute;
+	width:    100%;
+}
+
+
+$0]]></replace>
+  </modification>
   <modification type="public" template="editor.less" modification_key="s9e_MediaSites_InsertMediaScroller" description="Adds a scrollbar to the list of media sites in the Insert Media dialog" execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[(^)]]></find>
     <replace><![CDATA[#editor_media_form ul

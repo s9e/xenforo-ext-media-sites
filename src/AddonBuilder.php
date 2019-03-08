@@ -11,6 +11,7 @@ use DOMDocument;
 use DOMElement;
 use DOMXPath;
 use RuntimeException;
+use s9e\AddonBuilder\MediaSites\TemplateNormalizations\RemoveDefaultStyle;
 use s9e\AddonBuilder\MediaSites\TemplateNormalizations\SplitConditionalAttributes;
 use s9e\AddonBuilder\MediaSites\Transpilers\PHPSource;
 use s9e\AddonBuilder\MediaSites\Transpilers\XenForoTemplate;
@@ -84,6 +85,7 @@ class AddonBuilder
 		$this->xfTranspiler  = new XenForoTemplate;
 
 		$this->configurator->templateNormalizer->add(__CLASS__ . '::normalizeTemplate');
+		$this->configurator->templateNormalizer->add(new RemoveDefaultStyle);
 		$this->configurator->templateNormalizer->add(new SplitConditionalAttributes);
 
 		$this->storeVersion();

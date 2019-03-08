@@ -39,6 +39,7 @@ class XenForoTemplate implements TranspilerInterface
 			'(</xsl:when><xsl:otherwise>)'             => '<xf:else/>',
 			'(</xsl:otherwise></xsl:choose>)'          => '</xf:if>',
 		];
+		$template = preg_replace('((<xsl:when[^>]*)/>)', '$1></xsl:when>', $template);
 		$template = preg_replace(array_keys($replacements), array_values($replacements), $template);
 		$template = preg_replace_callback(
 			'(<xf:(?:else)?if is="\\K[^"]++)',
