@@ -1,4 +1,4 @@
-(function (window, document, prefix)
+(function (window, document, dataPrefix, classPrefix)
 {
 	// Delay in milliseconds between events and checking for visible iframes
 	const REFRESH_DELAY = 32;
@@ -12,7 +12,7 @@
 	const SCROLL_DOWN = 0;
 	const SCROLL_UP   = 1;
 
-	var nodes   = document.querySelectorAll('iframe[' + prefix + 'src]'),
+	var nodes   = document.querySelectorAll('iframe[' + dataPrefix + '-src]'),
 		i       = 0,
 		iframes = [],
 		top     = 0,
@@ -103,8 +103,8 @@
 	function loadIframe(iframe)
 	{
 		var contentWindow = iframe.contentWindow,
-			src           = iframe.getAttribute(prefix + 'src');
-		if (iframe.getAttribute(prefix + 'api') == 2)
+			src           = iframe.getAttribute(dataPrefix + '-src');
+		if (iframe.getAttribute(dataPrefix + '-api') == 2)
 		{
 			iframe.onload = function ()
 			{
@@ -265,7 +265,7 @@
 
 		if (/inactive/.test(span.className))
 		{
-			span.className = 's9e-miniplayer-active-tn';
+			span.className = classPrefix + '-active-tn';
 			iframe.removeAttribute('style');
 
 			if (activeMiniplayerSpan)
@@ -276,7 +276,7 @@
 		}
 		else
 		{
-			span.className = 's9e-miniplayer-inactive-tn';
+			span.className = classPrefix + '-inactive-tn';
 			activeMiniplayerSpan = null;
 		}
 	}
@@ -296,15 +296,15 @@
 	function prepareMiniplayer(iframe)
 	{
 		var span = iframe.parentNode;
-		if (iframe.hasAttribute('data-s9e-mediaembed') || span.hasAttribute('style'))
+		if (iframe.hasAttribute(dataPrefix) || span.hasAttribute('style'))
 		{
 			return;
 		}
 
-		span.className = 's9e-miniplayer-inactive';
+		span.className = classPrefix + '-inactive';
 		span.onclick   = handleMiniplayerClick;
 
 		// NOTE: Chrome doesn't seem to support iframe.ontransitionend
 		iframe.addEventListener('transitionend', handleMiniplayerTransition);
 	}
-})(window, document, 'data-s9e-mediaembed-');
+})(window, document, 'data-s9e-mediaembed', 's9e-miniplayer');
