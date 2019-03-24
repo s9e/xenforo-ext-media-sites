@@ -11,6 +11,7 @@
   <phrase title="option.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_UK" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Amazon Associate tag (.co.uk)]]></phrase>
   <phrase title="option.s9e_MediaSites_Facebook_Background" version_id="2020170" version_string="2.2.1"><![CDATA[Force Facebook's embeds to have a white background]]></phrase>
   <phrase title="option.s9e_MediaSites_Footer" version_id="2001370" version_string="2.0.13"><![CDATA[Show your support]]></phrase>
+  <phrase title="option.s9e_MediaSites_Gfycat_Native" version_id="2030470" version_string="2.0.13"><![CDATA[Replace Gfycat embeds with a native player where possible]]></phrase>
   <phrase title="option.s9e_MediaSites_Miniplayer" version_id="2030070" version_string="2.3.0"><![CDATA[Add a miniplayer button to supported video players in wide layout]]></phrase>
   <phrase title="option.s9e_MediaSites_YouTube_Privacy" version_id="2001370" version_string="2.0.13"><![CDATA[Enable YouTube's enhanced privacy mode]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_AMAZON_ASSOCIATE_TAG" version_id="20130" version_string="0.2.1 Beta"><![CDATA[]]></phrase>
@@ -26,6 +27,7 @@
   <phrase title="option_explain.s9e_MediaSites_Footer" version_id="2001370" version_string="2.0.13"><![CDATA[You may also choose to support the author directly with a voluntary donation <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=6P6985GT
 2DLGL">in EUR</a> or <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;
 hosted_button_id=ABGFV5AGE98AG">in USD</a>.]]></phrase>
+  <phrase title="option_explain.s9e_MediaSites_Gfycat_Native" version_id="2030470" version_string="2.3.4"><![CDATA[Native videos have a simpler interface but they are not lazy-loaded and large video files may slow down the page.]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_Miniplayer" version_id="2030070" version_string="2.3.0"><![CDATA[]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_YouTube_Privacy" version_id="2001370" version_string="2.0.13"><![CDATA[The <a target="_blank" href="https://support.google.com/youtube/answer/171780?hl=en">Privacy Enhanced Mode</a> only relates to tracking of viewer behavior, not ads-serving behavior.]]></phrase>
   <phrase title="option_group.s9e_MediaSites" version_id="2001370" version_string="2.0.13"><![CDATA[s9e/MediaSites]]></phrase>
