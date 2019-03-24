@@ -218,8 +218,8 @@ class Parser
 				$matched = true;
 				foreach ($m as $k => $v)
 				{
-					// Add named captures to the vars without overwriting existing vars
-					if (!is_numeric($k) && !isset($vars[$k]) && $v !== '')
+					// Add named captures to the vars
+					if (!is_numeric($k) && $v !== '')
 					{
 						$vars[$k] = $v;
 					}
