@@ -36,9 +36,13 @@
     <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="18"/>
   </option>
-  <option option_id="s9e_MediaSites_Facebook_Background" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification">
-    <default_value>0</default_value>
+  <option option_id="s9e_MediaSites_Amazon_Link" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification">
+    <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="3"/>
+  </option>
+  <option option_id="s9e_MediaSites_Facebook_Background" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification">
+    <default_value></default_value>
+    <relation group_id="s9e_MediaSites" display_order="4"/>
   </option>
   <option option_id="s9e_MediaSites_Footer" edit_format="radio" data_type="string" validation_class="s9e\MediaSites\Setup" validation_method="validateFooter">
     <default_value>show</default_value>

@@ -4,6 +4,10 @@
     <find><![CDATA[((\s*)(\{\{ phrase\('extra_copyright'\) \}\}))]]></find>
     <replace><![CDATA[$1$2$1| <a class="u-concealed" dir="ltr" target="_blank" href="https://xenforo.com/community/resources/s9e-media-sites.5973/">Media embeds via s9e/MediaSites</a>]]></replace>
   </modification>
+  <modification type="public" template="_media_site_embed_amazon" modification_key="s9e_MediaSites_Amazon_Link" description="Adds a link to Amazon product embeds" execution_order="10" enabled="0" action="preg_replace">
+    <find><![CDATA[(<iframe(.*)$)s]]></find>
+    <replace><![CDATA[<iframe onload="var e=parentNode.parentNode;e.parentNode.removeChild(e.nextSibling)"$1<a style="box-shadow: inset 0 0 3px 0 rgba(0,0,0,.25);position:absolute;width:120px;height:240px;z-index:1;text-align:center;margin-left:-120px" href="//amazon.{{ $tld=='jp' ? 'co.jp' : ($tld=='uk' ? 'co.uk' : ($tld ? $tld : 'com')) }}/dp/{$id}?tag={{ $tld=='ca' ? $xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_CA : ($tld=='de' ? $xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_DE : ($tld=='es' ? $xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_ES : ($tld=='fr' ? $xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_FR : ($tld=='in' ? $xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IN : ($tld=='it' ? $xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IT : ($tld=='jp' ? $xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_JP : ($tld=='uk' ? $xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_UK : $xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG))))))) }}">Amazon product</a>]]></replace>
+  </modification>
   <modification type="public" template="_media_site_embed_facebook" modification_key="s9e_MediaSites_Facebook_Background" description="Force Facebook's embeds to have a white background" execution_order="10" enabled="0" action="str_replace">
     <find><![CDATA[style="]]></find>
     <replace><![CDATA[style="background:#fff;]]></replace>
