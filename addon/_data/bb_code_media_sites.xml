@@ -24,6 +24,10 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*bbc\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[]]></embed_html>
   </site>
+  <site media_site_id="bitchute" site_title="BitChute" site_url="https://www.bitchute.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*bitchute\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="bitchute"><span><iframe allowfullscreen="" scrolling="no" src="https://www.bitchute.com/embed/{$id}/"></iframe></span></span>]]></embed_html>
+  </site>
   <site media_site_id="bleacherreport" site_title="Bleacher Report videos" site_url="https://bleacherreport.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*bleacherreport\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="bleacherreport"><span><iframe allowfullscreen="" scrolling="no" src="//bleacherreport.com/video_embed?id={$id}"></iframe></span></span>]]></embed_html>
