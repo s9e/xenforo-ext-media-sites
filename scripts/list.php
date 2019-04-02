@@ -10,6 +10,7 @@ foreach ($sites as $site)
 {
 	$text .= $site->getAttribute('site_title') . ', ';
 }
+$text = str_replace('BitChute', 'Bit Chute', $text);
 $text = substr($text, 0, -2) . '.';
 
 echo "$text\n";
