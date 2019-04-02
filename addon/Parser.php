@@ -110,6 +110,7 @@ class Parser
 		'reddit'=>[['!(?<id>\\w+/comments/\\w+(?:/\\w+/\\w+)?)!']],
 		'rutube'=>[['!rutube\\.ru/tracks/(?<id>\\d+)!'],[],[['extract'=>['!rutube\\.ru/play/embed/(?<id>\\d+)!'],'header'=>'User-agent: Mozilla/5.0 (X11; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0','match'=>["!rutube\\.ru/video/(?'vid'[0-9a-f]{32})!"],'url'=>'http://rutube.ru/api/oembed/?url=https://rutube.ru/video/{@vid}/']]],
 		'scribd'=>[['!scribd\\.com/(?:mobile/)?(?:doc(?:ument)?|presentation)/(?<id>\\d+)!']],
+		'sendvid'=>[['!sendvid\\.com/(?<id>\\w+)!']],
 		'slideshare'=>[['!slideshare\\.net/[^/]+/[-\\w]+-(?<id>\\d{6,})$!'],[],[['extract'=>['!"presentationId":(?<id>\\d+)!'],'match'=>['@slideshare\\.net/[^/]+/\\w(?![-\\w]+-\\d{6,}$)@']]]],
 		'soundcloud'=>[['@https?://(?:api\\.)?soundcloud\\.com/(?!pages/)(?<id>[-/\\w]+/[-/\\w]+|^[^/]+/[^/]+$)@i','@api\\.soundcloud\\.com/playlists/(?<playlist_id>\\d+)@','@api\\.soundcloud\\.com/tracks/(?<track_id>\\d+)(?:\\?secret_token=(?<secret_token>[-\\w]+))?@','@soundcloud\\.com/(?!playlists|tracks)[-\\w]+/[-\\w]+/(?=s-)(?<secret_token>[-\\w]+)@'],[],[['extract'=>['@soundcloud:tracks:(?<track_id>\\d+)@'],'header'=>'User-agent: PHP (not Mozilla)','match'=>['@soundcloud\\.com/(?!playlists/\\d|tracks/\\d)[-\\w]+/[-\\w]@']],['extract'=>['@soundcloud://playlists:(?<playlist_id>\\d+)@'],'header'=>'User-agent: PHP (not Mozilla)','match'=>['@soundcloud\\.com/\\w+/sets/@']]]],
 		'sportsnet'=>[[],[],[['extract'=>['/vid(?:eoId)?=(?<id>\\d+)/','/param name="@videoPlayer" value="(?<id>\\d+)"/'],'match'=>['//']]]],
