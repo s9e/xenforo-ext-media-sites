@@ -84,7 +84,7 @@
 			block      = parentNode;
 		while (parentNode.tagName !== 'BODY')
 		{
-			if (parentNode.className.indexOf('bbCodeBlock-expandContent') >= 0)
+			if (/bbCodeBlock-expandContent/.test(parentNode.className))
 			{
 				block = parentNode;
 			}
