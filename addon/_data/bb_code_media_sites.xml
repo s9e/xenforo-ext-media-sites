@@ -468,9 +468,9 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*xboxclips\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="xboxclips"><span><iframe allowfullscreen="" scrolling="no" src="//xboxclips.com/{$user}/{$id}/embed"></iframe></span></span>]]></embed_html>
   </site>
-  <site media_site_id="xboxdvr" site_title="Xbox DVR" site_url="https://xboxdvr.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*xboxdvr\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="xboxdvr"><span><iframe allowfullscreen="" scrolling="no" src="//xboxdvr.com/gamer/{$user}/video/{$id}/embed"></iframe></span></span>]]></embed_html>
+  <site media_site_id="xboxdvr" site_title="Gamer DVR" site_url="https://gamerdvr.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:gamer|xbox)dvr\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="xboxdvr"><span><iframe allowfullscreen="" scrolling="no" src="//gamerdvr.com/gamer/{$user}/video/{$id}/embed"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="yahooscreen" site_title="Yahoo! Screen" site_url="https://screen.yahoo.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*screen\.yahoo\.com/.(?'id'))i]]></match_urls>

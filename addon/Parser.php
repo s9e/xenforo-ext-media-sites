@@ -148,7 +148,7 @@ class Parser
 		'wshh'=>[['!worldstarhiphop\\.com/featured/(?<id>\\d+)!'],[],[['extract'=>['!v: ?"?(?<id>\\d+)!'],'match'=>['!worldstarhiphop\\.com/(?:\\w+/)?video\\.php\\?v=\\w+!']]]],
 		'wsj'=>[['@wsj\\.com/[^#]*#!(?<id>[-0-9A-F]{36})@','@wsj\\.com/video/[^/]+/(?<id>[-0-9A-F]{36})@'],[],[['extract'=>['@guid=(?<id>[-0-9A-F]{36})@'],'match'=>['@on\\.wsj\\.com/\\w@']]]],
 		'xboxclips'=>[['@xboxclips\\.com/(?<user>[^/]+)/(?!screenshots/)(?<id>[-0-9a-f]+)@']],
-		'xboxdvr'=>[['!xboxdvr\\.com/gamer/(?<user>[^/]+)/video/(?<id>\\d+)!']],
+		'xboxdvr'=>[['!(?:gamer|xbox)dvr\\.com/gamer/(?<user>[^/]+)/video/(?<id>\\d+)!']],
 		'yahooscreen'=>[['!screen\\.yahoo\\.com/(?:[-\\w]+/)?(?<id>[-\\w]+)\\.html!']],
 		'youku'=>[['!youku\\.com/v(?:_show|ideo)/id_(?<id>\\w+=*)!']],
 		'youtube'=>[['!youtube\\.com/(?:watch.*?v=|v/|attribution_link.*?v%3D)(?<id>[-\\w]+)!','!youtu\\.be/(?<id>[-\\w]+)!','@[#&?]t=(?<t>\\d[\\dhms]*)@','![&?]list=(?<list>[-\\w]+)!'],[],[['extract'=>['!/vi/(?<id>[-\\w]+)!'],'match'=>['!/shared\\?ci=!']]],['id'=>['s9e\\MediaSites\\Parser::filterIdentifier'],'t'=>['s9e\\MediaSites\\Parser::filterTimestamp']]]
