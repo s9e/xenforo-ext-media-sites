@@ -14,7 +14,7 @@ class RendererTest extends TestCase
 	public function testUnknown()
 	{
 		$this->assertSame(
-			'<div class="blockMessage blockMessage--error blockMessage--iconic">Template public:_media_site_embed_foo not found.</div>',
+			'<div class="blockMessage blockMessage--error blockMessage--iconic">Template <b>public:_media_site_embed_foo</b> not found. Try rebuilding or reinstalling the s9e/MediaSites add-on.</div>',
 			Renderer::render('foo', [], 'foo')
 		);
 	}
@@ -34,13 +34,13 @@ class RendererTest extends TestCase
 			[
 				'amazon',
 				'B002MUC0ZY',
-				'<span data-s9e-mediaembed="amazon" style="max-width:120px"><span style="padding-bottom:200%"><iframe allowfullscreen="" scrolling="no" src="//ws-na.assoc-amazon.com/widgets/cm?l=as1&amp;f=ifr&amp;o=1&amp;t=&amp;asins=B002MUC0ZY"></iframe></span></span>',
+				'<span data-s9e-mediaembed="amazon" style="max-width:120px"><span style="padding-bottom:200%"><iframe allowfullscreen="" scrolling="no" style="background:url(https://www.amazon.com/favicon.ico) center no-repeat" src="//ws-na.assoc-amazon.com/widgets/cm?l=as1&amp;f=ifr&amp;o=1&amp;t=&amp;asins=B002MUC0ZY"></iframe></span></span>',
 				['s9e_MediaSites_AMAZON_ASSOCIATE_TAG' => null]
 			],
 			[
 				'amazon',
 				'B002MUC0ZY',
-				'<span data-s9e-mediaembed="amazon" style="max-width:120px"><span style="padding-bottom:200%"><iframe allowfullscreen="" scrolling="no" src="//ws-na.assoc-amazon.com/widgets/cm?l=as1&amp;f=ifr&amp;o=1&amp;t=foo-20&amp;asins=B002MUC0ZY"></iframe></span></span>',
+				'<span data-s9e-mediaembed="amazon" style="max-width:120px"><span style="padding-bottom:200%"><iframe allowfullscreen="" scrolling="no" style="background:url(https://www.amazon.com/favicon.ico) center no-repeat" src="//ws-na.assoc-amazon.com/widgets/cm?l=as1&amp;f=ifr&amp;o=1&amp;t=foo-20&amp;asins=B002MUC0ZY"></iframe></span></span>',
 				['s9e_MediaSites_AMAZON_ASSOCIATE_TAG' => 'foo-20']
 			],
 			[
