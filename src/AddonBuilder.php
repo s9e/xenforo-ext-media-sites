@@ -79,6 +79,8 @@ class AddonBuilder
 		$this->configurator  = $configurator ?: $this->getConfigurator();
 		$this->dir           = $dir ?: realpath(__DIR__ . '/../addon');
 
+		unset($this->configurator->MediaEmbed->defaultSites['flickr']);
+
 		$this->phpTranspiler = new PHPSource($this->configurator);
 		$this->regexpBuilder = new RegexpBuilder(['delimiter' => '()', 'output' => 'PHP']);
 		$this->sites         = iterator_to_array($this->configurator->MediaEmbed->defaultSites);
