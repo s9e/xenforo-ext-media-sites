@@ -42,6 +42,16 @@ class Setup extends AbstractSetup
 
 	protected function upgrade2031170Step1(array $stepParams = [])
 	{
+		$site = XF::app()->finder('XF:BbCodeMediaSite')
+			->where('media_site_id', 'flickr')
+			->where('addon_id',      's9e/MediaSites')
+			->where('active',        1)
+			->fetchOne();
+		if (!$site)
+		{
+			return;
+		}
+
 		$stepParams = $this->upgradePosts(
 			$stepParams,
 			'%[MEDIA=flickr]%',
@@ -72,8 +82,8 @@ class Setup extends AbstractSetup
 
 		$start = microtime(true);
 		$posts = XF::app()->finder('XF:Post')
-			->where('message', 'LIKE', $like)
 			->where('post_id', 'BETWEEN', [$minId, $maxId])
+			->where('message', 'LIKE', $like)
 			->fetch();
 		foreach ($posts as $post)
 		{
