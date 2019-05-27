@@ -89,7 +89,7 @@ class Setup extends AbstractSetup
 
 		$start = microtime(true);
 		$posts = $this->app->finder('XF:Post')
-			->where('post_id', '>', $stepParams['post_id'])
+			->where('post_id', '>',    $stepParams['post_id'])
 			->where('message', 'LIKE', $like)
 			->order('post_id')
 			->limit($stepParams['limit'])
