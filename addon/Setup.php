@@ -94,10 +94,6 @@ class Setup extends AbstractSetup
 			->order('post_id')
 			->limit($stepParams['limit'])
 			->fetch();
-		if (!count($posts))
-		{
-			return;
-		}
 		foreach ($posts as $post)
 		{
 			$old = $post->message;
@@ -114,6 +110,11 @@ class Setup extends AbstractSetup
 			$stepParams['post_id'] = $post->post_id;
 		}
 		$end = microtime(true);
+
+		if (count($posts) < $stepParams['limit'])
+		{
+			return;
+		}
 
 		if ($end - $start > 1)
 		{
