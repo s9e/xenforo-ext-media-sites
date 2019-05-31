@@ -50,12 +50,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "2868b21d690fa3ca6deabda57ad14b341a0a9623"
+                "reference": "1f917de4221ea8bf03c19ce083ea3a0c65504539"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/2868b21d690fa3ca6deabda57ad14b341a0a9623",
-                "reference": "2868b21d690fa3ca6deabda57ad14b341a0a9623",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/1f917de4221ea8bf03c19ce083ea3a0c65504539",
+                "reference": "1f917de4221ea8bf03c19ce083ea3a0c65504539",
                 "shasum": ""
             },
             "require": {
@@ -110,7 +110,7 @@
                 "parser",
                 "shortcodes"
             ],
-            "time": "2019-05-25T00:11:11+00:00"
+            "time": "2019-05-29T19:16:44+00:00"
         }
     ],
     "packages-dev": [
@@ -789,16 +789,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.5.11",
+            "version": "7.5.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "64cb33f5b520da490a7b13149d39b43cf3c890c6"
+                "reference": "9ba59817745b0fe0c1a5a3032dfd4a6d2994ad1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/64cb33f5b520da490a7b13149d39b43cf3c890c6",
-                "reference": "64cb33f5b520da490a7b13149d39b43cf3c890c6",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9ba59817745b0fe0c1a5a3032dfd4a6d2994ad1c",
+                "reference": "9ba59817745b0fe0c1a5a3032dfd4a6d2994ad1c",
                 "shasum": ""
             },
             "require": {
@@ -869,7 +869,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-05-14T04:53:02+00:00"
+            "time": "2019-05-28T11:59:40+00:00"
         },
         {
             "name": "s9e/source-optimizer",

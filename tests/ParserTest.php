@@ -99,16 +99,17 @@ class ParserTest extends TestCase
 				'id=1357764664236750;type=video;user=southamptonfc'
 			],
 			[
+				// Value automatically adjusted to match XenForo 2.0's format
 				'https://www.flickr.com/photos/8757881@N04/2971804544/lightbox/',
-				'2971804544'
+				'5wBgXo'
 			],
 			[
 				'https://flic.kr/8757881@N04/2971804544',
-				'2971804544'
+				'5wBgXo'
 			],
 			[
 				'https://flic.kr/p/5wBgXo',
-				'2971804544'
+				'5wBgXo'
 			],
 			[
 				'http://gfycat.com/SereneIllfatedCapybara',

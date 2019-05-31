@@ -26,35 +26,35 @@ class Setup extends AbstractSetup
 		$this->restoreXenForoAddOnData();
 	}
 
-	public function upgrade2031170Step1(array $stepParams = [])
-	{
-		if (!$this->isActive('flickr'))
-		{
-			return;
-		}
-
-		$stepParams = $this->upgradePosts(
-			$stepParams,
-			'%[MEDIA=flickr]%',
-			function ($message)
-			{
-				return preg_replace_callback(
-					'(\\[MEDIA=flickr\\]\\K\\d++(?=\\[/MEDIA\\]))',
-					function ($m)
-					{
-						return Flickr::base58_encode($m[0]);
-					},
-					$message
-				);
-			}
-		);
-		if (!empty($stepParams))
-		{
-			return $stepParams;
-		}
-
-		$this->restoreXenForoAddOnData();
-	}
+//	public function upgrade2031170Step1(array $stepParams = [])
+//	{
+//		if (!$this->isActive('flickr'))
+//		{
+//			return;
+//		}
+//
+//		$stepParams = $this->upgradePosts(
+//			$stepParams,
+//			'%[MEDIA=flickr]%',
+//			function ($message)
+//			{
+//				return preg_replace_callback(
+//					'(\\[MEDIA=flickr\\]\\K\\d++(?=\\[/MEDIA\\]))',
+//					function ($m)
+//					{
+//						return Flickr::base58_encode($m[0]);
+//					},
+//					$message
+//				);
+//			}
+//		);
+//		if (!empty($stepParams))
+//		{
+//			return $stepParams;
+//		}
+//
+//		$this->restoreXenForoAddOnData();
+//	}
 
 	public static function validateTemplateModification($newValue, Option $option)
 	{

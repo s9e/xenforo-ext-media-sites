@@ -7,6 +7,7 @@
 */
 namespace s9e\MediaSites;
 
+use XF\BbCode\Helper\Flickr;
 use XF\Entity\BbCodeMediaSite;
 
 class Parser
@@ -54,6 +55,7 @@ class Parser
 		'eighttracks'=>[['!8tracks\\.com/[-\\w]+/(?<id>\\d+)(?=#|$)!'],[],[['extract'=>['!eighttracks://mix/(?<id>\\d+)!'],'match'=>['!8tracks\\.com/[-\\w]+/\\D!']]]],
 		'espn'=>[['#video/(?:clip(?:\\?id=|/_/id/))?(?<id>\\d+)#']],
 		'facebook'=>[['@/(?!(?:apps|developers|graph)\\.)[-\\w.]*facebook\\.com/(?:[/\\w]+/permalink|(?!pages/|groups/).*?)(?:/|fbid=|\\?v=)(?<id>\\d+)(?=$|[/?&#])@','@facebook\\.com/(?<user>\\w+)/(?<type>post|video)s?/@','@facebook\\.com/video/(?<type>post|video)\\.php@']],
+		'flickr'=>[['@flickr\\.com/photos/[^/]+/(?<id>\\d+)@','@flic\\.kr/(?!p/)[^/]+/(?<id>\\d+)@'],[],[['extract'=>['@flickr\\.com/photos/[^/]+/(?<id>\\d+)@'],'match'=>["@flic\\.kr/p/(?'short'\\w+)@"],'url'=>'https://www.flickr.com/photo.gne?rb=1&short={@short}']]],
 		'foxnews'=>[['!video\\.foxnews\\.com/v/(?<id>\\d+)!']],
 		'foxsports'=>[[],[],[['extract'=>['@BKQ29B/(?<id>\\w+)@'],'match'=>['@/video/\\d@']]]],
 		'funnyordie'=>[['!funnyordie\\.com/videos/(?<id>[0-9a-f]+)!']],
@@ -243,6 +245,22 @@ class Parser
 		if (isset($vars['id'], $vars['type'], $vars['user']) && $vars['type'] === 'post')
 		{
 			$vars = ['id' => $vars['id'], 'posts' => 'posts', 'user' => $vars['user']];
+		}
+
+		return $vars;
+	}
+
+	/**
+	* Adjust Flickr vars
+	*
+	* @param  array $vars
+	* @return array
+	*/
+	protected static function adjustVarsFlickr(array $vars)
+	{
+		if (isset($vars['id']))
+		{
+			$vars['id'] = Flickr::base58_encode($vars['id']);
 		}
 
 		return $vars;
