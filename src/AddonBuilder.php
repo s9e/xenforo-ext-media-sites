@@ -12,6 +12,7 @@ use DOMElement;
 use DOMXPath;
 use RuntimeException;
 use s9e\AddonBuilder\MediaSites\TemplateNormalizations\RemoveDefaultStyle;
+use s9e\AddonBuilder\MediaSites\TemplateNormalizations\SetGitHubIframeApiVersion;
 use s9e\AddonBuilder\MediaSites\TemplateNormalizations\SplitConditionalAttributes;
 use s9e\AddonBuilder\MediaSites\Transpilers\PHPSource;
 use s9e\AddonBuilder\MediaSites\Transpilers\XenForoTemplate;
@@ -84,8 +85,8 @@ class AddonBuilder
 		$this->sites         = iterator_to_array($this->configurator->MediaEmbed->defaultSites);
 		$this->xfTranspiler  = new XenForoTemplate;
 
-		$this->configurator->templateNormalizer->add(__CLASS__ . '::normalizeTemplate');
 		$this->configurator->templateNormalizer->add(new RemoveDefaultStyle);
+		$this->configurator->templateNormalizer->add(new SetGitHubIframeApiVersion);
 		$this->configurator->templateNormalizer->add(new SplitConditionalAttributes);
 
 		$this->storeVersion();
@@ -115,21 +116,6 @@ class AddonBuilder
 		$this->patchRenderer();
 
 		$dom->save($this->dir . '/_data/bb_code_media_sites.xml');
-	}
-
-	/**
-	* Normalize a site's template
-	*
-	* @param  DOMElement $template
-	* @return void
-	*/
-	public static function normalizeTemplate(DOMElement $template)
-	{
-		$xpath = new DOMXPath($template->ownerDocument);
-		foreach ($xpath->query('//iframe[@onload]') as $iframe)
-		{
-			$iframe->setAttribute('data-s9e-mediaembed-api', '2');
-		}
 	}
 
 	/**
