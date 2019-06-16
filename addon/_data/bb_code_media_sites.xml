@@ -28,9 +28,9 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*bitchute\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="bitchute"><span><iframe allowfullscreen="" scrolling="no" src="https://www.bitchute.com/embed/{$id}/"></iframe></span></span>]]></embed_html>
   </site>
-  <site media_site_id="bleacherreport" site_title="Bleacher Report videos" site_url="https://bleacherreport.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+  <site media_site_id="bleacherreport" site_title="Bleacher Report videos" site_url="https://bleacherreport.com/videos" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*bleacherreport\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="bleacherreport"><span><iframe allowfullscreen="" scrolling="no" src="//bleacherreport.com/video_embed?id={$id}"></iframe></span></span>]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="bleacherreport" style="max-width:320px"><span style="padding-bottom:100%"><iframe allowfullscreen="" scrolling="no" src="//bleacherreport.com/video_embed?id={$id}&amp;library=video-cms"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="break" site_title="Break" site_url="https://www.break.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*break\.com/.(?'id'))i]]></match_urls>
@@ -44,9 +44,9 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*cbsnews\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="cbsnews"><span style="{{ contains($id,'-') ? '' : ($pid ? 'padding-bottom:62.1875%;padding-bottom:calc(56.25% + 38px)' : 'padding-bottom:62.5%;padding-bottom:calc(56.25% + 40px)') }}"><xf:if is="contains($id,'-')"><iframe allowfullscreen="" scrolling="no" src="https://www.cbsnews.com/embed/videos/{$id}/"></iframe><xf:elseif is="$pid"/><object data="//www.cbsnews.com/common/video/cbsnews_player.swf" style="height:100%;left:0;position:absolute;width:100%" type="application/x-shockwave-flash" typemustmatch=""><param name="allowfullscreen" value="true"/><param name="flashvars" value="pType=embed&amp;si=254&amp;pid={$pid}"/></object><xf:else/><object data="//i.i.cbsi.com/cnwk.1d/av/video/cbsnews/atlantis2/cbsnews_player_embed.swf" style="height:100%;left:0;position:absolute;width:100%" type="application/x-shockwave-flash" typemustmatch=""><param name="allowfullscreen" value="true"/><param name="flashvars" value="si=254&amp;contentValue={$id}"/></object></xf:if></span></span>]]></embed_html>
   </site>
-  <site media_site_id="cnbc" site_title="CNBC" site_url="https://www.cnbc.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*video\.cnbc\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="cnbc" style="max-width:400px"><span style="padding-bottom:95%"><object data="//plus.cnbc.com/rssvideosearch/action/player/id/{$id}/code/cnbcplayershare" style="height:100%;left:0;position:absolute;width:100%" type="application/x-shockwave-flash" typemustmatch=""><param name="allowfullscreen" value="true"/></object></span></span>]]></embed_html>
+  <site media_site_id="cnbc" site_title="CNBC" site_url="https://www.cnbc.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*cnbc\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="cnbc"><span><iframe allowfullscreen="" scrolling="no" src="https://player.cnbc.com/p/gZWlPC/cnbc_global?playertype=synd&amp;byGuid={$id}&amp;size=640_360"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="cnn" site_title="CNN" site_url="https://edition.cnn.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*cnn\.com/.(?'id'))i]]></match_urls>
@@ -152,10 +152,6 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*docs\.google\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<xf:if is="$type=='chart'"><span data-s9e-mediaembed="googlesheets" style="max-width:600px"><span style="padding-bottom:62%"><iframe allowfullscreen="" scrolling="no" src="https://docs.google.com/spreadsheets/d/{$id}/pubchart?oid={$oid}&amp;format=interactive"></iframe></span></span><xf:else/><iframe data-s9e-mediaembed="googlesheets" allowfullscreen="" scrolling="no" style="height:500px;resize:vertical" src="https://docs.google.com/spreadsheets/d/{$id}/p{{ ($id >= 'e/' && $id < 'e0') ? 'ubhtml?widget=true&amp;headers=false' : 'review' }}#gid={$gid}"></iframe></xf:if>]]></embed_html>
   </site>
-  <site media_site_id="healthguru" site_title="Healthguru" site_url="https://www.healthguru.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*healthguru\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="healthguru"><span><iframe allowfullscreen="" scrolling="no" src="//www.healthguru.com/embed/{$id}"></iframe></span></span>]]></embed_html>
-  </site>
   <site media_site_id="hudl" site_title="Hudl" site_url="https://www.hudl.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*hudl\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="hudl"><span><iframe allowfullscreen="" scrolling="no" src="//www.hudl.com/embed/{{ $id ? 'video/' . $id : 'athlete/' . $athlete . '/highlights/' . $highlight }}"></iframe></span></span>]]></embed_html>
@@ -163,10 +159,6 @@
   <site media_site_id="hulu" site_title="Hulu" site_url="https://www.hulu.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*hulu\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="hulu"><span><iframe allowfullscreen="" scrolling="no" src="https://secure.hulu.com/embed/{$id}"></iframe></span></span>]]></embed_html>
-  </site>
-  <site media_site_id="humortvnl" site_title="HumorTV" site_url="https://humortv.vara.nl/pg.2.pg-home.html" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*humortv\.vara\.nl/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="humortvnl"><span><iframe allowfullscreen="" scrolling="no" src="//humortv.vara.nl/embed.{$id}.html"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="ign" site_title="IGN" site_url="https://www.ign.com/videos/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*ign\.com/.(?'id'))i]]></match_urls>
@@ -194,7 +186,7 @@
   </site>
   <site media_site_id="izlesene" site_title="İzlesene" site_url="https://www.izlesene.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*izlesene\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="izlesene"><span><iframe allowfullscreen="" scrolling="no" src="//www.izlesene.com/embedplayer/{$id}"></iframe></span></span>]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="izlesene"><span><iframe allowfullscreen="" scrolling="no" src="//www.izlesene.com/embedplayer/{$id}?autoplay=0"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="jwplatform" site_title="JW Platform" site_url="https://www.jwplayer.com/products/jwplatform/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*jwplatform\.com/.(?'id'))i]]></match_urls>
@@ -211,10 +203,6 @@
   <site media_site_id="libsyn" site_title="Libsyn" site_url="https://www.libsyn.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*libsyn\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="libsyn" allowfullscreen="" scrolling="no" src="//html5-player.libsyn.com/embed/episode/id/{$id}/height/45/width/900/theme/standard/direction/no/autoplay/no/autonext/no/thumbnail/no/preload/no/no_addthis/no/" style="height:45px;max-width:900px"></iframe>]]></embed_html>
-  </site>
-  <site media_site_id="livecap" site_title="LiveCap" site_url="https://www.livecap.tv/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*livecap\.tv/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="livecap"><span><iframe allowfullscreen="" scrolling="no" src="https://www.livecap.tv/s/embed/{$channel}/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="liveleak" site_title="Liveleak" site_url="https://www.liveleak.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*liveleak\.com/.(?'id'))i]]></match_urls>
@@ -250,7 +238,7 @@
   </site>
   <site media_site_id="msnbc" site_title="MSNBC" site_url="https://www.msnbc.com/watch" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*msnbc\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="msnbc"><span style="padding-bottom:68.75%;padding-bottom:calc(56.25% + 80px)"><iframe allowfullscreen="" scrolling="no" src="//player.theplatform.com/p/7wvmTC/MSNBCEmbeddedOffSite?guid={$id}"></iframe></span></span>]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="msnbc"><span style="{{ contains($id,'_') ? 'padding-bottom:68.75%;padding-bottom:calc(56.25% + 80px)' : '' }}"><iframe allowfullscreen="" scrolling="no" src="{{ contains($id,'_') ? '//player.theplatform.com/p/7wvmTC/MSNBCEmbeddedOffSite?guid=' : 'https://www.msnbc.com/msnbc/embedded-video/' }}{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="natgeochannel" site_title="National Geographic Channel" site_url="https://channel.nationalgeographic.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*channel\.nationalgeographic\.com/.(?'id'))i]]></match_urls>
@@ -475,10 +463,6 @@
   <site media_site_id="xboxdvr" site_title="Gamer DVR" site_url="https://gamerdvr.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:gamer|xbox)dvr\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="xboxdvr"><span><iframe allowfullscreen="" scrolling="no" src="//gamerdvr.com/gamer/{$user}/video/{$id}/embed"></iframe></span></span>]]></embed_html>
-  </site>
-  <site media_site_id="yahooscreen" site_title="Yahoo! Screen" site_url="https://screen.yahoo.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*screen\.yahoo\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="yahooscreen"><span><iframe allowfullscreen="" scrolling="no" src="https://screen.yahoo.com/{$id}.html?format=embed"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="youku" site_title="Youku" site_url="https://www.youku.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*youku\.com/.(?'id'))i]]></match_urls>
