@@ -140,6 +140,10 @@ class ParserTest extends TestCase
 				'UO1UrIx'
 			],
 			[
+				'https://archive.org/embed/deadco2018-08-25',
+				'height=50;id=deadco2018-08-25%26playlist%3D1;width=300'
+			],
+			[
 				'http://www.npr.org/blogs/goatsandsoda/2015/02/11/385396431/the-50-most-effective-ways-to-transform-the-developing-world',
 				'i=385396431;m=385396432'
 			],

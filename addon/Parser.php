@@ -77,7 +77,7 @@ class Parser
 		'imgur'=>[['@imgur\\.com/(?<id>a/\\w+)@','@i\\.imgur\\.com/(?<id>\\w{5,7})[lms]?\\.@','@imgur\\.com/(?<id>\\w+)(?![\\w./])@'],[],[['extract'=>['@data-id="(?<id>[\\w/]+)"@'],'match'=>["@imgur\\.com/(?![art]/|user/)(?'path'(?:gallery/)?\\w+)(?![\\w.])@"],'url'=>'https://api.imgur.com/oembed.xml?url=/{@path}']]],
 		'indiegogo'=>[['!indiegogo\\.com/projects/(?<id>[-\\w]+)!']],
 		'instagram'=>[['!instagram\\.com/(?:p|tv)/(?<id>[-\\w]+)!']],
-		'internetarchive'=>[[],[],[['extract'=>['!meta property="twitter:player" content="https://archive.org/embed/(?<id>[^/"]+)!','!meta property="og:video:width" content="(?<width>\\d+)!','!meta property="og:video:height" content="(?<height>\\d+)!'],'match'=>['!archive\\.org/(?:details|embed)/!']]],['height'=>['s9e\\MediaSites\\Parser::filterUint'],'width'=>['s9e\\MediaSites\\Parser::filterUint']]],
+		'internetarchive'=>[[],[],[['extract'=>['!meta property="twitter:player" content="https://archive.org/embed/(?<id>[^/"]+)!','!meta property="og:video:width" content="(?<width>\\d+)!','!meta property="og:video:height" content="(?<height>\\d+)!'],'match'=>['!archive\\.org/(?:details|embed)/!']]],['height'=>['s9e\\MediaSites\\Parser::filterUint'],'id'=>['htmlspecialchars_decode'],'width'=>['s9e\\MediaSites\\Parser::filterUint']]],
 		'izlesene'=>[['!izlesene\\.com/video/[-\\w]+/(?<id>\\d+)!']],
 		'jwplatform'=>[['!jwplatform\\.com/\\w+/(?<id>[-\\w]+)!']],
 		'khl'=>[[],[],[['extract'=>['!/feed/start/(?<id>[/\\w]+)!'],'match'=>['!video\\.khl\\.ru/(?:event|quote)s/\\d!']]]],
