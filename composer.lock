@@ -50,12 +50,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "ca2e767286d01a2e1a669d73e4131cb16cf66f08"
+                "reference": "28a405d9e3b6fcd06716a189a2b7a967083c2af1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/ca2e767286d01a2e1a669d73e4131cb16cf66f08",
-                "reference": "ca2e767286d01a2e1a669d73e4131cb16cf66f08",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/28a405d9e3b6fcd06716a189a2b7a967083c2af1",
+                "reference": "28a405d9e3b6fcd06716a189a2b7a967083c2af1",
                 "shasum": ""
             },
             "require": {
@@ -80,7 +80,7 @@
             },
             "type": "library",
             "extra": {
-                "version": "2.0.2-dev"
+                "version": "2.1.1-dev"
             },
             "autoload": {
                 "psr-4": {
@@ -110,7 +110,7 @@
                 "parser",
                 "shortcodes"
             ],
-            "time": "2019-07-17T19:23:47+00:00"
+            "time": "2019-08-01T22:07:19+00:00"
         }
     ],
     "packages-dev": [
@@ -740,16 +740,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "3.0.2",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "c4a66b97f040e3e20b3aa2a243230a1c3a9f7c8c"
+                "reference": "e899757bb3df5ff6e95089132f32cd59aac2220a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/c4a66b97f040e3e20b3aa2a243230a1c3a9f7c8c",
-                "reference": "c4a66b97f040e3e20b3aa2a243230a1c3a9f7c8c",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/e899757bb3df5ff6e95089132f32cd59aac2220a",
+                "reference": "e899757bb3df5ff6e95089132f32cd59aac2220a",
                 "shasum": ""
             },
             "require": {
@@ -762,7 +762,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "3.1-dev"
                 }
             },
             "autoload": {
@@ -785,7 +785,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2019-07-08T05:24:54+00:00"
+            "time": "2019-07-25T05:29:42+00:00"
         },
         {
             "name": "phpunit/phpunit",

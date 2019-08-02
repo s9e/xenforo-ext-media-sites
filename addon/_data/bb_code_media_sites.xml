@@ -388,6 +388,10 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*traileraddict\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="traileraddict"><span><iframe allowfullscreen="" scrolling="no" src="//v.traileraddict.com/{$id}"></iframe></span></span>]]></embed_html>
   </site>
+  <site media_site_id="trendingviews" site_title="Trending Views" site_url="https://trendingviews.co/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*trendingviews\.co/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="trendingviews"><span><iframe allowfullscreen="" scrolling="no" src="https://trendingviews.co/embed/{$id}"></iframe></span></span>]]></embed_html>
+  </site>
   <site media_site_id="tumblr" site_title="Tumblr" site_url="https://www.tumblr.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*tumblr\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="tumblr" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/tumblr.min.html#{$key}/{$id}" style="height:300px;max-width:520px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
