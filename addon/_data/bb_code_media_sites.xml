@@ -50,7 +50,7 @@
   </site>
   <site media_site_id="cnn" site_title="CNN" site_url="https://edition.cnn.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*cnn\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="cnn"><span><iframe allowfullscreen="" scrolling="no" src="//edition.cnn.com/video/api/embed.html#/video/{$id}"></iframe></span></span>]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="cnn"><span><iframe allowfullscreen="" scrolling="no" src="//fave.api.cnn.io/v1/fav/?video={$id}&amp;customer=cnn&amp;edition=international&amp;env=prod"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="cnnmoney" site_title="CNNMoney" site_url="https://money.cnn.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*money\.cnn\.com/.(?'id'))i]]></match_urls>
