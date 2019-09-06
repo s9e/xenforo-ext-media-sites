@@ -228,6 +228,10 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*mixcloud\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="mixcloud" style="max-width:400px"><span style="padding-bottom:100%"><iframe allowfullscreen="" scrolling="no" src="//www.mixcloud.com/widget/iframe/?feed=http%3A%2F%2Fwww.mixcloud.com%2F{$id}%2F&amp;embed_type=widget_standard"></iframe></span></span>]]></embed_html>
   </site>
+  <site media_site_id="mixer" site_title="Mixer" site_url="https://mixer.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*mixer\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="mixer"><span><iframe allowfullscreen="" scrolling="no" src="https://mixer.com/embed/player/{$channel}{{ $vod ? '?vod=' . $vod : '' }}"></iframe></span></span>]]></embed_html>
+  </site>
   <site media_site_id="mlb" site_title="MLB" site_url="https://mlb.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*mlb\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="mlb"><span><iframe allowfullscreen="" scrolling="no" src="https://www.mlb.com/video/share/c-{$id}"></iframe></span></span>]]></embed_html>
