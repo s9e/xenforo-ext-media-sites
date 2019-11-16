@@ -8,7 +8,11 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*amazon\.(?:c(?:a|o(?:\.(?:jp|uk)|m))|de|es|fr|i[nt])/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="amazon" style="max-width:120px"><span style="padding-bottom:200%"><iframe allowfullscreen="" scrolling="no" style="background:url(https://www.amazon.com/favicon.ico) center no-repeat" src="//ws-{{ $tld=='jp' ? 'fe' : (($tld and contains('desfrinituk',$tld)) ? 'eu' : 'na') }}.assoc-amazon.com/widgets/cm?l=as1&amp;f=ifr&amp;o={{ $tld=='ca' ? '15&amp;t=' . ($xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_CA) : ($tld=='de' ? '3&amp;t=' . ($xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_DE) : ($tld=='es' ? '30&amp;t=' . ($xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_ES) : ($tld=='fr' ? '8&amp;t=' . ($xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_FR) : ($tld=='in' ? '31&amp;t=' . ($xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IN) : ($tld=='it' ? '29&amp;t=' . ($xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IT) : ($tld=='jp' ? '9&amp;t=' . ($xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_JP) : ($tld=='uk' ? '2&amp;t=' . ($xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_UK) : '1&amp;t=' . ($xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG)))))))) }}&amp;asins={$id}"></iframe></span></span>]]></embed_html>
   </site>
-  <site media_site_id="audioboom" site_title="audioBoom" site_url="https://audioboom.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+  <site media_site_id="anchor" site_title="Anchor" site_url="https://anchor.fm/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*anchor\.fm/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="anchor" allowfullscreen="" scrolling="no" src="//anchor.fm/embed/episodes/x-{$id}" style="height:102px;max-width:700px"></iframe>]]></embed_html>
+  </site>
+  <site media_site_id="audioboom" site_title="Audioboom" site_url="https://audioboom.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*audioboo(?:\.f|m\.co)m/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="audioboom" allowfullscreen="" scrolling="no" src="//audioboom.com/posts/{$id}/embed/v3" style="height:150px;max-width:700px"></iframe>]]></embed_html>
   </site>
@@ -220,6 +224,10 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*medium\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="medium" allowfullscreen="" scrolling="no" src="https://api.medium.com/embed?type=story&amp;path=%2F%2F{$id}" style="border:1px solid;border-color:#eee #ddd #bbb;border-radius:5px;box-shadow:rgba(0,0,0,.15) 0 1px 3px;height:313px;max-width:900px"></iframe>]]></embed_html>
   </site>
+  <site media_site_id="megaphone" site_title="Megaphone" site_url="https://megaphone.fm/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*megaphone\.(?:fm|link)/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="megaphone" allowfullscreen="" scrolling="no" src="https://player.megaphone.fm/{$id}" style="height:200px;max-width:900px"></iframe>]]></embed_html>
+  </site>
   <site media_site_id="metacafe" site_title="Metacafe" site_url="https://www.metacafe.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*metacafe\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="metacafe"><span><iframe allowfullscreen="" scrolling="no" src="//www.metacafe.com/embed/{$id}/"></iframe></span></span>]]></embed_html>
@@ -379,10 +387,6 @@
   <site media_site_id="tiktok" site_title="TikTok" site_url="https://www.tiktok.com" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*tiktok\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="tiktok" style="max-width:340px"><span style="padding-bottom:205.882353%"><iframe allowfullscreen="" scrolling="no" src="//www.tiktok.com/embed/{$id}"></iframe></span></span>]]></embed_html>
-  </site>
-  <site media_site_id="tinypic" site_title="TinyPic videos" site_url="https://tinypic.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*tinypic\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="tinypic"><span style="padding-bottom:60.9375%;padding-bottom:calc(56.25% + 30px)"><object data="//tinypic.com/player.swf?file={$id}&amp;s={$s}" style="height:100%;left:0;position:absolute;width:100%" type="application/x-shockwave-flash" typemustmatch=""><param name="allowfullscreen" value="true"/></object></span></span>]]></embed_html>
   </site>
   <site media_site_id="tmz" site_title="TMZ" site_url="https://www.tmz.com/videos" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*tmz\.com/.(?'id'))i]]></match_urls>
