@@ -50,6 +50,10 @@
 hide=I do not want to display a link to this add-on</edit_format_params>
     <relation group_id="s9e_MediaSites" display_order="1"/>
   </option>
+  <option option_id="s9e_MediaSites_Full_Width_Embeds" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification">
+    <default_value></default_value>
+    <relation group_id="s9e_MediaSites" display_order="7"/>
+  </option>
   <option option_id="s9e_MediaSites_Gfycat_Native" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification">
     <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="6"/>
