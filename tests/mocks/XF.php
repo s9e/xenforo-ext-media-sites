@@ -3,6 +3,7 @@
 class XF
 {
 	public static $options;
+	public static $config = [];
 	protected static $templates = [];
 	protected function __construct()
 	{
@@ -28,6 +29,10 @@ class XF
 	public static function app()
 	{
 		return new self;
+	}
+	public static function config($key)
+	{
+		return self::$config[$key] ?? null;
 	}
 	public static function options()
 	{

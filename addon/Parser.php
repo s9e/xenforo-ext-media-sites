@@ -7,6 +7,7 @@
 */
 namespace s9e\MediaSites;
 
+use XF;
 use XF\BbCode\Helper\Flickr;
 use XF\Entity\BbCodeMediaSite;
 
@@ -513,6 +514,12 @@ class Parser
 			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+			$http = XF::config('http');
+			if (!empty($http['proxy']))
+			{
+				curl_setopt($curl, CURLOPT_PROXY, $http['proxy']);
+			}
 		}
 		curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($curl, CURLOPT_URL,        $url);
