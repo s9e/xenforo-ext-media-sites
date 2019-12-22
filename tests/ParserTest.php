@@ -168,6 +168,14 @@ class ParserTest extends TestCase
 				'id=tenaciousd%2Fsets%2Frize-of-the-fenix%2F;playlist_id=1919974;track_id=44564704'
 			],
 			[
+				'https://www.spreaker.com/user/bitcoinpodcasts/blockstreams-bitcoin-primer-ep-1',
+				'episode_id=20872603'
+			],
+			[
+				'https://www.spreaker.com/show/the-unhashed-podcast-bitcoin-blockchain-',
+				'show_id=3478708'
+			],
+			[
 				'http://www.twitch.tv/twitch',
 				'twitch'
 			],

@@ -118,6 +118,7 @@ class Parser
 		'sporcle'=>[['#sporcle.com/framed/.*?gid=(?<id>\\w+)#'],[],[['extract'=>['#encodedGameID\\W+(?<id>\\w+)#'],'match'=>['#sporcle\\.com/games/(?!\\w*category/)[-\\w]+/[-\\w]#']]]],
 		'sportsnet'=>[[],[],[['extract'=>['/vid(?:eoId)?=(?<id>\\d+)/','/param name="@videoPlayer" value="(?<id>\\d+)"/'],'match'=>['//']]]],
 		'spotify'=>[['!(?:open|play)\\.spotify\\.com/(?<id>(?:user/[-.\\w]+/)?(?:album|artist|playlist|track)(?:[:/][-.\\w]+)+)!']],
+		'spreaker'=>[['!spreaker\\.com/episode/(?<episode_id>\\d+)!'],[],[['extract'=>['!episode_id=(?<episode_id>\\d+)!','!show_id=(?<show_id>\\d+)!'],'match'=>["!(?'url'.+/(?:show/|user/.+/).+)!"],'url'=>'https://api.spreaker.com/oembed?format=json&url={@url}']]],
 		'steamstore'=>[['!store.steampowered.com/app/(?<id>\\d+)!']],
 		'stitcher'=>[[],[],[['extract'=>['!data-eid="(?<eid>\\d+)!','!data-fid="(?<fid>\\d+)!'],'match'=>['!/podcast/!']]]],
 		'strawpoll'=>[['!strawpoll\\.me/(?<id>\\d+)!']],

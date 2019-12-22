@@ -159,6 +159,16 @@ class RendererTest extends TestCase
 				'<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/cnn/newsday062413" style="height:166px;max-width:900px"></iframe>'
 			],
 			[
+				'spreaker',
+				'episode_id=20872603',
+				'<iframe data-s9e-mediaembed="spreaker" allowfullscreen="" scrolling="no" src="https://widget.spreaker.com/player?episode_id=20872603&amp;show_id=" style="height:200px;max-width:900px"></iframe>'
+			],
+			[
+				'spreaker',
+				'show_id=3478708',
+				'<iframe data-s9e-mediaembed="spreaker" allowfullscreen="" scrolling="no" src="https://widget.spreaker.com/player?episode_id=&amp;show_id=3478708" style="height:400px;max-width:900px"></iframe>'
+			],
+			[
 				'tumblr',
 				'did=5f3b4bc6718317df9c2b1e77c20839ab94f949cd;id=104191225637;key=uFhWDPKj-bGU0ZlDAnUyxg;name=mrbenvey',
 				'<iframe data-s9e-mediaembed="tumblr" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+\'px\'};contentWindow.postMessage(\'s9e:init\',\'https://s9e.github.io\',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/tumblr.min.html#uFhWDPKj-bGU0ZlDAnUyxg/104191225637" style="height:300px;max-width:520px" data-s9e-mediaembed-api="2"></iframe>'
