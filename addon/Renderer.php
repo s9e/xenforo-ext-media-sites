@@ -208,6 +208,13 @@ class Renderer
 		return $html;
 	}
 
+	protected static function renderSpotify($vars)
+	{
+		$vars+=['id'=>null,'path'=>null];$html='';if((strpos($vars['id'],'episode/')===0)||(strpos($vars['id'],'show/')===0)){$html.='<iframe data-s9e-mediaembed="spotify" allow="encrypted-media" allowfullscreen="" scrolling="no" src="https://open.spotify.com/embed/'.htmlspecialchars($vars['id'],2).'" style="height:152px;max-width:900px"></iframe>';}else{$html.='<span data-s9e-mediaembed="spotify" style="max-width:400px"><span style="padding-bottom:100%"><iframe allow="encrypted-media" allowfullscreen="" scrolling="no" src="https://open.spotify.com/embed/'.htmlspecialchars(strtr($vars['id'],':','/').$vars['path'],2).'"></iframe></span></span>';}
+
+		return $html;
+	}
+
 	protected static function renderSpreaker($vars)
 	{
 		$vars+=['episode_id'=>null,'show_id'=>null];$html='<iframe data-s9e-mediaembed="spreaker" allowfullscreen="" scrolling="no" src="https://widget.spreaker.com/player?episode_id='.htmlspecialchars($vars['episode_id'],2).'&amp;show_id='.htmlspecialchars($vars['show_id'],2).'" style="height:'.htmlspecialchars(400-200*isset($vars['episode_id']),2).'px;max-width:900px"></iframe>';

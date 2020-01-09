@@ -292,10 +292,6 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*pinterest\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="pinterest" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/pinterest.min.html#{$id}" data-s9e-mediaembed-api="2" style="height:360px;max-width:{{ contains($id,'/') ? '730' : '345' }}px"></iframe>]]></embed_html>
   </site>
-  <site media_site_id="playstv" site_title="Plays.tv" site_url="https://plays.tv/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*plays\.tv/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="playstv"><span><iframe allowfullscreen="" scrolling="no" src="//plays.tv/embeds/{$id}"></iframe></span></span>]]></embed_html>
-  </site>
   <site media_site_id="podbean" site_title="Podbean" site_url="https://www.podbean.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*podbean\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="podbean" allowfullscreen="" scrolling="no" src="//www.podbean.com/media/player/{$id}" style="height:100px;max-width:900px"></iframe>]]></embed_html>
@@ -338,7 +334,7 @@
   </site>
   <site media_site_id="spotify" site_title="Spotify" site_url="https://www.spotify.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:open|play)\.spotify\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="spotify" style="max-width:400px"><span style="padding-bottom:100%"><iframe allow="encrypted-media" allowfullscreen="" scrolling="no" src="https://open.spotify.com/embed/{$id|replace(':','/')}{$path}"></iframe></span></span>]]></embed_html>
+    <embed_html><![CDATA[]]></embed_html>
   </site>
   <site media_site_id="spreaker" site_title="Spreaker" site_url="https://www.spreaker.com" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*spreaker\.com/.(?'id'))i]]></match_urls>
