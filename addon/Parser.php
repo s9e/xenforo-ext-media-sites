@@ -145,7 +145,7 @@ class Parser
 		'vimeo'=>[['!vimeo\\.com/(?:channels/[^/]+/|video/)?(?<id>\\d+)!','!#t=(?<t>[\\dhms]+)!'],[],[],['t'=>['s9e\\MediaSites\\Parser::filterTimestamp']]],
 		'vine'=>[['!vine\\.co/v/(?<id>[^/]+)!']],
 		'vk'=>[['!vk(?:\\.com|ontakte\\.ru)/(?:[\\w.]+\\?z=)?video(?<oid>-?\\d+)_(?<vid>\\d+).*?hash=(?<hash>[0-9a-f]+)!','!vk(?:\\.com|ontakte\\.ru)/video_ext\\.php\\?oid=(?<oid>-?\\d+)&id=(?<vid>\\d+)&hash=(?<hash>[0-9a-f]+)!']],
-		'vocaroo'=>[['!vocaroo\\.com/i/(?<id>\\w+)!']],
+		'vocaroo'=>[['!voca(?:\\.ro|roo\\.com)/(?:i/)?(?<id>\\w+)!']],
 		'vox'=>[['!vox.com/.*#ooid=(?<id>[-\\w]+)!']],
 		'washingtonpost'=>[['#washingtonpost\\.com/video/c/\\w+/(?<id>[-0-9a-f]+)#','#washingtonpost\\.com/video/[-/\\w]+/(?<id>[-0-9a-f]+)_video\\.html#']],
 		'wshh'=>[['!worldstarhiphop\\.com/featured/(?<id>\\d+)!'],[],[['extract'=>['!v: ?"?(?<id>\\d+)!'],'match'=>['!worldstarhiphop\\.com/(?:\\w+/)?video\\.php\\?v=\\w+!']]]],

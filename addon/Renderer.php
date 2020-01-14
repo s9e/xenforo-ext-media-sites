@@ -221,4 +221,11 @@ class Renderer
 
 		return $html;
 	}
+
+	protected static function renderVocaroo($vars)
+	{
+		$vars+=['id'=>null];$html='<span data-s9e-mediaembed="vocaroo" style="max-width:';if((strpos($vars['id'],'s0')===0)||(strpos($vars['id'],'s1')===0)){$html.='148';}else{$html.='300';}$html.='px"><span style="padding-bottom:2';if((strpos($vars['id'],'s0')===0)||(strpos($vars['id'],'s1')===0)){$html.='9.72973';}else{$html.='0';}$html.='%">';if((strpos($vars['id'],'s0')===0)||(strpos($vars['id'],'s1')===0)){$html.='<object data="//vocaroo.com/player.swf?playMediaID='.htmlspecialchars($vars['id'],2).'&amp;autoplay=0" style="height:100%;left:0;position:absolute;width:100%" type="application/x-shockwave-flash" typemustmatch=""><param name="allowfullscreen" value="true"></object>';}else{$html.='<iframe allowfullscreen="" scrolling="no" src="https://vocaroo.com/embed/'.htmlspecialchars($vars['id'],2).'"></iframe>';}$html.='</span></span>';
+
+		return $html;
+	}
 }
