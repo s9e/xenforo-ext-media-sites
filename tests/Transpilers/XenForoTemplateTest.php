@@ -152,6 +152,14 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 				"<iframe src=\"{translate(@id,'_','/')}\"></iframe>",
 				"<iframe src=\"{\$id|replace('_','/')}\"></iframe>"
 			],
+			[
+				'<xsl:if test="starts-with(@foo,\'abc\')">x</xsl:if>',
+				'<xf:if is="($foo >= \'abc\' && $foo < \'abd\')">x</xf:if>'
+			],
+			[
+				'<xsl:if test="starts-with(@foo,\'abc\')orstarts-with(@bar,\'xy\')">x</xsl:if>',
+				'<xf:if is="(($foo >= \'abc\' && $foo < \'abd\') or ($bar >= \'xy\' && $bar < \'xz\'))">x</xf:if>'
+			],
 		];
 	}
 }

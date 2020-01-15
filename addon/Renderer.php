@@ -208,23 +208,9 @@ class Renderer
 		return $html;
 	}
 
-	protected static function renderSpotify($vars)
-	{
-		$vars+=['id'=>null,'path'=>null];$html='';if((strpos($vars['id'],'episode/')===0)||(strpos($vars['id'],'show/')===0)){$html.='<iframe data-s9e-mediaembed="spotify" allow="encrypted-media" allowfullscreen="" scrolling="no" src="https://open.spotify.com/embed/'.htmlspecialchars($vars['id'],2).'" style="height:152px;max-width:900px"></iframe>';}else{$html.='<span data-s9e-mediaembed="spotify" style="max-width:400px"><span style="padding-bottom:100%"><iframe allow="encrypted-media" allowfullscreen="" scrolling="no" src="https://open.spotify.com/embed/'.htmlspecialchars(strtr($vars['id'],':','/').$vars['path'],2).'"></iframe></span></span>';}
-
-		return $html;
-	}
-
 	protected static function renderSpreaker($vars)
 	{
 		$vars+=['episode_id'=>null,'show_id'=>null];$html='<iframe data-s9e-mediaembed="spreaker" allowfullscreen="" scrolling="no" src="https://widget.spreaker.com/player?episode_id='.htmlspecialchars($vars['episode_id'],2).'&amp;show_id='.htmlspecialchars($vars['show_id'],2).'" style="height:'.htmlspecialchars(400-200*isset($vars['episode_id']),2).'px;max-width:900px"></iframe>';
-
-		return $html;
-	}
-
-	protected static function renderVocaroo($vars)
-	{
-		$vars+=['id'=>null];$html='<span data-s9e-mediaembed="vocaroo" style="max-width:';if((strpos($vars['id'],'s0')===0)||(strpos($vars['id'],'s1')===0)){$html.='148';}else{$html.='300';}$html.='px"><span style="padding-bottom:2';if((strpos($vars['id'],'s0')===0)||(strpos($vars['id'],'s1')===0)){$html.='9.72973';}else{$html.='0';}$html.='%">';if((strpos($vars['id'],'s0')===0)||(strpos($vars['id'],'s1')===0)){$html.='<object data="//vocaroo.com/player.swf?playMediaID='.htmlspecialchars($vars['id'],2).'&amp;autoplay=0" style="height:100%;left:0;position:absolute;width:100%" type="application/x-shockwave-flash" typemustmatch=""><param name="allowfullscreen" value="true"></object>';}else{$html.='<iframe allowfullscreen="" scrolling="no" src="https://vocaroo.com/embed/'.htmlspecialchars($vars['id'],2).'"></iframe>';}$html.='</span></span>';
 
 		return $html;
 	}

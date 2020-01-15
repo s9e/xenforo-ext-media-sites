@@ -186,6 +186,14 @@ class XenForoTemplate implements TranspilerInterface
 	}
 
 	/**
+	* Convert a starts-with() call
+	*/
+	protected static function convertStartsWith(string $attrName, string $str): string
+	{
+		return '($' . $attrName . " >= '" . $str . '\' && $' . $attrName . " < '" . substr($str, 0, -1) . chr(1 + ord($str[-1])) . "')";
+	}
+
+	/**
 	* Convert an XPath expression to a XenForo expression
 	*
 	* @param  string $expr
@@ -194,10 +202,16 @@ class XenForoTemplate implements TranspilerInterface
 	protected static function convertXPath($expr)
 	{
 		$expr = preg_replace_callback(
-			"(^starts-with\\(@(\\w+), *'([^']+)'\\)$)",
+			"(^starts-with\\(@(\\w+),'([^']+)'\\)(?:orstarts-with\\(@(\\w+),'([^']+)'\\))?$)",
 			function ($m)
 			{
-				return '($' . $m[1] . " >= '" . $m[2] . '\' && $' . $m[1] . " < '" . substr($m[2], 0, -1) . chr(1 + ord(substr($m[2], -1))) . "')";
+				$expr = self::convertStartsWith($m[1], $m[2]);
+				if (isset($m[3]))
+				{
+					$expr = '(' . $expr . ' or ' . self::convertStartsWith($m[3], $m[4]) . ')';
+				}
+
+				return $expr;
 			},
 			$expr,
 			1,
