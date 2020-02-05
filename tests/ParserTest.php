@@ -176,6 +176,10 @@ class ParserTest extends TestCase
 				'show_id=3478708'
 			],
 			[
+				'https://www.tiktok.com/@lauren.feagans/video/6789430799839104261',
+				'6789430799839104261'
+			],
+			[
 				'http://www.twitch.tv/twitch',
 				'twitch'
 			],

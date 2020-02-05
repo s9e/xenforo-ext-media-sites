@@ -60,10 +60,6 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*money\.cnn\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="cnnmoney" style="max-width:560px"><span style="padding-bottom:64.285714%"><iframe allowfullscreen="" scrolling="no" src="//money.cnn.com/.element/ssi/video/7.0/players/embed.player.html?videoid=video/{$id}&amp;width=560&amp;height=360"></iframe></span></span>]]></embed_html>
   </site>
-  <site media_site_id="collegehumor" site_title="CollegeHumor" site_url="https://www.collegehumor.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*collegehumor\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="collegehumor" style="max-width:600px"><span style="padding-bottom:61.5%"><iframe allowfullscreen="" scrolling="no" src="//www.collegehumor.com/e/{$id}"></iframe></span></span>]]></embed_html>
-  </site>
   <site media_site_id="comedycentral" site_title="Comedy Central" site_url="https://www.cc.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*c(?:c|omedycentral)\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="comedycentral"><span><iframe allowfullscreen="" scrolling="no" src="//media.mtvnservices.com/embed/{$id}"></iframe></span></span>]]></embed_html>
