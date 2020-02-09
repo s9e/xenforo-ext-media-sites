@@ -464,9 +464,9 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*wsj\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="wsj" style="max-width:512px"><span><iframe allowfullscreen="" scrolling="no" src="//video-api.wsj.com/api-video/player/iframe.html?guid={$id}"></iframe></span></span>]]></embed_html>
   </site>
-  <site media_site_id="xboxclips" site_title="XboxClips" site_url="https://xboxclips.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*xboxclips\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="xboxclips"><span><iframe allowfullscreen="" scrolling="no" src="//xboxclips.com/{$user}/{$id}/embed"></iframe></span></span>]]></embed_html>
+  <site media_site_id="xboxclips" site_title="GameClips.io" site_url="https://gameclips.io/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:gameclips\.io|xboxclips\.com)/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="xboxclips" style="max-width:560px"><span><iframe allowfullscreen="" scrolling="no" src="//gameclips.io/{$user}/{$id}/embed"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="xboxdvr" site_title="Gamer DVR" site_url="https://gamerdvr.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:gamer|xbox)dvr\.com/.(?'id'))i]]></match_urls>
