@@ -50,12 +50,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "9bf0d3823d8263dfd1955ff69c39ce60f8f90751"
+                "reference": "4de32bb775593509962ea4e3ac126d320fbe01f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/9bf0d3823d8263dfd1955ff69c39ce60f8f90751",
-                "reference": "9bf0d3823d8263dfd1955ff69c39ce60f8f90751",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/4de32bb775593509962ea4e3ac126d320fbe01f2",
+                "reference": "4de32bb775593509962ea4e3ac126d320fbe01f2",
                 "shasum": ""
             },
             "require": {
@@ -111,7 +111,7 @@
                 "parser",
                 "shortcodes"
             ],
-            "time": "2020-02-09T14:12:03+00:00"
+            "time": "2020-02-13T22:53:37+00:00"
         }
     ],
     "packages-dev": [
@@ -1480,16 +1480,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.13.1",
+            "version": "v1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "f8f0b461be3385e56d6de3dbb5a0df24c0c275e3"
+                "reference": "fbdeaec0df06cf3d51c93de80c7eb76e271f5a38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/f8f0b461be3385e56d6de3dbb5a0df24c0c275e3",
-                "reference": "f8f0b461be3385e56d6de3dbb5a0df24c0c275e3",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/fbdeaec0df06cf3d51c93de80c7eb76e271f5a38",
+                "reference": "fbdeaec0df06cf3d51c93de80c7eb76e271f5a38",
                 "shasum": ""
             },
             "require": {
@@ -1501,7 +1501,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.13-dev"
+                    "dev-master": "1.14-dev"
                 }
             },
             "autoload": {
@@ -1534,7 +1534,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2019-11-27T13:56:44+00:00"
+            "time": "2020-01-13T11:15:53+00:00"
         },
         {
             "name": "theseer/tokenizer",
