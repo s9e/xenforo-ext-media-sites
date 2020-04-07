@@ -28,6 +28,10 @@
     <find><![CDATA[src="https://www.youtube.com/embed/]]></find>
     <replace><![CDATA[src="https://www.youtube-nocookie.com/embed/]]></replace>
   </modification>
+  <modification type="public" template="_media_site_embed_youtube" modification_key="s9e_MediaSites_YouTube_DefaultEmbed" description="Disables lazy-loading YouTube videos" execution_order="10" enabled="0" action="str_replace">
+    <find><![CDATA[<span data-s9e-mediaembed="youtube">]]></find>
+    <replace><![CDATA[<span data-s9e-mediaembed='youtube'>]]></replace>
+  </modification>
   <modification type="public" template="bb_code.less" modification_key="s9e_MediaSites_EmbedsInQuotes" description="Limits the size of embeds and removes transitions within expandable quotes" execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[(^)]]></find>
     <replace><![CDATA[.is-expandable:not(.is-expanded) [data-s9e-mediaembed]
