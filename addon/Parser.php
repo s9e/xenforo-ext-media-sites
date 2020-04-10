@@ -55,7 +55,7 @@ class Parser
 		'dumpert'=>[['!dumpert\\.nl/mediabase/(?<id>\\d+[/_]\\w+)!']],
 		'eighttracks'=>[['!8tracks\\.com/[-\\w]+/(?<id>\\d+)(?=#|$)!'],[],[['extract'=>['!eighttracks://mix/(?<id>\\d+)!'],'match'=>['!8tracks\\.com/[-\\w]+/\\D!']]]],
 		'espn'=>[['#video/(?:clip(?:\\?id=|/_/id/))?(?<id>\\d+)#']],
-		'facebook'=>[['@/(?!(?:apps|developers|graph)\\.)[-\\w.]*facebook\\.com/(?:[/\\w]+/permalink|(?!pages/|groups/).*?)(?:/|fbid=|\\?v=)(?<id>\\d+)(?=$|[/?&#])@','@facebook\\.com/(?<user>[.\\w]+)/(?<type>post|video)s?/@','@facebook\\.com/video/(?<type>post|video)\\.php@']],
+		'facebook'=>[['@/(?!(?:apps|developers|graph)\\.)[-\\w.]*facebook\\.com/(?:[/\\w]+/permalink|(?!marketplace/|pages/|groups/).*?)(?:/|fbid=|\\?v=)(?<id>\\d+)(?=$|[/?&#])@','@facebook\\.com/(?<user>[.\\w]+)/(?<type>post|video)s?/@','@facebook\\.com/video/(?<type>post|video)\\.php@']],
 		'flickr'=>[['@flickr\\.com/photos/[^/]+/(?<id>\\d+)@','@flic\\.kr/(?!p/)[^/]+/(?<id>\\d+)@'],[],[['extract'=>['@flickr\\.com/photos/[^/]+/(?<id>\\d+)@'],'match'=>["@flic\\.kr/p/(?'short'\\w+)@"],'url'=>'https://www.flickr.com/photo.gne?rb=1&short={@short}']]],
 		'foxnews'=>[['!video\\.foxnews\\.com/v/(?<id>\\d+)!']],
 		'foxsports'=>[[],[],[['extract'=>['@BKQ29B/(?<id>\\w+)@'],'match'=>['@/video/\\d@']]]],
