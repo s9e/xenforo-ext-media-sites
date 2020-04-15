@@ -50,12 +50,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "7e3c1a8c0eaf65ab7b62b798696530904b0bd113"
+                "reference": "e41a832d829f379727e4b050aa23ba3bc44a1707"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/7e3c1a8c0eaf65ab7b62b798696530904b0bd113",
-                "reference": "7e3c1a8c0eaf65ab7b62b798696530904b0bd113",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/e41a832d829f379727e4b050aa23ba3bc44a1707",
+                "reference": "e41a832d829f379727e4b050aa23ba3bc44a1707",
                 "shasum": ""
             },
             "require": {
@@ -81,7 +81,7 @@
             },
             "type": "library",
             "extra": {
-                "version": "2.4.1-dev"
+                "version": "2.4.2-dev"
             },
             "autoload": {
                 "psr-4": {
@@ -111,7 +111,7 @@
                 "parser",
                 "shortcodes"
             ],
-            "time": "2020-04-10T14:13:10+00:00"
+            "time": "2020-04-14T21:20:44+00:00"
         }
     ],
     "packages-dev": [
