@@ -275,6 +275,26 @@ class AddonBuilder
 	}
 
 	/**
+	* Generate the list of filters used in the renderer
+	*
+	* @return string
+	*/
+	protected function generateRendererFilters()
+	{
+		$php = '';
+		foreach ($this->sites as $siteId => $siteConfig)
+		{
+			$filters = self::getFiltersConfig($siteConfig, true);
+			if (!empty($filters))
+			{
+				$php .= "\n\t\t'" . $siteId . "'=>" . self::exportArray($filters) . ',';
+			}
+		}
+
+		return substr($php, 0, -1);
+	}
+
+	/**
 	* Generate and return the PHP source for all the PHP renderers
 	*
 	* @return string
@@ -308,9 +328,10 @@ class AddonBuilder
 	* Generate an array of filter config for given site
 	*
 	* @param  array $config
+	* @param  bool  $builtinOnly Whether to restrict filters to built-in filters only
 	* @return array
 	*/
-	protected static function getFiltersConfig(array $config)
+	protected static function getFiltersConfig(array $config, bool $builtinOnly = false)
 	{
 		$filters = [];
 		if (empty($config['attributes']))
@@ -328,8 +349,13 @@ class AddonBuilder
 			{
 				if ($filter[0] === '#')
 				{
-					$filter = 's9e\\MediaSites\\Parser::filter' . ucfirst(substr($filter, 1));
+					$filter = 's9e\\MediaSites\\Helper::filter' . ucfirst(substr($filter, 1));
 				}
+				elseif ($builtinOnly)
+				{
+					continue;
+				}
+
 				$filters[$attrName][] = $filter;
 			}
 		}
@@ -545,6 +571,11 @@ class AddonBuilder
 	*/
 	protected function patchRenderer()
 	{
+		$this->patchFile(
+			'Renderer.php',
+			'(\\n\\tprotected static \\$filters = \\[\\K.*?(?=\\n\\t\\]))s',
+			'generateRendererFilters'
+		);
 		$this->patchFile(
 			'Renderer.php',
 			'(\\n\\tprotected static function render.*?\\n(?=\\}))s',

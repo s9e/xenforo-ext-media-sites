@@ -27,6 +27,18 @@ class Renderer
 	];
 
 	/**
+	* @var array
+	*/
+	protected static $filters = [
+		'getty'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
+		'gfycat'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
+		'gifs'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
+		'internetarchive'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
+		'vimeo'=>['t'=>['s9e\\MediaSites\\Helper::filterTimestamp']],
+		'youtube'=>['id'=>['s9e\\MediaSites\\Helper::filterIdentifier'],'t'=>['s9e\\MediaSites\\Helper::filterTimestamp']]
+	];
+
+	/**
 	* Generate the HTML code for a site
 	*
 	* @param  string $mediaKey Media key
@@ -182,6 +194,26 @@ class Renderer
 		if (is_callable($callback))
 		{
 			$vars = call_user_func($callback, $vars);
+		}
+
+		if (isset(self::$filters[$siteId]))
+		{
+			foreach (self::$filters[$siteId] as $attrName => $filters)
+			{
+				if (!isset($vars[$attrName]))
+				{
+					continue;
+				}
+				foreach ($filters as $filter)
+				{
+					$vars[$attrName] = $filter($vars[$attrName]);
+					if ($vars[$attrName] === false)
+					{
+						unset($vars[$attrName]);
+						break;
+					}
+				}
+			}
 		}
 
 		return $vars;

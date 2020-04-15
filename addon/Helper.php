@@ -12,6 +12,48 @@ use XF\Template\Templater;
 class Helper
 {
 	/**
+	* Filter an identifier value
+	*
+	* @param  string $attrValue Original value
+	* @return mixed             Filtered value, or FALSE if invalid
+	*/
+	public static function filterIdentifier($attrValue)
+	{
+		return (preg_match('/^[-0-9A-Za-z_]+$/D', $attrValue)) ? $attrValue : false;
+	}
+
+	/**
+	* Filter a timestamp value
+	*
+	* @param  string $attrValue Original value
+	* @return mixed             Filtered value, or FALSE if invalid
+	*/
+	public static function filterTimestamp($attrValue)
+	{
+		if (preg_match('/^(?=\\d)(?:(\\d+)h)?(?:(\\d+)m)?(?:(\\d+)s)?$/D', $attrValue, $m))
+		{
+			$m += [0, 0, 0, 0];
+
+			return intval($m[1]) * 3600 + intval($m[2]) * 60 + intval($m[3]);
+		}
+
+		return self::filterUint($attrValue);
+	}
+
+	/**
+	* Filter a uint value
+	*
+	* @param  string $attrValue Original value
+	* @return mixed             Filtered value, or FALSE if invalid
+	*/
+	public static function filterUint($attrValue)
+	{
+		return filter_var($attrValue, FILTER_VALIDATE_INT, [
+			'options' => ['min_range' => 0]
+		]);
+	}
+
+	/**
 	* Replace iframe src attributes in given HTML
 	*
 	* @param  Templater  $templater
