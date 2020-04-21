@@ -62,6 +62,10 @@ hide=I do not want to display a link to this add-on</edit_format_params>
     <default_value>1</default_value>
     <relation group_id="s9e_MediaSites" display_order="2"/>
   </option>
+  <option option_id="s9e_MediaSites_Vimeo_DefaultEmbed" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification">
+    <default_value></default_value>
+    <relation group_id="s9e_MediaSites" display_order="9"/>
+  </option>
   <option option_id="s9e_MediaSites_YouTube_DefaultEmbed" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification">
     <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="8"/>
