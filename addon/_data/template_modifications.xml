@@ -15,7 +15,7 @@
   <modification type="public" template="_media_site_embed_gfycat" modification_key="s9e_MediaSites_Gfycat_Native" description="Replaces Gfycat embeds with a native player" execution_order="10" enabled="0" action="preg_replace">
     <find><![CDATA[(^<span.*)s]]></find>
     <replace><![CDATA[<xf:if is="$id >= 'A' && $id < '['">
-	<video data-s9e-mediaembed="gfycat" style="max-width:100%;width:{$width}px;height:{$height}px" autoplay controls loop playsinline poster="https://thumbs.gfycat.com/{$id}-mobile.jpg">
+	<video data-s9e-mediaembed="gfycat" style="max-width:100%;width:{$width}px;height:{$height}px" autoplay controls loop muted playsinline poster="https://thumbs.gfycat.com/{$id}-mobile.jpg">
 		<source src="https://giant.gfycat.com/{$id}.mp4" type="video/mp4">
 		<source src="https://giant.gfycat.com/{$id}.webm" type="video/webm">
 		<source src="https://thumbs.gfycat.com/{$id}-mobile.mp4" type="video/mp4">
