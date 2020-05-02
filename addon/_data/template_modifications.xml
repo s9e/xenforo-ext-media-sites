@@ -53,7 +53,8 @@ $0]]></replace>
   </modification>
   <modification type="public" template="core_bbcode.less" modification_key="s9e_MediaSites_Embeds" description="Adds the default style used by the add-on's embeds" execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[(^)]]></find>
-    <replace><![CDATA[iframe[data-s9e-mediaembed]
+    <replace><![CDATA[iframe[data-s9e-mediaembed],
+span[data-s9e-mediaembed-iframe]
 {
 	border:    0;
 	max-width: 100%;
@@ -71,7 +72,8 @@ span[data-s9e-mediaembed] > span
 	padding-bottom: 56.25%;
 	position: relative;
 }
-span[data-s9e-mediaembed] > span > iframe
+span[data-s9e-mediaembed] > span > iframe,
+span[data-s9e-mediaembed] > span > [data-s9e-mediaembed-iframe]
 {
 	border:   0;
 	height:   100%;

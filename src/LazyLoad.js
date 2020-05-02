@@ -1,6 +1,6 @@
 (function (window, document, dataPrefix, classPrefix)
 {
-	// Delay in milliseconds between events and checking for visible iframes
+	// Delay in milliseconds between events and checking for visible elements
 	const REFRESH_DELAY = 32;
 
 	// Enum indicating an iframe's position in relation to viewport
@@ -12,9 +12,9 @@
 	const SCROLL_DOWN = 0;
 	const SCROLL_UP   = 1;
 
-	var nodes   = document.querySelectorAll('iframe[' + dataPrefix + '-src]'),
+	var nodes   = document.querySelectorAll('span[' + dataPrefix + '-iframe]'),
 		i       = 0,
-		iframes = [],
+		dummies = [],
 		top     = 0,
 		bottom  = 0,
 		timeout = 0,
@@ -23,7 +23,7 @@
 		scrollDirection = SCROLL_DOWN;
 	while (i < nodes.length)
 	{
-		iframes.push(nodes[i++]);
+		dummies.push(nodes[i++]);
 	}
 
 	// Give the browser some time to scroll to the URL's target if the document is loading
@@ -58,19 +58,19 @@
 		fn('scroll', scheduleLoading);
 	}
 
-	function isInRange(iframe)
+	function isInRange(element)
 	{
-		var rect = iframe.getBoundingClientRect();
+		var rect = element.getBoundingClientRect();
 
-		// Test for width to ensure the iframe isn't hidden in a spoiler
+		// Test for width to ensure the element isn't hidden in a spoiler
 		if (rect.bottom < top || rect.top > bottom || !rect.width)
 		{
 			return false;
 		}
 
-		// Iframes in a non-expanded quotes are limited to a 270px width. This is not a perfect
+		// Elements in a non-expanded quotes are limited to a 270px width. This is not a perfect
 		// indicator but it works well enough to cover the overwhelming majority of embeds
-		if (rect.width === 270 && isHiddenInQuote(iframe, rect.top))
+		if (rect.width === 270 && isHiddenInQuote(element, rect.top))
 		{
 			return false;
 		}
@@ -78,9 +78,9 @@
 		return true;
 	}
 
-	function isHiddenInQuote(iframe, top)
+	function isHiddenInQuote(element, top)
 	{
-		var parentNode = iframe.parentNode,
+		var parentNode = element.parentNode,
 			block      = parentNode;
 		while (parentNode.tagName !== 'BODY')
 		{
@@ -100,17 +100,24 @@
 		timeout = setTimeout(loadIframes, REFRESH_DELAY);
 	}
 
-	function loadIframe(iframe)
+	function loadIframe(dummy)
 	{
-		var contentWindow = iframe.contentWindow,
-			src           = iframe.getAttribute(dataPrefix + '-src');
+		var iframe = document.createElement('iframe'),
+			values = JSON.parse(dummy.getAttribute(dataPrefix + '-iframe')),
+			i      = -1;
+		while (++i < values.length)
+		{
+			iframe.setAttribute(values[i], values[++i]);
+		}
+		iframe['loading'] = 'eager';
+
 		if (iframe.getAttribute(dataPrefix + '-api') == 2)
 		{
 			iframe.onload = function ()
 			{
 				var channel = new MessageChannel,
-					origin  = src.substr(0, src.indexOf('/', 8));
-				contentWindow.postMessage('s9e:init', origin, [channel.port2]);
+					origin  = this.src.substr(0, this.src.indexOf('/', 8));
+				iframe.contentWindow.postMessage('s9e:init', origin, [channel.port2]);
 				channel.port1.onmessage = function (e)
 				{
 					var dimensions = ("" + e.data).split(' ');
@@ -118,20 +125,17 @@
 				};
 			};
 		}
-
-		if (iframe.contentDocument)
-		{
-			// Replace the iframe's location if it still holds the empty document
-			contentWindow.location.replace(src);
-		}
-		else if (iframe.onload)
+/*
+		if (iframe.onload)
 		{
 			// Mannually trigger the iframe's onload if the iframe was preloaded by the browser.
 			// That can happen on Chrome when using back/forward navigation
 			iframe.onload();
 		}
-
-		prepareMiniplayer(iframe);
+*/
+		var parentNode = dummy.parentNode;
+		prepareMiniplayer(iframe, parentNode);
+		parentNode.replaceChild(iframe, dummy);
 	}
 
 	function getIframePosition(iframe)
@@ -224,23 +228,23 @@
 		bottom = window.innerHeight * 2;
 		top    = -bottom / ((scrollDirection === SCROLL_DOWN) ? 4 : 2);
 
-		var newIframes = [];
-		iframes.forEach(
-			function (iframe)
+		var newDummies = [];
+		dummies.forEach(
+			function (dummy)
 			{
-				if (isInRange(iframe))
+				if (isInRange(dummy))
 				{
-					loadIframe(iframe);
+					loadIframe(dummy);
 				}
 				else
 				{
-					newIframes.push(iframe);
+					newDummies.push(dummy);
 				}
 			}
 		);
-		iframes = newIframes;
+		dummies = newDummies;
 
-		if (!iframes.length)
+		if (!dummies.length)
 		{
 			prepareEvents(window.removeEventListener);
 		}
@@ -293,9 +297,8 @@
 		}
 	}
 
-	function prepareMiniplayer(iframe)
+	function prepareMiniplayer(iframe, span)
 	{
-		var span = iframe.parentNode;
 		if (iframe.hasAttribute(dataPrefix) || span.hasAttribute('style'))
 		{
 			return;
