@@ -7,10 +7,19 @@
 */
 namespace s9e\MediaSites;
 
+use XF\Container;
+use XF\Mvc\Entity\Entity;
+use XF\Mvc\Entity\Manager;
+use XF\Mvc\Entity\Structure;
 use XF\Template\Templater;
 
 class Helper
 {
+	public static function extendMediaSiteEntity(Manager $em, Structure &$structure)
+	{
+		$structure->columns['s9e_disable_auto_embed'] = ['type' => Entity::BOOL, 'default' => false];
+	}
+
 	/**
 	* Filter an identifier value
 	*

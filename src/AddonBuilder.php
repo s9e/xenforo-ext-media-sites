@@ -27,6 +27,11 @@ class AddonBuilder
 	protected $configurator;
 
 	/**
+	* @var array
+	*/
+	protected $defaultValues;
+
+	/**
 	* @var string
 	*/
 	protected $dir;
@@ -91,6 +96,7 @@ class AddonBuilder
 
 		$this->storeVersion();
 		$this->normalizeSites();
+		$this->storeDefaultValues();
 		$this->storeParams();
 	}
 
@@ -272,6 +278,22 @@ class AddonBuilder
 		$php = substr($php, 0, -1);
 
 		return $php;
+	}
+
+	/**
+	* Generate the list of default values used in the renderer
+	*
+	* @return string
+	*/
+	protected function generateRendererDefaultValues()
+	{
+		$php = '';
+		foreach ($this->defaultValues as $siteId => $defaultValues)
+		{
+			$php .= "\n\t\t'" . $siteId . "'=>" . self::exportArray($defaultValues) . ',';
+		}
+
+		return substr($php, 0, -1);
 	}
 
 	/**
@@ -487,7 +509,7 @@ class AddonBuilder
 		$dom  = $this->createDOM('options');
 		$root = $dom->documentElement;
 
-		$order = 10;
+		$order = 100;
 		foreach ($this->params as $paramName => $paramConfig)
 		{
 			$option = $root->appendChild($dom->createElement('option'));
@@ -578,9 +600,38 @@ class AddonBuilder
 		);
 		$this->patchFile(
 			'Renderer.php',
+			'(\\n\\tprotected static \\$defaultValues = \\[\\K.*?(?=\\n\\t\\]))s',
+			'generateRendererDefaultValues'
+		);
+		$this->patchFile(
+			'Renderer.php',
 			'(\\n\\tprotected static function render.*?\\n(?=\\}))s',
 			'generateRenderers'
 		);
+	}
+
+	/**
+	* Store the default values of attributes defined in sites config
+	*
+	* @return void
+	*/
+	protected function storeDefaultValues()
+	{
+		$this->defaultValues = [];
+		foreach ($this->sites as $siteId => $siteConfig)
+		{
+			if (empty($siteConfig['attributes']))
+			{
+				continue;
+			}
+			foreach ($siteConfig['attributes'] as $attrName => $attrConfig)
+			{
+				if (isset($attrConfig['defaultValue']))
+				{
+					$this->defaultValues[$siteId][$attrName] = $attrConfig['defaultValue'];
+				}
+			}
+		}
 	}
 
 	/**

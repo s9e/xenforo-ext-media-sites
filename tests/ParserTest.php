@@ -84,7 +84,7 @@ class ParserTest extends TestCase
 			],
 			[
 				'https://www.facebook.com/video/video.php?v=10150451523596807',
-				'id=10150451523596807;type=video'
+				'id=10150451523596807;type=v'
 			],
 			[
 				'https://www.facebook.com/photo.php?fbid=10152476416772631',
@@ -92,11 +92,11 @@ class ParserTest extends TestCase
 			],
 			[
 				'https://www.facebook.com/ign/videos/10153762113196633/',
-				'id=10153762113196633;type=video;user=ign'
+				'id=10153762113196633;type=v;user=ign'
 			],
 			[
 				'https://www.facebook.com/southamptonfc/videos/vb.220396037973624/1357764664236750/',
-				'id=1357764664236750;type=video;user=southamptonfc'
+				'id=1357764664236750;type=v;user=southamptonfc'
 			],
 			[
 				// Value automatically adjusted to match XenForo 2.0's format

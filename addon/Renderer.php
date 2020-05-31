@@ -16,7 +16,7 @@ class Renderer
 	*/
 	protected static $customFormats = [
 		'dailymotion' => ['(^(?<id>\\w+):(?<t>\\d+))'],
-		'facebook'    => ['(^(?<user>\\w+)/(?<type>post)s/(?<id>\\d+))'],
+		'facebook'    => ['(^(?<user>\\w+)/(?<type>p)osts/(?<id>\\d+))'],
 		'twitch'      => [
 			'(^(?<channel>\\w+)$)',
 			'(^(?<video_id>\\d+):(?<t>[\\dhms]+)$)',
@@ -29,10 +29,22 @@ class Renderer
 	/**
 	* @var array
 	*/
+	protected static $defaultValues = [
+		'getty'=>['height'=>360,'width'=>640],
+		'gfycat'=>['height'=>360,'width'=>640],
+		'gifs'=>['height'=>360,'width'=>640],
+		'giphy'=>['height'=>360,'width'=>640],
+		'internetarchive'=>['height'=>360,'width'=>640]
+	];
+
+	/**
+	* @var array
+	*/
 	protected static $filters = [
 		'getty'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
 		'gfycat'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
 		'gifs'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
+		'giphy'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
 		'internetarchive'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
 		'vimeo'=>['t'=>['s9e\\MediaSites\\Helper::filterTimestamp']],
 		'youtube'=>['id'=>['s9e\\MediaSites\\Helper::filterIdentifier'],'t'=>['s9e\\MediaSites\\Helper::filterTimestamp']]
@@ -50,6 +62,11 @@ class Renderer
 	{
 		$siteId = strtolower($siteId);
 		$vars   = self::parseVars($mediaKey, $siteId);
+
+		if (isset(self::$defaultValues[$siteId]))
+		{
+			$vars += self::$defaultValues[$siteId];
+		}
 
 		// Use a PHP renderer if applicable
 		$callback = __CLASS__ . '::render' . ucfirst($siteId);

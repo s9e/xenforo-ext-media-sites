@@ -15,7 +15,7 @@
   <modification type="public" template="_media_site_embed_gfycat" modification_key="s9e_MediaSites_Gfycat_Native" description="Replaces Gfycat embeds with a native player" execution_order="10" enabled="0" action="preg_replace">
     <find><![CDATA[(^<span.*)s]]></find>
     <replace><![CDATA[<xf:if is="$id >= 'A' && $id < '['">
-	<video data-s9e-mediaembed="gfycat" style="max-width:100%;width:{$width}px;height:{$height}px" autoplay controls loop muted playsinline poster="https://thumbs.gfycat.com/{$id}-mobile.jpg">
+	<video data-s9e-mediaembed="gfycat" style="max-width:100%;width:{$width}px;height:{$height}px" {{ $xf.options.s9e_MediaSites_Native_Paused ? '' : 'autoplay muted' }} controls loop playsinline poster="https://thumbs.gfycat.com/{$id}-mobile.jpg">
 		<source src="https://giant.gfycat.com/{$id}.mp4" type="video/mp4">
 		<source src="https://giant.gfycat.com/{$id}.webm" type="video/webm">
 		<source src="https://thumbs.gfycat.com/{$id}-mobile.mp4" type="video/mp4">
@@ -23,6 +23,19 @@
 <xf:else/>
 	$0
 </xf:if>]]></replace>
+  </modification>
+  <modification type="public" template="_media_site_embed_gifs" modification_key="s9e_MediaSites_Gifs_Native" description="Replaces Gifs.com embeds with a native player" execution_order="10" enabled="0" action="preg_replace">
+    <find><![CDATA[(<span.*)s]]></find>
+    <replace><![CDATA[<video data-s9e-mediaembed="gifs" style="max-width:100%;width:{$width}px;height:{$height}px" {{ $xf.options.s9e_MediaSites_Native_Paused ? '' : 'autoplay muted' }} controls loop playsinline poster="https://j.gifs.com/{$id}.jpg">
+	<source type="video/mp4" src="https://j.gifs.com/{$id}@large.mp4">
+	<source type="video/mp4" src="https://j.gifs.com/{$id}.mp4">
+</video>]]></replace>
+  </modification>
+  <modification type="public" template="_media_site_embed_giphy" modification_key="s9e_MediaSites_Giphy_Native" description="Replaces Giphy embeds with a native player" execution_order="10" enabled="0" action="preg_replace">
+    <find><![CDATA[(<span.*)s]]></find>
+    <replace><![CDATA[<video data-s9e-mediaembed="giphy" style="max-width:100%;width:{$width}px;height:{$height}px" {{ $xf.options.s9e_MediaSites_Native_Paused ? '' : 'autoplay muted' }} controls loop playsinline poster="https://media.giphy.com/media/{$id}/giphy_s.gif">
+	<source type="video/mp4" src="https://media.giphy.com/media/{$id}/giphy.mp4">
+</video>]]></replace>
   </modification>
   <modification type="public" template="_media_site_embed_vimeo" modification_key="s9e_MediaSites_Vimeo_DefaultEmbed" description="Disables lazy-loading Vimeo videos" execution_order="10" enabled="0" action="str_replace">
     <find><![CDATA[<span data-s9e-mediaembed="vimeo">]]></find>
@@ -43,6 +56,20 @@
 	max-width: 270px !important;
 	transition: none;
 }
+$0]]></replace>
+  </modification>
+  <modification type="admin" template="bb_code_media_site_edit" modification_key="s9e_MediaSites_Site_Edit" description="Adds a checkbox to the media site edit form" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[(<xf:option name="active".*?</xf:checkboxrow>\K)s]]></find>
+    <replace><![CDATA[$0
+
+
+			<xf:if is="$site.addon_id == 's9e/MediaSites'">
+				<xf:checkboxrow>
+					<xf:option name="s9e_disable_auto_embed" value="" selected="$site.s9e_disable_auto_embed">
+						{{ phrase('do_not_auto_embed_links_from_this_site') }}
+					</xf:option>
+				</xf:checkboxrow>
+			</xf:if>
 $0]]></replace>
   </modification>
   <modification type="public" template="core.less" modification_key="s9e_MediaSites_SmoothIframes" description="Adds a short CSS transition for dynamically-sized iframes" execution_order="10" enabled="1" action="preg_replace">

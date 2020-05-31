@@ -19,6 +19,11 @@ class Parser
 	public static $cacheDir;
 
 	/**
+	* @var bool Whether the request comes from the Editor controller
+	*/
+	public static $inEditor = false;
+
+	/**
 	* @var array
 	*/
 	protected static $customFormats = [
@@ -55,7 +60,7 @@ class Parser
 		'dumpert'=>[['!dumpert\\.nl/mediabase/(?<id>\\d+[/_]\\w+)!']],
 		'eighttracks'=>[['!8tracks\\.com/[-\\w]+/(?<id>\\d+)(?=#|$)!'],[],[['extract'=>['!eighttracks://mix/(?<id>\\d+)!'],'match'=>['!8tracks\\.com/[-\\w]+/\\D!']]]],
 		'espn'=>[['#video/(?:clip(?:\\?id=|/_/id/))?(?<id>\\d+)#']],
-		'facebook'=>[['@/(?!(?:apps|developers|graph)\\.)[-\\w.]*facebook\\.com/(?:[/\\w]+/permalink|(?!marketplace/|pages/|groups/).*?)(?:/|fbid=|\\?v=)(?<id>\\d+)(?=$|[/?&#])@','@facebook\\.com/(?<user>[.\\w]+)/(?<type>post|video)s?/@','@facebook\\.com/video/(?<type>post|video)\\.php@']],
+		'facebook'=>[['@/(?!(?:apps|developers|graph)\\.)[-\\w.]*facebook\\.com/(?:[/\\w]+/permalink|(?!marketplace/|pages/|groups/).*?)(?:/|fbid=|\\?v=)(?<id>\\d+)(?=$|[/?&#])@','@facebook\\.com/(?<user>[.\\w]+)/(?=(?:post|video)s?/)(?<type>[pv])@','@facebook\\.com/video/(?=post|video)(?<type>[pv])@','@facebook\\.com/watch/\\?(?<type>[pv])=@']],
 		'flickr'=>[['@flickr\\.com/photos/[^/]+/(?<id>\\d+)@','@flic\\.kr/(?!p/)[^/]+/(?<id>\\d+)@'],[],[['extract'=>['@flickr\\.com/photos/[^/]+/(?<id>\\d+)@'],'match'=>["@flic\\.kr/p/(?'short'\\w+)@"],'url'=>'https://www.flickr.com/photo.gne?rb=1&short={@short}']]],
 		'foxnews'=>[['!video\\.foxnews\\.com/v/(?<id>\\d+)!']],
 		'foxsports'=>[[],[],[['extract'=>['@BKQ29B/(?<id>\\w+)@'],'match'=>['@/video/\\d@']]]],
@@ -65,6 +70,7 @@ class Parser
 		'getty'=>[['!gty\\.im/(?<id>\\d+)!','!gettyimages\\.[.\\w]+/detail(?=/).*?/(?<id>\\d+)!','!#[-\\w]*picture-id(?<id>\\d+)$!'],[],[['extract'=>['!"height":[ "]*(?<height>\\d+)!','!"width":[ "]*(?<width>\\d+)!','!\\bid[=:][\'"]?(?<et>[-=\\w]+)!','!\\bsig[=:][\'"]?(?<sig>[-=\\w]+)!'],'match'=>['//'],'url'=>'http://embed.gettyimages.com/preview/{@id}']],['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']]],
 		'gfycat'=>[['#gfycat\\.com/(?!gaming|reactions|stickers|gifs/tag)(?:gifs/detail/|ifr(?:ame)?/)?(?<id>\\w+)#'],[],[['extract'=>['!/ifr/(?<id>\\w+)!'],'match'=>['#gfycat\\.com/(?!gaming|reactions|stickers|gifs/tag)(?:gifs/detail/|ifr(?:ame)?/)?[a-z]#'],'url'=>'https://gfycat.com/ifr/{@id}'],['extract'=>['!"height":(?<height>\\d+)!','!"width":(?<width>\\d+)!'],'match'=>['//'],'url'=>'https://api.gfycat.com/v1/oembed?url=https://gfycat.com/{@id}']],['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']]],
 		'gifs'=>[['!gifs\\.com/(?:gif/)?(?<id>\\w+)!'],[],[['extract'=>['!meta property="og:image:width" content="(?<width>\\d+)!','!meta property="og:image:height" content="(?<height>\\d+)!'],'match'=>['//'],'url'=>'https://gifs.com/gif/{@id}']],['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']]],
+		'giphy'=>[['!giphy\\.com/(?<type>gif|video|webp)\\w+/(?:[-\\w]+-)*(?<id>\\w+)!','!giphy\\.com/media/(?<id>\\w+)/\\w+\\.(?<type>gif|webp)!','!i\\.giphy\\.com/(?<id>\\w+)\\.(?<type>gif|webp)!'],[],[['extract'=>['!"height"\\s*:\\s*(?<height>\\d+)!','!"width"\\s*:\\s*(?<width>\\d+)!'],'match'=>['//'],'url'=>'https://giphy.com/services/oembed?url=https://media.giphy.com/media/{@id}/giphy.gif']],['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']]],
 		'gist'=>[['!gist\\.github\\.com/(?<id>(?:\\w+/)?[\\da-f]+(?:/[\\da-f]+)?)!']],
 		'globalnews'=>[['!globalnews\\.ca/video/(?<id>\\d+)!'],[],[['extract'=>['!globalnews\\.ca/video/(?<id>\\d+)!'],'match'=>['!globalnews\\.ca/video/rd/!']]]],
 		'gofundme'=>[['@gofundme\\.com/(?<id>\\w+)(?![^#?])@']],
@@ -160,13 +166,17 @@ class Parser
 	*
 	* @param  string          $url       Original URL
 	* @param  string          $matchedId Unused
-	* @param  BbCodeMediaSite $site      Unused
+	* @param  BbCodeMediaSite $site      Media site entity
 	* @param  string          $siteId    Site's ID
 	* @return string|bool                Media key or FALSE
 	*/
 	public static function match($url, $matchedId, BbCodeMediaSite $site, $siteId)
 	{
 		if (empty(self::$sites[$siteId]))
+		{
+			return false;
+		}
+		if (!empty($site->s9e_disable_auto_embed) && !self::$inEditor)
 		{
 			return false;
 		}
@@ -241,7 +251,7 @@ class Parser
 	*/
 	protected static function adjustVarsFacebook(array $vars)
 	{
-		if (isset($vars['id'], $vars['type'], $vars['user']) && $vars['type'] === 'post')
+		if (isset($vars['id'], $vars['type'], $vars['user']) && $vars['type'] === 'p')
 		{
 			$vars = ['id' => $vars['id'], 'posts' => 'posts', 'user' => $vars['user']];
 		}

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <code_event_listeners>
+  <listener event_id="entity_structure" execute_order="10" callback_class="s9e\MediaSites\Helper" callback_method="extendMediaSiteEntity" active="1" hint="XF\Entity\BbCodeMediaSite" description="Extends the BbCodeMediaSite entity"/>
   <listener event_id="templater_template_post_render" execute_order="11" callback_class="s9e\MediaSites\Helper" callback_method="replaceIframes" active="1" hint="public:thread_view" description="Replaces iframes in thread view"/>
 </code_event_listeners>

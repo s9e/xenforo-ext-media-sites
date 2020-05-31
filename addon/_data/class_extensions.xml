@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class_extensions/>
+<class_extensions>
+  <extension from_class="XF\Admin\Controller\BbCodeMediaSite" to_class="s9e\MediaSites\XF\Admin\Controller\BbCodeMediaSite" execute_order="10" active="1"/>
+  <extension from_class="XF\Pub\Controller\Editor" to_class="s9e\MediaSites\XF\Pub\Controller\Editor" execute_order="10" active="1"/>
+</class_extensions>

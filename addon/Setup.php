@@ -11,6 +11,7 @@ use XF;
 use XF\AddOn\AbstractSetup;
 use XF\AddOn\StepRunnerUpgradeTrait;
 use XF\BbCode\Helper\Flickr;
+use XF\Db\Schema\Alter;
 use XF\Entity\Option;
 
 class Setup extends AbstractSetup
@@ -19,10 +20,18 @@ class Setup extends AbstractSetup
 
 	public function install(array $stepParams = [])
 	{
+		$this->upgrade2050056Step1();
 	}
 
 	public function uninstall(array $stepParams = [])
 	{
+		$this->schemaManager()->alterTable(
+			'xf_bb_code_media_site',
+			function (Alter $table)
+			{
+				$table->dropColumns('s9e_disable_auto_embed');
+			}
+		);
 		$this->restoreXenForoAddOnData();
 	}
 
@@ -56,16 +65,51 @@ class Setup extends AbstractSetup
 //		$this->restoreXenForoAddOnData();
 //	}
 
-	public static function validateTemplateModification($newValue, Option $option)
+	public function upgrade2050056Step1(array $stepParams = [])
 	{
-		self::setTemplateModification($option, $option->option_id, (bool) $newValue);
-
-		return true;
+		$this->schemaManager()->alterTable(
+			'xf_bb_code_media_site',
+			function (Alter $table)
+			{
+				if ($table->getColumnDefinition('s9e_disable_auto_embed'))
+				{
+					return;
+				}
+				if ($table->getColumnDefinition('disable_auto_embed'))
+				{
+					$table->renameColumn('disable_auto_embed', 's9e_disable_auto_embed');
+				}
+				else
+				{
+					$table->addColumn('s9e_disable_auto_embed', 'tinyint')->setDefault(0);
+				}
+			}
+		);
 	}
 
 	public static function validateFooter($newValue, Option $option)
 	{
 		self::setTemplateModification($option, 's9e_MediaSites_Footer', ($newValue === 'show'));
+
+		return true;
+	}
+
+	public static function validateNativePlayer($newValue, Option $option)
+	{
+		$siteIds = ['gfycat', 'gifs', 'giphy'];
+		foreach ($siteIds as $siteId)
+		{
+			$key = 's9e_MediaSites_' . ucfirst($siteId) . '_Native';
+
+			self::setTemplateModification($option, $key, (bool) $newValue);
+		}
+
+		return true;
+	}
+
+	public static function validateTemplateModification($newValue, Option $option)
+	{
+		self::setTemplateModification($option, $option->option_id, (bool) $newValue);
 
 		return true;
 	}

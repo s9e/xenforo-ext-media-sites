@@ -128,6 +128,10 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*gifs\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="gifs" style="max-width:{$width}px"><span style="{{ $width>0 ? 'padding-bottom:' . (100*$height/$width) . '%' : '' }}"><iframe allowfullscreen="" scrolling="no" src="//gifs.com/embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
+  <site media_site_id="giphy" site_title="GIPHY" site_url="https://giphy.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*giphy\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="giphy" style="max-width:{$width}px"><span style="{{ $width>0 ? 'padding-bottom:' . (100*$height/$width) . '%' : '' }}"><iframe allowfullscreen="" scrolling="no" src="//giphy.com/embed/{$id}{{ $type=='video' ? '/video' : '' }}"></iframe></span></span>]]></embed_html>
+  </site>
   <site media_site_id="gist" site_title="GitHub Gist" site_url="https://gist.github.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*github\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="gist" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="" src="https://s9e.github.io/iframe/2/gist.min.html#{$id}" style="height:180px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>

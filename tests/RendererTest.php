@@ -66,7 +66,7 @@ class RendererTest extends TestCase
 			[
 				'facebook',
 				'FacebookDevelopers/posts/10151471074398553',
-				'<iframe data-s9e-mediaembed="facebook" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+\'px\'};contentWindow.postMessage(\'s9e:init\',\'https://s9e.github.io\',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/facebook.min.html#post10151471074398553" style="height:360px;max-width:640px" data-s9e-mediaembed-api="2"></iframe>'
+				'<iframe data-s9e-mediaembed="facebook" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+\'px\'};contentWindow.postMessage(\'s9e:init\',\'https://s9e.github.io\',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/facebook.min.html#p10151471074398553" style="height:360px;max-width:640px" data-s9e-mediaembed-api="2"></iframe>'
 			],
 			[
 				'facebook',
@@ -87,6 +87,11 @@ class RendererTest extends TestCase
 				'flickr',
 				'5wBgXo',
 				'<span data-s9e-mediaembed="flickr" style="max-width:500px"><span style="padding-bottom:100%"><iframe allowfullscreen="" scrolling="no" src="https://www.flickr.com/photos/_/2971804544/player/"></iframe></span></span>'
+			],
+			[
+				'gifs',
+				'zm4DLy',
+				'<span data-s9e-mediaembed="gifs" style="max-width:640px"><span style="padding-bottom:56.25%"><iframe allowfullscreen="" scrolling="no" src="//gifs.com/embed/zm4DLy"></iframe></span></span>'
 			],
 			[
 				'imgur',
