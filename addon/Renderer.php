@@ -23,6 +23,7 @@ class Renderer
 			'(^clip:(?<clip_id>\\w+))'
 		],
 		'vimeo'       => ['(^(?<id>\\d+):(?<t>[\\dhms]+))'],
+		'wistia'      => ['(/medias/(?<id>\\w+))'],
 		'youtube'     => ['(^(?<id>[-\\w]+):(?<t>\\d+))']
 	];
 

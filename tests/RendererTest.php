@@ -224,6 +224,12 @@ class RendererTest extends TestCase
 				'<span data-s9e-mediaembed="vimeo"><span><iframe allowfullscreen="" scrolling="no" src="//player.vimeo.com/video/67207222#t=90"></iframe></span></span>'
 			],
 			[
+				// From XenForo 1.x add-on, BBcode MediaSites Pack 1.1.9_11
+				'wistia',
+				'thoughtworks.wistia.com/medias/b6al55s35k',
+				'<span data-s9e-mediaembed="wistia"><span><iframe allowfullscreen="" scrolling="no" src="https://fast.wistia.net/embed/iframe/b6al55s35k"></iframe></span></span>'
+			],
+			[
 				'youtube',
 				'QH2-TGUlwu4',
 				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" scrolling="no" style="background:url(https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/QH2-TGUlwu4"></iframe></span></span>'
