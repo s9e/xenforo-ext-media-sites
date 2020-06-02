@@ -12,6 +12,7 @@ use DOMElement;
 use DOMXPath;
 use RuntimeException;
 use s9e\AddonBuilder\MediaSites\TemplateNormalizations\RemoveDefaultStyle;
+use s9e\AddonBuilder\MediaSites\TemplateNormalizations\RemoveLazyLoading;
 use s9e\AddonBuilder\MediaSites\TemplateNormalizations\SetGitHubIframeApiVersion;
 use s9e\AddonBuilder\MediaSites\TemplateNormalizations\SplitConditionalAttributes;
 use s9e\AddonBuilder\MediaSites\Transpilers\PHPSource;
@@ -91,6 +92,7 @@ class AddonBuilder
 		$this->xfTranspiler  = new XenForoTemplate;
 
 		$this->configurator->templateNormalizer->add(new RemoveDefaultStyle);
+		$this->configurator->templateNormalizer->add(new RemoveLazyLoading);
 		$this->configurator->templateNormalizer->add(new SetGitHubIframeApiVersion);
 		$this->configurator->templateNormalizer->add(new SplitConditionalAttributes);
 
