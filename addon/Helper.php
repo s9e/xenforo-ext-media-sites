@@ -154,7 +154,7 @@ class Helper
 		{
 			$html .= ' data-s9e-mediaembed="' . htmlspecialchars($attributes['data-s9e-mediaembed'], ENT_COMPAT, 'utf-8') . '"';
 		}
-		$html .= " data-s9e-mediaembed-iframe='" . str_replace("'", '&#39;', htmlspecialchars(json_encode($values), ENT_NOQUOTES, 'utf-8')) . "'";
+		$html .= " data-s9e-mediaembed-iframe='" . str_replace("'", '&#39;', htmlspecialchars(json_encode($values), ENT_NOQUOTES, 'utf-8', false)) . "'";
 		if (isset($attributes['style']))
 		{
 			$html .= ' style="' . htmlspecialchars($attributes['style'], ENT_COMPAT, 'utf-8') . '"';

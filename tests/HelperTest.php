@@ -74,11 +74,11 @@ class HelperTest extends TestCase
 			],
 			[
 				'<span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" scrolling="no" src="//player.twitch.tv/?autoplay=false&amp;channel=twitch"></iframe></span></span>',
-				'<span data-s9e-mediaembed="twitch"><span><span data-s9e-mediaembed-iframe=\'["allowfullscreen","","scrolling","no","src","\\/\\/player.twitch.tv\\/?autoplay=false&amp;amp;channel=twitch"]\'></span></span></span><script></script>'
+				'<span data-s9e-mediaembed="twitch"><span><span data-s9e-mediaembed-iframe=\'["allowfullscreen","","scrolling","no","src","\\/\\/player.twitch.tv\\/?autoplay=false&amp;channel=twitch"]\'></span></span></span><script></script>'
 			],
 			[
 				'<span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" scrolling="no" src="//player.twitch.tv/?autoplay=false&amp;channel=twitch"></iframe></span></span><span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" scrolling="no" src="//player.twitch.tv/?autoplay=false&amp;channel=twitch"></iframe></span></span>',
-				'<span data-s9e-mediaembed="twitch"><span><span data-s9e-mediaembed-iframe=\'["allowfullscreen","","scrolling","no","src","\\/\\/player.twitch.tv\\/?autoplay=false&amp;amp;channel=twitch"]\'></span></span></span><span data-s9e-mediaembed="twitch"><span><span data-s9e-mediaembed-iframe=\'["allowfullscreen","","scrolling","no","src","\\/\\/player.twitch.tv\\/?autoplay=false&amp;amp;channel=twitch"]\'></span></span></span><script></script>'
+				'<span data-s9e-mediaembed="twitch"><span><span data-s9e-mediaembed-iframe=\'["allowfullscreen","","scrolling","no","src","\\/\\/player.twitch.tv\\/?autoplay=false&amp;channel=twitch"]\'></span></span></span><span data-s9e-mediaembed="twitch"><span><span data-s9e-mediaembed-iframe=\'["allowfullscreen","","scrolling","no","src","\\/\\/player.twitch.tv\\/?autoplay=false&amp;channel=twitch"]\'></span></span></span><script></script>'
 			],
 			[
 				'<iframe data-s9e-mediaembed="twitter" allowfullscreen="" onload="var a=Math.random();window.addEventListener(\'message\',function(b){if(b.data.id==a)style.height=b.data.height+\'px\'});contentWindow.postMessage(\'s9e:\'+a,\'https://s9e.github.io\')" scrolling="no" src="https://s9e.github.io/iframe/twitter.min.html#266031293945503744" style="background:url(https://abs.twimg.com/favicons/favicon.ico) no-repeat 50% 50%;height:186px;max-width:500px"></iframe>',
