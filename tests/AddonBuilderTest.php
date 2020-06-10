@@ -2,6 +2,8 @@
 
 namespace s9e\MediaSites\Tests;
 
+use DOMDocument;
+use DOMXPath;
 use PHPUnit\Framework\TestCase;
 use XF\Template\Templater;
 use s9e\AddonBuilder\MediaSites\AddonBuilder;
@@ -38,5 +40,50 @@ class AddonBuilderTest extends TestCase
 		$builder->build();
 
 		$this->assertTrue(true);
+
+		array_map('unlink', glob($trgDir . '/*/*.*'));
+		array_map('unlink', glob($trgDir . '/*.*'));
+		array_map('rmdir',  glob($trgDir . '/*'));
+		rmdir($trgDir);
+	}
+
+	/**
+	* @dataProvider getModificationTests
+	*/
+	public function testModifications($regexp, $template)
+	{
+		$this->assertRegexp($regexp, $template);
+	}
+
+	public function getModificationTests()
+	{
+		$dom = new DOMDocument;
+		$dom->load(__DIR__ . '/../addon/_data/bb_code_media_sites.xml');
+		$templates = [];
+		foreach ($dom->getElementsByTagName('site') as $site)
+		{
+			$siteId   = $site->getAttribute('media_site_id');
+			$template = $site->getElementsByTagName('embed_html')->item(0)->textContent;
+
+			$templates[$siteId] = $template;
+		}
+
+		$dom = new DOMDocument;
+		$dom->load(__DIR__ . '/../addon/_data/template_modifications.xml');
+
+		$xpath = new DOMXPath($dom);
+		$query = '//modification[@action="preg_replace"][starts-with(@template, "_media_site_embed_")]/find';
+
+		$modifications = [];
+		foreach ($xpath->query($query) as $find)
+		{
+			$regexp = $find->textContent;
+			$name   = $find->parentNode->getAttribute('template');
+			$siteId = substr($name, 18);
+
+			$modifications[] = [$regexp, $templates[$siteId]];
+		}
+
+		return $modifications;
 	}
 }
