@@ -52,7 +52,7 @@ class AddonBuilderTest extends TestCase
 	*/
 	public function testModifications($regexp, $template)
 	{
-		$this->assertRegexp($regexp, $template);
+		$this->assertMatchesRegularExpression($regexp, $template);
 	}
 
 	public function getModificationTests()
