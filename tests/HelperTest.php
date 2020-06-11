@@ -107,6 +107,11 @@ class HelperTest extends TestCase
 				'<span data-s9e-mediaembed="youtube"><span><span data-s9e-mediaembed-c2l="youtube" data-s9e-mediaembed-c2l-background="url(https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg) 50% 50% / cover" data-s9e-mediaembed-iframe=\'["allowfullscreen","","scrolling","no","src","https:\\/\\/www.youtube.com\\/embed\\/QH2-TGUlwu4"]\'></span></span></span><script></script>'
 			],
 			[
+				// Preserve the rest of the style
+				'<span data-s9e-mediaembed="youtube"><span><iframe data-s9e-mediaembed-c2l="youtube" allowfullscreen="" scrolling="no" style="background:#000; outline:solid 1px red" src="https://www.youtube.com/embed/QH2-TGUlwu4"></iframe></span></span>',
+				'<span data-s9e-mediaembed="youtube"><span><span data-s9e-mediaembed-c2l="youtube" data-s9e-mediaembed-c2l-background="#000" style="outline:solid 1px red" data-s9e-mediaembed-iframe=\'["allowfullscreen","","scrolling","no","style","outline:solid 1px red","src","https:\\/\\/www.youtube.com\\/embed\\/QH2-TGUlwu4"]\'></span></span></span><script></script>'
+			],
+			[
 				// Replace the iframe's src
 				'<span data-s9e-mediaembed="youtube"><span><iframe data-s9e-mediaembed-c2l="youtube" data-s9e-mediaembed-c2l-src="?autoplay=1" allowfullscreen="" scrolling="no" src="https://www.youtube.com/embed/QH2-TGUlwu4"></iframe></span></span>',
 				'<span data-s9e-mediaembed="youtube"><span><span data-s9e-mediaembed-c2l="youtube" data-s9e-mediaembed-iframe=\'["allowfullscreen","","scrolling","no","src","?autoplay=1"]\'></span></span></span><script></script>'
