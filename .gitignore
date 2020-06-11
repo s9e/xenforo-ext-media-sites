@@ -1,5 +1,6 @@
-addon/_output
-addon/_releases
-cmd.php
-tests/.cache
-vendor
+/addon/_output
+/addon/_releases
+/cmd.php
+/src/LazyLoad.min.js
+/tests/.cache
+/vendor
