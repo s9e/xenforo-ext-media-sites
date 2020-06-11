@@ -13,7 +13,7 @@ use s9e\MediaSites\Parser;
 class ParserTest extends TestCase
 {
 	protected static $sites = [];
-	public static function setUpBeforeClass()
+	public static function setUpBeforeClass(): void
 	{
 		Parser::$cacheDir = __DIR__ . '/.cache';
 

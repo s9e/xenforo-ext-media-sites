@@ -104,7 +104,7 @@ class HelperTest extends TestCase
 			[
 				// style's background should be moved to a c2l attribute
 				'<span data-s9e-mediaembed="youtube"><span><iframe data-s9e-mediaembed-c2l="youtube" allowfullscreen="" scrolling="no" style="background:url(https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/QH2-TGUlwu4"></iframe></span></span>',
-				'<span data-s9e-mediaembed="youtube"><span><span data-s9e-mediaembed-c2l="youtube" data-s9e-mediaembed-c2l-background="url(https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg) 50% 50% / cover"data-s9e-mediaembed-iframe=\'["allowfullscreen","","scrolling","no","style","background:url(https:\\/\\/i.ytimg.com\\/vi\\/QH2-TGUlwu4\\/hqdefault.jpg) 50% 50% \\/ cover","src","https:\\/\\/www.youtube.com\\/embed\\/QH2-TGUlwu4"]\'></span></span></span><script></script>'
+				'<span data-s9e-mediaembed="youtube"><span><span data-s9e-mediaembed-c2l="youtube" data-s9e-mediaembed-c2l-background="url(https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg) 50% 50% / cover" data-s9e-mediaembed-iframe=\'["allowfullscreen","","scrolling","no","src","https:\\/\\/www.youtube.com\\/embed\\/QH2-TGUlwu4"]\'></span></span></span><script></script>'
 			],
 			[
 				// Replace the iframe's src
