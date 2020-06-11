@@ -410,7 +410,7 @@
   </site>
   <site media_site_id="twitch" site_title="Twitch" site_url="https://www.twitch.tv/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*twitch\.tv/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" scrolling="no" src="//{{ $clip_id ? 'clips.twitch.tv/embed?autoplay=false&amp;clip=' . ($channel ? $channel . '/' : '') . $clip_id : 'player.twitch.tv/?autoplay=false&amp;' . ($video_id ? 'video=v' . $video_id : 'channel=' . $channel) . ($t ? '&amp;time=' . $t : '') }}"></iframe></span></span>]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" onload="contentWindow.postMessage('','https://s9e.github.io')" scrolling="no" src="https://s9e.github.io/iframe/2/twitch.min.html#channel={$channel};clip_id={$clip_id};t={$t};video_id={$video_id}" data-s9e-mediaembed-api="2"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="twitter" site_title="Twitter" site_url="https://twitter.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*twitter\.com/.(?'id'))i]]></match_urls>

@@ -181,32 +181,32 @@ class RendererTest extends TestCase
 			[
 				'twitch',
 				'twitch',
-				'<span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" scrolling="no" src="//player.twitch.tv/?autoplay=false&amp;channel=twitch"></iframe></span></span>'
+				'<span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" onload="contentWindow.postMessage(\'\',\'https://s9e.github.io\')" scrolling="no" src="https://s9e.github.io/iframe/2/twitch.min.html#channel=twitch;clip_id=;t=;video_id=" data-s9e-mediaembed-api="2"></iframe></span></span>'
 			],
 			[
 				'twitch',
 				'channel=twitch',
-				'<span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" scrolling="no" src="//player.twitch.tv/?autoplay=false&amp;channel=twitch"></iframe></span></span>'
+				'<span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" onload="contentWindow.postMessage(\'\',\'https://s9e.github.io\')" scrolling="no" src="https://s9e.github.io/iframe/2/twitch.min.html#channel=twitch;clip_id=;t=;video_id=" data-s9e-mediaembed-api="2"></iframe></span></span>'
 			],
 			[
 				'twitch',
 				'channel=twitch;t=17m17s;video_id=29415830',
-				'<span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" scrolling="no" src="//player.twitch.tv/?autoplay=false&amp;video=v29415830&amp;time=17m17s"></iframe></span></span>'
+				'<span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" onload="contentWindow.postMessage(\'\',\'https://s9e.github.io\')" scrolling="no" src="https://s9e.github.io/iframe/2/twitch.min.html#channel=twitch;clip_id=;t=17m17s;video_id=29415830" data-s9e-mediaembed-api="2"></iframe></span></span>'
 			],
 			[
 				'twitch',
 				'29415830:17m17s',
-				'<span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" scrolling="no" src="//player.twitch.tv/?autoplay=false&amp;video=v29415830&amp;time=17m17s"></iframe></span></span>'
+				'<span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" onload="contentWindow.postMessage(\'\',\'https://s9e.github.io\')" scrolling="no" src="https://s9e.github.io/iframe/2/twitch.min.html#channel=;clip_id=;t=17m17s;video_id=29415830" data-s9e-mediaembed-api="2"></iframe></span></span>'
 			],
 			[
 				'twitch',
 				'clip:NeighborlyBetterJellyfishWTRuck',
-				'<span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" scrolling="no" src="//clips.twitch.tv/embed?autoplay=false&amp;clip=NeighborlyBetterJellyfishWTRuck"></iframe></span></span>'
+				'<span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" onload="contentWindow.postMessage(\'\',\'https://s9e.github.io\')" scrolling="no" src="https://s9e.github.io/iframe/2/twitch.min.html#channel=;clip_id=NeighborlyBetterJellyfishWTRuck;t=;video_id=" data-s9e-mediaembed-api="2"></iframe></span></span>'
 			],
 			[
 				'twitch',
 				'channel=twitch;clip_id=HorribleWoodpeckerHassanChop',
-				'<span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" scrolling="no" src="//clips.twitch.tv/embed?autoplay=false&amp;clip=twitch/HorribleWoodpeckerHassanChop"></iframe></span></span>'
+				'<span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" onload="contentWindow.postMessage(\'\',\'https://s9e.github.io\')" scrolling="no" src="https://s9e.github.io/iframe/2/twitch.min.html#channel=twitch;clip_id=HorribleWoodpeckerHassanChop;t=;video_id=" data-s9e-mediaembed-api="2"></iframe></span></span>'
 			],
 			[
 				'vimeo',
