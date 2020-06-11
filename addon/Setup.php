@@ -87,6 +87,13 @@ class Setup extends AbstractSetup
 		);
 	}
 
+	public static function validateClickToLoad($newValue, Option $option)
+	{
+		self::setTemplateModification($option, 's9e_MediaSites_YouTube_ClickToLoad', (bool) $newValue);
+
+		return true;
+	}
+
 	public static function validateFooter($newValue, Option $option)
 	{
 		self::setTemplateModification($option, 's9e_MediaSites_Footer', ($newValue === 'show'));

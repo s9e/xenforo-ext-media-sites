@@ -129,13 +129,14 @@ class Helper
 			$output
 		);
 
-		$output .= '<script>(function(d,g,f,p){function q(){k||(h=d.scrollY,v(d.addEventListener),w())}function v(a){a("click",r);a("resize",r);a("scroll",r)}function r(){clearTimeout(x);x=setTimeout(w,32)}function C(a){for(var b=g.createElement("iframe"),c=JSON.parse(a.getAttribute(f+"-iframe")),e=-1;++e<c.length;)b.setAttribute(c[e],c[++e]);b.loading="eager";2==b.getAttribute(f+"-api")&&(b.onload=function(){var a=new MessageChannel,c=this.src.substr(0,this.src.indexOf("/",8));b.contentWindow.postMessage("s9e:init",c,[a.port2]);a.port1.onmessage=function(a){a=(""+a.data).split(" ");D(b,a[0],a[1]||0)}});c=a.parentNode;E(b,c);c.replaceChild(b,a)}function F(a){a=a.getBoundingClientRect();if(a.bottom>d.innerHeight)return 2;var b=-1;!y&&location.hash&&(b=l(location.hash,"top"));0>b&&(b=l(".p-navSticky","bottom"));return a.top<b?0:1}function l(a,b){var c=g.querySelector(a);return c?c.getBoundingClientRect()[b]:-1}function D(a,b,c){var e=F(a),t=0===e||1===e&&1===u,g=t?l("html","height")-d.scrollY:0,f=a.style;if(1!==e||t)f.transition="none",setTimeout(function(){f.transition=""},0);f.height=b+"px";c&&(f.width=c+"px");t&&((a=l("html","height")-d.scrollY-g)&&d.scrollBy(0,a),h=d.scrollY)}function w(){h!==d.scrollY&&(y=!0,u=h>(h=d.scrollY)?1:0);k=2*d.innerHeight;z=-k/(0===u?4:2);var a=[];m.forEach(function(b){var c=b.getBoundingClientRect();if(c.bottom<z||c.top>k||!c.width)c=!1;else{var e;if(e=270===c.width){c=c.top;for(var d=e=b.parentNode;"BODY"!==e.tagName;)/bbCodeBlock-expandContent/.test(e.className)&&(d=e),e=e.parentNode;e=c>d.getBoundingClientRect().bottom}c=e?!1:!0}c?C(b):a.push(b)});m=a;m.length||v(d.removeEventListener)}function G(a){a=a.target;var b=a.firstChild,c=a.getBoundingClientRect(),e=g.documentElement,d=b.style;d.bottom=e.clientHeight-c.bottom+"px";d.height=c.height+"px";d.right=e.clientWidth-c.right+"px";d.width=c.width+"px";b.offsetHeight;/inactive/.test(a.className)?(a.className=p+"-active-tn",b.removeAttribute("style"),n&&n.click(),n=a):(a.className=p+"-inactive-tn",n=null)}function H(a){a=a.target;var b=a.parentNode;/-tn/.test(b.className)&&(b.className=b.className.replace("-tn",""),a.removeAttribute("style"))}function E(a,b){a.hasAttribute(f)||b.hasAttribute("style")||(b.className=p+"-inactive",b.onclick=G,a.addEventListener("transitionend",H))}for(var A=g.querySelectorAll("span["+f+"-iframe]"),B=0,m=[],z=0,k=0,x=0,y=!1,h=0,u=0;B<A.length;)m.push(A[B++]);"complete"===g.readyState?q():(d.addEventListener("load",q),setTimeout(q,3E3));var n=null})(window,document,"data-s9e-mediaembed","s9e-miniplayer");</script>';
+		$output .= '<script>(function(f,k,g,t){function u(){m||(l=f.scrollY,x(f.addEventListener),y())}function x(a){a("click",v);a("resize",v);a("scroll",v)}function v(){clearTimeout(z);z=setTimeout(y,32)}function A(a){for(var b=k.createElement("iframe"),d=JSON.parse(a.getAttribute(g+"-iframe")),c=-1;++c<d.length;)b.setAttribute(d[c],d[++c]);b.loading="eager";2==b.getAttribute(g+"-api")&&(b.onload=function(){var e=new MessageChannel;b.contentWindow.postMessage("s9e:init",this.src.substr(0,this.src.indexOf("/",8)),[e.port2]);e.port1.onmessage=function(h){h=(""+h.data).split(" ");F(b,h[0],h[1]||0)}});d=a.parentNode;G(b,d);d.replaceChild(b,a)}function H(a){a=a.getBoundingClientRect();if(a.bottom>f.innerHeight)return 2;var b=-1;!B&&location.hash&&(b=n(location.hash,"top"));0>b&&(b=n(".p-navSticky","bottom"));return a.top<b?0:1}function n(a,b){return(a=k.querySelector(a))?a.getBoundingClientRect()[b]:-1}function F(a,b,d){var c=H(a),e=0===c||1===c&&1===w,h=e?n("html","height")-f.scrollY:0,p=a.style;if(1!==c||e)p.transition="none",setTimeout(function(){p.transition=""},0);p.height=b+"px";d&&(p.width=d+"px");e&&((a=n("html","height")-f.scrollY-h)&&f.scrollBy(0,a),l=f.scrollY)}function y(){l!==f.scrollY&&(B=!0,w=l>(l=f.scrollY)?1:0);m=2*f.innerHeight;C=-m/(0===w?4:2);var a=[];q.forEach(function(b){var d=b.getBoundingClientRect(),c;if(!(c=d.bottom<C||d.top>m||!d.width)&&(c=270===d.width)){for(var e=c=b.parentNode;"BODY"!==c.tagName;)/bbCodeBlock-expandContent/.test(c.className)&&(e=c),c=c.parentNode;c=d.top>e.getBoundingClientRect().bottom}c?a.push(b):b.hasAttribute(g+"-c2l")?I(b):A(b)});q=a;q.length||x(f.removeEventListener)}function J(a){a=a.target;var b=a.firstChild,d=a.getBoundingClientRect(),c=k.documentElement,e=b.style;e.bottom=c.clientHeight-d.bottom+"px";e.height=d.height+"px";e.right=c.clientWidth-d.right+"px";e.width=d.width+"px";b.offsetHeight;/inactive/.test(a.className)?(a.className=t+"-active-tn",b.removeAttribute("style"),r&&r.click(),r=a):(a.className=t+"-inactive-tn",r=null)}function K(a){a=a.target;var b=a.parentNode;/-tn/.test(b.className)&&(b.className=b.className.replace("-tn",""),a.removeAttribute("style"))}function I(a){a.hasAttribute(g+"-c2l-background")&&((a.hasAttribute(g)?a:a.parentNode.parentNode).style.background=a.getAttribute(g+"-c2l-background"));a.onclick=function(b){b.stopPropagation();A(a)}}function G(a,b){a.hasAttribute(g)||b.hasAttribute("style")||(b.className=t+"-inactive",b.onclick=J,a.addEventListener("transitionend",K))}for(var D=k.querySelectorAll("span["+g+"-iframe]"),E=0,q=[],C=0,m=0,z=0,B=!1,l=0,w=0;E<D.length;)q.push(D[E++]);"complete"===k.readyState?u():(f.addEventListener("load",u),setTimeout(u,3E3));var r=null})(window,document,"data-s9e-mediaembed","s9e-miniplayer")</script>';
 	}
 
 	protected static function replaceIframe(string $original): string
 	{
 		preg_match_all('(([-\\w]++)="([^"]*+))', $original, $m);
 		$attributes = array_combine($m[1], $m[2]);
+		$attributes = self::replaceClickToLoadAttributes($attributes);
 
 		if (isset($attributes['data-s9e-mediaembed-api']))
 		{
@@ -145,22 +146,55 @@ class Helper
 		$values = [];
 		foreach ($attributes as $attrName => $attrValue)
 		{
+			if (strpos($attrName, 'c2l') !== false)
+			{
+				continue;
+			}
 			$values[] = $attrName;
 			$values[] = $attrValue;
 		}
 
+		$attrNames = [
+			'data-s9e-mediaembed',
+			'data-s9e-mediaembed-c2l',
+			'data-s9e-mediaembed-c2l-background',
+			'style'
+		];
+
 		$html = '<span';
-		if (isset($attributes['data-s9e-mediaembed']))
+		foreach ($attrNames as $attrName)
 		{
-			$html .= ' data-s9e-mediaembed="' . htmlspecialchars($attributes['data-s9e-mediaembed'], ENT_COMPAT, 'utf-8') . '"';
+			if (isset($attributes[$attrName]))
+			{
+				$html .= ' ' . $attrName . '="' . htmlspecialchars($attributes[$attrName], ENT_COMPAT, 'utf-8') . '"';
+			}
 		}
 		$html .= " data-s9e-mediaembed-iframe='" . str_replace("'", '&#39;', htmlspecialchars(json_encode($values), ENT_NOQUOTES, 'utf-8', false)) . "'";
-		if (isset($attributes['style']))
-		{
-			$html .= ' style="' . htmlspecialchars($attributes['style'], ENT_COMPAT, 'utf-8') . '"';
-		}
 		$html .= '></span>';
 
 		return $html;
+	}
+
+	protected static function replaceClickToLoadAttributes(array $attributes): array
+	{
+		if (isset($attributes['data-s9e-mediaembed-c2l-src']))
+		{
+			$attributes['src'] = $attributes['data-s9e-mediaembed-c2l-src'];
+		}
+		if (isset($attributes['data-s9e-mediaembed-c2l'], $attributes['style']))
+		{
+			$regexp = '(\\bbackground:([^;]++);?)';
+			if (preg_match($regexp, $attributes['style'], $m))
+			{
+				$attributes['data-s9e-mediaembed-c2l-background'] = trim($m[1]);
+				$attributes['style'] = trim(preg_replace($regexp, '', $attributes['style']));
+				if (empty($attributes['style']))
+				{
+					unset($attributes['style']);
+				}
+			}
+		}
+
+		return $attributes;
 	}
 }

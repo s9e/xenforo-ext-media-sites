@@ -234,7 +234,14 @@
 			{
 				if (isInRange(dummy))
 				{
-					loadIframe(dummy);
+					if (dummy.hasAttribute(dataPrefix + '-c2l'))
+					{
+						prepareClickToLoad(dummy);
+					}
+					else
+					{
+						loadIframe(dummy);
+					}
 				}
 				else
 				{
@@ -264,7 +271,7 @@
 		style.right  = (root.clientWidth - rect.right) + 'px';
 		style.width  = rect.width + 'px';
 
-		// Force a layout calc on Firefox
+		// Force a layout calc
 		iframe.offsetHeight;
 
 		if (/inactive/.test(span.className))
@@ -295,6 +302,22 @@
 			span.className = span.className.replace('-tn', '');
 			iframe.removeAttribute('style');
 		}
+	}
+
+	function prepareClickToLoad(dummy)
+	{
+		if (dummy.hasAttribute(dataPrefix + '-c2l-background'))
+		{
+			// Set the background on the dummy's wrapper if applicable
+			var node = (dummy.hasAttribute(dataPrefix)) ? dummy : dummy.parentNode.parentNode;
+			node.style.background = dummy.getAttribute(dataPrefix + '-c2l-background');
+		}
+		dummy.onclick = function (e)
+		{
+			// Don't let the click be handled as a miniplayer-related click
+			e.stopPropagation();
+			loadIframe(dummy);
+		};
 	}
 
 	function prepareMiniplayer(iframe, span)
