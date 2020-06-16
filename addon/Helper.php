@@ -7,7 +7,7 @@
 */
 namespace s9e\MediaSites;
 
-use XF\Container;
+use XF;
 use XF\Mvc\Entity\Entity;
 use XF\Mvc\Entity\Manager;
 use XF\Mvc\Entity\Structure;
@@ -15,6 +15,9 @@ use XF\Template\Templater;
 
 class Helper
 {
+	protected static $oembedIds;
+	protected static $oembedTitles;
+
 	public static function extendMediaSiteEntity(Manager $em, Structure &$structure)
 	{
 		$structure->columns['s9e_disable_auto_embed'] = ['type' => Entity::BOOL, 'default' => false];
@@ -115,6 +118,8 @@ class Helper
 	*/
 	public static function replaceIframes(Templater $templater, $type, $template, &$output)
 	{
+		self::$oembedIds    = [];
+		self::$oembedTitles = [];
 		if (strpos($output, 'data-s9e-mediaembed="') === false)
 		{
 			return;
@@ -128,8 +133,63 @@ class Helper
 			},
 			$output
 		);
+		$output = self::addOembedTitles($output);
 
 		$output .= '<script>(function(f,k,g,t){function u(){m||(l=f.scrollY,x(f.addEventListener),y())}function x(a){a("click",v);a("resize",v);a("scroll",v)}function v(){clearTimeout(z);z=setTimeout(y,32)}function A(a){for(var b=k.createElement("iframe"),d=JSON.parse(a.getAttribute(g+"-iframe")),c=-1;++c<d.length;)b.setAttribute(d[c],d[++c]);b.loading="eager";2==b.getAttribute(g+"-api")&&(b.onload=function(){var e=new MessageChannel;b.contentWindow.postMessage("s9e:init",this.src.substr(0,this.src.indexOf("/",8)),[e.port2]);e.port1.onmessage=function(h){h=(""+h.data).split(" ");F(b,h[0],h[1]||0)}});d=a.parentNode;G(b,d);d.replaceChild(b,a)}function H(a){a=a.getBoundingClientRect();if(a.bottom>f.innerHeight)return 2;var b=-1;!B&&location.hash&&(b=n(location.hash,"top"));0>b&&(b=n(".p-navSticky","bottom"));return a.top<b?0:1}function n(a,b){return(a=k.querySelector(a))?a.getBoundingClientRect()[b]:-1}function F(a,b,d){var c=H(a),e=0===c||1===c&&1===w,h=e?n("html","height")-f.scrollY:0,p=a.style;if(1!==c||e)p.transition="none",setTimeout(function(){p.transition=""},0);p.height=b+"px";d&&(p.width=d+"px");e&&((a=n("html","height")-f.scrollY-h)&&f.scrollBy(0,a),l=f.scrollY)}function y(){l!==f.scrollY&&(B=!0,w=l>(l=f.scrollY)?1:0);m=2*f.innerHeight;C=-m/(0===w?4:2);var a=[];q.forEach(function(b){var d=b.getBoundingClientRect(),c;if(!(c=d.bottom<C||d.top>m||!d.width)&&(c=270===d.width)){for(var e=c=b.parentNode;"BODY"!==c.tagName;)/bbCodeBlock-expandContent/.test(c.className)&&(e=c),c=c.parentNode;c=d.top>e.getBoundingClientRect().bottom}c?a.push(b):b.hasAttribute(g+"-c2l")?I(b):A(b)});q=a;q.length||x(f.removeEventListener)}function J(a){a=a.target;var b=a.firstChild,d=a.getBoundingClientRect(),c=k.documentElement,e=b.style;e.bottom=c.clientHeight-d.bottom+"px";e.height=d.height+"px";e.right=c.clientWidth-d.right+"px";e.width=d.width+"px";b.offsetHeight;/inactive/.test(a.className)?(a.className=t+"-active-tn",b.removeAttribute("style"),r&&r.click(),r=a):(a.className=t+"-inactive-tn",r=null)}function K(a){a=a.target;var b=a.parentNode;/-tn/.test(b.className)&&(b.className=b.className.replace("-tn",""),a.removeAttribute("style"))}function I(a){a.hasAttribute(g+"-c2l-background")&&((a.hasAttribute(g)?a:a.parentNode.parentNode).style.background=a.getAttribute(g+"-c2l-background"));a.onclick=function(b){b.stopPropagation();A(a)}}function G(a,b){a.hasAttribute(g)||b.hasAttribute("style")||(b.className=t+"-inactive",b.onclick=J,a.addEventListener("transitionend",K))}for(var D=k.querySelectorAll("span["+g+"-iframe]"),E=0,q=[],C=0,m=0,z=0,B=!1,l=0,w=0;E<D.length;)q.push(D[E++]);"complete"===k.readyState?u():(f.addEventListener("load",u),setTimeout(u,3E3));var r=null})(window,document,"data-s9e-mediaembed","s9e-miniplayer")</script>';
+	}
+
+	protected static function addOembedTitles(string $html): string
+	{
+		self::fetchOembed();
+		if (empty(self::$oembedTitles))
+		{
+			return $html;
+		}
+
+		return preg_replace_callback(
+			'(data-s9e-mediaembed-c2l="([^"]++)"[^>]*?data-s9e-mediaembed-c2l-oembed-id="([^"]++)"\\K)',
+			function ($m)
+			{
+				if (!isset(self::$oembedTitles[$m[1]][$m[2]]))
+				{
+					return '';
+				}
+
+				return  ' data-s9e-mediaembed-c2l-oembed-title="' . htmlspecialchars(self::$oembedTitles[$m[1]][$m[2]]) . '"';
+			},
+			$html
+		);
+	}
+
+	protected static function fetchOembed()
+	{
+		if (empty(self::$oembedIds))
+		{
+			return;
+		}
+
+		$finder = XF::finder('XF:Oembed');
+		foreach (self::$oembedIds as $siteId => $mediaIds)
+		{
+			$oembeds = $finder->with('BbCodeMediaSite')
+				->where('media_site_id', $siteId)
+				->where('media_id', '=', $mediaIds)
+				->fetch();
+			foreach ($oembeds as $oembed)
+			{
+				$mediaId = $oembed->media_id;
+				unset($mediaIds[$mediaId]);
+
+				self::$oembedTitles[$siteId][$mediaId] = (string) $oembed->title;
+			}
+
+			foreach ($mediaIds as $mediaId)
+			{
+				$oembed = XF::service('XF:Oembed')->fetchNewOembed($siteId, $mediaId);
+
+				self::$oembedTitles[$siteId][$mediaId] = $oembed->title ?? '';
+			}
+		}
 	}
 
 	protected static function replaceIframe(string $original): string
@@ -141,6 +201,11 @@ class Helper
 		if (isset($attributes['data-s9e-mediaembed-api']))
 		{
 			unset($attributes['onload']);
+		}
+		if (isset($attributes['data-s9e-mediaembed-c2l'], $attributes['data-s9e-mediaembed-c2l-oembed-id']))
+		{
+			$id = $attributes['data-s9e-mediaembed-c2l-oembed-id'];
+			self::$oembedIds[$attributes['data-s9e-mediaembed-c2l']][$id] = $id;
 		}
 
 		$values = [];
@@ -158,6 +223,7 @@ class Helper
 			'data-s9e-mediaembed',
 			'data-s9e-mediaembed-c2l',
 			'data-s9e-mediaembed-c2l-background',
+			'data-s9e-mediaembed-c2l-oembed-id',
 			'style'
 		];
 
