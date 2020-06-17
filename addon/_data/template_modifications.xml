@@ -63,7 +63,7 @@ $0]]></replace>
     <replace><![CDATA[$0
 
 
-			<xf:if is="$site.addon_id == 's9e/MediaSites'">
+			<xf:if is="is_addon_active('s9e/MediaSites')">
 				<xf:checkboxrow>
 					<xf:option name="s9e_disable_auto_embed" value="" selected="$site.s9e_disable_auto_embed">
 						{{ phrase('do_not_auto_embed_links_from_this_site') }}

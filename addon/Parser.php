@@ -19,11 +19,6 @@ class Parser
 	public static $cacheDir;
 
 	/**
-	* @var bool Whether the request comes from the Editor controller
-	*/
-	public static $inEditor = false;
-
-	/**
 	* @var array
 	*/
 	protected static $customFormats = [
@@ -174,10 +169,6 @@ class Parser
 	public static function match($url, $matchedId, BbCodeMediaSite $site, $siteId)
 	{
 		if (empty(self::$sites[$siteId]))
-		{
-			return false;
-		}
-		if (!empty($site->s9e_disable_auto_embed) && !self::$inEditor)
 		{
 			return false;
 		}
