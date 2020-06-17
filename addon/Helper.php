@@ -147,7 +147,7 @@ class Helper
 		}
 
 		return preg_replace_callback(
-			'(data-s9e-mediaembed-c2l="([^"]++)"[^>]*?data-s9e-mediaembed-c2l-oembed-id="([^"]++)"\\K)',
+			'(data-s9e-mediaembed-c2l="([^"<>]++)"[^>]*?data-s9e-mediaembed-c2l-oembed-id="([^"<>]++)"(?=[^<>]*+>)\\K)',
 			function ($m)
 			{
 				if (!isset(self::$oembedTitles[$m[1]][$m[2]]))
@@ -168,21 +168,27 @@ class Helper
 			return;
 		}
 
-		$finder = XF::finder('XF:Oembed');
+		$hashes = [];
 		foreach (self::$oembedIds as $siteId => $mediaIds)
 		{
-			$oembeds = $finder->with('BbCodeMediaSite')
-				->where('media_site_id', $siteId)
-				->where('media_id', '=', $mediaIds)
-				->fetch();
-			foreach ($oembeds as $oembed)
+			foreach ($mediaIds as $mediaId)
 			{
-				$mediaId = $oembed->media_id;
-				unset($mediaIds[$mediaId]);
-
-				self::$oembedTitles[$siteId][$mediaId] = (string) $oembed->title;
+				$hashes[] = md5($siteId . $mediaId);
 			}
+		}
 
+		$oembeds = XF::finder('XF:Oembed')->where('media_hash', $hashes)->fetch();
+		foreach ($oembeds as $oembed)
+		{
+			$mediaId = $oembed->media_id;
+			$siteId  = $oembed->media_site_id;
+			unset(self::$oembedIds[$siteId][$mediaId]);
+
+			self::$oembedTitles[$siteId][$mediaId] = (string) $oembed->title;
+		}
+
+		foreach (self::$oembedIds as $siteId => $mediaIds)
+		{
 			foreach ($mediaIds as $mediaId)
 			{
 				$oembed = XF::service('XF:Oembed')->fetchNewOembed($siteId, $mediaId);
@@ -190,6 +196,7 @@ class Helper
 				self::$oembedTitles[$siteId][$mediaId] = $oembed->title ?? '';
 			}
 		}
+		self::$oembedIds = [];
 	}
 
 	protected static function replaceIframe(string $original): string
@@ -204,8 +211,10 @@ class Helper
 		}
 		if (isset($attributes['data-s9e-mediaembed-c2l'], $attributes['data-s9e-mediaembed-c2l-oembed-id']))
 		{
-			$id = $attributes['data-s9e-mediaembed-c2l-oembed-id'];
-			self::$oembedIds[$attributes['data-s9e-mediaembed-c2l']][$id] = $id;
+			$siteId  = $attributes['data-s9e-mediaembed-c2l'];
+			$mediaId = $attributes['data-s9e-mediaembed-c2l-oembed-id'];
+
+			self::$oembedIds[$siteId][$mediaId] = $mediaId;
 		}
 
 		$values = [];
