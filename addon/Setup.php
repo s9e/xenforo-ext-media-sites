@@ -89,7 +89,14 @@ class Setup extends AbstractSetup
 
 	public static function validateClickToLoad($newValue, Option $option)
 	{
-		self::setTemplateModification($option, 's9e_MediaSites_YouTube_ClickToLoad', (bool) $newValue);
+		$modifications = [
+			's9e_MediaSites_ClickToLoad_CSS',
+			's9e_MediaSites_YouTube_ClickToLoad'
+		];
+		foreach ($modifications as $id)
+		{
+			self::setTemplateModification($option, $id, (bool) $newValue);
+		}
 
 		return true;
 	}

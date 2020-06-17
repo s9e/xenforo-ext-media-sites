@@ -99,7 +99,6 @@ span[data-s9e-mediaembed] > span
 	padding-bottom: 56.25%;
 	position: relative;
 }
-[data-s9e-mediaembed-c2l]::after,
 span[data-s9e-mediaembed] > span > iframe,
 span[data-s9e-mediaembed] > span > [data-s9e-mediaembed-iframe]
 {
@@ -108,33 +107,6 @@ span[data-s9e-mediaembed] > span > [data-s9e-mediaembed-iframe]
 	left:     0;
 	position: absolute;
 	width:    100%;
-}
-[data-s9e-mediaembed-c2l="youtube"]::after
-{
-	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 68 48'%3E%3Cpath d='M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z' fill='red'/%3E%3Cpath d='M45 24L27 14v20' fill='%23fff'/%3E%3C/svg%3E") no-repeat center / 68px;
-	content:    "";
-	cursor:     pointer;
-	filter:     grayscale(1) contrast(1.3);
-	opacity:    .8;
-	transition: filter .12s, opacity .12s;
-}
-[data-s9e-mediaembed-c2l="youtube"]:hover::after
-{
-	filter:  grayscale(0);
-	opacity: 1;
-}
-[data-s9e-mediaembed-c2l="youtube"][data-s9e-mediaembed-c2l-oembed-title]::before
-{
-	color:         #eee;
-	content:       attr(data-s9e-mediaembed-c2l-oembed-title);
-	display:       inline-block;
-	font-family:   Helvetica, Arial, sans-serif;
-	font-size:     18px;
-	overflow:      hidden;
-	padding:       10px 15px;
-	text-overflow: ellipsis;
-	text-shadow:   rgba(0, 0, 0, .5) 0 0 2px;
-	white-space:   nowrap;
 }
 
 
@@ -219,6 +191,38 @@ $0]]></replace>
   <modification type="public" template="core_bbcode.less" modification_key="s9e_MediaSites_Full_Width_Embeds" description="Enables full-width embeds by default" execution_order="20" enabled="0" action="preg_replace">
     <find><![CDATA[(span\[data-s9e-mediaembed\].*?\K\s+max-width:\s*640px;?)s]]></find>
     <replace><![CDATA[]]></replace>
+  </modification>
+  <modification type="public" template="core_bbcode.less" modification_key="s9e_MediaSites_ClickToLoad_CSS" description="Adds the default CSS used to decorate the lightweight placeholders" execution_order="15" enabled="0" action="str_replace">
+    <find><![CDATA[span[data-s9e-mediaembed] > span > iframe,]]></find>
+    <replace><![CDATA[[data-s9e-mediaembed-c2l="youtube"]::after
+{
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 68 48'%3E%3Cpath d='M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z' fill='red'/%3E%3Cpath d='M45 24L27 14v20' fill='%23fff'/%3E%3C/svg%3E") no-repeat center / 68px;
+	content:    "";
+	cursor:     pointer;
+	filter:     grayscale(1) contrast(1.3);
+	opacity:    .8;
+	transition: filter .12s, opacity .12s;
+}
+[data-s9e-mediaembed-c2l="youtube"]:hover::after
+{
+	filter:  grayscale(0);
+	opacity: 1;
+}
+[data-s9e-mediaembed-c2l="youtube"][data-s9e-mediaembed-c2l-oembed-title]::before
+{
+	color:         #eee;
+	content:       attr(data-s9e-mediaembed-c2l-oembed-title);
+	display:       inline-block;
+	font-family:   Arial, sans-serif;
+	font-size:     18px;
+	overflow:      hidden;
+	padding:       20px 25px;
+	text-overflow: ellipsis;
+	text-shadow:   rgba(0, 0, 0, .5) 0 0 2px;
+	white-space:   nowrap;
+}
+[data-s9e-mediaembed-c2l]::after,
+span[data-s9e-mediaembed] > span > iframe,]]></replace>
   </modification>
   <modification type="public" template="editor.less" modification_key="s9e_MediaSites_InsertMediaScroller" description="Adds a scrollbar to the list of media sites in the Insert Media dialog" execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[(^)]]></find>
