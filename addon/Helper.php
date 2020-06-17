@@ -15,8 +15,8 @@ use XF\Template\Templater;
 
 class Helper
 {
-	protected static $oembedIds;
-	protected static $oembedTitles;
+	protected static $oembedIds    = [];
+	protected static $oembedTitles = [];
 
 	public static function extendMediaSiteEntity(Manager $em, Structure &$structure)
 	{
@@ -118,13 +118,12 @@ class Helper
 	*/
 	public static function replaceIframes(Templater $templater, $type, $template, &$output)
 	{
-		self::$oembedIds    = [];
-		self::$oembedTitles = [];
 		if (strpos($output, 'data-s9e-mediaembed="') === false)
 		{
 			return;
 		}
 
+		self::$oembedIds = [];
 		$output = preg_replace_callback(
 			'((?:<span data-s9e-mediaembed="[^>]++><span[^>]*+>\\K<iframe|<iframe data-s9e-mediaembed="[^"]++)[^>]*+></iframe>)',
 			function ($m)
