@@ -44,6 +44,10 @@
     <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="9"/>
   </option>
+  <option option_id="s9e_MediaSites_ClickToLoad_Oembed" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateClickToLoadOembed">
+    <default_value></default_value>
+    <relation group_id="s9e_MediaSites" display_order="10"/>
+  </option>
   <option option_id="s9e_MediaSites_Facebook_Background" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification">
     <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="4"/>

@@ -45,7 +45,7 @@
     <find><![CDATA[(style="background:([^"]++)" src="([^"]++)")]]></find>
     <replace><![CDATA[allow="autoplay" style="background:linear-gradient(0deg,rgba(0,0,0,0) 0,rgba(0,0,0,0) 72%,rgba(0,0,0,.04) 79%,rgba(0,0,0,.1) 83%,rgba(0,0,0,.25) 88%,rgba(0,0,0,.67) 100%),$1" src="$2" data-s9e-mediaembed-c2l="youtube" data-s9e-mediaembed-c2l-src="$2{{ ($list || $t) ? '&amp;' : '?' }}autoplay=1"]]></replace>
   </modification>
-  <modification type="public" template="_media_site_embed_youtube" modification_key="s9e_MediaSites_YouTube_ClickToLoad_Id" description="Adds a title to YouTube's placeholder" execution_order="15" enabled="0" action="str_replace">
+  <modification type="public" template="_media_site_embed_youtube" modification_key="s9e_MediaSites_YouTube_ClickToLoad_Oembed" description="Adds a title to YouTube's placeholder" execution_order="15" enabled="0" action="str_replace">
     <find><![CDATA[data-s9e-mediaembed-c2l="youtube"]]></find>
     <replace><![CDATA[data-s9e-mediaembed-c2l="youtube" data-s9e-mediaembed-c2l-oembed-id="{$id}"]]></replace>
   </modification>
@@ -192,7 +192,7 @@ $0]]></replace>
     <find><![CDATA[(span\[data-s9e-mediaembed\].*?\K\s+max-width:\s*640px;?)s]]></find>
     <replace><![CDATA[]]></replace>
   </modification>
-  <modification type="public" template="core_bbcode.less" modification_key="s9e_MediaSites_ClickToLoad_CSS" description="Adds the default CSS used to decorate the lightweight placeholders" execution_order="15" enabled="0" action="str_replace">
+  <modification type="public" template="core_bbcode.less" modification_key="s9e_MediaSites_ClickToLoad_CSS" description="Adds the default CSS used to decorate lightweight placeholders" execution_order="15" enabled="0" action="str_replace">
     <find><![CDATA[span[data-s9e-mediaembed] > span > iframe,]]></find>
     <replace><![CDATA[[data-s9e-mediaembed-c2l="youtube"]::after
 {
@@ -208,7 +208,12 @@ $0]]></replace>
 	filter:  grayscale(0);
 	opacity: 1;
 }
-[data-s9e-mediaembed-c2l="youtube"][data-s9e-mediaembed-c2l-oembed-title]::before
+[data-s9e-mediaembed-c2l]::after,
+span[data-s9e-mediaembed] > span > iframe,]]></replace>
+  </modification>
+  <modification type="public" template="core_bbcode.less" modification_key="s9e_MediaSites_ClickToLoad_Oembed_CSS" description="Adds the default CSS used to decorate lightweight placeholders with oEmbed enabled" execution_order="10" enabled="0" action="preg_replace">
+    <find><![CDATA[(^)]]></find>
+    <replace><![CDATA[[data-s9e-mediaembed-c2l="youtube"][data-s9e-mediaembed-c2l-oembed-title]::before
 {
 	color:         #eee;
 	content:       attr(data-s9e-mediaembed-c2l-oembed-title);
@@ -221,8 +226,7 @@ $0]]></replace>
 	text-shadow:   rgba(0, 0, 0, .5) 0 0 2px;
 	white-space:   nowrap;
 }
-[data-s9e-mediaembed-c2l]::after,
-span[data-s9e-mediaembed] > span > iframe,]]></replace>
+$0]]></replace>
   </modification>
   <modification type="public" template="editor.less" modification_key="s9e_MediaSites_InsertMediaScroller" description="Adds a scrollbar to the list of media sites in the Insert Media dialog" execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[(^)]]></find>

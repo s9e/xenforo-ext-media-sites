@@ -93,10 +93,18 @@ class Setup extends AbstractSetup
 			's9e_MediaSites_ClickToLoad_CSS',
 			's9e_MediaSites_YouTube_ClickToLoad'
 		];
-		foreach ($modifications as $id)
-		{
-			self::setTemplateModification($option, $id, (bool) $newValue);
-		}
+		self::setTemplateModifications($option, $modifications, (bool) $newValue);
+
+		return true;
+	}
+
+	public static function validateClickToLoadOembed($newValue, Option $option)
+	{
+		$modifications = [
+			's9e_MediaSites_ClickToLoad_Oembed_CSS',
+			's9e_MediaSites_YouTube_ClickToLoad_Oembed'
+		];
+		self::setTemplateModifications($option, $modifications, (bool) $newValue);
 
 		return true;
 	}
@@ -209,6 +217,14 @@ class Setup extends AbstractSetup
 		{
 			$entity->set('enabled', $enabled);
 			$entity->save();
+		}
+	}
+
+	protected static function setTemplateModifications(Option $option, array $keys, $enabled)
+	{
+		foreach ($keys as $key)
+		{
+			self::setTemplateModification($option, $key, $enabled);
 		}
 	}
 }
