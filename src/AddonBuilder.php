@@ -33,16 +33,6 @@ class AddonBuilder
 	protected $defaultValues;
 
 	/**
-	* @var array
-	*/
-	public $extraSiteConfig = [
-		'youtube' => [
-			'oembed_api_endpoint' => 'https://www.youtube.com/oembed',
-			'oembed_url_scheme'   => 'https://www.youtube.com/watch?v={$id}'
-		]
-	];
-
-	/**
 	* @var string
 	*/
 	protected $dir;
@@ -160,12 +150,10 @@ class AddonBuilder
 		$site->setAttribute('supported',                  1);
 		$site->setAttribute('active',                     1);
 		$site->setAttribute('oembed_enabled',             0);
-		if (isset($this->extraSiteConfig[$siteId]))
+		if (isset($siteConfig['oembed']['endpoint'], $siteConfig['oembed']['scheme']))
 		{
-			foreach ($this->extraSiteConfig[$siteId] as $k => $v)
-			{
-				$site->setAttribute($k, $v);
-			}
+			$site->setAttribute('oembed_api_endpoint', $siteConfig['oembed']['endpoint']);
+			$site->setAttribute('oembed_url_scheme',   str_replace('{@id}', '{$id}', $siteConfig['oembed']['scheme']));
 		}
 		$site->setAttribute('oembed_retain_scripts',      0);
 
