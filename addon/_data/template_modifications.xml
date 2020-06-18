@@ -159,7 +159,7 @@ $0]]></replace>
 		right:         -26px;
 		transition:    bottom .1s, opacity .1s, right .1s;
 		width:         32px;
-		z-index:       1000;
+		z-index:       100;
 	}
 	.s9e-miniplayer-active:hover::after,
 	.s9e-miniplayer-inactive:hover::after
