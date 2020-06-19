@@ -162,11 +162,13 @@ class Helper
 
 	protected static function fetchOembed()
 	{
-		if (empty(self::$oembedIds))
-		{
-			return;
-		}
+		self::fetchOembedFromLogs();
+		self::fetchOembedFromService();
+		self::$oembedIds = [];
+	}
 
+	protected static function fetchOembedFromLogs()
+	{
 		$hashes = [];
 		foreach (self::$oembedIds as $siteId => $mediaIds)
 		{
@@ -174,6 +176,10 @@ class Helper
 			{
 				$hashes[] = md5($siteId . $mediaId);
 			}
+		}
+		if (empty($hashes))
+		{
+			return;
 		}
 
 		$oembeds = XF::finder('XF:Oembed')->where('media_hash', $hashes)->fetch();
@@ -185,26 +191,26 @@ class Helper
 
 			self::$oembedTitles[$siteId][$mediaId] = (string) $oembed->title;
 		}
+	}
 
+	protected static function fetchOembedFromService()
+	{
 		self::$oembedIds = array_filter(self::$oembedIds);
-		if (empty(self::$oembedIds))
+
+		// Limit the number of active fetches to 2
+		if (empty(self::$oembedIds) || XF::repository('XF:Oembed')->getTotalActiveFetches() > 2)
 		{
 			return;
 		}
 
-		// Fetch a new oEmbed if there are 2 or fewer active fetches
-		if (XF::repository('XF:Oembed')->getTotalActiveFetches() < 3)
+		// Pick one random entry before clearing the array
+		$siteId  = array_rand(self::$oembedIds);
+		$mediaId = array_rand(self::$oembedIds[$siteId]);
+		$oembed  = XF::service('XF:Oembed')->fetchNewOembed($siteId, $mediaId);
+		if ($oembed)
 		{
-			// Pick one random entry before clearing the array
-			$siteId  = array_rand(self::$oembedIds);
-			$mediaId = array_rand(self::$oembedIds[$siteId]);
-			$oembed  = XF::service('XF:Oembed')->fetchNewOembed($siteId, $mediaId);
-			if ($oembed)
-			{
-				self::$oembedTitles[$siteId][$mediaId] = $oembed->title ?? '';
-			}
+			self::$oembedTitles[$siteId][$mediaId] = $oembed->title ?? '';
 		}
-		self::$oembedIds = [];
 	}
 
 	protected static function replaceIframe(string $original): string
