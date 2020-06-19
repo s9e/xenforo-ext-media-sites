@@ -84,11 +84,9 @@ $0]]></replace>
 {
 	color:         #eee;
 	content:       attr(data-s9e-mediaembed-c2l-oembed-title);
-	display:       block;
 	font-family:   Arial, sans-serif;
 	font-size:     18px;
 	left:          25px;
-	height:        30%;
 	overflow:      hidden;
 	position:      absolute;
 	text-overflow: ellipsis;
