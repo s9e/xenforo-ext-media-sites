@@ -186,14 +186,19 @@ class Helper
 			self::$oembedTitles[$siteId][$mediaId] = (string) $oembed->title;
 		}
 
-		foreach (self::$oembedIds as $siteId => $mediaIds)
+		self::$oembedIds = array_filter(self::$oembedIds);
+		if (empty(self::$oembedIds))
 		{
-			foreach ($mediaIds as $mediaId)
-			{
-				$oembed = XF::service('XF:Oembed')->fetchNewOembed($siteId, $mediaId);
+			return;
+		}
 
-				self::$oembedTitles[$siteId][$mediaId] = $oembed->title ?? '';
-			}
+		// Pick one random entry before clearing the array
+		$siteId  = array_rand(self::$oembedIds);
+		$mediaId = array_rand(self::$oembedIds[$siteId]);
+		$oembed  = XF::service('XF:Oembed')->fetchNewOembed($siteId, $mediaId);
+		if ($oembed)
+		{
+			self::$oembedTitles[$siteId][$mediaId] = $oembed->title ?? '';
 		}
 		self::$oembedIds = [];
 	}
