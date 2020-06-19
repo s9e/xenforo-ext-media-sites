@@ -192,13 +192,17 @@ class Helper
 			return;
 		}
 
-		// Pick one random entry before clearing the array
-		$siteId  = array_rand(self::$oembedIds);
-		$mediaId = array_rand(self::$oembedIds[$siteId]);
-		$oembed  = XF::service('XF:Oembed')->fetchNewOembed($siteId, $mediaId);
-		if ($oembed)
+		// Fetch a new oEmbed if there are 2 or fewer active fetches
+		if (XF::repository('XF:Oembed')->getTotalActiveFetches() < 3)
 		{
-			self::$oembedTitles[$siteId][$mediaId] = $oembed->title ?? '';
+			// Pick one random entry before clearing the array
+			$siteId  = array_rand(self::$oembedIds);
+			$mediaId = array_rand(self::$oembedIds[$siteId]);
+			$oembed  = XF::service('XF:Oembed')->fetchNewOembed($siteId, $mediaId);
+			if ($oembed)
+			{
+				self::$oembedTitles[$siteId][$mediaId] = $oembed->title ?? '';
+			}
 		}
 		self::$oembedIds = [];
 	}
