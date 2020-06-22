@@ -8,6 +8,7 @@
 namespace s9e\MediaSites;
 
 use XF;
+use XF\Entity\Oembed;
 use XF\Mvc\Entity\Entity;
 use XF\Mvc\Entity\Manager;
 use XF\Mvc\Entity\Structure;
@@ -160,14 +161,14 @@ class Helper
 		);
 	}
 
-	protected static function fetchOembed()
+	protected static function fetchOembed(): void
 	{
 		self::fetchOembedFromLogs();
 		self::fetchOembedFromService();
 		self::$oembedIds = [];
 	}
 
-	protected static function fetchOembedFromLogs()
+	protected static function fetchOembedFromLogs(): void
 	{
 		$hashes = [];
 		foreach (self::$oembedIds as $siteId => $mediaIds)
@@ -187,18 +188,21 @@ class Helper
 		{
 			$mediaId = $oembed->media_id;
 			$siteId  = $oembed->media_site_id;
-			unset(self::$oembedIds[$siteId][$mediaId]);
-
 			self::$oembedTitles[$siteId][$mediaId] = (string) $oembed->title;
+
+			if (!self::shouldRefetch($oembed))
+			{
+				unset(self::$oembedIds[$siteId][$mediaId]);
+			}
 		}
 	}
 
-	protected static function fetchOembedFromService()
+	protected static function fetchOembedFromService(): void
 	{
 		self::$oembedIds = array_filter(self::$oembedIds);
 
-		// Limit the number of active fetches to 2
-		if (empty(self::$oembedIds) || XF::repository('XF:Oembed')->getTotalActiveFetches() > 2)
+		// Limit the number of active fetches to 3
+		if (empty(self::$oembedIds) || XF::repository('XF:Oembed')->getTotalActiveFetches() >= 3)
 		{
 			return;
 		}
@@ -206,7 +210,7 @@ class Helper
 		// Pick one random entry before clearing the array
 		$siteId  = array_rand(self::$oembedIds);
 		$mediaId = array_rand(self::$oembedIds[$siteId]);
-		$oembed  = XF::service('XF:Oembed')->fetchNewOembed($siteId, $mediaId);
+		$oembed  = XF::service('XF:Oembed')->getOembed($siteId, $mediaId);
 		if ($oembed)
 		{
 			self::$oembedTitles[$siteId][$mediaId] = $oembed->title ?? '';
@@ -285,5 +289,28 @@ class Helper
 		}
 
 		return $attributes;
+	}
+
+	protected static function shouldRefetch(Oembed $oembed): bool
+	{
+		// NOTE: __isset() returns true even if null
+		if ($oembed->title !== null)
+		{
+			return false;
+		}
+
+		// Give up after 10 failures
+		if ($oembed->fail_count >= 10)
+		{
+			return false;
+		}
+
+		// Don't refetch within an hour of failure
+		if ($oembed->failed_date > (XF::$time - 3600))
+		{
+			return false;
+		}
+
+		return true;
 	}
 }
