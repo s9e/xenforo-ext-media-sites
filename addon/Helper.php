@@ -201,8 +201,8 @@ class Helper
 	{
 		self::$oembedIds = array_filter(self::$oembedIds);
 
-		// Limit the number of active fetches to 3
-		if (empty(self::$oembedIds) || XF::repository('XF:Oembed')->getTotalActiveFetches() >= 3)
+		// Limit the number of active fetches to 2
+		if (empty(self::$oembedIds) || XF::repository('XF:Oembed')->getTotalActiveFetches() >= 2)
 		{
 			return;
 		}
