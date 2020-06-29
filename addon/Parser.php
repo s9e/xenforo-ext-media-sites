@@ -48,6 +48,7 @@ class Parser
 		'cnbc'=>[['!cnbc\\.com/gallery/\\?video=(?<id>\\d+)!'],[],[['extract'=>['!byGuid=(?<id>\\d+)!'],'match'=>['!cnbc\\.com/video/20\\d\\d/\\d\\d/\\d\\d/\\w!']]]],
 		'cnn'=>[['!cnn.com/videos/(?<id>.*\\.cnn)!','!cnn\\.com/video/data/2\\.0/video/(?<id>.*\\.cnn)!']],
 		'cnnmoney'=>[['!money\\.cnn\\.com/video/(?<id>.*\\.cnnmoney)!']],
+		'codepen'=>[['!codepen\\.io/(?<user>[-\\w]+)/(?:details|embed|full|live|pen)/(?<id>\\w+)!']],
 		'comedycentral'=>[[],[],[['extract'=>['!(?<id>mgid:arc:(?:episode|video):[.\\w]+:[-\\w]+)!'],'match'=>['!c(?:c|omedycentral)\\.com/(?:full-episode|video-clip)s/!']]]],
 		'coub'=>[['!coub\\.com/view/(?<id>\\w+)!']],
 		'dailymotion'=>[['!dai\\.ly/(?<id>[a-z0-9]+)!i','!dailymotion\\.com/(?:live/|swf/|user/[^#]+#video=|(?:related/\\d+/)?video/)(?<id>[a-z0-9]+)!i','!start=(?<t>\\d+)!']],
