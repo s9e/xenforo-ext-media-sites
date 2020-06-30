@@ -90,12 +90,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "d96e5b47b893c6042f96b52719d8fc8a9a233aed"
+                "reference": "e9b901e96dfcd737f30e353bf06c252c22adc484"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/d96e5b47b893c6042f96b52719d8fc8a9a233aed",
-                "reference": "d96e5b47b893c6042f96b52719d8fc8a9a233aed",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/e9b901e96dfcd737f30e353bf06c252c22adc484",
+                "reference": "e9b901e96dfcd737f30e353bf06c252c22adc484",
                 "shasum": ""
             },
             "require": {
@@ -152,7 +152,7 @@
                 "parser",
                 "shortcodes"
             ],
-            "time": "2020-06-29T19:10:22+00:00"
+            "time": "2020-06-30T15:33:36+00:00"
         }
     ],
     "packages-dev": [
@@ -1255,20 +1255,20 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "4.0.1",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "3e523c576f29dacecff309f35e4cc5a5c168e78a"
+                "reference": "1e90b4cf905a7d06c420b1d2e9d11a4dc8a13113"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/3e523c576f29dacecff309f35e4cc5a5c168e78a",
-                "reference": "3e523c576f29dacecff309f35e4cc5a5c168e78a",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/1e90b4cf905a7d06c420b1d2e9d11a4dc8a13113",
+                "reference": "1e90b4cf905a7d06c420b1d2e9d11a4dc8a13113",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.3"
+                "php": "^7.3 || ^8.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.0",
@@ -1313,7 +1313,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-05-08T05:01:12+00:00"
+            "time": "2020-06-30T04:46:02+00:00"
         },
         {
             "name": "sebastian/environment",
