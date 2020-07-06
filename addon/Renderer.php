@@ -264,4 +264,11 @@ class Renderer
 
 		return $html;
 	}
+
+	protected static function renderTradingview($vars)
+	{
+		$vars+=['chart'=>null,'symbol'=>null];$html='<iframe data-s9e-mediaembed="tradingview" allowfullscreen="" scrolling="no" style="height:400px" src="https://s.tradingview.com/';if(isset($vars['symbol'])){$html.='widgetembed/?interval=D&amp;symbol='.htmlspecialchars(strtr($vars['symbol'],'-',':'),2);}else{$html.='embed/'.htmlspecialchars($vars['chart'],2);}$html.='"></iframe>';
+
+		return $html;
+	}
 }
