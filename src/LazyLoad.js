@@ -16,7 +16,7 @@
 		i       = 0,
 		dummies = [],
 		top     = 0,
-		bottom  = 0,
+		bottom  = window.innerHeight,
 		timeout = 0,
 		hasScrolled     = false,
 		lastScrollY     = 0,
@@ -26,36 +26,20 @@
 		dummies.push(nodes[i++]);
 	}
 
-	// Give the browser some time to scroll to the URL's target if the document is loading
-	if (document.readyState === 'complete')
-	{
-		init();
-	}
-	else
-	{
-		window.addEventListener('load', init);
-
-		// Ensure we still initialize within 3s even if the browser is stuck loading other assets
-		setTimeout(init, 3000);
-	}
-
+	setTimeout(init, REFRESH_DELAY);
 	function init()
 	{
-		// Prevent multiple executions by testing whether bottom has been set
-		if (!bottom)
-		{
-			// Initialize the last scroll position at current scroll position
-			lastScrollY = window.scrollY;
-			prepareEvents(window.addEventListener);
-			loadIframes();
-		}
+		// Initialize the last scroll position at current scroll position
+		lastScrollY = window.scrollY;
+		prepareEvents(window.addEventListener);
+		refresh();
 	}
 
 	function prepareEvents(fn)
 	{
-		fn('click',  scheduleLoading);
-		fn('resize', scheduleLoading);
-		fn('scroll', scheduleLoading);
+		fn('click',  scheduleRefresh);
+		fn('resize', scheduleRefresh);
+		fn('scroll', scheduleRefresh);
 	}
 
 	function isInRange(element)
@@ -94,10 +78,10 @@
 		return (top > block.getBoundingClientRect().bottom);
 	}
 
-	function scheduleLoading()
+	function scheduleRefresh()
 	{
 		clearTimeout(timeout);
-		timeout = setTimeout(loadIframes, REFRESH_DELAY);
+		timeout = setTimeout(refresh, REFRESH_DELAY);
 	}
 
 	function loadIframe(dummy)
@@ -215,7 +199,7 @@
 		return getElementRectProperty('html', 'height') - window.scrollY;
 	}
 
-	function loadIframes()
+	function refresh()
 	{
 		if (lastScrollY !== window.scrollY)
 		{
@@ -223,10 +207,12 @@
 			scrollDirection = (lastScrollY > (lastScrollY = window.scrollY)) ? SCROLL_UP : SCROLL_DOWN;
 		}
 
-		// Refresh the loading zone. Extend it by an extra screen at the bottom and between half a
-		// screen and a full screen at the top depending on whether we're scrolling down or up
-		bottom = window.innerHeight * 2;
-		top    = -bottom / ((scrollDirection === SCROLL_DOWN) ? 4 : 2);
+		// Refresh the loading zone and extend it if we're done loading the page
+		if (document.readyState === 'complete')
+		{
+			bottom = window.innerHeight * 2;
+			top    = -bottom / ((scrollDirection === SCROLL_DOWN) ? 4 : 2);
+		}
 
 		var newDummies = [];
 		dummies.forEach(
