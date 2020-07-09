@@ -20,7 +20,8 @@
 		timeout = 0,
 		hasScrolled     = false,
 		lastScrollY     = 0,
-		scrollDirection = SCROLL_DOWN;
+		scrollDirection = SCROLL_DOWN,
+		activeMiniplayerSpan = null;
 	while (i < nodes.length)
 	{
 		dummies.push(nodes[i++]);
@@ -244,7 +245,6 @@
 		}
 	}
 
-	var activeMiniplayerSpan = null;
 	function handleMiniplayerClick(e)
 	{
 		var span   = e.target,
