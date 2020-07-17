@@ -44,6 +44,7 @@ class Parser
 		'bleacherreport'=>[[],[],[['extract'=>['!id="video-(?<id>[-\\w]+)!','!video_embed\\?id=(?<id>[-\\w]+)!'],'match'=>['!/articles/.!']]]],
 		'break'=>[['!break\\.com/video/.*-(?<id>\\d+)$!']],
 		'brightcove'=>[['@link\\.brightcove\\.com/services/player/bcpid(?<bcpid>\\d+).*?bckey=(?<bckey>[-,~\\w]+).*?bctid=(?<bctid>\\d+)@','@players\\.brightcove\\.net/(?<bcpid>\\d+)/.*?videoId=(?<bctid>\\d+)@']],
+		'castos'=>[['@(?<host>[-\\w]+)\\.castos\\.com/player/(?<id>\\d+)@'],[],[['extract'=>['@(?<host>[-\\w]+)\\.castos\\.com/player/(?<id>\\d+)@'],'match'=>['@castos\\.com/(?:podcasts/[^/]*+/)?episodes/.@']]]],
 		'cbsnews'=>[['#cbsnews\\.com/videos?/(?!watch/)(?<id>[-\\w]+)#','#cbsnews\\.com/video/watch/\\?id=(?<id>\\d+)#']],
 		'cnbc'=>[['!cnbc\\.com/gallery/\\?video=(?<id>\\d+)!'],[],[['extract'=>['!byGuid=(?<id>\\d+)!'],'match'=>['!cnbc\\.com/video/20\\d\\d/\\d\\d/\\d\\d/\\w!']]]],
 		'cnn'=>[['!cnn.com/videos/(?<id>.*\\.cnn)!','!cnn\\.com/video/data/2\\.0/video/(?<id>.*\\.cnn)!']],
