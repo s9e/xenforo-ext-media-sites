@@ -126,7 +126,7 @@ class Helper
 
 		self::$oembedIds = [];
 		$output = preg_replace_callback(
-			'((?:<span data-s9e-mediaembed="[^>]++><span[^>]*+>\\K<iframe|<iframe data-s9e-mediaembed="[^"]++)[^>]*+></iframe>)',
+			'(<(?:span data-s9e-mediaembed="[^>]++><span[^>]*+>\\K<iframe|iframe data-s9e-mediaembed="[^"]++)[^>]*+></iframe>)',
 			function ($m)
 			{
 				return self::replaceIframe($m[0]);
