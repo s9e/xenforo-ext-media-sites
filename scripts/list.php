@@ -10,7 +10,8 @@ foreach ($sites as $site)
 {
 	$names[] = $site->getAttribute('site_title');
 }
-sort($names, SORT_FLAG_CASE | SORT_NATURAL);
+
+Collator::create('en_US')->sort($names);
 
 $text = 'This add-on contains the definitions for [b]' . $sites->length . ' media sites[/b]: ' . implode(', ', $names) . '.';
 $text = str_replace('BitChute', 'Bit Chute', $text);
