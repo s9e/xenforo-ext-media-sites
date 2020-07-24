@@ -90,12 +90,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "1fa8bcd3b13425bea643ec5a9fa742746e4c6c96"
+                "reference": "9f6654eb95aec0450852dc209a9b998e8ca0167e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/1fa8bcd3b13425bea643ec5a9fa742746e4c6c96",
-                "reference": "1fa8bcd3b13425bea643ec5a9fa742746e4c6c96",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/9f6654eb95aec0450852dc209a9b998e8ca0167e",
+                "reference": "9f6654eb95aec0450852dc209a9b998e8ca0167e",
                 "shasum": ""
             },
             "require": {
@@ -122,7 +122,7 @@
             },
             "type": "library",
             "extra": {
-                "version": "2.7.3-dev"
+                "version": "2.7.4-dev"
             },
             "autoload": {
                 "psr-4": {
@@ -152,7 +152,7 @@
                 "parser",
                 "shortcodes"
             ],
-            "time": "2020-07-18T18:04:43+00:00"
+            "time": "2020-07-23T17:40:08+00:00"
         }
     ],
     "packages-dev": [
@@ -433,28 +433,27 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "5.1.0",
+            "version": "5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "cd72d394ca794d3466a3b2fc09d5a6c1dc86b47e"
+                "reference": "3170448f5769fe19f456173d833734e0ff1b84df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/cd72d394ca794d3466a3b2fc09d5a6c1dc86b47e",
-                "reference": "cd72d394ca794d3466a3b2fc09d5a6c1dc86b47e",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/3170448f5769fe19f456173d833734e0ff1b84df",
+                "reference": "3170448f5769fe19f456173d833734e0ff1b84df",
                 "shasum": ""
             },
             "require": {
-                "ext-filter": "^7.1",
-                "php": "^7.2",
-                "phpdocumentor/reflection-common": "^2.0",
-                "phpdocumentor/type-resolver": "^1.0",
-                "webmozart/assert": "^1"
+                "ext-filter": "*",
+                "php": "^7.2 || ^8.0",
+                "phpdocumentor/reflection-common": "^2.2",
+                "phpdocumentor/type-resolver": "^1.3",
+                "webmozart/assert": "^1.9.1"
             },
             "require-dev": {
-                "doctrine/instantiator": "^1",
-                "mockery/mockery": "^1"
+                "mockery/mockery": "~1.3.2"
             },
             "type": "library",
             "extra": {
@@ -482,7 +481,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2020-02-22T12:28:44+00:00"
+            "time": "2020-07-20T20:05:34+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",

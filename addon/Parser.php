@@ -122,7 +122,7 @@ class Parser
 		'spotify'=>[['!(?:open|play)\\.spotify\\.com/(?<id>(?:user/[-.\\w]+/)?(?:album|artist|episode|playlist|show|track)(?:[:/][-.\\w]+)+)!']],
 		'spreaker'=>[['!spreaker\\.com/episode/(?<episode_id>\\d+)!'],[],[['extract'=>['!episode_id=(?<episode_id>\\d+)!','!show_id=(?<show_id>\\d+)!'],'match'=>["!(?'url'.+/(?:show/|user/.+/).+)!"],'url'=>'https://api.spreaker.com/oembed?format=json&url={@url}']]],
 		'steamstore'=>[['!store.steampowered.com/app/(?<id>\\d+)!']],
-		'stitcher'=>[[],[],[['extract'=>['!data-eid="(?<eid>\\d+)!','!data-fid="(?<fid>\\d+)!'],'match'=>['!/podcast/!']]]],
+		'stitcher'=>[['!/splayer/f/(?<fid>\\d+)/(?<eid>\\d+)!'],[],[['extract'=>['!data-eid="(?<eid>\\d+)!','!data-fid="(?<fid>\\d+)!'],'match'=>['!/(?:podcast/|s\\?)!']]]],
 		'strawpoll'=>[['!strawpoll\\.me/(?<id>\\d+)!']],
 		'streamable'=>[['!streamable\\.com/(?<id>\\w+)!']],
 		'streamja'=>[['@streamja\\.com/(?!login|signup|terms|videos)(?<id>\\w+)@']],
