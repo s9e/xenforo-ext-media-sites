@@ -54,8 +54,8 @@
   </option>
   <option option_id="s9e_MediaSites_Footer" edit_format="radio" data_type="string" validation_class="s9e\MediaSites\Setup" validation_method="validateFooter">
     <default_value>show</default_value>
-    <edit_format_params>show=I want to display a link to this add-on in the page footer
-hide=I do not want to display a link to this add-on</edit_format_params>
+    <edit_format_params>show={{ phrase('option.s9e_MediaSites_Footer_Show') }}
+hide={{ phrase('option.s9e_MediaSites_Footer_Hide') }}</edit_format_params>
     <relation group_id="s9e_MediaSites" display_order="1"/>
   </option>
   <option option_id="s9e_MediaSites_Full_Width_Embeds" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification">

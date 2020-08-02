@@ -14,7 +14,9 @@
   <phrase title="option.s9e_MediaSites_ClickToLoad" version_id="2060050" version_string="2.6.0 Release Candidate"><![CDATA[Replace embedded video players with a lightweight placeholder where available]]></phrase>
   <phrase title="option.s9e_MediaSites_ClickToLoad_Oembed" version_id="2060070" version_string="2.6.0"><![CDATA[Add a title to the click-to-load placeholders where available]]></phrase>
   <phrase title="option.s9e_MediaSites_Facebook_Background" version_id="2020170" version_string="2.2.1"><![CDATA[Force Facebook's embeds to have a white background]]></phrase>
-  <phrase title="option.s9e_MediaSites_Footer" version_id="2001370" version_string="2.0.13"><![CDATA[Show your support]]></phrase>
+  <phrase title="option.s9e_MediaSites_Footer" version_id="2060570" version_string="2.6.5"><![CDATA[Show your support]]></phrase>
+  <phrase title="option.s9e_MediaSites_Footer_Hide" version_id="2060570" version_string="2.6.5"><![CDATA[I do not want to display a link to this add-on]]></phrase>
+  <phrase title="option.s9e_MediaSites_Footer_Show" version_id="2060570" version_string="2.6.5"><![CDATA[I want to display a link to this add-on in the page footer]]></phrase>
   <phrase title="option.s9e_MediaSites_Full_Width_Embeds" version_id="2031870" version_string="2.3.18"><![CDATA[Enable full-width embeds by default]]></phrase>
   <phrase title="option.s9e_MediaSites_Miniplayer" version_id="2030070" version_string="2.3.0"><![CDATA[Add a miniplayer button to supported video players in wide layout]]></phrase>
   <phrase title="option.s9e_MediaSites_Native_GIFs" version_id="2050055" version_string="2.5.0 Release Candidate 5"><![CDATA[Replace GIF-like embeds with a native player where possible]]></phrase>
@@ -41,4 +43,5 @@
   <phrase title="option_explain.s9e_MediaSites_YouTube_Privacy" version_id="2001370" version_string="2.0.13"><![CDATA[The <a target="_blank" href="https://support.google.com/youtube/answer/171780?hl=en">Privacy Enhanced Mode</a> only relates to tracking of viewer behavior, not ads-serving behavior.]]></phrase>
   <phrase title="option_group.s9e_MediaSites" version_id="2001370" version_string="2.0.13"><![CDATA[s9e/MediaSites]]></phrase>
   <phrase title="option_group_description.s9e_MediaSites" version_id="2001370" version_string="2.0.13"><![CDATA[Options related to the add-on]]></phrase>
+  <phrase title="s9e_MediaSites_Footer_Credit" version_id="2060570" version_string="2.6.5" global_cache="1"><![CDATA[Media embeds via s9e/MediaSites]]></phrase>
 </phrases>
