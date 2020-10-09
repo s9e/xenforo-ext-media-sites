@@ -34,7 +34,7 @@ class Parser
 	*/
 	protected static $sites = [
 		'abcnews'=>[['!abcnews\\.go\\.com/(?:video/embed\\?id=|[^/]+/video/[^/]+-)(?<id>\\d+)!']],
-		'amazon'=>[['#/(?:dp|gp/product)/(?<id>[A-Z0-9]+)#','#amazon\\.(?:co\\.)?(?<tld>ca|de|es|fr|in|it|jp|uk)#']],
+		'amazon'=>[['#/(?:dp|gp/product)/(?<id>[A-Z0-9]+)#','#amazon\\.(?:co\\.)?(?<tld>ca|de|es|fr|in|it|jp|uk)#'],['id']],
 		'anchor'=>[['@anchor.fm/[-\\w]+/episodes/(?:[-\\w]+-)(?<id>\\w+)(?![-\\w])@']],
 		'audioboom'=>[['!audioboo(?:\\.f|m\\.co)m/(?:boo|post)s/(?<id>\\d+)!']],
 		'audiomack'=>[['!audiomack\\.com/(?<mode>album|song)/(?<artist>[-\\w]+)/(?<title>[-\\w]+)!','!audiomack\\.com/(?<artist>[-\\w]+)/(?<mode>album|song)/(?<title>[-\\w]+)!']],
