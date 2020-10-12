@@ -39,7 +39,7 @@ class Parser
 		'audioboom'=>[['!audioboo(?:\\.f|m\\.co)m/(?:boo|post)s/(?<id>\\d+)!']],
 		'audiomack'=>[['!audiomack\\.com/(?<mode>album|song)/(?<artist>[-\\w]+)/(?<title>[-\\w]+)!','!audiomack\\.com/(?<artist>[-\\w]+)/(?<mode>album|song)/(?<title>[-\\w]+)!']],
 		'bandcamp'=>[[],[],[['extract'=>['!/album=(?<album_id>\\d+)!'],'match'=>['!bandcamp\\.com/album/.!']],['extract'=>['!"album_id":(?<album_id>\\d+)!','!"track_num":(?<track_num>\\d+)!','!/track=(?<track_id>\\d+)!'],'match'=>['!bandcamp\\.com/track/.!']]]],
-		'bbcnews'=>[['@bbc\\.co(?:m|\\.uk)/news/\\w+/(?:\\w+-)+(?<id>\\d+)@','@bbc\\.co(?:m|\\.uk)/news/\\w+/embed/(?<id>\\w+/\\d+)@','@bbc\\.co(?:m|\\.uk)/news/\\w+/\\w+/(?<id>\\d+)@']],
+		'bbcnews'=>[['@bbc\\.co(?:m|\\.uk)/news/(?:av|video_and_audio)/(?:\\w+-)+(?<id>\\d+)@','@bbc\\.co(?:m|\\.uk)/news/(?:av|video_and_audio)/embed/(?<id>\\w+/\\d+)@','@bbc\\.co(?:m|\\.uk)/news/(?:av|video_and_audio)/\\w+/(?<id>\\d+)@']],
 		'bitchute'=>[['@bitchute\\.com/video/(?<id>\\w+)@']],
 		'bleacherreport'=>[[],[],[['extract'=>['!id="video-(?<id>[-\\w]+)!','!video_embed\\?id=(?<id>[-\\w]+)!'],'match'=>['!/articles/.!']]]],
 		'break'=>[['!break\\.com/video/.*-(?<id>\\d+)$!']],

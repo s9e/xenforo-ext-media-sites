@@ -59,6 +59,10 @@ class ParserTest extends TestCase
 	{
 		return [
 			[
+				'https://www.bbc.co.uk/news/live/world-54505193',
+				false
+			],
+			[
 				'http://us.cnn.com/video/data/2.0/video/bestoftv/2013/10/23/vo-nr-prince-george-christening-arrival.cnn.html',
 				'bestoftv/2013/10/23/vo-nr-prince-george-christening-arrival.cnn'
 			],
