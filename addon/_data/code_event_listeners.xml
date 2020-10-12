@@ -2,4 +2,6 @@
 <code_event_listeners>
   <listener event_id="entity_structure" execute_order="10" callback_class="s9e\MediaSites\Helper" callback_method="extendMediaSiteEntity" active="1" hint="XF\Entity\BbCodeMediaSite" description="Extends the BbCodeMediaSite entity"/>
   <listener event_id="templater_template_post_render" execute_order="11" callback_class="s9e\MediaSites\Helper" callback_method="replaceIframes" active="1" hint="public:thread_view" description="Replaces iframes in thread view"/>
+  <listener event_id="templater_template_post_render" execute_order="11" callback_class="s9e\MediaSites\Helper" callback_method="replaceIframes" active="1" hint="public:siropu_chat" description="Replaces iframes in Chat 2 by Siropu"/>
+  <listener event_id="templater_template_post_render" execute_order="11" callback_class="s9e\MediaSites\Helper" callback_method="replaceIframes" active="1" hint="public:conversation_view" description="Replaces iframes in conversation view"/>
 </code_event_listeners>
