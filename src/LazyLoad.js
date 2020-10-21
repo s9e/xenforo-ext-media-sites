@@ -12,7 +12,7 @@
 	const SCROLL_DOWN = 0;
 	const SCROLL_UP   = 1;
 
-	var nodes   = document.querySelectorAll('span[' + dataPrefix + '-iframe]'),
+	let nodes   = document.querySelectorAll('span[' + dataPrefix + '-iframe]'),
 		i       = 0,
 		dummies = [],
 		top     = 0,
@@ -46,7 +46,7 @@
 
 	function isInRange(element)
 	{
-		var rect = element.getBoundingClientRect();
+		let rect = element.getBoundingClientRect();
 
 		// Test for width to ensure the element isn't hidden in a spoiler
 		if (rect.bottom < top || rect.top > bottom || !rect.width)
@@ -66,7 +66,7 @@
 
 	function isHiddenInQuote(element, top)
 	{
-		var parentNode = element.parentNode,
+		let parentNode = element.parentNode,
 			block      = parentNode;
 		while (parentNode.tagName !== 'BODY')
 		{
@@ -88,7 +88,7 @@
 
 	function loadIframe(dummy)
 	{
-		var iframe = document.createElement('iframe'),
+		let iframe = document.createElement('iframe'),
 			values = JSON.parse(dummy.getAttribute(dataPrefix + '-iframe')),
 			i      = -1;
 		while (++i < values.length)
@@ -101,12 +101,12 @@
 		{
 			iframe.onload = function ()
 			{
-				var channel = new MessageChannel,
+				let channel = new MessageChannel,
 					origin  = this.src.substr(0, this.src.indexOf('/', 8));
 				iframe.contentWindow.postMessage('s9e:init', origin, [channel.port2]);
 				channel.port1.onmessage = function (e)
 				{
-					var dimensions = ("" + e.data).split(' ');
+					let dimensions = ("" + e.data).split(' ');
 					resizeIframe(iframe, dimensions[0], dimensions[1] || 0);
 				};
 			};
@@ -119,20 +119,20 @@
 			iframe.onload();
 		}
 */
-		var parentNode = dummy.parentNode;
+		let parentNode = dummy.parentNode;
 		prepareMiniplayer(iframe, parentNode);
 		parentNode.replaceChild(iframe, dummy);
 	}
 
 	function getIframePosition(iframe)
 	{
-		var rect = iframe.getBoundingClientRect();
+		let rect = iframe.getBoundingClientRect();
 		if (rect.bottom > window.innerHeight)
 		{
 			return BELOW;
 		}
 
-		var top = -1;
+		let top = -1;
 		if (!hasScrolled && location.hash)
 		{
 			// If the page hasn't been scrolled, use the top of the URL's target as the boundary
@@ -149,14 +149,14 @@
 
 	function getElementRectProperty(selector, prop)
 	{
-		var el = document.querySelector(selector);
+		let el = document.querySelector(selector);
 
 		return (el) ? el.getBoundingClientRect()[prop] : -1;
 	}
 
 	function resizeIframe(iframe, height, width)
 	{
-		var iframePosition = getIframePosition(iframe),
+		let iframePosition = getIframePosition(iframe),
 			expandUpward   = (iframePosition === ABOVE || (iframePosition === VISIBLE && scrollDirection === SCROLL_UP)),
 			oldDistance    = (expandUpward) ? getDistanceFromBottom() : 0,
 			style          = iframe.style;
@@ -182,7 +182,7 @@
 
 		if (expandUpward)
 		{
-			var newDistance = getDistanceFromBottom(),
+			let newDistance = getDistanceFromBottom(),
 				scrollDiff  = newDistance - oldDistance;
 			if (scrollDiff)
 			{
@@ -216,7 +216,7 @@
 			top    = -bottom / ((scrollDirection === SCROLL_DOWN) ? 4 : 2);
 		}
 
-		var newDummies = [];
+		let newDummies = [];
 		dummies.forEach(
 			function (dummy)
 			{
@@ -247,7 +247,7 @@
 
 	function handleMiniplayerClick(e)
 	{
-		var span   = e.target,
+		let span   = e.target,
 			iframe = span.firstChild,
 			rect   = span.getBoundingClientRect(),
 			root   = document.documentElement,
@@ -281,7 +281,7 @@
 
 	function handleMiniplayerTransition(e)
 	{
-		var iframe = e.target,
+		let iframe = e.target,
 			span   = iframe.parentNode;
 
 		if (/-tn/.test(span.className))
@@ -296,7 +296,7 @@
 		if (dummy.hasAttribute(dataPrefix + '-c2l-background'))
 		{
 			// Set the background on the dummy's wrapper if applicable
-			var node = (dummy.hasAttribute(dataPrefix)) ? dummy : dummy.parentNode.parentNode;
+			let node = (dummy.hasAttribute(dataPrefix)) ? dummy : dummy.parentNode.parentNode;
 			node.style.background = dummy.getAttribute(dataPrefix + '-c2l-background');
 		}
 		dummy.onclick = function (e)
