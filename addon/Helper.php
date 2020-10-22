@@ -67,48 +67,6 @@ class Helper
 	}
 
 	/**
-	* Replace iframe src attributes in given HTML
-	*
-	* @param  Templater  $templater
-	* @param  string     $type
-	* @param  string     $template
-	* @param  string    &$output
-	* @return void
-	*/
-	public static function replaceIframeSrc(Templater $templater, $type, $template, &$output)
-	{
-		if (strpos($output, 'data-s9e-mediaembed="') === false)
-		{
-			return;
-		}
-
-		$output = preg_replace_callback(
-			'((<(?:span data-s9e-mediaembed="[^>]++><span[^>]*+><iframe|iframe data-s9e-mediaembed=")[^>]+? )(src="[^>]++))S',
-			function ($m)
-			{
-				$html = $m[1] . 'data-s9e-mediaembed-' . $m[2];
-				if (strpos($html, ' onload="') !== false)
-				{
-					if (strpos($html, 'data-s9e-mediaembed-api') === false)
-					{
-						$replace = ' onload="if(!contentDocument){$1}"';
-					}
-					else
-					{
-						$replace = '';
-					}
-					$html = preg_replace('( onload="([^"]++)")', $replace, $html);
-				}
-
-				return $html;
-			},
-			$output
-		);
-
-		$output .= '<script>(function(f,k,g,t){function w(a){a("click",m);a("load",m);a("resize",m);a("scroll",m)}function m(){clearTimeout(x);x=setTimeout(y,32)}function z(a){for(var b=k.createElement("iframe"),d=JSON.parse(a.getAttribute(g+"-iframe")),c=-1;++c<d.length;)b.setAttribute(d[c],d[++c]);b.loading="eager";2==b.getAttribute(g+"-api")&&(b.onload=function(){var e=new MessageChannel;b.contentWindow.postMessage("s9e:init",this.src.substr(0,this.src.indexOf("/",8)),[e.port2]);e.port1.onmessage=function(h){h=(""+h.data).split(" ");E(b,h[0],h[1]||0)}});d=a.parentNode;F(b,d);d.replaceChild(b,a)}function G(a){a=a.getBoundingClientRect();if(a.bottom>f.innerHeight)return 2;var b=-1;!A&&location.hash&&(b=n(location.hash,"top"));0>b&&(b=n(".p-navSticky","bottom"));return a.top<b?0:1}function n(a,b){return(a=k.querySelector(a))?a.getBoundingClientRect()[b]:-1}function E(a,b,d){var c=G(a),e=0===c||1===c&&1===u,h=e?n("html","height")-f.scrollY:0,p=a.style;if(1!==c||e)p.transition="none",setTimeout(function(){p.transition=""},0);p.height=b+"px";d&&(p.width=d+"px");e&&((a=n("html","height")-f.scrollY-h)&&f.scrollBy(0,a),l=f.scrollY)}function y(){l!==f.scrollY&&(A=!0,u=l>(l=f.scrollY)?1:0);"complete"===k.readyState&&(v=2*f.innerHeight,B=-v/(0===u?4:2));var a=[];q.forEach(function(b){var d=b.getBoundingClientRect(),c;if(!(c=d.bottom<B||d.top>v||!d.width)&&(c=270===d.width)){for(var e=c=b.parentNode;"BODY"!==c.tagName;)/bbCodeBlock-expandContent/.test(c.className)&&(e=c),c=c.parentNode;c=d.top>e.getBoundingClientRect().bottom}c?a.push(b):b.hasAttribute(g+"-c2l")?H(b):z(b)});q=a;q.length||w(f.removeEventListener)}function I(a){a=a.target;var b=a.firstChild,d=a.getBoundingClientRect(),c=k.documentElement,e=b.style;e.bottom=c.clientHeight-d.bottom+"px";e.height=d.height+"px";e.right=c.clientWidth-d.right+"px";e.width=d.width+"px";b.offsetHeight;/inactive/.test(a.className)?(a.className=t+"-active-tn",b.removeAttribute("style"),r&&r.click(),r=a):(a.className=t+"-inactive-tn",r=null)}function J(a){a=a.target;var b=a.parentNode;/-tn/.test(b.className)&&(b.className=b.className.replace("-tn",""),a.removeAttribute("style"))}function H(a){a.hasAttribute(g+"-c2l-background")&&((a.hasAttribute(g)?a:a.parentNode.parentNode).style.background=a.getAttribute(g+"-c2l-background"));a.onclick=function(b){b.stopPropagation();z(a)}}function F(a,b){a.hasAttribute(g)||b.hasAttribute("style")||(b.className=t+"-inactive",b.onclick=I,a.addEventListener("transitionend",J))}for(var C=k.querySelectorAll("span["+g+"-iframe]"),D=0,q=[],B=0,v=f.innerHeight,x=0,A=!1,l=0,u=0,r=null;D<C.length;)q.push(C[D++]);setTimeout(function(){l=f.scrollY;w(f.addEventListener);y()},32)})(window,document,"data-s9e-mediaembed","s9e-miniplayer")</script>';
-	}
-
-	/**
 	* Replace iframes in given HTML
 	*
 	* @param  Templater  $templater
