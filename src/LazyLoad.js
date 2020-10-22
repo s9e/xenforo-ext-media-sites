@@ -41,7 +41,7 @@
 		fn('click',  scheduleRefresh);
 		fn('load',   scheduleRefresh);
 		fn('resize', scheduleRefresh);
-		fn('scroll', scheduleRefresh);
+		fn('scroll', scheduleRefresh, true);
 	}
 
 	function isInRange(element)
