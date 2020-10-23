@@ -246,7 +246,7 @@ $0]]></replace>
 /* XFMG 2.2 */
 .js-embedContent>.bbWrapper>[data-s9e-mediaembed]:not([style])
 {
-	max-width: 100%;
+	width: 100%;
 }
 /* XFMG 2.2 */
 .fancybox-content
