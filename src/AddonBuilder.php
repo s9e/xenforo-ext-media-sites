@@ -92,7 +92,7 @@ class AddonBuilder
 		$this->sites         = iterator_to_array($this->configurator->MediaEmbed->defaultSites);
 		$this->xfTranspiler  = new XenForoTemplate;
 
-		$this->configurator->templateNormalizer->add(new SwitchCSSWidth);
+		$this->configurator->templateNormalizer->prepend(new SwitchCSSWidth);
 		$this->configurator->templateNormalizer->add(new RemoveDefaultStyle);
 		$this->configurator->templateNormalizer->add(new RemoveLazyLoading);
 		$this->configurator->templateNormalizer->add(new SetGitHubIframeApiVersion);
