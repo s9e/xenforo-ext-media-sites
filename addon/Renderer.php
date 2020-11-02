@@ -253,14 +253,14 @@ class Renderer
 
 	protected static function renderKickstarter($vars)
 	{
-		$vars+=['id'=>null,'video'=>null];$html='<span data-s9e-mediaembed="kickstarter" style="width:100%;max-width:';if(isset($vars['video'])){$html.='64';}else{$html.='22';}$html.='0px"><span';if(isset($vars['video'])){$html.='><iframe allowfullscreen="" scrolling="no" src="//www.kickstarter.com/projects/'.htmlspecialchars($vars['id'],2).'/widget/video.html"></iframe>';}else{$html.=' style="padding-bottom:190.909091%"><iframe allowfullscreen="" scrolling="no" src="//www.kickstarter.com/projects/'.htmlspecialchars($vars['id'],2).'/widget/card.html"></iframe>';}$html.='</span></span>';
+		$vars+=['id'=>null,'video'=>null];$html='<span data-s9e-mediaembed="kickstarter" style="width:';if(isset($vars['video'])){$html.='64';}else{$html.='22';}$html.='0px"><span';if(isset($vars['video'])){$html.='><iframe allowfullscreen="" scrolling="no" src="//www.kickstarter.com/projects/'.htmlspecialchars($vars['id'],2).'/widget/video.html"></iframe>';}else{$html.=' style="padding-bottom:190.909091%"><iframe allowfullscreen="" scrolling="no" src="//www.kickstarter.com/projects/'.htmlspecialchars($vars['id'],2).'/widget/card.html"></iframe>';}$html.='</span></span>';
 
 		return $html;
 	}
 
 	protected static function renderSpreaker($vars)
 	{
-		$vars+=['episode_id'=>null,'show_id'=>null];$html='<iframe data-s9e-mediaembed="spreaker" allowfullscreen="" scrolling="no" src="https://widget.spreaker.com/player?episode_id='.htmlspecialchars($vars['episode_id'],2).'&amp;show_id='.htmlspecialchars($vars['show_id'],2).'" style="height:'.htmlspecialchars(400-200*isset($vars['episode_id']),2).'px;width:900px"></iframe>';
+		$vars+=['episode_id'=>null,'show_id'=>null];$html='<iframe data-s9e-mediaembed="spreaker" allowfullscreen="" scrolling="no" src="https://widget.spreaker.com/player?episode_id='.htmlspecialchars($vars['episode_id'],2).'&amp;show_id='.htmlspecialchars($vars['show_id'],2).'" style="height:'.htmlspecialchars(400-200*isset($vars['episode_id']),2).'px;width:900px;"></iframe>';
 
 		return $html;
 	}

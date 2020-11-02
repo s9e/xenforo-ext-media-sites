@@ -18,8 +18,8 @@ class SwitchCSSWidth extends AbstractNormalization
 	* {@inheritdoc}
 	*/
 	protected $queries = [
-		'//iframe[@data-s9e-mediaembed][contains(@style, "width:100%")]',
-		'//span[@data-s9e-mediaembed][contains(@style, "width:100%")]',
+		'//iframe[@data-s9e-mediaembed][contains(@style, "width")]',
+		'//span[@data-s9e-mediaembed][contains(@style, "width")]',
 		'//xsl:attribute[@name = "style"][xsl:if or xsl:choose]//text()[contains(., "width")]'
 	];
 
@@ -68,7 +68,7 @@ class SwitchCSSWidth extends AbstractNormalization
 
 	protected function normalizeStyle(string $style)
 	{
-		$style = str_replace(';width:100%', '', $style);
+		$style = preg_replace('((^|;)width:100%(;)?)', '$1', $style);
 		$style = str_replace('max-width:', 'width:', $style);
 
 		return $style;
@@ -76,5 +76,6 @@ class SwitchCSSWidth extends AbstractNormalization
 
 	protected function normalizeText(DOMText $text)
 	{
+		$text->nodeValue = $this->normalizeStyle($text->nodeValue);
 	}
 }
