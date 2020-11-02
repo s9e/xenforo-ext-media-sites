@@ -26,7 +26,7 @@ class SwitchCSSWidth extends AbstractNormalization
 	/**
 	* {@inheritdoc}
 	*/
-	protected function normalizeElement(DOMElement $element)
+	protected function normalizeElement(DOMElement $element): void
 	{
 		$style = $element->getAttribute('style');
 		$style = $this->normalizeStyle($style);
@@ -36,7 +36,7 @@ class SwitchCSSWidth extends AbstractNormalization
 	/**
 	* {@inheritdoc}
 	*/
-	protected function normalizeNode(DOMNode $node)
+	protected function normalizeNode(DOMNode $node): void
 	{
 		if ($node instanceof DOMText)
 		{
@@ -48,7 +48,7 @@ class SwitchCSSWidth extends AbstractNormalization
 		}
 	}
 
-	protected function normalizeStyle(string $style)
+	protected function normalizeStyle(string $style): string
 	{
 		$style = preg_replace('((^|;)width:100%(;)?)', '$1', $style);
 		$style = str_replace('max-width:', 'width:', $style);
@@ -56,7 +56,7 @@ class SwitchCSSWidth extends AbstractNormalization
 		return $style;
 	}
 
-	protected function normalizeText(DOMText $text)
+	protected function normalizeText(DOMText $text): void
 	{
 		$text->nodeValue = $this->normalizeStyle($text->nodeValue);
 	}
