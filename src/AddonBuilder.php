@@ -15,6 +15,7 @@ use s9e\AddonBuilder\MediaSites\TemplateNormalizations\RemoveDefaultStyle;
 use s9e\AddonBuilder\MediaSites\TemplateNormalizations\RemoveLazyLoading;
 use s9e\AddonBuilder\MediaSites\TemplateNormalizations\SetGitHubIframeApiVersion;
 use s9e\AddonBuilder\MediaSites\TemplateNormalizations\SplitConditionalAttributes;
+use s9e\AddonBuilder\MediaSites\TemplateNormalizations\SwitchCSSWidth;
 use s9e\AddonBuilder\MediaSites\Transpilers\PHPSource;
 use s9e\AddonBuilder\MediaSites\Transpilers\XenForoTemplate;
 use s9e\RegexpBuilder\Builder as RegexpBuilder;
@@ -95,6 +96,7 @@ class AddonBuilder
 		$this->configurator->templateNormalizer->add(new RemoveLazyLoading);
 		$this->configurator->templateNormalizer->add(new SetGitHubIframeApiVersion);
 		$this->configurator->templateNormalizer->add(new SplitConditionalAttributes);
+		$this->configurator->templateNormalizer->add(new SwitchCSSWidth);
 
 		$this->storeVersion();
 		$this->normalizeSites();

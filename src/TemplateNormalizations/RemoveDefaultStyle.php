@@ -26,8 +26,8 @@ class RemoveDefaultStyle extends AbstractNormalization
 		],
 		'span' => [
 			'display'   => 'inline-block',
-			'max-width' => '640px',
-			'width'     => '100%'
+			'max-width' => '100%',
+			'width'     => '640px'
 		],
 		'span span' => [
 			'display'        => 'block',
