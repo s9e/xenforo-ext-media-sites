@@ -18,7 +18,7 @@
   </site>
   <site media_site_id="audiomack" site_title="Audiomack" site_url="https://www.audiomack.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*audiomack\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="audiomack" allowfullscreen="" scrolling="no" src="https://www.audiomack.com/embed/{{ $mode=='album' ? 'album' : 'song' }}/{{ $id ? $id : $artist . '/' . $title }}" style="height:{{ $mode=='album' ? '400' : '252' }}px;max-width:900px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="audiomack" allowfullscreen="" scrolling="no" style="" src="https://www.audiomack.com/embed/{{ $mode=='album' ? 'album' : 'song' }}/{{ $id ? $id : $artist . '/' . $title }}" style="height:{{ $mode=='album' ? '400' : '252' }}px;max-width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="bandcamp" site_title="Bandcamp" site_url="https://bandcamp.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*bandcamp\.com/.(?'id'))i]]></match_urls>
@@ -298,7 +298,7 @@
   </site>
   <site media_site_id="orfium" site_title="Orfium" site_url="https://www.orfium.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*orfium\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="orfium" allowfullscreen="" scrolling="no" src="https://www.orfium.com/embedded/{{ $album_id ? 'album/' . $album_id : ($playlist_id ? 'playlist/' . $playlist_id : ($set_id ? 'live-set/' . $set_id : 'track/' . $track_id)) }}" style="height:{{ $album_id ? '550' : '275' }}px;max-width:900px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="orfium" allowfullscreen="" scrolling="no" style="" src="https://www.orfium.com/embedded/{{ $album_id ? 'album/' . $album_id : ($playlist_id ? 'playlist/' . $playlist_id : ($set_id ? 'live-set/' . $set_id : 'track/' . $track_id)) }}" style="height:{{ $album_id ? '550' : '275' }}px;max-width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="pastebin" site_title="Pastebin" site_url="https://pastebin.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*pastebin\.com/.(?'id'))i]]></match_urls>
@@ -306,7 +306,7 @@
   </site>
   <site media_site_id="pinterest" site_title="Pinterest" site_url="https://www.pinterest.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*pinterest\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="pinterest" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/pinterest.min.html#{$id}" data-s9e-mediaembed-api="2" style="height:360px;max-width:{{ contains($id,'/') ? '730' : '345' }}px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="pinterest" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/pinterest.min.html#{$id}" data-s9e-mediaembed-api="2" style="" style="height:360px;max-width:{{ contains($id,'/') ? '730' : '345' }}px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="podbean" site_title="Podbean" site_url="https://www.podbean.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*podbean\.com/.(?'id'))i]]></match_urls>
@@ -338,7 +338,7 @@
   </site>
   <site media_site_id="soundcloud" site_title="SoundCloud" site_url="https://soundcloud.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*soundcloud\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url={{ $playlist_id ? 'https%3A//api.soundcloud.com/playlists/' . $playlist_id : ($track_id ? 'https%3A//api.soundcloud.com/tracks/' . $track_id . '&amp;secret_token=' . $secret_token : (!contains($id,'://') ? 'https%3A//soundcloud.com/' : '') . $id) }}" style="height:{{ ($playlist_id or contains($id,'/sets/')) ? '450' : '166' }}px;max-width:900px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" style="" src="https://w.soundcloud.com/player/?url={{ $playlist_id ? 'https%3A//api.soundcloud.com/playlists/' . $playlist_id : ($track_id ? 'https%3A//api.soundcloud.com/tracks/' . $track_id . '&amp;secret_token=' . $secret_token : (!contains($id,'://') ? 'https%3A//soundcloud.com/' : '') . $id) }}" style="height:{{ ($playlist_id or contains($id,'/sets/')) ? '450' : '166' }}px;max-width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="sporcle" site_title="Sporcle" site_url="https://www.sporcle.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*sporcle\.com/.(?'id'))i]]></match_urls>
