@@ -28,13 +28,9 @@ class SwitchCSSWidth extends AbstractNormalization
 	*/
 	protected function normalizeElement(DOMElement $element)
 	{
-		if ($element->tagName === 'xsl:attribute')
-		{
-			var_dump($element->ownerDocument->saveXML($element));
-			return;
-		}
-		$methodName = 'normalize' . ucfirst($element->tagName);
-		$this->$methodName($element);
+		$style = $element->getAttribute('style');
+		$style = $this->normalizeStyle($style);
+		$element->setAttribute('style', $style);
 	}
 
 	/**
@@ -50,20 +46,6 @@ class SwitchCSSWidth extends AbstractNormalization
 		{
 			parent::normalizeNode($node);
 		}
-	}
-
-	protected function normalizeIframe(DOMElement $iframe)
-	{
-		$style = $iframe->getAttribute('style');
-		$style = $this->normalizeStyle($style);
-		$iframe->setAttribute('style', $style);
-	}
-
-	protected function normalizeSpan(DOMElement $span)
-	{
-		$style = $span->getAttribute('style');
-		$style = $this->normalizeStyle($style);
-		$span->setAttribute('style', $style);
 	}
 
 	protected function normalizeStyle(string $style)
