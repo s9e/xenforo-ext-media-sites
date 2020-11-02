@@ -10,15 +10,15 @@
   </site>
   <site media_site_id="anchor" site_title="Anchor" site_url="https://anchor.fm/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*anchor\.fm/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="anchor" allowfullscreen="" scrolling="no" src="//anchor.fm/embed/episodes/x-{$id}" style="height:102px;max-width:700px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="anchor" allowfullscreen="" scrolling="no" src="//anchor.fm/embed/episodes/x-{$id}" style="height:102px;width:700px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="audioboom" site_title="Audioboom" site_url="https://audioboom.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*audioboo(?:\.f|m\.co)m/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="audioboom" allowfullscreen="" scrolling="no" src="//audioboom.com/posts/{$id}/embed/v3" style="height:150px;max-width:700px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="audioboom" allowfullscreen="" scrolling="no" src="//audioboom.com/posts/{$id}/embed/v3" style="height:150px;width:700px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="audiomack" site_title="Audiomack" site_url="https://www.audiomack.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*audiomack\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="audiomack" allowfullscreen="" scrolling="no" style="" src="https://www.audiomack.com/embed/{{ $mode=='album' ? 'album' : 'song' }}/{{ $id ? $id : $artist . '/' . $title }}" style="height:{{ $mode=='album' ? '400' : '252' }}px;max-width:900px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="audiomack" allowfullscreen="" scrolling="no" src="https://www.audiomack.com/embed/{{ $mode=='album' ? 'album' : 'song' }}/{{ $id ? $id : $artist . '/' . $title }}" style="height:{{ $mode=='album' ? '400' : '252' }}px;max-width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="bandcamp" site_title="Bandcamp" site_url="https://bandcamp.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*bandcamp\.com/.(?'id'))i]]></match_urls>
@@ -46,7 +46,7 @@
   </site>
   <site media_site_id="castos" site_title="Castos" site_url="https://castos.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*castos\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="castos" allowfullscreen="" scrolling="no" src="https://player.castos.com/player/{$id}" style="height:150px;max-width:900px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="castos" allowfullscreen="" scrolling="no" src="https://player.castos.com/player/{$id}" style="height:150px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="cbsnews" site_title="CBS News Video" site_url="https://www.cbsnews.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*cbsnews\.com/.(?'id'))i]]></match_urls>
@@ -54,7 +54,7 @@
   </site>
   <site media_site_id="clyp" site_title="Clyp" site_url="https://clyp.it/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*clyp\.it/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="clyp" allowfullscreen="" scrolling="no" src="https://clyp.it/{$id}/widget" style="height:265px;max-width:900px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="clyp" allowfullscreen="" scrolling="no" src="https://clyp.it/{$id}/widget" style="height:265px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="cnbc" site_title="CNBC" site_url="https://www.cnbc.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*cnbc\.com/.(?'id'))i]]></match_urls>
@@ -102,7 +102,7 @@
   </site>
   <site media_site_id="facebook" site_title="Facebook" site_url="https://www.facebook.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*facebook\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="facebook" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/facebook.min.html#{$type}{$id}" style="height:360px;max-width:640px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="facebook" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/facebook.min.html#{$type}{$id}" style="height:360px;width:640px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
   </site>
   <site media_site_id="flickr" site_title="Flickr" site_url="https://www.flickr.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*flic(?:\.kr|kr\.com)/.(?'id'))i]]></match_urls>
@@ -162,7 +162,7 @@
   </site>
   <site media_site_id="googleplus" site_title="Google+" site_url="https://plus.google.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*plus\.google\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="googleplus" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" style="height:240px;max-width:450px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/googleplus.min.html#{{ $oid ? $oid : '+' . $name }}/posts/{$pid}"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="googleplus" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" style="height:240px;width:450px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/googleplus.min.html#{{ $oid ? $oid : '+' . $name }}/posts/{$pid}"></iframe>]]></embed_html>
   </site>
   <site media_site_id="googlesheets" site_title="Google Sheets" site_url="https://www.google.com/sheets/about/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*docs\.google\.com/.(?'id'))i]]></match_urls>
@@ -194,11 +194,11 @@
   </site>
   <site media_site_id="instagram" site_title="Instagram" site_url="https://instagram.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*instagram\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="instagram" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/instagram.min.html#{$id}" style="background:url(https://www.instagram.com/static/images/ico/favicon.svg/fc72dd4bfde8.svg) no-repeat 50% 50% / 50%;height:540px;max-width:540px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="instagram" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/instagram.min.html#{$id}" style="background:url(https://www.instagram.com/static/images/ico/favicon.svg/fc72dd4bfde8.svg) no-repeat 50% 50% / 50%;height:540px;width:540px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
   </site>
   <site media_site_id="internetarchive" site_title="Internet Archive" site_url="https://archive.org/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*archive\.org/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<xf:if is="contains($id,'playlist=1')"><iframe data-s9e-mediaembed="internetarchive" allowfullscreen="" scrolling="no" src="https://archive.org/embed/{$id}&amp;list_height=150" style="height:170px;max-width:640px"></iframe><xf:else/><span data-s9e-mediaembed="internetarchive" style="width:{$width}px"><span style="{{ $width>0 ? 'padding-bottom:' . (100*$height/$width) . '%' : '' }}"><iframe allowfullscreen="" scrolling="no" src="https://archive.org/embed/{$id}"></iframe></span></span></xf:if>]]></embed_html>
+    <embed_html><![CDATA[<xf:if is="contains($id,'playlist=1')"><iframe data-s9e-mediaembed="internetarchive" allowfullscreen="" scrolling="no" src="https://archive.org/embed/{$id}&amp;list_height=150" style="height:170px;width:640px"></iframe><xf:else/><span data-s9e-mediaembed="internetarchive" style="width:{$width}px"><span style="{{ $width>0 ? 'padding-bottom:' . (100*$height/$width) . '%' : '' }}"><iframe allowfullscreen="" scrolling="no" src="https://archive.org/embed/{$id}"></iframe></span></span></xf:if>]]></embed_html>
   </site>
   <site media_site_id="izlesene" site_title="İzlesene" site_url="https://www.izlesene.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*izlesene\.com/.(?'id'))i]]></match_urls>
@@ -222,7 +222,7 @@
   </site>
   <site media_site_id="libsyn" site_title="Libsyn" site_url="https://www.libsyn.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*libsyn\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="libsyn" allowfullscreen="" scrolling="no" src="//html5-player.libsyn.com/embed/episode/id/{$id}/height/45/width/900/theme/standard/direction/no/autoplay/no/autonext/no/thumbnail/no/preload/no/no_addthis/no/" style="height:45px;max-width:900px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="libsyn" allowfullscreen="" scrolling="no" src="//html5-player.libsyn.com/embed/episode/id/{$id}/height/45/width/900/theme/standard/direction/no/autoplay/no/autonext/no/thumbnail/no/preload/no/no_addthis/no/" style="height:45px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="liveleak" site_title="Liveleak" site_url="https://www.liveleak.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*liveleak\.com/.(?'id'))i]]></match_urls>
@@ -238,11 +238,11 @@
   </site>
   <site media_site_id="medium" site_title="Medium" site_url="https://medium.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*medium\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="medium" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/medium.min.html#{$id}" style="height:316px;max-width:900px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="medium" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/medium.min.html#{$id}" style="height:316px;width:900px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
   </site>
   <site media_site_id="megaphone" site_title="Megaphone" site_url="https://megaphone.fm/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*megaphone\.(?:fm|link)/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="megaphone" allowfullscreen="" scrolling="no" src="https://player.megaphone.fm/{$id}" style="height:200px;max-width:900px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="megaphone" allowfullscreen="" scrolling="no" src="https://player.megaphone.fm/{$id}" style="height:200px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="metacafe" site_title="Metacafe" site_url="https://www.metacafe.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*metacafe\.com/.(?'id'))i]]></match_urls>
@@ -290,7 +290,7 @@
   </site>
   <site media_site_id="npr" site_title="NPR" site_url="https://www.npr.org/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*n(?:\.pr|pr\.org)/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="npr" allowfullscreen="" scrolling="no" src="//www.npr.org/player/embed/{$i}/{$m}" style="height:228px;max-width:800px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="npr" allowfullscreen="" scrolling="no" src="//www.npr.org/player/embed/{$i}/{$m}" style="height:228px;width:800px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="nytimes" site_title="The New York Times Video" site_url="https://www.nytimes.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*nytimes\.com/.(?'id'))i]]></match_urls>
@@ -298,7 +298,7 @@
   </site>
   <site media_site_id="orfium" site_title="Orfium" site_url="https://www.orfium.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*orfium\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="orfium" allowfullscreen="" scrolling="no" style="" src="https://www.orfium.com/embedded/{{ $album_id ? 'album/' . $album_id : ($playlist_id ? 'playlist/' . $playlist_id : ($set_id ? 'live-set/' . $set_id : 'track/' . $track_id)) }}" style="height:{{ $album_id ? '550' : '275' }}px;max-width:900px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="orfium" allowfullscreen="" scrolling="no" src="https://www.orfium.com/embedded/{{ $album_id ? 'album/' . $album_id : ($playlist_id ? 'playlist/' . $playlist_id : ($set_id ? 'live-set/' . $set_id : 'track/' . $track_id)) }}" style="height:{{ $album_id ? '550' : '275' }}px;max-width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="pastebin" site_title="Pastebin" site_url="https://pastebin.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*pastebin\.com/.(?'id'))i]]></match_urls>
@@ -306,11 +306,11 @@
   </site>
   <site media_site_id="pinterest" site_title="Pinterest" site_url="https://www.pinterest.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*pinterest\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="pinterest" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/pinterest.min.html#{$id}" data-s9e-mediaembed-api="2" style="" style="height:360px;max-width:{{ contains($id,'/') ? '730' : '345' }}px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="pinterest" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/pinterest.min.html#{$id}" data-s9e-mediaembed-api="2" style="height:360px;max-width:{{ contains($id,'/') ? '730' : '345' }}px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="podbean" site_title="Podbean" site_url="https://www.podbean.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*podbean\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="podbean" allowfullscreen="" scrolling="no" src="//www.podbean.com/media/player/{$id}" style="height:100px;max-width:900px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="podbean" allowfullscreen="" scrolling="no" src="//www.podbean.com/media/player/{$id}" style="height:100px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="prezi" site_title="Prezi" site_url="https://prezi.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*prezi\.com/.(?'id'))i]]></match_urls>
@@ -318,7 +318,7 @@
   </site>
   <site media_site_id="reddit" site_title="Reddit threads and comments" site_url="https://www.reddit.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*reddit\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="reddit" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/reddit.min.html#{$id}{$path}" style="height:165px;max-width:800px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="reddit" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/reddit.min.html#{$id}{$path}" style="height:165px;width:800px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
   </site>
   <site media_site_id="rutube" site_title="Rutube" site_url="https://rutube.ru/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*rutube\.ru/.(?'id'))i]]></match_urls>
@@ -338,11 +338,11 @@
   </site>
   <site media_site_id="soundcloud" site_title="SoundCloud" site_url="https://soundcloud.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*soundcloud\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" style="" src="https://w.soundcloud.com/player/?url={{ $playlist_id ? 'https%3A//api.soundcloud.com/playlists/' . $playlist_id : ($track_id ? 'https%3A//api.soundcloud.com/tracks/' . $track_id . '&amp;secret_token=' . $secret_token : (!contains($id,'://') ? 'https%3A//soundcloud.com/' : '') . $id) }}" style="height:{{ ($playlist_id or contains($id,'/sets/')) ? '450' : '166' }}px;max-width:900px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url={{ $playlist_id ? 'https%3A//api.soundcloud.com/playlists/' . $playlist_id : ($track_id ? 'https%3A//api.soundcloud.com/tracks/' . $track_id . '&amp;secret_token=' . $secret_token : (!contains($id,'://') ? 'https%3A//soundcloud.com/' : '') . $id) }}" style="height:{{ ($playlist_id or contains($id,'/sets/')) ? '450' : '166' }}px;max-width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="sporcle" site_title="Sporcle" site_url="https://www.sporcle.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*sporcle\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="sporcle" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/sporcle.min.html#{$id}" style="height:535px;max-width:820px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="sporcle" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/sporcle.min.html#{$id}" style="height:535px;width:820px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
   </site>
   <site media_site_id="sportsnet" site_title="Sportsnet" site_url="https://www.sportsnet.ca/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*sportsnet\.ca/.(?'id'))i]]></match_urls>
@@ -350,7 +350,7 @@
   </site>
   <site media_site_id="spotify" site_title="Spotify" site_url="https://www.spotify.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:open|play)\.spotify\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<xf:if is="(($id >= 'episode/' && $id < 'episode0') or ($id >= 'show/' && $id < 'show0'))"><iframe data-s9e-mediaembed="spotify" allow="encrypted-media" allowfullscreen="" scrolling="no" src="https://open.spotify.com/embed/{$id}" style="height:152px;max-width:900px"></iframe><xf:else/><span data-s9e-mediaembed="spotify" style="width:320px"><span style="padding-bottom:125%;padding-bottom:calc(100% + 80px)"><iframe allow="encrypted-media" allowfullscreen="" scrolling="no" src="https://open.spotify.com/embed/{$id|replace(':','/')}{$path}"></iframe></span></span></xf:if>]]></embed_html>
+    <embed_html><![CDATA[<xf:if is="(($id >= 'episode/' && $id < 'episode0') or ($id >= 'show/' && $id < 'show0'))"><iframe data-s9e-mediaembed="spotify" allow="encrypted-media" allowfullscreen="" scrolling="no" src="https://open.spotify.com/embed/{$id}" style="height:152px;width:900px"></iframe><xf:else/><span data-s9e-mediaembed="spotify" style="width:320px"><span style="padding-bottom:125%;padding-bottom:calc(100% + 80px)"><iframe allow="encrypted-media" allowfullscreen="" scrolling="no" src="https://open.spotify.com/embed/{$id|replace(':','/')}{$path}"></iframe></span></span></xf:if>]]></embed_html>
   </site>
   <site media_site_id="spreaker" site_title="Spreaker" site_url="https://www.spreaker.com" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*spreaker\.com/.(?'id'))i]]></match_urls>
@@ -358,11 +358,11 @@
   </site>
   <site media_site_id="steamstore" site_title="Steam store" site_url="https://store.steampowered.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*store\.steampowered\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="steamstore" allowfullscreen="" scrolling="no" src="//store.steampowered.com/widget/{$id}" style="height:190px;max-width:900px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="steamstore" allowfullscreen="" scrolling="no" src="//store.steampowered.com/widget/{$id}" style="height:190px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="stitcher" site_title="Stitcher" site_url="https://www.stitcher.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*stitcher\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="stitcher" allowfullscreen="" scrolling="no" src="//app.stitcher.com/splayer/f/{$fid}/{$eid}" style="height:150px;max-width:900px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="stitcher" allowfullscreen="" scrolling="no" src="//app.stitcher.com/splayer/f/{$fid}/{$eid}" style="height:150px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="strawpoll" site_title="Straw Poll" site_url="https://strawpoll.me/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*strawpoll\.me/.(?'id'))i]]></match_urls>
@@ -386,7 +386,7 @@
   </site>
   <site media_site_id="telegram" site_title="Telegram" site_url="https://telegram.org/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*t\.me/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="telegram" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/telegram.min.html#{$id}" style="height:96px;max-width:500px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="telegram" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/telegram.min.html#{$id}" style="height:96px;width:500px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
   </site>
   <site media_site_id="theatlantic" site_title="The Atlantic Video" site_url="https://www.theatlantic.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*theatlantic\.com/.(?'id'))i]]></match_urls>
@@ -422,11 +422,11 @@
   </site>
   <site media_site_id="tumblr" site_title="Tumblr" site_url="https://www.tumblr.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*tumblr\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="tumblr" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/tumblr.min.html#{$key}/{$id}" style="height:300px;max-width:520px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="tumblr" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/tumblr.min.html#{$key}/{$id}" style="height:300px;width:520px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
   </site>
   <site media_site_id="twentyfoursevensports" site_title="247Sports" site_url="https://247sports.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*247sports\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<xf:if is="$video_id"><span data-s9e-mediaembed="twentyfoursevensports"><span><iframe allowfullscreen="" scrolling="no" src="https://www.cbssports.com/video/player/embed?args=player_id%3D{$video_id}%26channel%3Dmobilevideo%26pcid%3D{$video_id}%26width%3D640%26height%3D360%26autoplay%3Dfalse%26comp_ads_enabled%3Dfalse%26uvpc%3Dhttp%3A%2F%2Fsports.cbsimg.net%2Fvideo%2Fuvp%2Fconfig%2Fv4%2Fuvp_247sports.xml%26uvpc_m%3Dhttp%3A%2F%2Fsports.cbsimg.net%2Fvideo%2Fuvp%2Fconfig%2Fv4%2Fuvp_247sports_m.xml%26partner%3D247%26partner_m%3D247_mobile%26utag%3D247sportssite%26resizable%3Dtrue"></iframe></span></span><xf:else/><iframe data-s9e-mediaembed="twentyfoursevensports" allowfullscreen="" onload="window.addEventListener('message',function(e){if(e.source===this.contentWindow&amp;&amp;e.data.height)this.style.height=e.data.height+'px'})" scrolling="no" src="https://247sports.com/PlayerSport/{$player_id}/Embed/" style="height:200px;max-width:600px"></iframe></xf:if>]]></embed_html>
+    <embed_html><![CDATA[<xf:if is="$video_id"><span data-s9e-mediaembed="twentyfoursevensports"><span><iframe allowfullscreen="" scrolling="no" src="https://www.cbssports.com/video/player/embed?args=player_id%3D{$video_id}%26channel%3Dmobilevideo%26pcid%3D{$video_id}%26width%3D640%26height%3D360%26autoplay%3Dfalse%26comp_ads_enabled%3Dfalse%26uvpc%3Dhttp%3A%2F%2Fsports.cbsimg.net%2Fvideo%2Fuvp%2Fconfig%2Fv4%2Fuvp_247sports.xml%26uvpc_m%3Dhttp%3A%2F%2Fsports.cbsimg.net%2Fvideo%2Fuvp%2Fconfig%2Fv4%2Fuvp_247sports_m.xml%26partner%3D247%26partner_m%3D247_mobile%26utag%3D247sportssite%26resizable%3Dtrue"></iframe></span></span><xf:else/><iframe data-s9e-mediaembed="twentyfoursevensports" allowfullscreen="" onload="window.addEventListener('message',function(e){if(e.source===this.contentWindow&amp;&amp;e.data.height)this.style.height=e.data.height+'px'})" scrolling="no" src="https://247sports.com/PlayerSport/{$player_id}/Embed/" style="height:200px;width:600px"></iframe></xf:if>]]></embed_html>
   </site>
   <site media_site_id="twitch" site_title="Twitch" site_url="https://www.twitch.tv/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*twitch\.tv/.(?'id'))i]]></match_urls>
@@ -434,7 +434,7 @@
   </site>
   <site media_site_id="twitter" site_title="Twitter" site_url="https://twitter.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*twitter\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="twitter" allow="autoplay *" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/twitter.min.html#{$id}" style="background:url(https://abs.twimg.com/favicons/favicon.ico) no-repeat 50% 50%;height:250px;max-width:500px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="twitter" allow="autoplay *" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/twitter.min.html#{$id}" style="background:url(https://abs.twimg.com/favicons/favicon.ico) no-repeat 50% 50%;height:250px;width:500px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
   </site>
   <site media_site_id="ustream" site_title="Ustream" site_url="https://www.ustream.tv/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*ustream\.tv/.(?'id'))i]]></match_urls>

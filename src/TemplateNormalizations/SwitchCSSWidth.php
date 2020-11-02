@@ -8,6 +8,8 @@
 namespace s9e\AddonBuilder\MediaSites\TemplateNormalizations;
 
 use DOMElement;
+use DOMNode;
+use DOMText;
 use s9e\TextFormatter\Configurator\TemplateNormalizations\AbstractNormalization;
 
 class SwitchCSSWidth extends AbstractNormalization
@@ -16,8 +18,9 @@ class SwitchCSSWidth extends AbstractNormalization
 	* {@inheritdoc}
 	*/
 	protected $queries = [
-		'//iframe[@data-s9e-mediaembed]',
-		'//span[@data-s9e-mediaembed][starts-with(@style, "width:100%")]'
+		'//iframe[@data-s9e-mediaembed][contains(@style, "width:100%")]',
+		'//span[@data-s9e-mediaembed][contains(@style, "width:100%")]',
+		'//xsl:attribute[@name = "style"][xsl:if or xsl:choose]//text()[contains(., "width")]'
 	];
 
 	/**
@@ -25,12 +28,53 @@ class SwitchCSSWidth extends AbstractNormalization
 	*/
 	protected function normalizeElement(DOMElement $element)
 	{
-		$style = $element->getAttribute('style');
-		$style = preg_replace(
-			'(width:100%;max-width:([^;]++))',
-			'width:$1;max-width:100%',
-			$style
-		);
-		$element->setAttribute('style', $style);
+		if ($element->tagName === 'xsl:attribute')
+		{
+			var_dump($element->ownerDocument->saveXML($element));
+			return;
+		}
+		$methodName = 'normalize' . ucfirst($element->tagName);
+		$this->$methodName($element);
+	}
+
+	/**
+	* {@inheritdoc}
+	*/
+	protected function normalizeNode(DOMNode $node)
+	{
+		if ($node instanceof DOMText)
+		{
+			$this->normalizeText($node);
+		}
+		else
+		{
+			parent::normalizeNode($node);
+		}
+	}
+
+	protected function normalizeIframe(DOMElement $iframe)
+	{
+		$style = $iframe->getAttribute('style');
+		$style = $this->normalizeStyle($style);
+		$iframe->setAttribute('style', $style);
+	}
+
+	protected function normalizeSpan(DOMElement $span)
+	{
+		$style = $span->getAttribute('style');
+		$style = $this->normalizeStyle($style);
+		$span->setAttribute('style', $style);
+	}
+
+	protected function normalizeStyle(string $style)
+	{
+		$style = str_replace(';width:100%', '', $style);
+		$style = str_replace('max-width:', 'width:', $style);
+
+		return $style;
+	}
+
+	protected function normalizeText(DOMText $text)
+	{
 	}
 }

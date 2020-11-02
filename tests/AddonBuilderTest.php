@@ -92,6 +92,6 @@ class AddonBuilderTest extends TestCase
 		$filepath = realpath(__DIR__ . '/../addon/_data/bb_code_media_sites.xml');
 		$file     = file_get_contents($filepath);
 
-		$this->assertStringNotContainsString('max-width:100%', $file);
+		$this->assertStringNotContainsString('max-width', $file);
 	}
 }
