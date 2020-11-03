@@ -50,8 +50,9 @@ class SwitchCSSWidth extends AbstractNormalization
 
 	protected function normalizeStyle(string $style): string
 	{
-		$style = preg_replace('((^|;)width:100%(;)?)', '$1', $style);
+		$style = preg_replace('((^|;)width:100%)', '$1', $style);
 		$style = str_replace('max-width:', 'width:', $style);
+		$style = rtrim($style, ';');
 
 		return $style;
 	}
