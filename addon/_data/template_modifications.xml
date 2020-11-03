@@ -133,9 +133,9 @@ span[data-s9e-mediaembed]
 }
 span[data-s9e-mediaembed] > span
 {
-	display: block;
+	display:        block;
 	padding-bottom: 56.25%;
-	position: relative;
+	position:       relative;
 }
 span[data-s9e-mediaembed] > span > iframe,
 span[data-s9e-mediaembed] > span > [data-s9e-mediaembed-iframe]
