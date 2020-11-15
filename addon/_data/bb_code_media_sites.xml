@@ -90,7 +90,7 @@
   </site>
   <site media_site_id="dumpert" site_title="dumpert" site_url="https://www.dumpert.nl/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*dumpert\.nl/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="dumpert"><span><iframe allowfullscreen="" scrolling="no" src="//www.dumpert.nl/embed/{$id|replace('_','/')}/"></iframe></span></span>]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="dumpert"><span><iframe allowfullscreen="" scrolling="no" src="//www.dumpert.nl/embed/{$id|replace('/','_')}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="eighttracks" site_title="8tracks" site_url="https://8tracks.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*8tracks\.com/.(?'id'))i]]></match_urls>
@@ -349,7 +349,7 @@
     <embed_html><![CDATA[<span data-s9e-mediaembed="sportsnet"><span><iframe allowfullscreen="" scrolling="no" src="https://images.rogersdigitalmedia.com/video_service.php?videoId={$id}&amp;playerKey=AQ~~,AAAAAGWRwLc~,cRCmKE8Utf7OFWP38XQcokFZ80fR-u_y&amp;autoStart=false&amp;width=100%25&amp;height=100%25"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="spotify" site_title="Spotify" site_url="https://www.spotify.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:open|play)\.spotify\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:link\.to|open\.|play\.)spotify\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<xf:if is="(($id >= 'episode/' && $id < 'episode0') or ($id >= 'show/' && $id < 'show0'))"><iframe data-s9e-mediaembed="spotify" allow="encrypted-media" allowfullscreen="" scrolling="no" src="https://open.spotify.com/embed/{$id}" style="height:152px;width:900px"></iframe><xf:else/><span data-s9e-mediaembed="spotify" style="width:320px"><span style="padding-bottom:125%;padding-bottom:calc(100% + 80px)"><iframe allow="encrypted-media" allowfullscreen="" scrolling="no" src="https://open.spotify.com/embed/{$id|replace(':','/')}{$path}"></iframe></span></span></xf:if>]]></embed_html>
   </site>
   <site media_site_id="spreaker" site_title="Spreaker" site_url="https://www.spreaker.com" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
@@ -362,7 +362,7 @@
   </site>
   <site media_site_id="stitcher" site_title="Stitcher" site_url="https://www.stitcher.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*stitcher\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="stitcher" allowfullscreen="" scrolling="no" src="//app.stitcher.com/splayer/f/{$fid}/{$eid}" style="height:150px;width:900px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="stitcher" allowfullscreen="" scrolling="no" src="https://www.stitcher.com/embed/{$fid}/{$eid}" style="height:150px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="strawpoll" site_title="Straw Poll" site_url="https://strawpoll.me/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*strawpoll\.me/.(?'id'))i]]></match_urls>
