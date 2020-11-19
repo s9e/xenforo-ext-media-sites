@@ -99,17 +99,7 @@
 
 		if (iframe.getAttribute(dataPrefix + '-api') == 2)
 		{
-			iframe.onload = function ()
-			{
-				let channel = new MessageChannel,
-					origin  = this.src.substr(0, this.src.indexOf('/', 8));
-				iframe.contentWindow.postMessage('s9e:init', origin, [channel.port2]);
-				channel.port1.onmessage = function (e)
-				{
-					let dimensions = ("" + e.data).split(' ');
-					resizeIframe(iframe, dimensions[0], dimensions[1] || 0);
-				};
-			};
+			iframe.onload = onResizableIframeLoad;
 		}
 /*
 		if (iframe.onload)
@@ -122,6 +112,19 @@
 		let parentNode = dummy.parentNode;
 		prepareMiniplayer(iframe, parentNode);
 		parentNode.replaceChild(iframe, dummy);
+	}
+
+	function onResizableIframeLoad(e)
+	{
+		let iframe  = e.target,
+			channel = new MessageChannel,
+			origin  = iframe.src.substr(0, iframe.src.indexOf('/', 8));
+		iframe.contentWindow.postMessage('s9e:init', origin, [channel.port2]);
+		channel.port1.onmessage = function (e)
+		{
+			let dimensions = ("" + e.data).split(' ');
+			resizeIframe(iframe, dimensions[0], dimensions[1] || 0);
+		};
 	}
 
 	function getIframePosition(iframe)
