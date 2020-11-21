@@ -113,6 +113,7 @@ class Parser
 		'podbean'=>[['!podbean\\.com/media/(?:player/|share/pb-)(?<id>[-\\w]+)!'],[],[['extract'=>['!podbean\\.com/media/player/(?<id>[-\\w]+)!'],'match'=>['@podbean\\.com/(?:media/shar)?e/(?!pb-)@']]]],
 		'prezi'=>[['#//prezi\\.com/(?!(?:a(?:bout|mbassadors)|c(?:o(?:llaborate|mmunity|ntact)|reate)|exp(?:erts|lore)|ip(?:ad|hone)|jobs|l(?:ear|ogi)n|m(?:ac|obility)|pr(?:es(?:s|ent)|icing)|recommend|support|user|windows|your)/)(?<id>\\w+)/#']],
 		'reddit'=>[['!(?<id>\\w+/comments/\\w+(?:/\\w+/\\w+)?)!']],
+		'rumble'=>[['!rumble\\.com/embed/(?<id>\\w+)!'],[],[['extract'=>['!video"?:"(?<id>\\w+)!'],'match'=>['#rumble\\.com/(?!embed/).#']]]],
 		'rutube'=>[['!rutube\\.ru/tracks/(?<id>\\d+)!'],[],[['extract'=>['!rutube\\.ru/play/embed/(?<id>\\d+)!'],'header'=>'User-agent: Mozilla/5.0 (X11; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0','match'=>["!rutube\\.ru/video/(?'vid'[0-9a-f]{32})!"],'url'=>'http://rutube.ru/api/oembed/?url=https://rutube.ru/video/{@vid}/']]],
 		'scribd'=>[['!scribd\\.com/(?:mobile/)?(?:doc(?:ument)?|presentation)/(?<id>\\d+)!']],
 		'sendvid'=>[['!sendvid\\.com/(?<id>\\w+)!']],
