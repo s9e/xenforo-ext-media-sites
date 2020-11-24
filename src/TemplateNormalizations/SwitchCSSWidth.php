@@ -18,8 +18,7 @@ class SwitchCSSWidth extends AbstractNormalization
 	* {@inheritdoc}
 	*/
 	protected $queries = [
-		'//iframe[@data-s9e-mediaembed][contains(@style, "max-width")]',
-		'//span[@data-s9e-mediaembed][contains(@style, "max-width")]',
+		'//*[@data-s9e-mediaembed][contains(@style, "max-width")]',
 		'//xsl:attribute[@name = "style"][xsl:if or xsl:choose][contains(., "max-width")]//text()'
 	];
 
@@ -40,7 +39,7 @@ class SwitchCSSWidth extends AbstractNormalization
 	{
 		if ($node instanceof DOMText)
 		{
-			$this->normalizeText($node);
+			$this->normalizeTextNode($node);
 		}
 		else
 		{
@@ -57,7 +56,7 @@ class SwitchCSSWidth extends AbstractNormalization
 		return $style;
 	}
 
-	protected function normalizeText(DOMText $text): void
+	protected function normalizeTextNode(DOMText $text): void
 	{
 		$text->nodeValue = $this->normalizeStyle($text->nodeValue);
 	}
