@@ -59,6 +59,7 @@ class Parser
 		'eighttracks'=>[['!8tracks\\.com/[-\\w]+/(?<id>\\d+)(?=#|$)!'],[],[['extract'=>['!eighttracks://mix/(?<id>\\d+)!'],'match'=>['!8tracks\\.com/[-\\w]+/\\D!']]]],
 		'espn'=>[['#video/(?:clip(?:\\?id=|/_/id/))?(?<id>\\d+)#']],
 		'facebook'=>[['@/(?!(?:apps|developers|graph)\\.)[-\\w.]*facebook\\.com/(?:[/\\w]+/permalink|(?!marketplace/|pages/|groups/).*?)(?:/|fbid=|\\?v=)(?<id>\\d+)(?=$|[/?&#])@','@facebook\\.com/(?<user>[.\\w]+)/(?=(?:post|video)s?/)(?<type>[pv])@','@facebook\\.com/video/(?=post|video)(?<type>[pv])@','@facebook\\.com/watch/\\?(?<type>[pv])=@']],
+		'falstad'=>[['!falstad\\.com/circuit/circuitjs\\.html\\?c(?:ct=(?<cct>[^&]+)|tz=(?<ctz>[-+=\\w]+))!']],
 		'flickr'=>[['@flickr\\.com/photos/[^/]+/(?<id>\\d+)@','@flic\\.kr/(?!p/)[^/]+/(?<id>\\d+)@'],[],[['extract'=>['@flickr\\.com/photos/[^/]+/(?<id>\\d+)@'],'match'=>["@flic\\.kr/p/(?'short'\\w+)@"],'url'=>'https://www.flickr.com/photo.gne?rb=1&short={@short}']]],
 		'foxnews'=>[['!video\\.foxnews\\.com/v/(?<id>\\d+)!']],
 		'foxsports'=>[[],[],[['extract'=>['@BKQ29B/(?<id>\\w+)@'],'match'=>['@/video/\\d@']]]],

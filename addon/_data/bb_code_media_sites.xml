@@ -104,6 +104,10 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*facebook\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="facebook" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){style.height=e.data+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/facebook.min.html#{$type}{$id}" style="height:360px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
   </site>
+  <site media_site_id="falstad" site_title="Falstad Circuit Simulator" site_url="https://www.falstad.com/circuit/circuitjs.html" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*falstad\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="falstad" allowfullscreen="" scrolling="no" style="height:500px;max-height:90vh;width:100%" src="https://www.falstad.com/circuit/circuitjs.html?running=false&amp;c{{ $cct ? 'ct=' . $cct : 'tz=' . $ctz }}"></iframe>]]></embed_html>
+  </site>
   <site media_site_id="flickr" site_title="Flickr" site_url="https://www.flickr.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*flic(?:\.kr|kr\.com)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="flickr" style="width:500px"><span style="padding-bottom:100%"><iframe allowfullscreen="" scrolling="no" src="https://www.flickr.com/photos/_/{$id}/player/"></iframe></span></span>]]></embed_html>
