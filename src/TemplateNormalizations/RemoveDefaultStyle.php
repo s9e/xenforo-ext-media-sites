@@ -22,12 +22,12 @@ class RemoveDefaultStyle extends AbstractNormalization
 		'iframe' => [
 			'border'    => '0',
 			'max-width' => '100%',
-			'width'     => '100%'
+			'width'     => '640px'
 		],
 		'span' => [
 			'display'   => 'inline-block',
-			'max-width' => '640px',
-			'width'     => '100%'
+			'max-width' => '100%',
+			'width'     => '640px'
 		],
 		'span span' => [
 			'display'        => 'block',
