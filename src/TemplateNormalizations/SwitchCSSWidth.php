@@ -18,9 +18,9 @@ class SwitchCSSWidth extends AbstractNormalization
 	* {@inheritdoc}
 	*/
 	protected $queries = [
-		'//iframe[@data-s9e-mediaembed][contains(@style, "width")]',
-		'//span[@data-s9e-mediaembed][contains(@style, "width")]',
-		'//xsl:attribute[@name = "style"][xsl:if or xsl:choose]//text()[contains(., "width")]'
+		'//iframe[@data-s9e-mediaembed][contains(@style, "max-width")]',
+		'//span[@data-s9e-mediaembed][contains(@style, "max-width")]',
+		'//xsl:attribute[@name = "style"][xsl:if or xsl:choose][contains(., "max-width")]//text()'
 	];
 
 	/**
