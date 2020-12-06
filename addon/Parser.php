@@ -62,7 +62,6 @@ class Parser
 		'falstad'=>[['!falstad\\.com/circuit/circuitjs\\.html\\?c(?:ct=(?<cct>[^&]+)|tz=(?<ctz>[-+=\\w]+))!']],
 		'flickr'=>[['@flickr\\.com/photos/[^/]+/(?<id>\\d+)@','@flic\\.kr/(?!p/)[^/]+/(?<id>\\d+)@'],[],[['extract'=>['@flickr\\.com/photos/[^/]+/(?<id>\\d+)@'],'match'=>["@flic\\.kr/p/(?'short'\\w+)@"],'url'=>'https://www.flickr.com/photo.gne?rb=1&short={@short}']]],
 		'foxnews'=>[['!video\\.foxnews\\.com/v/(?<id>\\d+)!']],
-		'foxsports'=>[[],[],[['extract'=>['@BKQ29B/(?<id>\\w+)@'],'match'=>['@/video/\\d@']]]],
 		'funnyordie'=>[['!funnyordie\\.com/videos/(?<id>[0-9a-f]+)!']],
 		'gamespot'=>[['!gamespot\\.com.*?/(?:events|videos)/.*?-(?<id>\\d+)/(?:[#?].*)?$!']],
 		'gametrailers'=>[[],[],[['extract'=>['!embed/(?<id>\\d+)!'],'match'=>['!gametrailers\\.com/(?:full-episode|review|video)s/!']]]],
