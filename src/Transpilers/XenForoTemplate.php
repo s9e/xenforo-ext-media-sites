@@ -25,6 +25,7 @@ class XenForoTemplate implements TranspilerInterface
 		$replacements = [
 			'(\\{\\{)'                               => '&#123;',
 			'(\\}\\})'                               => '&#125;',
+			'(\\{\\$([A-Z]\\w+)\\})'                 => '{{$xf.options.s9e_MediaSites_$1}}',
 			'(\\{@(\\w+)\\})'                        => '{$$1}',
 			'(<xsl:value-of select="@(\\w+)"/>)'     => '{$$1}',
 			'(<xsl:value-of select="\\$(\\w+)"/>)'   => '{{$xf.options.s9e_MediaSites_$1}}',
@@ -87,6 +88,9 @@ class XenForoTemplate implements TranspilerInterface
 
 		// Unescape braces
 		$template = strtr($template, ['&#123;' => '{', '&#125;' => '}']);
+
+		// Replace the $MEDIAEMBED_THEME parameter with the XenForo style property
+		$template = str_replace('$xf.options.s9e_MediaSites_MEDIAEMBED_THEME', "property('styleType')", $template);
 
 		return $template;
 	}

@@ -60,7 +60,14 @@ class PHPSource extends PHP implements TranspilerInterface
 			$php
 		);
 
-		if (preg_match('((?<!\\$options)->[^;]*)', $php, $m))
+		// Make $MEDIAEMBED_THEME a special case
+		$php = str_replace(
+			'$options->s9e_MediaSites_MEDIAEMBED_THEME',
+			"XF::app()->templater()->getStyle()->getProperty('styleType')",
+			$php
+		);
+
+		if (preg_match('((?<!\\$options|XF::app\\(\\)|templater\\(\\)|getStyle\\(\\))->[^;]*)', $php, $m))
 		{
 			throw new RuntimeException('Cannot convert ' . $m[0]);
 		}

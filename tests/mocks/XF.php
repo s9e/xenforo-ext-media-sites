@@ -4,6 +4,7 @@ class XF
 {
 	public static $options;
 	public static $config = [];
+	public static $styleProperties = [];
 	protected static $templates = [];
 	protected function __construct()
 	{
@@ -33,6 +34,14 @@ class XF
 	public static function config($key)
 	{
 		return self::$config[$key] ?? null;
+	}
+	public function getProperty($name)
+	{
+		return self::$styleProperties[$name] ?? '';
+	}
+	public function getStyle()
+	{
+		return $this;
 	}
 	public static function options()
 	{

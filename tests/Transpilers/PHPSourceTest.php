@@ -44,6 +44,14 @@ class PHPSourceTest extends AbstractTranspilerTest
 				'<iframe data-s9e-mediaembed="audioboom" allowfullscreen="" scrolling="no" src="//audioboom.com/posts/{@id}/embed/v3" style="border:0;height:150px;max-width:700px;width:100%"/>',
 				'$vars+=[\'id\'=>null];$html=\'<iframe data-s9e-mediaembed="audioboom" allowfullscreen="" scrolling="no" src="//audioboom.com/posts/\'.htmlspecialchars($vars[\'id\'],2).\'/embed/v3" style="border:0;height:150px;max-width:700px;width:100%"></iframe>\';'
 			],
+			[
+				'<hr data-x="{$MEDIAEMBED_THEME}"/>',
+				"\$html='<hr data-x=\"'.htmlspecialchars(XF::app()->templater()->getStyle()->getProperty('styleType'),2).'\">';"
+			],
+			[
+				'<xsl:if test="$MEDIAEMBED_THEME=\'dark\'">.</xsl:if>',
+				"\$html='';if(XF::app()->templater()->getStyle()->getProperty('styleType')==='dark'){\$html.='.';}"
+			],
 		];
 	}
 }

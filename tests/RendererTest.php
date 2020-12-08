@@ -22,9 +22,10 @@ class RendererTest extends TestCase
 	/**
 	* @dataProvider getRenderTests
 	*/
-	public function testRender($siteId, $mediaKey, $expected, $options = [])
+	public function testRender($siteId, $mediaKey, $expected, $options = [], $styleProperties = [])
 	{
-		XF::$options = (object) $options;
+		XF::$options         = (object) $options;
+		XF::$styleProperties = $styleProperties;
 		$this->assertEquals($expected, Renderer::render($mediaKey, [], $siteId));
 	}
 
@@ -166,12 +167,19 @@ class RendererTest extends TestCase
 			[
 				'spreaker',
 				'episode_id=20872603',
-				'<iframe data-s9e-mediaembed="spreaker" allowfullscreen="" scrolling="no" src="https://widget.spreaker.com/player?episode_id=20872603&amp;show_id=" style="height:200px;width:900px"></iframe>'
+				'<iframe data-s9e-mediaembed="spreaker" allowfullscreen="" scrolling="no" src="https://widget.spreaker.com/player?episode_id=20872603&amp;show_id=&amp;theme=" style="height:200px;width:900px"></iframe>'
 			],
 			[
 				'spreaker',
 				'show_id=3478708',
-				'<iframe data-s9e-mediaembed="spreaker" allowfullscreen="" scrolling="no" src="https://widget.spreaker.com/player?episode_id=&amp;show_id=3478708" style="height:400px;width:900px"></iframe>'
+				'<iframe data-s9e-mediaembed="spreaker" allowfullscreen="" scrolling="no" src="https://widget.spreaker.com/player?episode_id=&amp;show_id=3478708&amp;theme=" style="height:400px;width:900px"></iframe>'
+			],
+			[
+				'spreaker',
+				'episode_id=20872603',
+				'<iframe data-s9e-mediaembed="spreaker" allowfullscreen="" scrolling="no" src="https://widget.spreaker.com/player?episode_id=20872603&amp;show_id=&amp;theme=dark" style="height:200px;width:900px"></iframe>',
+				[],
+				['styleType' => 'dark']
 			],
 			[
 				'tumblr',

@@ -160,6 +160,14 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 				'<xsl:if test="starts-with(@foo,\'abc\')orstarts-with(@bar,\'xy\')">x</xsl:if>',
 				'<xf:if is="(($foo >= \'abc\' && $foo < \'abd\') or ($bar >= \'xy\' && $bar < \'xz\'))">x</xf:if>'
 			],
+			[
+				'<hr data-x="{$MEDIAEMBED_THEME}"/>',
+				'<hr data-x="{{property(\'styleType\')}}"/>',
+			],
+			[
+				'<xsl:if test="$MEDIAEMBED_THEME=\'dark\'">.</xsl:if>',
+				"<xf:if is=\"property('styleType')=='dark'\">.</xf:if>"
+			],
 		];
 	}
 }
