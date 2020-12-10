@@ -50,16 +50,16 @@
         },
         {
             "name": "s9e/sweetdom",
-            "version": "1.0.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/SweetDOM.git",
-                "reference": "f3a58c723fbe04d92ebcef5c8c7913bb364f58cd"
+                "reference": "5fc62bc1f4756650924e5cd1b429afcf34542722"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/SweetDOM/zipball/f3a58c723fbe04d92ebcef5c8c7913bb364f58cd",
-                "reference": "f3a58c723fbe04d92ebcef5c8c7913bb364f58cd",
+                "url": "https://api.github.com/repos/s9e/SweetDOM/zipball/5fc62bc1f4756650924e5cd1b429afcf34542722",
+                "reference": "5fc62bc1f4756650924e5cd1b429afcf34542722",
                 "shasum": ""
             },
             "require": {
@@ -88,9 +88,9 @@
             ],
             "support": {
                 "issues": "https://github.com/s9e/SweetDOM/issues",
-                "source": "https://github.com/s9e/SweetDOM/tree/1.0.1"
+                "source": "https://github.com/s9e/SweetDOM/tree/2.0.0"
             },
-            "time": "2020-05-25T15:01:02+00:00"
+            "time": "2020-12-08T16:34:58+00:00"
         },
         {
             "name": "s9e/text-formatter",
@@ -98,12 +98,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "74c9a2116d0d01fb52dcb80d83589fa73714de2e"
+                "reference": "0edf2e91b2ebeb8017a5804bcb2c26664cd2cb31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/74c9a2116d0d01fb52dcb80d83589fa73714de2e",
-                "reference": "74c9a2116d0d01fb52dcb80d83589fa73714de2e",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/0edf2e91b2ebeb8017a5804bcb2c26664cd2cb31",
+                "reference": "0edf2e91b2ebeb8017a5804bcb2c26664cd2cb31",
                 "shasum": ""
             },
             "require": {
@@ -112,7 +112,7 @@
                 "lib-pcre": ">=8.13",
                 "php": ">=7.1",
                 "s9e/regexp-builder": "^1.4",
-                "s9e/sweetdom": "^1.0"
+                "s9e/sweetdom": "^2.0"
             },
             "require-dev": {
                 "code-lts/doctum": "*",
@@ -165,7 +165,7 @@
                 "issues": "https://github.com/s9e/TextFormatter/issues",
                 "source": "https://github.com/s9e/TextFormatter/tree/master"
             },
-            "time": "2020-12-08T00:53:03+00:00"
+            "time": "2020-12-08T23:12:51+00:00"
         }
     ],
     "packages-dev": [

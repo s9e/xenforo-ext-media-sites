@@ -84,7 +84,7 @@ class Parser
 		'instagram'=>[['!instagram\\.com/(?:p|tv)/(?<id>[-\\w]+)!']],
 		'internetarchive'=>[[],[],[['extract'=>['!meta property="twitter:player" content="https://archive.org/embed/(?<id>[^/"]+)!','!meta property="og:video:width" content="(?<width>\\d+)!','!meta property="og:video:height" content="(?<height>\\d+)!'],'match'=>['!archive\\.org/(?:details|embed)/!']]],['height'=>['s9e\\MediaSites\\Helper::filterUint'],'id'=>['htmlspecialchars_decode'],'width'=>['s9e\\MediaSites\\Helper::filterUint']]],
 		'izlesene'=>[['!izlesene\\.com/video/[-\\w]+/(?<id>\\d+)!']],
-		'jsfiddle'=>[['!jsfiddle.net/(?<id>\\w+)(?:/(?<revision>\\d+))?!']],
+		'jsfiddle'=>[['@jsfiddle.net/(?:(?<user>\\w+)/)?(?!\\d+\\b|embedded\\b|show\\b)(?<id>\\w+)\\b(?:/(?<revision>\\d+)\\b)?@']],
 		'jwplatform'=>[['!jwplatform\\.com/\\w+/(?<id>[-\\w]+)!']],
 		'kaltura'=>[['@/p(?:artner_id)?/(?<partner_id>\\d+)/@','@/sp/(?<sp>\\d+)/@','@/uiconf_id/(?<uiconf_id>\\d+)/@','@\\bentry_id[=/](?<entry_id>\\w+)@'],['entry_id','partner_id','uiconf_id'],[['extract'=>['@kaltura\\.com/+p/(?<partner_id>\\d+)/sp/(?<sp>\\d+)/\\w*/uiconf_id/(?<uiconf_id>\\d+)/.*?\\bentry_id=(?<entry_id>\\w+)@'],'match'=>['@kaltura\\.com/(?:media/t|tiny)/.@']]]],
 		'khl'=>[[],[],[['extract'=>['!/feed/start/(?<id>[/\\w]+)!'],'match'=>['!video\\.khl\\.ru/(?:event|quote)s/\\d!']]]],
