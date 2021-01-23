@@ -184,7 +184,7 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*imdb\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="imdb"><span><iframe allowfullscreen="" scrolling="no" src="//www.imdb.com/video/imdb/vi{$id}/imdb/embed?autoplay=false&amp;width=640"></iframe></span></span>]]></embed_html>
   </site>
-  <site media_site_id="imgur" site_title="Imgur" site_url="https://imgur.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+  <site media_site_id="imgur" site_title="Imgur" site_url="https://imgur.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://api.imgur.com/oembed.json" oembed_url_scheme="https://imgur.com/{$id}" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*imgur\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="imgur" allowfullscreen="" onload="var c=new MessageChannel;c.port1.onmessage=function(e){var d=e.data.split(' ');style.height=d[0]+'px';style.width=d[1]+'px'};contentWindow.postMessage('s9e:init','https://s9e.github.io',[c.port2])" scrolling="no" style="height:400px;width:542px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/imgur.min.html#{{ $type=='album' ? 'a/' : '' }}{$id}"></iframe>]]></embed_html>
   </site>
@@ -490,7 +490,7 @@
   </site>
   <site media_site_id="wistia" site_title="Wistia" site_url="https://wistia.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*wistia\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="wistia"><span><iframe allowfullscreen="" scrolling="no" src="https://fast.wistia.net/embed/iframe/{$id}"></iframe></span></span>]]></embed_html>
+    <embed_html><![CDATA[<xf:if is="$type=='audio'"><iframe data-s9e-mediaembed="wistia" allowfullscreen="" scrolling="no" src="https://fast.wistia.net/embed/iframe/{$id}" style="height:218px;width:900px"></iframe><xf:else/><span data-s9e-mediaembed="wistia"><span><iframe allowfullscreen="" scrolling="no" src="https://fast.wistia.net/embed/iframe/{$id}"></iframe></span></span></xf:if>]]></embed_html>
   </site>
   <site media_site_id="wshh" site_title="WorldStarHipHop" site_url="https://www.worldstarhiphop.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*worldstarhiphop\.com/.(?'id'))i]]></match_urls>
