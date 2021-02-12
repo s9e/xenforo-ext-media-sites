@@ -35,7 +35,7 @@ class Parser
 	protected static $sites = [
 		'abcnews'=>[['!abcnews\\.go\\.com/(?:video/embed\\?id=|[^/]+/video/[^/]+-)(?<id>\\d+)!']],
 		'amazon'=>[['#/(?:dp|gp/product)/(?<id>[A-Z0-9]+)#','#amazon\\.(?:co\\.)?(?<tld>ca|de|es|fr|in|it|jp|uk)#'],['id']],
-		'anchor'=>[['@anchor.fm/[-\\w]+/episodes/(?:[-\\w]+-)(?<id>\\w+)(?![-\\w])@']],
+		'anchor'=>[['@anchor.fm/(?:[-\\w]+/)*?episodes/(?:[-\\w]+-)(?<id>\\w+)(?![-\\w])@']],
 		'audioboom'=>[['!audioboo(?:\\.f|m\\.co)m/(?:boo|post)s/(?<id>\\d+)!']],
 		'audiomack'=>[['!audiomack\\.com/(?<mode>album|song)/(?<artist>[-\\w]+)/(?<title>[-\\w]+)!','!audiomack\\.com/(?<artist>[-\\w]+)/(?<mode>album|song)/(?<title>[-\\w]+)!']],
 		'bandcamp'=>[[],[],[['extract'=>['!/album=(?<album_id>\\d+)!'],'match'=>['!bandcamp\\.com/album/.!']],['extract'=>['!"album_id":(?<album_id>\\d+)!','!"track_num":(?<track_num>\\d+)!','!/track=(?<track_id>\\d+)!'],'match'=>['!bandcamp\\.com/track/.!']]]],
@@ -58,7 +58,7 @@ class Parser
 		'dumpert'=>[['!dumpert\\.nl/(?:item|mediabase)/(?<id>\\d+[/_]\\w+)!']],
 		'eighttracks'=>[['!8tracks\\.com/[-\\w]+/(?<id>\\d+)(?=#|$)!'],[],[['extract'=>['!eighttracks://mix/(?<id>\\d+)!'],'match'=>['!8tracks\\.com/[-\\w]+/\\D!']]]],
 		'espn'=>[['#video/(?:clip(?:\\?id=|/_/id/))?(?<id>\\d+)#']],
-		'facebook'=>[['@/(?!(?:apps|developers|graph)\\.)[-\\w.]*facebook\\.com/(?:[/\\w]+/permalink|(?!marketplace/|pages/|groups/).*?)(?:/|fbid=|\\?v=)(?<id>\\d+)(?=$|[/?&#])@','@facebook\\.com/(?<user>[.\\w]+)/(?=(?:post|video)s?/)(?<type>[pv])@','@facebook\\.com/video/(?=post|video)(?<type>[pv])@','@facebook\\.com/watch/\\?(?<type>[pv])=@']],
+		'facebook'=>[['@/(?!(?:apps|developers|graph)\\.)[-\\w.]*facebook\\.com/(?:[/\\w]+/permalink|(?!marketplace/|pages/|groups/).*?)(?:/|fbid=|\\?v=)(?<id>\\d+)(?=$|[/?&#])@','@facebook\\.com/(?<user>[.\\w]+)/(?=(?:post|video)s?/)(?<type>[pv])@','@facebook\\.com/video/(?=post|video)(?<type>[pv])@','@facebook\\.com/watch/\\?(?<type>[pv])=@'],[],[['extract'=>['@facebook\\.com/watch/\\?(?<type>v)=(?<id>\\d+)@','@facebook\\.com/(?<user>[.\\w]+)/(?<type>v)ideos/(?<id>\\d+)@'],'header'=>'User-agent: PHP (not Mozilla)','match'=>['@fb\\.watch/.@']]]],
 		'falstad'=>[['!falstad\\.com/circuit/circuitjs\\.html\\?c(?:ct=(?<cct>[^&]+)|tz=(?<ctz>[-+=\\w]+))!']],
 		'flickr'=>[['@flickr\\.com/photos/[^/]+/(?<id>\\d+)@','@flic\\.kr/(?!p/)[^/]+/(?<id>\\d+)@'],[],[['extract'=>['@flickr\\.com/photos/[^/]+/(?<id>\\d+)@'],'match'=>["@flic\\.kr/p/(?'short'\\w+)@"],'url'=>'https://www.flickr.com/photo.gne?rb=1&short={@short}']]],
 		'foxnews'=>[['!video\\.foxnews\\.com/v/(?<id>\\d+)!']],

@@ -98,12 +98,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "8aa44a979382cde858e4ce54aed61b3a50089b3d"
+                "reference": "03edc53a0760c87ba706f42d7233a19fd527ea11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/8aa44a979382cde858e4ce54aed61b3a50089b3d",
-                "reference": "8aa44a979382cde858e4ce54aed61b3a50089b3d",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/03edc53a0760c87ba706f42d7233a19fd527ea11",
+                "reference": "03edc53a0760c87ba706f42d7233a19fd527ea11",
                 "shasum": ""
             },
             "require": {
@@ -131,7 +131,7 @@
             "default-branch": true,
             "type": "library",
             "extra": {
-                "version": "2.8.3-dev"
+                "version": "2.8.4-dev"
             },
             "autoload": {
                 "psr-4": {
@@ -165,7 +165,7 @@
                 "issues": "https://github.com/s9e/TextFormatter/issues",
                 "source": "https://github.com/s9e/TextFormatter/tree/master"
             },
-            "time": "2021-01-23T00:23:05+00:00"
+            "time": "2021-02-11T14:59:20+00:00"
         }
     ],
     "packages-dev": [
@@ -1008,16 +1008,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.5.1",
+            "version": "9.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "e7bdf4085de85a825f4424eae52c99a1cec2f360"
+                "reference": "f661659747f2f87f9e72095bb207bceb0f151cb4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e7bdf4085de85a825f4424eae52c99a1cec2f360",
-                "reference": "e7bdf4085de85a825f4424eae52c99a1cec2f360",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f661659747f2f87f9e72095bb207bceb0f151cb4",
+                "reference": "f661659747f2f87f9e72095bb207bceb0f151cb4",
                 "shasum": ""
             },
             "require": {
@@ -1095,7 +1095,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.1"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.2"
             },
             "funding": [
                 {
@@ -1107,7 +1107,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-17T07:42:25+00:00"
+            "time": "2021-02-02T14:45:58+00:00"
         },
         {
             "name": "s9e/source-optimizer",
