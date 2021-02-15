@@ -239,7 +239,7 @@ class Renderer
 
 	protected static function renderBbcnews($vars)
 	{
-		$vars+=['id'=>null,'playlist'=>null];$html='<span data-s9e-mediaembed="bbcnews"><span><iframe allowfullscreen="" scrolling="no" src="//www.bbc.com/news/av/video-';if((strpos($vars['playlist'],'/news/')===0)){$html.=htmlspecialchars(substr(strstr($vars['playlist'],'/news/'),6),2);}elseif((strpos($vars['id'],'/')!==false)){$html.=htmlspecialchars(substr(strstr($vars['id'],'/'),1),2);}else{$html.=htmlspecialchars($vars['id'],2);}$html.='/embed"></iframe></span></span>';
+		$vars+=['id'=>null,'playlist'=>null];$html='<span data-s9e-mediaembed="bbcnews"><span><iframe allowfullscreen="" scrolling="no" src="//www.bbc.com/news/av-embeds/';if((strpos($vars['playlist'],'/news/')===0)){if((strpos($vars['playlist'],'-')!==false)){$html.=htmlspecialchars(substr(strstr(substr(strstr(strtr($vars['playlist'],'A','#'),'news/'),5),'-'),1),2);}else{$html.=htmlspecialchars(substr(strstr(strtr($vars['playlist'],'A','/'),'/news/'),6),2);}}elseif((strpos($vars['id'],'/')!==false)){$html.=htmlspecialchars(substr(strstr($vars['id'],'/'),1),2);}else{$html.=htmlspecialchars($vars['id'],2);}$html.='"></iframe></span></span>';
 
 		return $html;
 	}
