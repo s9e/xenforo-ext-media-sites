@@ -20,7 +20,7 @@ class Renderer
 		'twitch'      => [
 			'(^(?<channel>\\w+)$)',
 			'(^(?<video_id>\\d+):(?<t>[\\dhms]+)$)',
-			'(^clip:(?<clip_id>\\w+))'
+			'(^clip:(?<clip_id>[-\\w]+))'
 		],
 		'vimeo'       => ['(^(?<id>\\d+):(?<t>[\\dhms]+))'],
 		'wistia'      => ['(/medias/(?<id>\\w+))'],
