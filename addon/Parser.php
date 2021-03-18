@@ -19,6 +19,11 @@ class Parser
 	public static $cacheDir;
 
 	/**
+	* @var array Volatile cache used for scraping
+	*/
+	protected static $cache = [];
+
+	/**
 	* @var array
 	*/
 	protected static $customFormats = [
@@ -444,6 +449,11 @@ class Parser
 	{
 		$url = preg_replace('(#.*)s', '', $url);
 
+		if (isset(self::$cache[$url]))
+		{
+			return self::$cache[$url];
+		}
+
 		// Return the content from the cache if applicable
 		if (isset(self::$cacheDir) && file_exists(self::$cacheDir))
 		{
@@ -454,10 +464,10 @@ class Parser
 			}
 		}
 
-		$html = self::wgetCurl($url, $headers);
-		if ($html && isset($cacheFile))
+		self::$cache[$url] = self::wgetCurl($url, $headers);
+		if (self::$cache[$url] && isset($cacheFile))
 		{
-			file_put_contents($cacheFile, $html);
+			file_put_contents($cacheFile, self::$cache[$url]);
 		}
 
 		return $html;
