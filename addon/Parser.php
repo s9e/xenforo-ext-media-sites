@@ -470,7 +470,7 @@ class Parser
 			file_put_contents($cacheFile, self::$cache[$url]);
 		}
 
-		return $html;
+		return self::$cache[$url];
 	}
 
 	/**

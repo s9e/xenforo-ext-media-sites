@@ -235,7 +235,7 @@ class RendererTest extends TestCase
 				// From XenForo 1.x add-on, BBcode MediaSites Pack 1.1.9_11
 				'wistia',
 				'thoughtworks.wistia.com/medias/b6al55s35k',
-				'<span data-s9e-mediaembed="wistia"><span><iframe allowfullscreen="" scrolling="no" src="https://fast.wistia.net/embed/iframe/b6al55s35k"></iframe></span></span>'
+				'<xf:if is="$type==\'audio\'"><iframe data-s9e-mediaembed="wistia" allowfullscreen="" scrolling="no" src="https://fast.wistia.net/embed/iframe/b6al55s35k" style="height:218px;width:900px"></iframe><xf:else/><span data-s9e-mediaembed="wistia"><span><iframe allowfullscreen="" scrolling="no" src="https://fast.wistia.net/embed/iframe/b6al55s35k"></iframe></span></span></xf:if>'
 			],
 			[
 				'youtube',
