@@ -246,7 +246,7 @@
   </site>
   <site media_site_id="megaphone" site_title="Megaphone" site_url="https://megaphone.fm/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*megaphone\.(?:fm|link)/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="megaphone" allowfullscreen="" scrolling="no" src="https://player.megaphone.fm/{$id}" style="height:200px;width:900px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="megaphone" allowfullscreen="" scrolling="no" style="height:200px;width:900px" src="https://player.megaphone.fm/{$id}{{ property('styleType')=='light' ? '?light=true' : '' }}"></iframe>]]></embed_html>
   </site>
   <site media_site_id="metacafe" site_title="Metacafe" site_url="https://www.metacafe.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*metacafe\.com/.(?'id'))i]]></match_urls>
@@ -354,7 +354,7 @@
   </site>
   <site media_site_id="sportsnet" site_title="Sportsnet" site_url="https://www.sportsnet.ca/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*sportsnet\.ca/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="sportsnet"><span><iframe allowfullscreen="" scrolling="no" src="https://images.rogersdigitalmedia.com/video_service.php?videoId={$id}&amp;playerKey=AQ~~,AAAAAGWRwLc~,cRCmKE8Utf7OFWP38XQcokFZ80fR-u_y&amp;autoStart=false&amp;width=100%25&amp;height=100%25"></iframe></span></span>]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="sportsnet"><span><iframe allowfullscreen="" scrolling="no" src="//players.brightcove.net/1704050871/rkedLxwfab_default/index.html?videoId={$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="spotify" site_title="Spotify" site_url="https://www.spotify.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:link\.to|open\.|play\.)spotify\.com/.(?'id'))i]]></match_urls>
