@@ -493,8 +493,8 @@
     <embed_html><![CDATA[<xf:if is="$type=='audio'"><iframe data-s9e-mediaembed="wistia" allowfullscreen="" scrolling="no" src="https://fast.wistia.net/embed/iframe/{$id}" style="height:218px;width:900px"></iframe><xf:else/><span data-s9e-mediaembed="wistia"><span><iframe allowfullscreen="" scrolling="no" src="https://fast.wistia.net/embed/iframe/{$id}"></iframe></span></span></xf:if>]]></embed_html>
   </site>
   <site media_site_id="wshh" site_title="WorldStarHipHop" site_url="https://www.worldstarhiphop.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*worldstarhiphop\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="wshh"><span><iframe allowfullscreen="" scrolling="no" src="//www.worldstarhiphop.com/embed/{$id}"></iframe></span></span>]]></embed_html>
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*worldstar(?:hiphop)?\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="wshh"><span><iframe allowfullscreen="" scrolling="no" src="//worldstarhiphop.com/embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="wsj" site_title="The Wall Street Journal Online" site_url="https://www.wsj.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*wsj\.com/.(?'id'))i]]></match_urls>

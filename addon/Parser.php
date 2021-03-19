@@ -161,7 +161,7 @@ class Parser
 		'vox'=>[['!vox.com/.*#ooid=(?<id>[-\\w]+)!']],
 		'washingtonpost'=>[['#washingtonpost\\.com/video/c/\\w+/(?<id>[-0-9a-f]+)#','#washingtonpost\\.com/video/[-/\\w]+/(?<id>[-0-9a-f]+)_video\\.html#']],
 		'wistia'=>[['!wistia.com/(?:(?:embed/iframe|medias)/|.*wmediaid=)(?<id>\\w+)!'],[],[['extract'=>['!"type":"(?<type>audio)!'],'match'=>['!wistia.com/(?:(?:embed/iframe|medias)/|.*wmediaid=)\\w!'],'url'=>'https://fast.wistia.com/oembed.json?url=https%3A%2F%2Ffast.wistia.com%2Fmedias%2F{@id}']]],
-		'wshh'=>[['!worldstarhiphop\\.com/featured/(?<id>\\d+)!'],[],[['extract'=>['!v: ?"?(?<id>\\d+)!'],'match'=>['!worldstarhiphop\\.com/(?:\\w+/)?video\\.php\\?v=\\w+!']]]],
+		'wshh'=>[['!worldstar(?:hiphop)?\\.com/(?:emb|featur)ed/(?<id>\\d+)!'],[],[['extract'=>['!v: ?"?(?<id>\\d+)!'],'match'=>['!worldstar(?:hiphop)?\\.com/(?:\\w+/)?video\\.php\\?v=\\w+!']]]],
 		'wsj'=>[['@wsj\\.com/[^#]*#!(?<id>[-0-9A-F]{36})@','@wsj\\.com/video/[^/]+/(?<id>[-0-9A-F]{36})@'],[],[['extract'=>['@guid=(?<id>[-0-9A-F]{36})@'],'match'=>['@on\\.wsj\\.com/\\w@']]]],
 		'xboxclips'=>[['@(?:gameclips\\.io|xboxclips\\.com)/(?!game/)(?<user>[^/]+)/(?!screenshots/)(?<id>[-0-9a-f]+)@']],
 		'xboxdvr'=>[['!(?:gamer|xbox)dvr\\.com/gamer/(?<user>[^/]+)/video/(?<id>\\d+)!']],
