@@ -314,7 +314,7 @@
   </site>
   <site media_site_id="podbean" site_title="Podbean" site_url="https://www.podbean.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*podbean\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="podbean" allowfullscreen="" scrolling="no" src="//www.podbean.com/media/player/{$id}" style="height:100px;width:900px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="podbean" allowfullscreen="" scrolling="no" src="https://www.podbean.com/player-v2/?i={$id}" style="height:150px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="prezi" site_title="Prezi" site_url="https://prezi.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*prezi\.com/.(?'id'))i]]></match_urls>
