@@ -490,6 +490,7 @@ class Parser
 			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+			curl_setopt($curl, CURLOPT_HEADER,         true);
 
 			$http = XF::config('http');
 			if (!empty($http['proxy']))
