@@ -12,6 +12,10 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*anchor\.fm/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="anchor" allowfullscreen="" scrolling="no" src="//anchor.fm/x/embed/episodes/x-{$id}" style="height:102px;width:768px"></iframe>]]></embed_html>
   </site>
+  <site media_site_id="applepodcasts" site_title="Apple Podcasts" site_url="https://podcasts.apple.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*podcasts\.apple\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="applepodcasts" allow="autoplay *;encrypted-media *" allowfullscreen="" scrolling="no" src="https://embed.podcasts.apple.com/{$country}/podcast/episode/id{$podcast_id}?theme={{property('styleType')}}{{ $episode_id ? '&amp;i=' . $episode_id : '' }}" style="height:{{ $episode_id ? '175' : '450' }}px;width:900px"></iframe>]]></embed_html>
+  </site>
   <site media_site_id="audioboom" site_title="Audioboom" site_url="https://audioboom.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*audioboo(?:\.f|m\.co)m/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="audioboom" allowfullscreen="" scrolling="no" src="//audioboom.com/posts/{$id}/embed/v3" style="height:150px;width:700px"></iframe>]]></embed_html>
