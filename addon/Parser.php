@@ -114,6 +114,7 @@ class Parser
 		'nhl'=>[['#nhl\\.com/(?:\\w+/)?video(?:/(?![ct]-)[-\\w]+)?(?:/t-(?<t>\\d+))?(?:/c-(?<c>\\d+))?#']],
 		'npr'=>[[],[],[['extract'=>['!player/embed/(?<i>\\d+)/(?<m>\\d+)!'],'header'=>'Cookie: trackingChoice=false; choiceVersion=1','match'=>['!npr\\.org/[/\\w]+/\\d+!','!n\\.pr/\\w!']]]],
 		'nytimes'=>[['!nytimes\\.com/video/[a-z]+/(?:[a-z]+/)?(?<id>\\d+)!','!nytimes\\.com/video/\\d+/\\d+/\\d+/[a-z]+/(?<id>\\d+)!'],[],[['extract'=>['!/video/movies/(?<id>\\d+)!'],'match'=>["!nytimes\\.com/movie(?:s/movie)?/(?'playlist'\\d+)/[-\\w]+/trailers!"],'url'=>'http://www.nytimes.com/svc/video/api/playlist/{@playlist}?externalId=true']]],
+		'odysee'=>[['#odysee\\.com/(?:[-\\w]+:|\\$/\\w+/[-\\w]+/)(?<id>\\w{40})#'],[],[['extract'=>['#odysee\\.com/[-\\w]+:(?<id>\\w{40})#'],'match'=>['#odysee\\.com/@[-\\w]+:\\w/\\w#']]]],
 		'orfium'=>[['@album/(?<album_id>\\d+)@','@playlist/(?<playlist_id>\\d+)@','@live-set/(?<set_id>\\d+)@','@track/(?<track_id>\\d+)@']],
 		'pastebin'=>[['@pastebin\\.com/(?!u/)(?:\\w+(?:\\.php\\?i=|/))?(?<id>\\w+)@']],
 		'pinterest'=>[['@pinterest.com/pin/(?<id>\\d+)@','@pinterest.com/(?!_/|discover/|explore/|news_hub/|pin/|search/)(?<id>[-\\w]+/[-\\w]+)@']],
@@ -167,7 +168,7 @@ class Parser
 		'xboxclips'=>[['@(?:gameclips\\.io|xboxclips\\.com)/(?!game/)(?<user>[^/]+)/(?!screenshots/)(?<id>[-0-9a-f]+)@']],
 		'xboxdvr'=>[['!(?:gamer|xbox)dvr\\.com/gamer/(?<user>[^/]+)/video/(?<id>\\d+)!']],
 		'youku'=>[['!youku\\.com/v(?:_show|ideo)/id_(?<id>\\w+=*)!']],
-		'youtube'=>[['!youtube\\.com/(?:watch.*?v=|v/|attribution_link.*?v%3D)(?<id>[-\\w]+)!','!youtu\\.be/(?<id>[-\\w]+)!','@[#&?]t=(?<t>\\d[\\dhms]*)@','![&?]list=(?<list>[-\\w]+)!'],[],[['extract'=>['!/vi/(?<id>[-\\w]+)!'],'match'=>['!/shared\\?ci=!']]],['id'=>['s9e\\MediaSites\\Helper::filterIdentifier'],'t'=>['s9e\\MediaSites\\Helper::filterTimestamp']]]
+		'youtube'=>[['!youtube\\.com/(?:watch.*?v=|shorts/|v/|attribution_link.*?v%3D)(?<id>[-\\w]+)!','!youtu\\.be/(?<id>[-\\w]+)!','@[#&?]t=(?<t>\\d[\\dhms]*)@','![&?]list=(?<list>[-\\w]+)!'],[],[],['id'=>['s9e\\MediaSites\\Helper::filterIdentifier'],'t'=>['s9e\\MediaSites\\Helper::filterTimestamp']]]
 	];
 
 	/**
