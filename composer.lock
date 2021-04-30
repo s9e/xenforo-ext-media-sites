@@ -8,21 +8,21 @@
     "packages": [
         {
             "name": "s9e/regexp-builder",
-            "version": "1.4.4",
+            "version": "1.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/RegexpBuilder.git",
-                "reference": "605b33841a766abd40ba3d07c15d0f62b5e7f033"
+                "reference": "45992e3389e0179672f3a3605d66891a8b64918c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/RegexpBuilder/zipball/605b33841a766abd40ba3d07c15d0f62b5e7f033",
-                "reference": "605b33841a766abd40ba3d07c15d0f62b5e7f033",
+                "url": "https://api.github.com/repos/s9e/RegexpBuilder/zipball/45992e3389e0179672f3a3605d66891a8b64918c",
+                "reference": "45992e3389e0179672f3a3605d66891a8b64918c",
                 "shasum": ""
             },
             "require": {
                 "lib-pcre": ">=7.2",
-                "php": ">=5.5.1"
+                "php": ">=7.1"
             },
             "require-dev": {
                 "phpunit/phpunit": "*"
@@ -44,9 +44,9 @@
             ],
             "support": {
                 "issues": "https://github.com/s9e/RegexpBuilder/issues",
-                "source": "https://github.com/s9e/RegexpBuilder/tree/1.4.4"
+                "source": "https://github.com/s9e/RegexpBuilder/tree/1.4.5"
             },
-            "time": "2020-01-08T02:46:22+00:00"
+            "time": "2021-04-28T21:45:11+00:00"
         },
         {
             "name": "s9e/sweetdom",
@@ -98,12 +98,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "129691ddd6f85a3cea0e89e69ff01993a75af864"
+                "reference": "ce1817bf03f44aff40750a7f03c68b15c876766b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/129691ddd6f85a3cea0e89e69ff01993a75af864",
-                "reference": "129691ddd6f85a3cea0e89e69ff01993a75af864",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/ce1817bf03f44aff40750a7f03c68b15c876766b",
+                "reference": "ce1817bf03f44aff40750a7f03c68b15c876766b",
                 "shasum": ""
             },
             "require": {
@@ -165,7 +165,7 @@
                 "issues": "https://github.com/s9e/TextFormatter/issues",
                 "source": "https://github.com/s9e/TextFormatter/tree/master"
             },
-            "time": "2021-04-23T23:35:47+00:00"
+            "time": "2021-04-26T23:20:22+00:00"
         }
     ],
     "packages-dev": [
