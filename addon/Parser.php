@@ -39,6 +39,7 @@ class Parser
 	*/
 	protected static $sites = [
 		'abcnews'=>[['!abcnews\\.go\\.com/(?:video/embed\\?id=|[^/]+/video/[^/]+-)(?<id>\\d+)!']],
+		'acast'=>[['@play.acast.com/s/(?<show_id>[-.\\w]+)/(?<episode_id>[-.\\w]+)(?:\\?seek=(?<t>\\d+))?@'],[],[['extract'=>['@"showId":"(?<show_id>[0-9a-f]{8}(?:-[0-9a-f]{4}){4}[0-9a-f]{8})@','@"id":"(?<episode_id>[0-9a-f]{4}(?:[0-9a-f]{4}-){4}[0-9a-f]{12})@'],'match'=>["@play.acast.com/s/(?![0-9a-f]{8}(?:-[0-9a-f]{4}){4}[0-9a-f]{8}/[0-9a-f]{4}(?:[0-9a-f]{4}-){4}[0-9a-f]{12})(?'show_id'[-.\\w]+)/(?'episode_id'[-.\\w]+)@"],'url'=>'https://feeder.acast.com/api/v1/shows/{@show_id}/episodes/{@episode_id}']]],
 		'amazon'=>[['#/(?:dp|gp/product)/(?<id>[A-Z0-9]+)#','#amazon\\.(?:co\\.)?(?<tld>ca|de|es|fr|in|it|jp|uk)#'],['id']],
 		'anchor'=>[['@anchor.fm/(?:[-\\w]+/)*?episodes/(?:[-\\w]+-)(?<id>\\w+)(?![-\\w])@']],
 		'applepodcasts'=>[['@podcasts\\.apple\\.com/(?<country>\\w+)/podcast/[-\\w]*/id(?<podcast_id>\\d+)(?:\\?i=(?<episode_id>\\d+))?@']],
