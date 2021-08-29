@@ -28,6 +28,10 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*audiomack\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="audiomack" allowfullscreen="" scrolling="no" src="https://www.audiomack.com/embed/{{ $mode=='album' ? 'album' : 'song' }}/{{ $id ? $id : $artist . '/' . $title }}" style="height:{{ $mode=='album' ? '400' : '252' }}px;width:900px"></iframe>]]></embed_html>
   </site>
+  <site media_site_id="audius" site_title="Audius" site_url="https://audius.co/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*audius\.co/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="audius" allowfullscreen="" scrolling="no" src="https://audius.co/embed/{{ $track_id ? 'track/' . $track_id . '?flavor=compact' : ($album_id ? 'album/' . $album_id . '?flavor=card' : 'playlist/' . $playlist_id . '?flavor=card') }}" style="height:{{ $track_id ? '12' : '48' }}0px;width:{{ $track_id ? '9' : '4' }}00px"></iframe>]]></embed_html>
+  </site>
   <site media_site_id="bandcamp" site_title="Bandcamp" site_url="https://bandcamp.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*bandcamp\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="bandcamp" style="width:400px"><span style="padding-bottom:100%"><iframe allowfullscreen="" scrolling="no" src="//bandcamp.com/EmbeddedPlayer/size=large/minimal=true/{{ $album_id ? 'album=' . $album_id . ($track_num ? '/t=' . $track_num : '') : 'track=' . $track_id }}{{ property('styleType')=='dark' ? '/bgcol=333333/linkcol=0f91ff' : '' }}"></iframe></span></span>]]></embed_html>
