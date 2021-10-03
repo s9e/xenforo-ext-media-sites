@@ -113,7 +113,7 @@ class Parser
 		'nhl'=>[['#nhl\\.com/(?:\\w+/)?video(?:/(?![ct]-)[-\\w]+)?(?:/t-(?<t>\\d+))?(?:/c-(?<c>\\d+))?#']],
 		'npr'=>[[],[],[['extract'=>['!player/embed/(?<i>\\d+)/(?<m>\\d+)!'],'header'=>'Cookie: trackingChoice=false; choiceVersion=1','match'=>['!npr\\.org/[/\\w]+/\\d+!','!n\\.pr/\\w!']]]],
 		'nytimes'=>[['!nytimes\\.com/video/[a-z]+/(?:[a-z]+/)?(?<id>\\d+)!','!nytimes\\.com/video/\\d+/\\d+/\\d+/[a-z]+/(?<id>\\d+)!'],[],[['extract'=>['!/video/movies/(?<id>\\d+)!'],'match'=>["!nytimes\\.com/movie(?:s/movie)?/(?'playlist'\\d+)/[-\\w]+/trailers!"],'url'=>'http://www.nytimes.com/svc/video/api/playlist/{@playlist}?externalId=true']]],
-		'odysee'=>[['#odysee\\.com/(?:[^/:]+:|\\$/\\w+/[^/:]+/)(?<id>\\w{40})#'],[],[['extract'=>['#odysee\\.com/[^/:]+:(?<id>\\w{40})#'],'match'=>['#odysee\\.com/@[^/:]+:\\w+/.#']]]],
+		'odysee'=>[['#odysee\\.com/(?:\\$/\\w+/)?(?<name>[^:/]+)[:/](?<id>\\w{40})#'],[],[['extract'=>['#odysee\\.com/\\$/embed/(?<name>[^:/]+)/(?<id>\\w{40})#'],'match'=>['#odysee\\.com/@[^/:]+:\\w+/.#']]],['name'=>['s9e\\MediaSites\\Helper::filterUrl']]],
 		'orfium'=>[['@album/(?<album_id>\\d+)@','@playlist/(?<playlist_id>\\d+)@','@live-set/(?<set_id>\\d+)@','@track/(?<track_id>\\d+)@']],
 		'pastebin'=>[['@pastebin\\.com/(?!u/)(?:\\w+(?:\\.php\\?i=|/))?(?<id>\\w+)@']],
 		'pinterest'=>[['@pinterest.com/pin/(?<id>\\d+)@','@pinterest.com/(?!_/|discover/|explore/|news_hub/|pin/|search/)(?<id>[-\\w]+/[-\\w]+)@']],

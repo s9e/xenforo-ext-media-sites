@@ -67,6 +67,24 @@ class Helper
 	}
 
 	/**
+	* Filter a URL
+	*
+	* @param  string $attrValue Original value
+	* @return string
+	*/
+	public static function filterUrl($attrValue)
+	{
+		return preg_replace_callback(
+			'/%(?![0-9A-Fa-f]{2})|[^!#-&*-;=?-Z_a-z~]/',
+			function ($m)
+			{
+				return rawurlencode($m[0]);
+			},
+			$attrValue
+		);
+	}
+
+	/**
 	* Replace iframes in given HTML
 	*
 	* @param  Templater  $templater

@@ -144,6 +144,10 @@ class ParserTest extends TestCase
 				'UO1UrIx'
 			],
 			[
+				'https://odysee.com/Deni-Juric-Goal-2-0-ŠIBENIK-vs-SLAVEN-Apr21:8726b01100463c4e254a38c3108ef3e05791aeda',
+				'id=8726b01100463c4e254a38c3108ef3e05791aeda;name=Deni-Juric-Goal-2-0-%25C5%25A0IBENIK-vs-SLAVEN-Apr21'
+			],
+			[
 				'https://archive.org/embed/deadco2018-08-25',
 				'height=50;id=deadco2018-08-25%26playlist%3D1%26twitterv%3D01;width=300'
 			],
