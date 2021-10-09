@@ -236,8 +236,14 @@ class ParserTest extends TestCase
 				'QH2-TGUlwu4:95'
 			],
 			[
+				// XenForo 2.2
 				'https://www.youtube.com/watch?v=k-baHBzWe4k&list=PL590L5WQmH8cGD7hVGK_YvAUWdXKfGLJ1',
-				'id=k-baHBzWe4k;list=PL590L5WQmH8cGD7hVGK_YvAUWdXKfGLJ1'
+				'k-baHBzWe4k, list: PL590L5WQmH8cGD7hVGK_YvAUWdXKfGLJ1'
+			],
+			[
+				// XenForo 2.2
+				'https://www.youtube.com/watch?v=k-baHBzWe4k&list=PL590L5WQmH8cGD7hVGK_YvAUWdXKfGLJ1&t=1m30s',
+				'k-baHBzWe4k:90, list: PL590L5WQmH8cGD7hVGK_YvAUWdXKfGLJ1'
 			],
 			[
 				'https://www.youtube.com/about',

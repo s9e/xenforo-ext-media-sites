@@ -31,7 +31,7 @@ class Parser
 		'facebook'    => ['$user/$posts/$id'],
 		'twitch'      => ['$channel', 'clip:$clip_id', '$video_id:$t'],
 		'vimeo'       => ['$id:$t'],
-		'youtube'     => ['$id:$t']
+		'youtube'     => ['$id:$t', '$id, list: $list', '$id:$t, list: $list']
 	];
 
 	/**
