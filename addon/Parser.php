@@ -29,6 +29,11 @@ class Parser
 	protected static $customFormats = [
 		'dailymotion' => ['$id:$t'],
 		'facebook'    => ['$user/$posts/$id'],
+		'soundcloud'  => [
+			'$id#track_id=$track_id',
+			'$id#playlist_id=$playlist_id',
+			'$id#playlist_id=$playlist_id;track_id=$track_id'
+		],
 		'twitch'      => ['$channel', 'clip:$clip_id', '$video_id:$t'],
 		'vimeo'       => ['$id:$t'],
 		'youtube'     => ['$id:$t', '$id, list: $list', '$id:$t, list: $list']
@@ -249,12 +254,6 @@ class Parser
 		return $matched;
 	}
 
-	/**
-	* Adjust Facebook vars
-	*
-	* @param  array $vars
-	* @return array
-	*/
 	protected static function adjustVarsFacebook(array $vars)
 	{
 		if (isset($vars['id'], $vars['type'], $vars['user']) && $vars['type'] === 'p')
@@ -265,12 +264,6 @@ class Parser
 		return $vars;
 	}
 
-	/**
-	* Adjust Flickr vars
-	*
-	* @param  array $vars
-	* @return array
-	*/
 	protected static function adjustVarsFlickr(array $vars)
 	{
 		if (isset($vars['id']))
@@ -281,12 +274,6 @@ class Parser
 		return $vars;
 	}
 
-	/**
-	* Adjust Imgur vars
-	*
-	* @param  array $vars
-	* @return array
-	*/
 	protected static function adjustVarsImgur(array $vars)
 	{
 		if (isset($vars['id']))
@@ -296,6 +283,16 @@ class Parser
 				$vars['id'] = 'a/' . $vars['id'];
 			}
 			$vars['id'] = str_replace('gallery/', 'a/', $vars['id']);
+		}
+
+		return $vars;
+	}
+
+	protected static function adjustVarsSoundcloud(array $vars)
+	{
+		if (isset($vars['id']))
+		{
+			$vars['id'] = trim($vars['id'], '/');
 		}
 
 		return $vars;

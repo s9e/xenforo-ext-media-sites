@@ -145,15 +145,15 @@ class Renderer
 	{
 		if (isset($vars['id']))
 		{
-			$vars['id'] = preg_replace('(#.*)', '', $vars['id']);
-			if (preg_match('(^tracks/(\\d+))', $vars['id'], $m))
-			{
-				$vars['track_id'] = $m[1];
-			}
-			elseif (preg_match('(^playlists/(\\d+))', $vars['id'], $m))
+			if (preg_match('((?:playlists/|playlist_id=)(\\d+))', $vars['id'], $m))
 			{
 				$vars['playlist_id'] = $m[1];
 			}
+			if (preg_match('((?:tracks/|track_id=)(\\d+))', $vars['id'], $m))
+			{
+				$vars['track_id'] = $m[1];
+			}
+			$vars['id'] = preg_replace('(#.*)', '', $vars['id']);
 		}
 
 		return $vars;

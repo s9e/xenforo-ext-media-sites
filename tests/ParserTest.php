@@ -164,16 +164,19 @@ class ParserTest extends TestCase
 				'pics/comments/304rms/cats_reaction_to_seeing_the_ceiling_fan_move_for/cpp2kkl'
 			],
 			[
+				// XenForo 2.2 doesn't actually support those
 				'http://api.soundcloud.com/tracks/98282116',
-				'id=tracks%2F98282116;track_id=98282116'
+				'tracks/98282116#track_id=98282116'
 			],
 			[
-				'https://soundcloud.com/andrewbird/three-white-horses',
-				'id=andrewbird%2Fthree-white-horses;track_id=59509713'
+				// XenForo 2.2 with extra info tacked after #
+				'https://soundcloud.com/tenaciousd/rock-is-dead',
+				'tenaciousd/rock-is-dead#track_id=44564712'
 			],
 			[
+				// XenForo 2.2 with extra info tacked after #
 				'https://soundcloud.com/tenaciousd/sets/rize-of-the-fenix/',
-				'id=tenaciousd%2Fsets%2Frize-of-the-fenix%2F;playlist_id=1919974;track_id=44564704'
+				'tenaciousd/sets/rize-of-the-fenix#playlist_id=1919974;track_id=44564704'
 			],
 			[
 				'https://www.spreaker.com/user/bitcoinpodcasts/blockstreams-bitcoin-primer-ep-1',

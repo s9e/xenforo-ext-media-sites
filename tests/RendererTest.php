@@ -161,8 +161,18 @@ class RendererTest extends TestCase
 			],
 			[
 				'soundcloud',
+				'tenaciousd/sets/rize-of-the-fenix#playlist_id=1919974;track_id=44564704',
+				'<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1919974" style="height:450px;width:900px"></iframe>'
+			],
+			[
+				'soundcloud',
 				'cnn/newsday062413#t=2:10',
 				'<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/cnn/newsday062413" style="height:166px;width:900px"></iframe>'
+			],
+			[
+				'soundcloud',
+				'tenaciousd/rock-is-dead#track_id=44564712',
+				'<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/44564712&amp;secret_token=" style="height:166px;width:900px"></iframe>'
 			],
 			[
 				'spreaker',
