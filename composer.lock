@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b116cdff8eb56aba01ce1ffe66e1556b",
+    "content-hash": "b8c6b71b0323cc41d28c117586df7606",
     "packages": [
         {
             "name": "s9e/regexp-builder",
@@ -1109,50 +1109,6 @@
                 }
             ],
             "time": "2021-09-25T07:38:51+00:00"
-        },
-        {
-            "name": "s9e/source-optimizer",
-            "version": "0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/s9e/SourceOptimizer.git",
-                "reference": "e86a78405074dad680760ec91c4ccff5228548af"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/s9e/SourceOptimizer/zipball/e86a78405074dad680760ec91c4ccff5228548af",
-                "reference": "e86a78405074dad680760ec91c4ccff5228548af",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^6.0"
-            },
-            "bin": [
-                "bin/source-optimizer"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "s9e\\SourceOptimizer\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "homepage": "https://github.com/s9e/SourceOptimizer/",
-            "keywords": [
-                "optimizer",
-                "source"
-            ],
-            "support": {
-                "issues": "https://github.com/s9e/SourceOptimizer/issues",
-                "source": "https://github.com/s9e/SourceOptimizer/tree/master"
-            },
-            "time": "2017-12-01T02:24:51+00:00"
         },
         {
             "name": "sebastian/cli-parser",

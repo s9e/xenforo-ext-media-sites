@@ -8,16 +8,10 @@
 namespace s9e\AddonBuilder\MediaSites\Transpilers;
 
 use RuntimeException;
-use s9e\SourceOptimizer\Optimizer;
 use s9e\TextFormatter\Configurator\RendererGenerators\PHP;
 
 class PHPSource extends PHP implements TranspilerInterface
 {
-	/**
-	* @var Optimizer
-	*/
-	protected $sourceOptimizer;
-
 	/**
 	* Transpile given XSLT template to PHP
 	*
@@ -81,21 +75,6 @@ class PHPSource extends PHP implements TranspilerInterface
 			$php = '$vars+=[' . implode(',', $vars) . '];' . $php;
 		}
 
-		return $this->getSourceOptimizer()->optimize($php);
-	}
-
-	/**
-	* Return the cached instance of optimizer
-	*
-	* @return Optimizer
-	*/
-	protected function getSourceOptimizer()
-	{
-		if (!isset($this->sourceOptimizer))
-		{
-			$this->sourceOptimizer = new Optimizer;
-		}
-
-		return $this->sourceOptimizer;
+		return $php;
 	}
 }
