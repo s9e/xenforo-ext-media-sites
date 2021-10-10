@@ -298,6 +298,16 @@ class Parser
 		return $vars;
 	}
 
+	protected static function adjustVarsSpotify(array $vars)
+	{
+		if (isset($vars['id']))
+		{
+			$vars['id'] = strtr($vars['id'], '/', ':');
+		}
+
+		return $vars;
+	}
+
 	/**
 	* Filter an array of vars with through an array of callbacks
 	*
@@ -401,7 +411,7 @@ class Parser
 		$keys = array_keys($vars);
 
 		// If there's only one capture named "id" we store its value as-is
-		if ($keys === ['id'] && preg_match('(^[-./\\w]+$)D', $vars['id']))
+		if ($keys === ['id'] && preg_match('(^[-./:\\w]+$)D', $vars['id']))
 		{
 			return $vars['id'];
 		}

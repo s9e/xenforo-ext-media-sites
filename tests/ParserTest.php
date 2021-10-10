@@ -179,6 +179,11 @@ class ParserTest extends TestCase
 				'tenaciousd/sets/rize-of-the-fenix#playlist_id=1919974;track_id=44564704'
 			],
 			[
+				// XenForo 2.2
+				'https://open.spotify.com/track/0GjSbSr86nsOLJsibU2cjh',
+				'track:0GjSbSr86nsOLJsibU2cjh'
+			],
+			[
 				'https://www.spreaker.com/user/bitcoinpodcasts/blockstreams-bitcoin-primer-ep-1',
 				'episode_id=20872603'
 			],
