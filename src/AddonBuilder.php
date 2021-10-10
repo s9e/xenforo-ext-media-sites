@@ -84,10 +84,13 @@ class AddonBuilder
 	*/
 	public function __construct($dir = null, Configurator $configurator = null)
 	{
-		$this->configurator  = $configurator ?: $this->getConfigurator();
+		$this->configurator  = $configurator ?: new Configurator;
 		$this->dir           = $dir ?: realpath(__DIR__ . '/../addon');
 
 		$this->phpTranspiler = new PHPSource($this->configurator);
+		$this->phpTranspiler->enableQuickRenderer = false;
+		$this->phpTranspiler->serializer->convertor->features['php80'] = false;
+
 		$this->regexpBuilder = new RegexpBuilder(['delimiter' => '()', 'output' => 'PHP']);
 		$this->sites         = iterator_to_array($this->configurator->MediaEmbed->defaultSites);
 		$this->xfTranspiler  = new XenForoTemplate;
@@ -339,20 +342,6 @@ class AddonBuilder
 		}
 
 		return $php;
-	}
-
-	/**
-	* Create and return an instance of Configurator
-	*
-	* @return Configurator
-	*/
-	protected function getConfigurator()
-	{
-		$configurator = new Configurator;
-		$configurator->rendering->engine = 'PHP';
-		$configurator->rendering->engine->enableQuickRenderer = false;
-
-		return $configurator;
 	}
 
 	/**
