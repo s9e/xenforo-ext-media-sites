@@ -131,7 +131,7 @@ class Helper
 					return '';
 				}
 
-				return  ' data-s9e-mediaembed-c2l-oembed-title="' . htmlspecialchars(self::$oembedTitles[$m[1]][$m[2]]) . '"';
+				return  ' data-s9e-mediaembed-c2l-oembed-title="' . htmlspecialchars(self::$oembedTitles[$m[1]][$m[2]] ?? '') . '"';
 			},
 			$html
 		);

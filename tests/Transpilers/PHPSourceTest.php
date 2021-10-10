@@ -29,11 +29,11 @@ class PHPSourceTest extends AbstractTranspilerTest
 			],
 			[
 				'<iframe src="{@id}"/>',
-				"\$vars+=['id'=>null];\$html='<iframe src=\"'.htmlspecialchars(\$vars['id'],2).'\"></iframe>';"
+				"\$vars+=['id'=>null];\$html='<iframe src=\"'.htmlspecialchars(\$vars['id']??'',2).'\"></iframe>';"
 			],
 			[
 				'<iframe src="{@id}"/>',
-				"\$vars+=['id'=>'xyz'];\$html='<iframe src=\"'.htmlspecialchars(\$vars['id'],2).'\"></iframe>';",
+				"\$vars+=['id'=>'xyz'];\$html='<iframe src=\"'.htmlspecialchars(\$vars['id']??'',2).'\"></iframe>';",
 				['attributes' => ['id' => ['defaultValue' => 'xyz']]]
 			],
 			[
@@ -42,7 +42,7 @@ class PHPSourceTest extends AbstractTranspilerTest
 			],
 			[
 				'<iframe data-s9e-mediaembed="audioboom" allowfullscreen="" scrolling="no" src="//audioboom.com/posts/{@id}/embed/v3" style="border:0;height:150px;max-width:700px;width:100%"/>',
-				'$vars+=[\'id\'=>null];$html=\'<iframe data-s9e-mediaembed="audioboom" allowfullscreen="" scrolling="no" src="//audioboom.com/posts/\'.htmlspecialchars($vars[\'id\'],2).\'/embed/v3" style="border:0;height:150px;max-width:700px;width:100%"></iframe>\';'
+				'$vars+=[\'id\'=>null];$html=\'<iframe data-s9e-mediaembed="audioboom" allowfullscreen="" scrolling="no" src="//audioboom.com/posts/\'.htmlspecialchars($vars[\'id\']??\'\',2).\'/embed/v3" style="border:0;height:150px;max-width:700px;width:100%"></iframe>\';'
 			],
 			[
 				'<hr data-x="{$MEDIAEMBED_THEME}"/>',

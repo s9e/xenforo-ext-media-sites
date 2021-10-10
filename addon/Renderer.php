@@ -244,28 +244,28 @@ class Renderer
 
 	protected static function renderBbcnews($vars)
 	{
-		$vars+=['id'=>null,'playlist'=>null];$html='<span data-s9e-mediaembed="bbcnews"><span><iframe allowfullscreen="" scrolling="no" src="//www.bbc.com/news/av-embeds/';if((strpos($vars['playlist'],'/news/')===0)){if((strpos($vars['playlist'],'-')!==false)){$html.=htmlspecialchars(substr(strstr(substr(strstr(strtr($vars['playlist'],'A','#'),'news/'),5),'-'),1),2);}else{$html.=htmlspecialchars(substr(strstr(strtr($vars['playlist'],'A','/'),'/news/'),6),2);}}elseif((strpos($vars['id'],'/')!==false)){$html.=htmlspecialchars(substr(strstr($vars['id'],'/'),1),2);}else{$html.=htmlspecialchars($vars['id'],2);}$html.='"></iframe></span></span>';
+		$vars+=['id'=>null,'playlist'=>null];$html='<span data-s9e-mediaembed="bbcnews"><span><iframe allowfullscreen="" scrolling="no" src="//www.bbc.com/news/av-embeds/';if((strpos($vars['playlist']??'','/news/')===0)){if((strpos($vars['playlist']??'','-')!==false)){$html.=htmlspecialchars(substr(strstr(substr(strstr(strtr($vars['playlist']??'','A','#'),'news/'),5),'-'),1),2);}else{$html.=htmlspecialchars(substr(strstr(strtr($vars['playlist']??'','A','/'),'/news/'),6),2);}}elseif((strpos($vars['id']??'','/')!==false)){$html.=htmlspecialchars(substr(strstr($vars['id']??'','/'),1),2);}else{$html.=htmlspecialchars($vars['id']??'',2);}$html.='"></iframe></span></span>';
 
 		return $html;
 	}
 
 	protected static function renderDemocracynow($vars)
 	{
-		$vars+=['id'=>null];$html='<span data-s9e-mediaembed="democracynow"><span><iframe allowfullscreen="" scrolling="no" src="//www.democracynow.org/embed/';if((strpos($vars['id'],'/headlines')!==false)){$html.='headlines/'.htmlspecialchars(strstr($vars['id'],'/headlines',true),2);}elseif((strpos($vars['id'],'2')===0)){$html.='story/'.htmlspecialchars($vars['id'],2);}elseif((strpos($vars['id'],'shows/')===0)){$html.='show/'.htmlspecialchars(substr(strstr($vars['id'],'/'),1),2);}else{$html.=htmlspecialchars($vars['id'],2);}$html.='"></iframe></span></span>';
+		$vars+=['id'=>null];$html='<span data-s9e-mediaembed="democracynow"><span><iframe allowfullscreen="" scrolling="no" src="//www.democracynow.org/embed/';if((strpos($vars['id']??'','/headlines')!==false)){$html.='headlines/'.htmlspecialchars(strstr($vars['id']??'','/headlines',true),2);}elseif((strpos($vars['id']??'','2')===0)){$html.='story/'.htmlspecialchars($vars['id']??'',2);}elseif((strpos($vars['id']??'','shows/')===0)){$html.='show/'.htmlspecialchars(substr(strstr($vars['id']??'','/'),1),2);}else{$html.=htmlspecialchars($vars['id']??'',2);}$html.='"></iframe></span></span>';
 
 		return $html;
 	}
 
 	protected static function renderKickstarter($vars)
 	{
-		$vars+=['id'=>null,'video'=>null];$html='<span data-s9e-mediaembed="kickstarter" style="width:';if(isset($vars['video'])){$html.='64';}else{$html.='22';}$html.='0px"><span';if(isset($vars['video'])){$html.='><iframe allowfullscreen="" scrolling="no" src="//www.kickstarter.com/projects/'.htmlspecialchars($vars['id'],2).'/widget/video.html"></iframe>';}else{$html.=' style="padding-bottom:190.909091%"><iframe allowfullscreen="" scrolling="no" src="//www.kickstarter.com/projects/'.htmlspecialchars($vars['id'],2).'/widget/card.html"></iframe>';}$html.='</span></span>';
+		$vars+=['id'=>null,'video'=>null];$html='<span data-s9e-mediaembed="kickstarter" style="width:';if(isset($vars['video'])){$html.='64';}else{$html.='22';}$html.='0px"><span';if(isset($vars['video'])){$html.='><iframe allowfullscreen="" scrolling="no" src="//www.kickstarter.com/projects/'.htmlspecialchars($vars['id']??'',2).'/widget/video.html"></iframe>';}else{$html.=' style="padding-bottom:190.909091%"><iframe allowfullscreen="" scrolling="no" src="//www.kickstarter.com/projects/'.htmlspecialchars($vars['id']??'',2).'/widget/card.html"></iframe>';}$html.='</span></span>';
 
 		return $html;
 	}
 
 	protected static function renderSpreaker($vars)
 	{
-		$vars+=['episode_id'=>null,'show_id'=>null];$html='<iframe data-s9e-mediaembed="spreaker" allowfullscreen="" scrolling="no" src="https://widget.spreaker.com/player?episode_id='.htmlspecialchars($vars['episode_id'],2).'&amp;show_id='.htmlspecialchars($vars['show_id'],2).'&amp;theme='.htmlspecialchars(XF::app()->templater()->getStyle()->getProperty('styleType'),2).'" style="height:'.htmlspecialchars(400-200*isset($vars['episode_id']),2).'px;width:900px"></iframe>';
+		$vars+=['episode_id'=>null,'show_id'=>null];$html='<iframe data-s9e-mediaembed="spreaker" allowfullscreen="" scrolling="no" src="https://widget.spreaker.com/player?episode_id='.htmlspecialchars($vars['episode_id']??'',2).'&amp;show_id='.htmlspecialchars($vars['show_id']??'',2).'&amp;theme='.htmlspecialchars(XF::app()->templater()->getStyle()->getProperty('styleType'),2).'" style="height:'.htmlspecialchars(400-200*isset($vars['episode_id']),2).'px;width:900px"></iframe>';
 
 		return $html;
 	}

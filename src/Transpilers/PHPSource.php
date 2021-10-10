@@ -36,7 +36,7 @@ class PHPSource extends PHP implements TranspilerInterface
 
 		// Replace the variable names and DOM calls
 		$php = str_replace('$this->out', '$html', $php);
-		$php = preg_replace("(\\\$node->getAttribute\\(('[^']+')\\))", '$vars[$1]', $php);
+		$php = preg_replace("(\\\$node->getAttribute\\(('[^']+')\\))", '$vars[$1]??\'\'', $php);
 		$php = preg_replace("(\\\$node->hasAttribute\\(('[^']+')\\))", 'isset($vars[$1])', $php);
 
 		$php = "\$html='';" . $php;
