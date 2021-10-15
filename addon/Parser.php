@@ -44,7 +44,7 @@ class Parser
 	*/
 	protected static $sites = [
 		'abcnews'=>[['!abcnews\\.go\\.com/(?:video/embed\\?id=|[^/]+/video/[^/]+-)(?<id>\\d+)!']],
-		'acast'=>[['@play\\.acast\\.com/s/(?<show_id>[-.\\w]+)/(?<episode_id>[-.\\w]+)(?:\\?seek=(?<t>\\d+))?@','@shows\\.acast\\.com/(?<show_id>[-.\\w]+)/episodes/(?<episode_id>[-.\\w]+)(?:\\?seek=(?<t>\\d+))?@'],[],[['extract'=>['@"showId":"(?<show_id>[-0-9a-f]+)@','@"id":"(?<episode_id>[-0-9a-f]+)@'],'match'=>['@play\\.acast\\.com/s/[-.\\w]+/.@','@shows\\.acast\\.com/[-.\\w]+/episodes/.@'],'url'=>'https://feeder.acast.com/api/v1/shows/{@show_id}/episodes/{@episode_id}']]],
+		'acast'=>[['@play\\.acast\\.com/s/(?<show_id>[-.\\w]+)/(?<episode_id>[-.\\w]+)(?:\\?seek=(?<t>\\d+))?@','@shows\\.acast\\.com/(?<show_id>[-.\\w]+)/(?:episodes/)?(?<episode_id>[-.\\w]+)(?:\\?seek=(?<t>\\d+))?@'],[],[['extract'=>['@"showId":"(?<show_id>[-0-9a-f]+)@','@"id":"(?<episode_id>[-0-9a-f]+)@'],'match'=>['@play\\.acast\\.com/s/[-.\\w]+/.@','@shows\\.acast\\.com/[-.\\w]+/.@'],'url'=>'https://feeder.acast.com/api/v1/shows/{@show_id}/episodes/{@episode_id}']]],
 		'amazon'=>[['#/(?:dp|gp/product)/(?<id>[A-Z0-9]+)#','#amazon\\.(?:co\\.)?(?<tld>ca|de|es|fr|in|it|jp|uk)#'],['id']],
 		'anchor'=>[['@anchor.fm/(?:[-\\w]+/)*?episodes/(?:[-\\w]+-)(?<id>\\w+)(?![-\\w])@']],
 		'applepodcasts'=>[['@podcasts\\.apple\\.com/(?<country>\\w+)/podcast/[-\\w]*/id(?<podcast_id>\\d+)(?:\\?i=(?<episode_id>\\d+))?@']],
@@ -160,7 +160,7 @@ class Parser
 		'veoh'=>[['!veoh\\.com/(?:m/watch\\.php\\?v=|watch/)v(?<id>\\w+)!']],
 		'vevo'=>[['!vevo\\.com/watch/(.*?/)?(?<id>[A-Z]+\\d+)!']],
 		'videodetective'=>[['!videodetective\\.com/\\w+/[-\\w]+/(?:trailer/P0*)?(?<id>\\d+)!']],
-		'vimeo'=>[['!vimeo\\.com/(?:channels/[^/]+/|video/)?(?<id>\\d+)!','!#t=(?<t>[\\dhms]+)!'],[],[],['t'=>['s9e\\MediaSites\\Helper::filterTimestamp']]],
+		'vimeo'=>[['!vimeo\\.com/(?:channels/[^/]+/|video/)?(?<id>\\d+)\\b!','!#t=(?<t>[\\dhms]+)!'],[],[],['t'=>['s9e\\MediaSites\\Helper::filterTimestamp']]],
 		'vine'=>[['!vine\\.co/v/(?<id>[^/]+)!']],
 		'vk'=>[['!vk(?:\\.com|ontakte\\.ru)/(?:[\\w.]+\\?z=)?video(?<oid>-?\\d+)_(?<vid>\\d+).*?hash=(?<hash>[0-9a-f]+)!','!vk(?:\\.com|ontakte\\.ru)/video_ext\\.php\\?oid=(?<oid>-?\\d+)&id=(?<vid>\\d+)&hash=(?<hash>[0-9a-f]+)!'],[],[['extract'=>['#meta property="og:video" content=".*?oid=(?<oid>-?\\d+).*?id=(?<vid>\\d+).*?hash=(?<hash>[0-9a-f]+)#'],'header'=>'User-agent: Mozilla/5.0 (X11; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0','match'=>['#^(?!.*?hash=)#']]]],
 		'vocaroo'=>[['!voca(?:\\.ro|roo\\.com)/(?:i/)?(?<id>\\w+)!']],
