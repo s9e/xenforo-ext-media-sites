@@ -37,19 +37,19 @@
     <relation group_id="s9e_MediaSites" display_order="108"/>
   </option>
   <option option_id="s9e_MediaSites_Amazon_Link" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification">
-    <default_value></default_value>
+    <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="3"/>
   </option>
   <option option_id="s9e_MediaSites_ClickToLoad" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateClickToLoad">
-    <default_value></default_value>
+    <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="9"/>
   </option>
   <option option_id="s9e_MediaSites_ClickToLoad_Oembed" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateClickToLoadOembed">
-    <default_value></default_value>
+    <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="10"/>
   </option>
   <option option_id="s9e_MediaSites_Facebook_Background" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification">
-    <default_value></default_value>
+    <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="4"/>
   </option>
   <option option_id="s9e_MediaSites_Footer" edit_format="radio" data_type="string" validation_class="s9e\MediaSites\Setup" validation_method="validateFooter">
@@ -59,7 +59,7 @@ hide={{ phrase('option.s9e_MediaSites_Footer_Hide') }}</edit_format_params>
     <relation group_id="s9e_MediaSites" display_order="1"/>
   </option>
   <option option_id="s9e_MediaSites_Full_Width_Embeds" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification">
-    <default_value></default_value>
+    <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="8"/>
   </option>
   <option option_id="s9e_MediaSites_Miniplayer" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification">
@@ -67,15 +67,15 @@ hide={{ phrase('option.s9e_MediaSites_Footer_Hide') }}</edit_format_params>
     <relation group_id="s9e_MediaSites" display_order="2"/>
   </option>
   <option option_id="s9e_MediaSites_Native_GIFs" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateNativePlayer">
-    <default_value></default_value>
+    <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="6"/>
   </option>
   <option option_id="s9e_MediaSites_Native_Paused" edit_format="onoff" data_type="boolean">
-    <default_value></default_value>
+    <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="7"/>
   </option>
   <option option_id="s9e_MediaSites_YouTube_Privacy" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification">
-    <default_value></default_value>
+    <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="5"/>
   </option>
 </options>
