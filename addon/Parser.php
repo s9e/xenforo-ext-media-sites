@@ -308,6 +308,17 @@ class Parser
 		return $vars;
 	}
 
+	public static function convertMediaTag(string $url, string $markup, bool $unfurl): string
+	{
+		if (preg_match('(^\\[MEDIA=(\\w+)\\]([^\\s"\\[]+)\\[/MEDIA\\])i', $markup, $m))
+		{
+			$attr   = ($unfurl) ? ' unfurl="true"' : '';
+			$markup = '[URL' . $attr . ' media="' . $m[1] . ':' . $m[2] . '"]' . $url . '[/URL]';
+		}
+
+		return $markup;
+	}
+
 	/**
 	* Filter an array of vars with through an array of callbacks
 	*

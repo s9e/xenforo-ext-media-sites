@@ -18,6 +18,9 @@
   <phrase title="option.s9e_MediaSites_Footer_Hide" version_id="2060570" version_string="2.6.5"><![CDATA[I do not want to display a link to this add-on]]></phrase>
   <phrase title="option.s9e_MediaSites_Footer_Show" version_id="2060570" version_string="2.6.5"><![CDATA[I want to display a link to this add-on in the page footer]]></phrase>
   <phrase title="option.s9e_MediaSites_Full_Width_Embeds" version_id="2031870" version_string="2.3.18"><![CDATA[Enable full-width embeds by default]]></phrase>
+  <phrase title="option.s9e_MediaSites_Markup" version_id="2063870" version_string="2.6.38"><![CDATA[Media embeds BB code]]></phrase>
+  <phrase title="option.s9e_MediaSites_Markup_Default" version_id="2063870" version_string="2.6.38"><![CDATA[Use the default <code>[MEDIA]</code> BB code]]></phrase>
+  <phrase title="option.s9e_MediaSites_Markup_Url" version_id="2063870" version_string="2.6.38"><![CDATA[Use a custom <code>[URL]</code> BB code with a <code>media</code> attribute]]></phrase>
   <phrase title="option.s9e_MediaSites_Miniplayer" version_id="2030070" version_string="2.3.0"><![CDATA[Add a miniplayer button to supported video players in wide layout]]></phrase>
   <phrase title="option.s9e_MediaSites_Native_GIFs" version_id="2050055" version_string="2.5.0 Release Candidate 5"><![CDATA[Replace GIF-like embeds with a native player where possible]]></phrase>
   <phrase title="option.s9e_MediaSites_Native_Paused" version_id="2050055" version_string="2.5.0 Release Candidate 5"><![CDATA[Disable autoplay in native players]]></phrase>
@@ -37,6 +40,7 @@
   <phrase title="option_explain.s9e_MediaSites_Facebook_Background" version_id="2020170" version_string="2.2.1"><![CDATA[]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_Footer" version_id="2001370" version_string="2.0.13"><![CDATA[You may also choose to support the author directly with a voluntary donation <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=6P6985GT2DLGL">in EUR</a> or <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=ABGFV5AGE98AG">in USD</a>.]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_Full_Width_Embeds" version_id="2031870" version_string="2.3.18"><![CDATA[]]></phrase>
+  <phrase title="option_explain.s9e_MediaSites_Markup" version_id="2063870" version_string="2.6.38"><![CDATA[A custom <code>URL</code> BB code will be replaced with a rich media embed wherever possible and will remain as a link if the media site is disabled.]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_Miniplayer" version_id="2030070" version_string="2.3.0"><![CDATA[]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_Native_GIFs" version_id="2050055" version_string="2.5.0 Release Candidate 5"><![CDATA[Native videos have a simpler interface but they are not lazy-loaded and large video files may slow down the page.]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_Native_Paused" version_id="2050055" version_string="2.5.0 Release Candidate 5"><![CDATA[]]></phrase>

@@ -1,0 +1,28 @@
+If media site is disabled:
+ - prevent overloading at posting
+ - prevent rendering
+
+Toggle:
+ - globally?
+ - per-site?
+
+Behaviour when using the Add Media button in editor?
+-> It creates a [MEDIA] tag.
+
+Behaviour when "Do not auto-embed links from this site" is enabled?
+-> It creates a [URL] tag without the mediasite attribute.
+
+Implement the feature as a new choice for the autoEmbedMedia config? Complicated, and XenForo uses hardcoded magic values (1, 2, 3) to represent the option's state.
+
+
+Side-effects:
+ - May not obey the max media limit per message? Seems like it does.
+ - Links pasted in XFMG?
+
+Consider using [MEDIA=youtube url=https://...]...[/MEDIA]
+
+Media embeds appear as links in the rich text editor if unfurl is disabled.
+-> The embed will be reparsed every time the post is edited. Potential issues with media sites that require scraping but low risk overall.
+
+Unfurl only applies to URLs that are alone on a line but links created by this feature can have unfurl blocks anywhere.
+
