@@ -17,7 +17,8 @@ class Editor extends XFCP_Editor
 		$view    = parent::actionMedia();
 		$params  = $view->getJsonParams();
 		$options = XF::options();
-		if (isset($params['matchBbCode']) && $options->s9e_MediaSites_Markup === 'url')
+		if (isset($params['matchBbCode'], $options->s9e_MediaSites_Markup)
+		 && $options->s9e_MediaSites_Markup === 'url')
 		{
 			$url    = $this->filter('url', 'str');
 			$markup = $params['matchBbCode'];

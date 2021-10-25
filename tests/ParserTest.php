@@ -33,6 +33,23 @@ class ParserTest extends TestCase
 		$this->assertFalse(Parser::match('', '', new BbCodeMediaSite, 'unknown'));
 	}
 
+	public function testMediaUrl()
+	{
+		$siteId   = 'youtube';
+		$url      = 'https://www.youtube.com/watch?v=k-baHBzWe4k&list=PL590L5WQmH8cGD7hVGK_YvAUWdXKfGLJ1';
+		$mediaKey = Parser::match($url, '', new BbCodeMediaSite, $siteId);
+		$markup   = '[MEDIA=' . $siteId . ']' . $mediaKey . '[/MEDIA]';
+
+		$this->assertEquals(
+			'[URL media="' . $siteId . ':' . $mediaKey . '"]' . $url . '[/URL]',
+			Parser::convertMediaTag($url, $markup, false)
+		);
+		if (strpos($markup, ' ') === false)
+		{
+			$this->markTestIncomplete();
+		}
+	}
+
 	/**
 	* @dataProvider getMatchTests
 	*/

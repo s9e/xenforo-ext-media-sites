@@ -62,7 +62,7 @@ hide={{ phrase('option.s9e_MediaSites_Footer_Hide') }}</edit_format_params>
     <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="106"/>
   </option>
-  <option option_id="s9e_MediaSites_Markup" edit_format="radio" data_type="string">
+  <option option_id="s9e_MediaSites_Markup" edit_format="radio" data_type="string" validation_class="s9e\MediaSites\Setup" validation_method="validateMarkup">
     <default_value>media</default_value>
     <edit_format_params>media={{ phrase('option.s9e_MediaSites_Markup_Default') }}
 url={{ phrase('option.s9e_MediaSites_Markup_Url') }}</edit_format_params>

@@ -116,6 +116,11 @@ class Setup extends AbstractSetup
 		return true;
 	}
 
+	public static function validateMarkup($newValue, Option $option)
+	{
+		return ($newValue === 'media' || XF::$versionId >= 2010000);
+	}
+
 	public static function validateNativePlayer($newValue, Option $option)
 	{
 		$siteIds = ['gfycat', 'gifs', 'giphy'];

@@ -26,3 +26,16 @@ Media embeds appear as links in the rich text editor if unfurl is disabled.
 
 Unfurl only applies to URLs that are alone on a line but links created by this feature can have unfurl blocks anywhere.
 
+----------------------------
+
+Post editor, different behaviours when switching between text mode and RTE.
+
+  [URL unfurl="true" media="youtube:NpwrZ5ZJ_n4"]https://www.youtube.com/watch?v=NpwrZ5ZJ_n4[/URL]
+  [URL media="youtube:NpwrZ5ZJ_n4"]https://www.youtube.com/watch?v=NpwrZ5ZJ_n4[/URL]
+
+
+Disable on XF 2.0.
+
+Consider [url="media://youtube/NpwrZ5ZJ_n4"]
+         [url="data:x-media/youtube,NpwrZ5ZJ_n4"]
+         [url="data:media/x.youtube,NpwrZ5ZJ_n4"]
