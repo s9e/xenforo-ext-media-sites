@@ -284,6 +284,15 @@ $0]]></replace>
 }
 $0]]></replace>
   </modification>
+  <modification type="public" template="xfmg_media_add.less" modification_key="s9e_MediaSites_InsertMediaScroller_XFMG" description="Adds a scrollbar to the list of media sites in the Insert Media dialog in XFMG" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[(^)]]></find>
+    <replace><![CDATA[form[action*="media/embed-media"] ul.listInline
+{
+	max-height: 33vh;
+	overflow-y: scroll;
+}
+$0]]></replace>
+  </modification>
   <modification type="public" template="xfmg_media_list.less" modification_key="s9e_MediaSites_XFMG" description="Removes the size limits of embedded media in XFMG" execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[(^)]]></find>
     <replace><![CDATA[/* XFMG 2.1 */
