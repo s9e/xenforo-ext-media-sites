@@ -2,4 +2,8 @@
 <class_extensions>
   <extension from_class="XF\Admin\Controller\BbCodeMediaSite" to_class="s9e\MediaSites\XF\Admin\Controller\BbCodeMediaSite" execute_order="10" active="1"/>
   <extension from_class="XF\BbCode\ProcessorAction\AutoLink" to_class="s9e\MediaSites\XF\BbCode\ProcessorAction\AutoLink" execute_order="10" active="1"/>
+  <extension from_class="XF\BbCode\Renderer\EditorHtml" to_class="s9e\MediaSites\XF\BbCode\Renderer\EditorHtml" execute_order="10" active="1"/>
+  <extension from_class="XF\BbCode\Renderer\Html" to_class="s9e\MediaSites\XF\BbCode\Renderer\Html" execute_order="10" active="1"/>
+  <extension from_class="XF\Pub\Controller\Editor" to_class="s9e\MediaSites\XF\Pub\Controller\Editor" execute_order="10" active="1"/>
+  <extension from_class="XF\Repository\Option" to_class="s9e\MediaSites\XF\Repository\Option" execute_order="10" active="1"/>
 </class_extensions>

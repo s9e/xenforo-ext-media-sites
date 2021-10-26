@@ -8,6 +8,7 @@
 namespace s9e\MediaSites\XF\BbCode\ProcessorAction;
 
 use XF\App;
+use s9e\MediaSites\Parser;
 
 class AutoLink extends XFCP_AutoLink
 {
@@ -21,5 +22,17 @@ class AutoLink extends XFCP_AutoLink
 			}
 		}
 		parent::__construct($app, $config);
+	}
+
+	public function autoLinkUrl($url)
+	{
+		$markup = parent::autoLinkUrl($url);
+		if ($this->app->options()->s9e_MediaSites_Markup === 'url')
+		{
+			$unfurl = !empty($this->urlToRichPreview);
+			$markup = Parser::convertMediaTag($url, $markup, $unfurl);
+		}
+
+		return $markup;
 	}
 }
