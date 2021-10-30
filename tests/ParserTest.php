@@ -274,6 +274,14 @@ class ParserTest extends TestCase
 				'https://www.youtube.com/about',
 				false
 			],
+			[
+				'HTTPS://youtu.be/QH2-TGUlwu4',
+				'QH2-TGUlwu4'
+			],
+			[
+				'https://YOUTU.BE/QH2-TGUlwu4',
+				'QH2-TGUlwu4'
+			],
 		];
 	}
 }

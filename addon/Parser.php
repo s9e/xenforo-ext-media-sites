@@ -194,6 +194,7 @@ class Parser
 		}
 
 		$config = self::$sites[$siteId] + [[], [], [], []];
+		$url    = self::normalizeUrl($url);
 		$vars   = [];
 		self::addNamedCaptures($vars, $url, $config[0]);
 		foreach ($config[2] as $scrapeConfig)
@@ -368,6 +369,19 @@ class Parser
 			},
 			$str
 		);
+	}
+
+	/**
+	* Normalize the origin part of given URL to lowercase
+	*/
+	protected static function normalizeUrl(string $url): string
+	{
+		if (preg_match('(^(\\w++:/++[^/]++)(/.++))', $url, $m))
+		{
+			$url = strtolower($m[1]) . $m[2];
+		}
+
+		return $url;
 	}
 
 	/**
