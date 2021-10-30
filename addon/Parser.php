@@ -10,6 +10,7 @@ namespace s9e\MediaSites;
 use XF;
 use XF\BbCode\Helper\Flickr;
 use XF\Entity\BbCodeMediaSite;
+use XF\Repository\Unfurl;
 
 class Parser
 {
@@ -308,11 +309,17 @@ class Parser
 		return $vars;
 	}
 
-	public static function convertMediaTag(string $url, string $markup, bool $unfurl): string
+	public static function convertMediaTag(string $url, string $markup, ?Unfurl $unfurl): string
 	{
 		if (preg_match('(^\\[MEDIA=(\\w++)\\]([^"\\[]++)\\[/MEDIA\\])i', $markup, $m))
 		{
-			$attr   = ($unfurl) ? ' unfurl="true"' : '';
+			$attr = '';
+			if (isset($unfurl))
+			{
+				$attr = ' unfurl="true"';
+				$unfurl->logPendingUnfurl($url);
+			}
+
 			$markup = '[URL' . $attr . ' media="' . $m[1] . ':' . $m[2] . '"]' . $url . '[/URL]';
 		}
 

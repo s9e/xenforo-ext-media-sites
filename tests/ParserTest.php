@@ -42,7 +42,7 @@ class ParserTest extends TestCase
 
 		$this->assertEquals(
 			'[URL media="' . $siteId . ':' . $mediaKey . '"]' . $url . '[/URL]',
-			Parser::convertMediaTag($url, $markup, false)
+			Parser::convertMediaTag($url, $markup, null)
 		);
 		if (strpos($markup, ' ') === false)
 		{

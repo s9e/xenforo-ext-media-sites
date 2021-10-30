@@ -22,7 +22,7 @@ class Editor extends XFCP_Editor
 		{
 			$url    = $this->filter('url', 'str');
 			$markup = $params['matchBbCode'];
-			$unfurl = $options->urlToRichPreview;
+			$unfurl = ($options->urlToRichPreview) ? $this->app->repository('XF:Unfurl') : null;
 
 			$params['matchBbCode'] = Parser::convertMediaTag($url, $markup, $unfurl);
 			$view->setJsonParams($params);
