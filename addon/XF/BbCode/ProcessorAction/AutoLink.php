@@ -26,8 +26,9 @@ class AutoLink extends XFCP_AutoLink
 
 	public function autoLinkUrl($url)
 	{
-		$markup = parent::autoLinkUrl($url);
-		if ($this->app->options()->s9e_MediaSites_Markup === 'url')
+		$markup  = parent::autoLinkUrl($url);
+		$options = $this->app->options();
+		if (isset($options->s9e_MediaSites_Markup) && $options->s9e_MediaSites_Markup === 'url')
 		{
 			$unfurl = (!empty($this->urlToRichPreview)) ? $this->app->repository('XF:Unfurl') : null;
 			$markup = Parser::convertMediaTag($url, $markup, $unfurl);
