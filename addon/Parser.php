@@ -25,6 +25,11 @@ class Parser
 	protected static $cache = [];
 
 	/**
+	* @var CurlHandle|resource
+	*/
+	protected static $curl;
+
+	/**
 	* @var array
 	*/
 	protected static $customFormats = [
@@ -352,6 +357,27 @@ class Parser
 		return $vars;
 	}
 
+	protected static function getCurl()
+	{
+		if (!isset(self::$curl))
+		{
+			self::$curl = curl_init();
+			curl_setopt(self::$curl, CURLOPT_ENCODING,       '');
+			curl_setopt(self::$curl, CURLOPT_FOLLOWLOCATION, true);
+			curl_setopt(self::$curl, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt(self::$curl, CURLOPT_SSL_VERIFYPEER, false);
+			curl_setopt(self::$curl, CURLOPT_HEADER,         true);
+
+			$http = XF::config('http');
+			if (!empty($http['proxy']))
+			{
+				curl_setopt(self::$curl, CURLOPT_PROXY, $http['proxy']);
+			}
+		}
+
+		return self::$curl;
+	}
+
 	/**
 	* Interpolate {@vars} in given string
 	*
@@ -489,7 +515,6 @@ class Parser
 	protected static function wget($url, $headers = [])
 	{
 		$url = preg_replace('(#.*)s', '', $url);
-
 		if (isset(self::$cache[$url]))
 		{
 			return self::$cache[$url];
@@ -523,22 +548,8 @@ class Parser
 	*/
 	protected static function wgetCurl($url, $headers = [])
 	{
-		static $curl;
-		if (!isset($curl))
-		{
-			$curl = curl_init();
-			curl_setopt($curl, CURLOPT_ENCODING,       '');
-			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-			curl_setopt($curl, CURLOPT_HEADER,         true);
+		$curl = self::getCurl();
 
-			$http = XF::config('http');
-			if (!empty($http['proxy']))
-			{
-				curl_setopt($curl, CURLOPT_PROXY, $http['proxy']);
-			}
-		}
 		curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($curl, CURLOPT_URL,        $url);
 
