@@ -24,11 +24,14 @@ class AutoLink extends XFCP_AutoLink
 		parent::__construct($app, $config);
 	}
 
+	/**
+	* @return ?string
+	*/
 	public function autoLinkUrl($url)
 	{
 		$markup  = parent::autoLinkUrl($url);
 		$options = $this->app->options();
-		if (isset($options->s9e_MediaSites_Markup) && $options->s9e_MediaSites_Markup === 'url')
+		if (isset($markup, $options->s9e_MediaSites_Markup) && $options->s9e_MediaSites_Markup === 'url')
 		{
 			$unfurl = (!empty($this->urlToRichPreview)) ? $this->app->repository('XF:Unfurl') : null;
 			$markup = Parser::convertMediaTag($url, $markup, $unfurl);
