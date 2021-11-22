@@ -39,6 +39,11 @@ class AddonBuilder
 	protected $dir;
 
 	/**
+	* @var string
+	*/
+	public $nsRoot = 's9e\\MediaSites';
+
+	/**
 	* @var array
 	*/
 	protected $params;
@@ -148,9 +153,9 @@ class AddonBuilder
 		$site->setAttribute('site_title',                 $siteConfig['name']);
 		$site->setAttribute('site_url',                   $siteConfig['homepage']);
 		$site->setAttribute('match_is_regex',             1);
-		$site->setAttribute('match_callback_class',       's9e\\MediaSites\\Parser');
+		$site->setAttribute('match_callback_class',       $this->nsRoot . '\\Parser');
 		$site->setAttribute('match_callback_method',      'match');
-		$site->setAttribute('embed_html_callback_class',  's9e\\MediaSites\\Renderer');
+		$site->setAttribute('embed_html_callback_class',  $this->nsRoot . '\\Renderer');
 		$site->setAttribute('embed_html_callback_method', 'render');
 		$site->setAttribute('supported',                  1);
 		$site->setAttribute('active',                     1);

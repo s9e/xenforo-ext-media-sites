@@ -193,12 +193,12 @@ class Parser
 	*/
 	public static function match($url, $matchedId, BbCodeMediaSite $site, $siteId)
 	{
-		if (empty(self::$sites[$siteId]))
+		if (empty(static::$sites[$siteId]))
 		{
 			return false;
 		}
 
-		$config = self::$sites[$siteId] + [[], [], [], []];
+		$config = static::$sites[$siteId] + [[], [], [], []];
 		$url    = self::normalizeUrl($url);
 		$vars   = [];
 		self::addNamedCaptures($vars, $url, $config[0]);
@@ -474,9 +474,9 @@ class Parser
 			return $vars['id'];
 		}
 
-		if (isset(self::$customFormats[$siteId]))
+		if (isset(static::$customFormats[$siteId]))
 		{
-			foreach (self::$customFormats[$siteId] as $format)
+			foreach (static::$customFormats[$siteId] as $format)
 			{
 				preg_match_all('(\\$(\\w+))', $format, $matches);
 				$customKeys = $matches[1];
