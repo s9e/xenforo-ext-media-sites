@@ -69,13 +69,13 @@ class Renderer
 		$siteId = strtolower($siteId);
 		$vars   = self::parseVars($mediaKey, $siteId);
 
-		if (isset(self::$defaultValues[$siteId]))
+		if (isset(static::$defaultValues[$siteId]))
 		{
-			$vars += self::$defaultValues[$siteId];
+			$vars += static::$defaultValues[$siteId];
 		}
 
 		// Use a PHP renderer if applicable
-		$callback = __CLASS__ . '::render' . ucfirst($siteId);
+		$callback = get_called_class() . '::render' . ucfirst($siteId);
 		if (is_callable($callback))
 		{
 			return call_user_func($callback, $vars);
@@ -203,9 +203,9 @@ class Renderer
 			$vars['id'] = $mediaKey;
 		}
 
-		if (isset(self::$customFormats[$siteId]))
+		if (isset(static::$customFormats[$siteId]))
 		{
-			foreach (self::$customFormats[$siteId] as $regexp)
+			foreach (static::$customFormats[$siteId] as $regexp)
 			{
 				// Add named captures from custom formats
 				preg_match($regexp, $mediaKey, $m);
@@ -213,15 +213,15 @@ class Renderer
 			}
 		}
 
-		$callback = __CLASS__ . '::adjustVars' . ucfirst($siteId);
+		$callback = get_called_class() . '::adjustVars' . ucfirst($siteId);
 		if (is_callable($callback))
 		{
 			$vars = call_user_func($callback, $vars);
 		}
 
-		if (isset(self::$filters[$siteId]))
+		if (isset(static::$filters[$siteId]))
 		{
-			foreach (self::$filters[$siteId] as $attrName => $filters)
+			foreach (static::$filters[$siteId] as $attrName => $filters)
 			{
 				if (!isset($vars[$attrName]))
 				{
