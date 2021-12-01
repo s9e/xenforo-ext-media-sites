@@ -75,14 +75,8 @@ class Setup extends AbstractSetup
 				{
 					return;
 				}
-				if ($table->getColumnDefinition('disable_auto_embed'))
-				{
-					$table->renameColumn('disable_auto_embed', 's9e_disable_auto_embed');
-				}
-				else
-				{
-					$table->addColumn('s9e_disable_auto_embed', 'tinyint')->setDefault(0);
-				}
+
+				$table->addColumn('s9e_disable_auto_embed', 'tinyint')->setDefault(0);
 			}
 		);
 	}
