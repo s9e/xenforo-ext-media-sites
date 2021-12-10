@@ -502,7 +502,12 @@ class Parser
 
 		// NOTE: XenForo silently nukes the mediaKey if it contains any HTML special characters,
 		//       that's why we use ; rather than the standard &
-		return implode(';', $pairs);
+		$str = implode(';', $pairs);
+
+		// XenForo rejects values that contain '..'
+		$str = str_replace('..', '%2E%2E', $str);
+
+		return $str;
 	}
 
 	/**
