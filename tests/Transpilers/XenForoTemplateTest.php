@@ -168,6 +168,14 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 				'<xsl:if test="$MEDIAEMBED_THEME=\'dark\'">.</xsl:if>',
 				"<xf:if is=\"property('styleType')=='dark'\">.</xf:if>"
 			],
+			[
+				'<xsl:value-of select="substring-after(@id,\'/\')"/>',
+				"{{ \$id|split('/')|last() }}"
+			],
+			[
+				'<xsl:value-of select="substring-before(@id,\'/headlines\')"/>',
+				"{{ \$id|split('/headlines')|first() }}"
+			],
 		];
 	}
 }

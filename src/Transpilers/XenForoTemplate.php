@@ -241,6 +241,9 @@ class XenForoTemplate implements TranspilerInterface
 			"(^not\\(contains\\(@(\\w+,'[^']+')\\)\\)$)D"       => '!contains($$1)',
 			"(^@(\\w+) or ?contains\\(@(\\w+,'[^']+')\\)$)D"    => '($$1 or contains($$2))',
 			"(^@(\\w+) and ?contains\\(('[^']+'),@(\\w+)\\)$)D" => '($$1 and contains($2,$$3))',
+
+			"(^substring-after\\(@(\\w+),('[^']+')\\)$)"  => '$$1|split($2)|last()',
+			"(^substring-before\\(@(\\w+),('[^']+')\\)$)" => '$$1|split($2)|first()',
 		];
 
 		$expr = html_entity_decode($expr);
