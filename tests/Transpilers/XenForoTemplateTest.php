@@ -154,11 +154,11 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 			],
 			[
 				'<xsl:if test="starts-with(@foo,\'abc\')">x</xsl:if>',
-				'<xf:if is="($foo >= \'abc\' && $foo < \'abd\')">x</xf:if>'
+				'<xf:if is="$foo|substr(0,3) = \'abc\'">x</xf:if>'
 			],
 			[
 				'<xsl:if test="starts-with(@foo,\'abc\')orstarts-with(@bar,\'xy\')">x</xsl:if>',
-				'<xf:if is="(($foo >= \'abc\' && $foo < \'abd\') or ($bar >= \'xy\' && $bar < \'xz\'))">x</xf:if>'
+				'<xf:if is="$foo|substr(0,3) = \'abc\' or $bar|substr(0,2) = \'xy\'">x</xf:if>'
 			],
 			[
 				'<hr data-x="{$MEDIAEMBED_THEME}"/>',

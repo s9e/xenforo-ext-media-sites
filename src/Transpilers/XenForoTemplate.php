@@ -194,7 +194,7 @@ class XenForoTemplate implements TranspilerInterface
 	*/
 	protected static function convertStartsWith(string $attrName, string $str): string
 	{
-		return '($' . $attrName . " >= '" . $str . '\' && $' . $attrName . " < '" . substr($str, 0, -1) . chr(1 + ord($str[-1])) . "')";
+		return '$' . $attrName . '|substr(0,' . strlen($str) . ') = ' . var_export($str, true);
 	}
 
 	/**
@@ -212,7 +212,7 @@ class XenForoTemplate implements TranspilerInterface
 				$expr = self::convertStartsWith($m[1], $m[2]);
 				if (isset($m[3]))
 				{
-					$expr = '(' . $expr . ' or ' . self::convertStartsWith($m[3], $m[4]) . ')';
+					$expr .= ' or ' . self::convertStartsWith($m[3], $m[4]);
 				}
 
 				return $expr;
