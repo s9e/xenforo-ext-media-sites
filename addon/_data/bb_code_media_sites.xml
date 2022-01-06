@@ -380,7 +380,7 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*strawpoll\.me/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="strawpoll"><span><iframe allowfullscreen="" scrolling="" src="//www.strawpoll.me/embed_1/{$id}"></iframe></span></span>]]></embed_html>
   </site>
-  <site media_site_id="streamable" site_title="Streamable" site_url="https://streamable.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+  <site media_site_id="streamable" site_title="Streamable" site_url="https://streamable.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://api.streamable.com/oembed.json" oembed_url_scheme="https://streamable.com/{$id}" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*streamable\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="streamable"><span><iframe allowfullscreen="" scrolling="no" src="//streamable.com/e/{$id}"></iframe></span></span>]]></embed_html>
   </site>
