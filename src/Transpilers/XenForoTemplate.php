@@ -194,7 +194,7 @@ class XenForoTemplate implements TranspilerInterface
 	*/
 	protected static function convertStartsWith(string $attrName, string $str): string
 	{
-		return '$' . $attrName . '|substr(0,' . strlen($str) . ') = ' . var_export($str, true);
+		return '$' . $attrName . '|substr(0,' . strlen($str) . ') == ' . var_export($str, true);
 	}
 
 	/**
