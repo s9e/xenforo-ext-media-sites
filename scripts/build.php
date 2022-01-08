@@ -5,16 +5,21 @@ use s9e\AddonBuilder\MediaSites\AddonBuilder;
 use s9e\TextFormatter\Configurator;
 use s9e\TextFormatter\Plugins\MediaEmbed\Configurator\Collections\XmlFileDefinitionCollection;
 
-include_once __DIR__ . '/../vendor/autoload.php';
+$rootDir = realpath(__DIR__);
+while (!file_exists($rootDir . '/vendor'))
+{
+	$rootDir = dirname($rootDir);
+}
 
-$addonId  = $_SERVER['ADDON_ID']  ?? 's9e/MediaSites';
-$addonDir = $_SERVER['ADDON_DIR'] ?? __DIR__ . '/../addon';
-$sitesDir = $_SERVER['SITES_DIR'] ?? null;
+require_once $rootDir . '/vendor/autoload.php';
 
 $configurator = new Configurator;
-if (isset($sitesDir))
+
+$addonId  = $_SERVER['argv'][1] ?? 's9e/MediaSites';
+$addonDir = $rootDir . '/addon';
+if (file_exists($rootDir . '/sites'))
 {
-	$configurator->MediaEmbed->defaultSites = new XmlFileDefinitionCollection($sitesDir);
+	$configurator->MediaEmbed->defaultSites = new XmlFileDefinitionCollection($rootDir . '/sites');
 }
 
 $builder = new AddonBuilder($addonDir, $configurator);
