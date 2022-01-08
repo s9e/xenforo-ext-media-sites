@@ -26,5 +26,9 @@
 			"s9e\\AddonBuilder\\MediaSites\\Tests\\": "tests",
 			"s9e\\MediaSites\\Tests\\": "tests"
 		}
+	},
+	"scripts": {
+		"build":   "php scripts/build.php",
+		"release": "scripts/release.sh"
 	}
 }
