@@ -1,6 +1,7 @@
 #!/bin/bash
 
-addonId="${1-s9e/MediaSites}"
+line="$(grep -o 'title":\s*"[A-Za-z0-9/]*' addon/addon.json)"
+addonId="${line##*\"}"
 
 cd "$(dirname $0)/.."
 php scripts/build.php                                  || exit

@@ -11,12 +11,12 @@ while (!file_exists($rootDir . '/vendor'))
 	$rootDir = dirname($rootDir);
 }
 
+$addonDir = $rootDir . '/addon';
+$addonId  = json_decode(file_get_contents($addonDir . '/addon.json'))->title;
+
 require_once $rootDir . '/vendor/autoload.php';
 
 $configurator = new Configurator;
-
-$addonId  = $_SERVER['argv'][1] ?? 's9e/MediaSites';
-$addonDir = $rootDir . '/addon';
 if (file_exists($rootDir . '/sites'))
 {
 	$configurator->MediaEmbed->defaultSites = new XmlFileDefinitionCollection($rootDir . '/sites');
