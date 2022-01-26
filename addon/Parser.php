@@ -15,11 +15,6 @@ use XF\Repository\Unfurl;
 class Parser
 {
 	/**
-	* @var string
-	*/
-	public static $cacheDir;
-
-	/**
 	* @var array Volatile cache used for scraping
 	*/
 	protected static $cache = [];
@@ -448,7 +443,7 @@ class Parser
 			}
 
 			$headers = (isset($config['header'])) ? (array) $config['header'] : [];
-			$body    = self::wget($url, $headers);
+			$body    = static::wget($url, $headers);
 
 			self::addNamedCaptures($vars, $body, $config['extract']);
 		}
@@ -517,31 +512,15 @@ class Parser
 	* @param  string[] $headers Extra request headers
 	* @return string            Response body
 	*/
-	protected static function wget($url, $headers = [])
+	protected static function wget($url, $headers = []): string
 	{
 		$url = preg_replace('(#.*)s', '', $url);
-		if (isset(self::$cache[$url]))
+		if (!isset(self::$cache[$url]))
 		{
-			return self::$cache[$url];
-		}
-
-		// Return the content from the cache if applicable
-		if (isset(self::$cacheDir) && file_exists(self::$cacheDir))
-		{
-			$cacheFile = self::$cacheDir . '/http.' . crc32(serialize([$url, $headers])) . '.html';
-			if (file_exists($cacheFile))
-			{
-				return file_get_contents($cacheFile);
-			}
-		}
-
-		$http = XF::config('http');
-		self::$cache[$url] = (isset($http['s9e.client']) && $http['s9e.client'] === 'guzzle')
-			               ? self::wgetGuzzle($url, $headers)
-		                   : self::wgetCurl($url, $headers);
-		if (self::$cache[$url] && isset($cacheFile))
-		{
-			file_put_contents($cacheFile, self::$cache[$url]);
+			$http = XF::config('http');
+			self::$cache[$url] = (isset($http['s9e.client']) && $http['s9e.client'] === 'guzzle')
+			                   ? self::wgetGuzzle($url, $headers)
+			                   : self::wgetCurl($url, $headers);
 		}
 
 		return self::$cache[$url];
@@ -554,14 +533,14 @@ class Parser
 	* @param  string[] $headers Extra request headers
 	* @return string            Full response (headers + body)
 	*/
-	protected static function wgetCurl($url, $headers = [])
+	protected static function wgetCurl($url, $headers = []): string
 	{
 		$curl = self::getCurl();
 
 		curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($curl, CURLOPT_URL,        $url);
 
-		return curl_exec($curl);
+		return (string) curl_exec($curl);
 	}
 
 	/**
