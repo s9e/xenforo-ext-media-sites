@@ -31,6 +31,10 @@ class XF
 	{
 		return new self;
 	}
+	public function client()
+	{
+		return new GuzzleHttp\Client;
+	}
 	public static function config($key)
 	{
 		return self::$config[$key] ?? null;
@@ -40,6 +44,10 @@ class XF
 		return self::$styleProperties[$name] ?? '';
 	}
 	public function getStyle()
+	{
+		return $this;
+	}
+	public function http()
 	{
 		return $this;
 	}

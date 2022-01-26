@@ -535,7 +535,10 @@ class Parser
 			}
 		}
 
-		self::$cache[$url] = self::wgetCurl($url, $headers);
+		$http = XF::config('http');
+		self::$cache[$url] = (isset($http['s9e.client']) && $http['s9e.client'] === 'guzzle')
+			               ? self::wgetGuzzle($url, $headers)
+		                   : self::wgetCurl($url, $headers);
 		if (self::$cache[$url] && isset($cacheFile))
 		{
 			file_put_contents($cacheFile, self::$cache[$url]);
@@ -549,7 +552,7 @@ class Parser
 	*
 	* @param  string   $url     Request URL
 	* @param  string[] $headers Extra request headers
-	* @return string            Response body
+	* @return string            Full response (headers + body)
 	*/
 	protected static function wgetCurl($url, $headers = [])
 	{
@@ -559,5 +562,37 @@ class Parser
 		curl_setopt($curl, CURLOPT_URL,        $url);
 
 		return curl_exec($curl);
+	}
+
+	/**
+	* Retrieve content from given URL via Guzzle
+	*
+	* @param  string   $url     Request URL
+	* @param  string[] $headers Extra request headers
+	* @return string            Full response (headers + body)
+	*/
+	protected static function wgetGuzzle(string $url, array $headers = []): string
+	{
+		$options = [];
+		foreach ($headers as $header)
+		{
+			if (preg_match('(^([-\\w]++):\\s*+(.++))', $header, $m))
+			{
+				$options['headers'][$m[1]][] = $m[2];
+			}
+		}
+		$response = XF::app()->http()->client()->get($url, $options);
+
+		$return = '';
+		foreach ($response->getHeaders() as $name => $values)
+		{
+			foreach ($values as $value)
+			{
+				$return .= $name . ': ' . $value . "\n";
+			}
+		}
+		$return .= "\n" . $response->getBody();
+
+		return $return;
 	}
 }

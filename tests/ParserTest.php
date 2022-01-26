@@ -4,6 +4,7 @@ namespace s9e\MediaSites\Tests;
 
 use DOMDocument;
 use PHPUnit\Framework\TestCase;
+use XF;
 use XF\Entity\BbCodeMediaSite;
 use s9e\MediaSites\Parser;
 
@@ -53,8 +54,10 @@ class ParserTest extends TestCase
 	/**
 	* @dataProvider getMatchTests
 	*/
-	public function testMatch($url, $expected)
+	public function testMatch($url, $expected, array $config = [])
 	{
+		XF::$config = $config;
+
 		$mediaKey = false;
 		foreach (self::$sites as $siteId => $regexp)
 		{
@@ -215,6 +218,15 @@ class ParserTest extends TestCase
 			[
 				'https://www.tiktok.com/@lauren.feagans/video/6789430799839104261',
 				'6789430799839104261'
+			],
+			[
+				'https://vm.tiktok.com/TTPdrc3YBJ?1',
+				'7050192414379691270'
+			],
+			[
+				'https://vm.tiktok.com/TTPdrc3YBJ?2',
+				'7050192414379691270',
+				['http' => ['s9e.client' => 'guzzle']]
 			],
 			[
 				'http://www.twitch.tv/twitch',
