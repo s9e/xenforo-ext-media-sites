@@ -7,6 +7,7 @@
 */
 namespace s9e\MediaSites;
 
+use Exception;
 use XF;
 use XF\BbCode\Helper\Flickr;
 use XF\Entity\BbCodeMediaSite;
@@ -199,7 +200,14 @@ class Parser
 		self::addNamedCaptures($vars, $url, $config[0]);
 		foreach ($config[2] as $scrapeConfig)
 		{
-			$vars = self::scrape($vars, $url, $scrapeConfig);
+			try
+			{
+				$vars = self::scrape($vars, $url, $scrapeConfig);
+			}
+			catch (Exception $e)
+			{
+				// Do nothing
+			}
 		}
 
 		$vars = self::filterVars($vars, $config[3]);
