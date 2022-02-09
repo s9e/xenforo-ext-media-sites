@@ -200,14 +200,7 @@ class Parser
 		self::addNamedCaptures($vars, $url, $config[0]);
 		foreach ($config[2] as $scrapeConfig)
 		{
-			try
-			{
-				$vars = self::scrape($vars, $url, $scrapeConfig);
-			}
-			catch (Exception $e)
-			{
-				// Do nothing
-			}
+			$vars = self::scrape($vars, $url, $scrapeConfig);
 		}
 
 		$vars = self::filterVars($vars, $config[3]);
@@ -451,7 +444,18 @@ class Parser
 			}
 
 			$headers = (isset($config['header'])) ? (array) $config['header'] : [];
-			$body    = static::wget($url, $headers);
+
+			try
+			{
+				$body = static::wget($url, $headers);
+			}
+			catch (Exception $e)
+			{
+				if (!empty(XF::$debugMode))
+				{
+					XF::logException($e, false, 'Scraping error: ');
+				}
+			}
 
 			self::addNamedCaptures($vars, $body, $config['extract']);
 		}

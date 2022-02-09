@@ -11,9 +11,9 @@
 		"s9e/text-formatter": "dev-master"
 	},
 	"require-dev": {
-		"phpunit/phpunit":      "*",
-		"s9e/regexp-builder":   "^1.3",
-		"guzzlehttp/guzzle": "^7.4"
+		"phpunit/phpunit":    "*",
+		"s9e/regexp-builder": "^1.3",
+		"guzzlehttp/guzzle":  "^7.4"
 	},
 	"autoload": {
 		"psr-4": {
