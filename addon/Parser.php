@@ -445,9 +445,10 @@ class Parser
 
 			$headers = (isset($config['header'])) ? (array) $config['header'] : [];
 
+			$response = '';
 			try
 			{
-				$body = static::wget($url, $headers);
+				$response = static::wget($url, $headers);
 			}
 			catch (Exception $e)
 			{
@@ -457,7 +458,7 @@ class Parser
 				}
 			}
 
-			self::addNamedCaptures($vars, $body, $config['extract']);
+			self::addNamedCaptures($vars, $response, $config['extract']);
 		}
 
 		return $vars;
@@ -522,7 +523,7 @@ class Parser
 	*
 	* @param  string   $url     Request URL
 	* @param  string[] $headers Extra request headers
-	* @return string            Response body
+	* @return string            Full response (headers + body)
 	*/
 	protected static function wget($url, $headers = []): string
 	{
