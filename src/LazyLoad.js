@@ -38,10 +38,12 @@
 
 	function prepareEvents(fn)
 	{
-		fn('click',  scheduleRefresh);
-		fn('load',   scheduleRefresh);
-		fn('resize', scheduleRefresh);
-		fn('scroll', scheduleRefresh, true);
+		const options = { 'capture': true, 'passive': true };
+
+		fn('click',  scheduleRefresh, options);
+		fn('load',   scheduleRefresh, options);
+		fn('resize', scheduleRefresh, options);
+		fn('scroll', scheduleRefresh, options);
 	}
 
 	function isInRange(element)
