@@ -9,9 +9,26 @@ namespace s9e\MediaSites\XF\BbCode\ProcessorAction;
 
 use XF;
 use XF\BbCode\Processor;
+use XF\BbCode\ProcessorAction\AnalyzerHooks;
 
 class AnalyzeUsage extends XFCP_AnalyzeUsage
 {
+    public function addAnalysisHooks(AnalyzerHooks $hooks)
+    {
+        if ((\XF::options()->s9e_MediaSites_Markup ?? '') === 'url')
+        {
+            $hooks->addTagHook('url', 'analyzeS9eUrlMediaTag');
+        }
+    }
+
+    public function analyzeS9eUrlMediaTag(array $tag, array $options, $finalOutput)
+    {
+        if ((($tag['option']['media'] ?? '') !== '') && (\strtolower($tag['option']['unfurl'] ?? '') === 'true'))
+        {
+            $this->tagCount['media'] = ($this->tagCount['media'] ?? 0) + 1;
+        }
+    }
+
 	public function analyzeUnfurlUsage($string, Processor $processor)
 	{
 		parent::analyzeUnfurlUsage($string, $processor);
