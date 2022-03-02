@@ -15,6 +15,8 @@ class AnalyzeUsage extends XFCP_AnalyzeUsage
 {
     public function addAnalysisHooks(AnalyzerHooks $hooks)
     {
+        parent::addAnalysisHooks($hooks);
+
         if ((\XF::options()->s9e_MediaSites_Markup ?? '') === 'url')
         {
             $hooks->addTagHook('url', 'analyzeS9eUrlMediaTag');
