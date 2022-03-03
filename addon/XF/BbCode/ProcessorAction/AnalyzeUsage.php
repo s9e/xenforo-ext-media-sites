@@ -14,22 +14,11 @@ class AnalyzeUsage extends XFCP_AnalyzeUsage
 {
 	public function analyzeUnfurlUsage($string, Processor $processor)
 	{
+		// Remove the media attribute from [URL unfurl="true" tags to make them look like regular
+		// links. It doesn't need to be exact as the modified string is not used anywhere else
+		$regexp = '(\\[URL\\s+unfurl="true"\\K\\s+media="[^"]*+")i';
+		$string = preg_replace($regexp, '', $string);
+
 		parent::analyzeUnfurlUsage($string, $processor);
-
-		$regexp = '(^\\[URL\\s+unfurl="true"(?:\\s+\\w++="[^"]*+")*+\\](.*?)\\[/URL\\])i';
-		if (!preg_match_all($regexp, $string, $m))
-		{
-			return;
-		}
-
-		$unfurlRepo = XF::repository('XF:Unfurl');
-		foreach ($m[1] as $url)
-		{
-			$unfurl = $unfurlRepo->getUnfurlResultByUrl($url);
-			if ($unfurl)
-			{
-				$this->unfurls[$unfurl->result_id] = $unfurl->result_id;
-			}
-		}
 	}
 }
