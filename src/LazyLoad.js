@@ -48,7 +48,7 @@
 
 	function isInRange(element)
 	{
-		let rect = element.getBoundingClientRect();
+		const rect = element.getBoundingClientRect();
 
 		// Test for width to ensure the element isn't hidden in a spoiler
 		if (rect.bottom < top || rect.top > bottom || !rect.width)
@@ -111,16 +111,16 @@
 			iframe.onload();
 		}
 */
-		let parentNode = dummy.parentNode;
+		const parentNode = dummy.parentNode;
 		prepareMiniplayer(iframe, parentNode);
 		parentNode.replaceChild(iframe, dummy);
 	}
 
 	function onResizableIframeLoad(e)
 	{
-		let iframe  = e.target,
-			channel = new MessageChannel,
-			origin  = iframe.src.substr(0, iframe.src.indexOf('/', 8));
+		const iframe  = e.target,
+		      channel = new MessageChannel,
+		      origin  = iframe.src.substr(0, iframe.src.indexOf('/', 8));
 		iframe.contentWindow.postMessage('s9e:init', origin, [channel.port2]);
 		channel.port1.onmessage = function (e)
 		{
@@ -131,7 +131,7 @@
 
 	function getIframePosition(iframe)
 	{
-		let rect = iframe.getBoundingClientRect();
+		const rect = iframe.getBoundingClientRect();
 		if (rect.bottom > window.innerHeight)
 		{
 			return BELOW;
@@ -154,17 +154,17 @@
 
 	function getElementRectProperty(selector, prop)
 	{
-		let el = document.querySelector(selector);
+		const el = document.querySelector(selector);
 
 		return (el) ? el.getBoundingClientRect()[prop] : -1;
 	}
 
 	function resizeIframe(iframe, height, width)
 	{
-		let iframePosition = getIframePosition(iframe),
-			expandUpward   = (iframePosition === ABOVE || (iframePosition === VISIBLE && scrollDirection === SCROLL_UP)),
-			oldDistance    = (expandUpward) ? getDistanceFromBottom() : 0,
-			style          = iframe.style;
+		const iframePosition = getIframePosition(iframe),
+		      expandUpward   = (iframePosition === ABOVE || (iframePosition === VISIBLE && scrollDirection === SCROLL_UP)),
+		      oldDistance    = (expandUpward) ? getDistanceFromBottom() : 0,
+		      style          = iframe.style;
 
 		// Temporarily disable transitions if the iframe isn't visible or we need to scroll the page
 		if (iframePosition !== VISIBLE || expandUpward)
@@ -187,8 +187,8 @@
 
 		if (expandUpward)
 		{
-			let newDistance = getDistanceFromBottom(),
-				scrollDiff  = newDistance - oldDistance;
+			const newDistance = getDistanceFromBottom(),
+			      scrollDiff  = newDistance - oldDistance;
 			if (scrollDiff)
 			{
 				window.scrollBy(0, scrollDiff);
@@ -221,7 +221,7 @@
 			top    = -bottom / ((scrollDirection === SCROLL_DOWN) ? 4 : 2);
 		}
 
-		let newDummies = [];
+		const newDummies = [];
 		dummies.forEach(
 			function (dummy)
 			{
@@ -252,11 +252,11 @@
 
 	function handleMiniplayerClick(e)
 	{
-		let span   = e.target,
-			iframe = span.firstChild,
-			rect   = span.getBoundingClientRect(),
-			root   = document.documentElement,
-			style  = iframe.style;
+		const span   = e.target,
+		      iframe = span.firstChild,
+		      rect   = span.getBoundingClientRect(),
+		      root   = document.documentElement,
+		      style  = iframe.style;
 
 		style.bottom = (root.clientHeight - rect.bottom) + 'px';
 		style.height = rect.height + 'px';
@@ -286,8 +286,8 @@
 
 	function handleMiniplayerTransition(e)
 	{
-		let iframe = e.target,
-			span   = iframe.parentNode;
+		const iframe = e.target,
+		      span   = iframe.parentNode;
 
 		if (/-tn/.test(span.className))
 		{
