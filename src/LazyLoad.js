@@ -66,6 +66,11 @@
 		return true;
 	}
 
+	/**
+	* @param  {!Element} element
+	* @param  {number}   top
+	* @return {boolean}
+	*/
 	function isHiddenInQuote(element, top)
 	{
 		let parentNode = element.parentNode,
@@ -88,6 +93,9 @@
 		timeout = setTimeout(refresh, REFRESH_DELAY);
 	}
 
+	/**
+	* @param {!HTMLSpanElement} dummy
+	*/
 	function loadIframe(dummy)
 	{
 		let iframe = document.createElement('iframe'),
@@ -129,6 +137,10 @@
 		};
 	}
 
+	/**
+	* @param  {!Element} iframe
+	* @return {number}
+	*/
 	function getIframePosition(iframe)
 	{
 		const rect = iframe.getBoundingClientRect();
@@ -152,6 +164,11 @@
 		return (rect.top < top) ? ABOVE : VISIBLE;
 	}
 
+	/**
+	* @param  {string} selector
+	* @param  {string} prop
+	* @return {number}
+	*/
 	function getElementRectProperty(selector, prop)
 	{
 		const el = document.querySelector(selector);
@@ -159,6 +176,11 @@
 		return (el) ? el.getBoundingClientRect()[prop] : -1;
 	}
 
+	/**
+	* @param {!Element}      iframe
+	* @param {number|string} height
+	* @param {number|string} width
+	*/
 	function resizeIframe(iframe, height, width)
 	{
 		const iframePosition = getIframePosition(iframe),
@@ -200,6 +222,9 @@
 		}
 	}
 
+	/**
+	* @return {number}
+	*/
 	function getDistanceFromBottom()
 	{
 		// NOTE: scrollY has higher IE requirements than scrollBy()
@@ -296,6 +321,9 @@
 		}
 	}
 
+	/**
+	* @param {!HTMLSpanElement} dummy
+	*/
 	function prepareClickToLoad(dummy)
 	{
 		if (dummy.hasAttribute(dataPrefix + '-c2l-background'))
