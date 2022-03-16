@@ -188,8 +188,9 @@
 		      oldDistance    = (expandUpward) ? getDistanceFromBottom() : 0,
 		      style          = iframe.style;
 
-		// Temporarily disable transitions if the iframe isn't visible or we need to scroll the page
-		if (iframePosition !== VISIBLE || expandUpward)
+		// Temporarily disable transitions if the document isn't fully loaded yet, the iframe isn't
+		// visible, or we need to scroll the page
+		if (iframePosition !== VISIBLE || expandUpward || document.readyState !== 'complete')
 		{
 			style.transition = 'none';
 			setTimeout(
@@ -197,7 +198,8 @@
 				{
 					style.transition = '';
 				},
-				0
+				// Setting the delay to 0 seems to have no effect on Firefox
+				REFRESH_DELAY
 			);
 		}
 
