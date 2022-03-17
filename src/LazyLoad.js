@@ -22,7 +22,7 @@
 		bottom  = window.innerHeight,
 		timeout = 0,
 		hasScrolled     = false,
-		lastScrollY     = 0,
+		lastScrollY     = window.scrollY,
 		scrollDirection = SCROLL_DOWN,
 		activeMiniplayerSpan = null,
 		localStorage         = {};
@@ -39,14 +39,10 @@
 	{
 	}
 
-	setTimeout(init, REFRESH_DELAY);
-	function init()
-	{
-		// Initialize the last scroll position at current scroll position
-		lastScrollY = window.scrollY;
-		prepareEvents(window.addEventListener);
-		refresh();
-	}
+	// Start loading embeds immediately. It will let dynamic embeds be resized before the document
+	// is fully loaded (and without a transition if readyState !== "complete")
+	prepareEvents(window.addEventListener);
+	refresh();
 
 	function prepareEvents(fn)
 	{
