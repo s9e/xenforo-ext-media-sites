@@ -125,7 +125,7 @@
 		iframe.contentWindow.postMessage('s9e:init', origin, [channel.port2]);
 		channel.port1.onmessage = function (e)
 		{
-			let dimensions = ("" + e.data).split(' ');
+			let dimensions = ('' + e.data).split(' ');
 			resizeIframe(iframe, dimensions[0], dimensions[1] || 0);
 		};
 	}
