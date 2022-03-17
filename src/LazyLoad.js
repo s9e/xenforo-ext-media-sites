@@ -56,14 +56,7 @@
 			return false;
 		}
 
-		// Elements in a non-expanded quotes are limited to a 270px width. This is not a perfect
-		// indicator but it works well enough to cover the overwhelming majority of embeds
-		if (rect.width === 270 && isHiddenInQuote(element, rect.top))
-		{
-			return false;
-		}
-
-		return true;
+		return !isHiddenInQuote(element, rect.top);
 	}
 
 	/**
