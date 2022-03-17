@@ -12,6 +12,9 @@
 	const SCROLL_DOWN = 0;
 	const SCROLL_UP   = 1;
 
+	// Max number of items in storage
+	const STORAGE_MAX_SIZE = 100;
+
 	let nodes   = document.querySelectorAll('span[' + dataPrefix + '-iframe]'),
 		i       = 0,
 		dummies = [],
@@ -21,10 +24,19 @@
 		hasScrolled     = false,
 		lastScrollY     = 0,
 		scrollDirection = SCROLL_DOWN,
-		activeMiniplayerSpan = null;
+		activeMiniplayerSpan = null,
+		localStorage         = {};
 	while (i < nodes.length)
 	{
 		dummies.push(nodes[i++]);
+	}
+
+	try
+	{
+		localStorage = window.localStorage;
+	}
+	catch (e)
+	{
 	}
 
 	setTimeout(init, REFRESH_DELAY);
@@ -99,11 +111,6 @@
 			iframe.setAttribute(values[i], values[++i]);
 		}
 		iframe['loading'] = 'eager';
-
-		if (iframe.getAttribute(dataPrefix + '-api') == 2)
-		{
-			iframe.onload = onResizableIframeLoad;
-		}
 /*
 		if (iframe.onload)
 		{
@@ -115,18 +122,36 @@
 		const parentNode = dummy.parentNode;
 		prepareMiniplayer(iframe, parentNode);
 		parentNode.replaceChild(iframe, dummy);
+
+		if (iframe.getAttribute(dataPrefix + '-api') == 2)
+		{
+			iframe.onload = onResizableIframeLoad;
+
+			// Resize the iframe after it's been inserted in the page so it's resized the right way
+			// (upward/downward) and with a transition if visible
+			const storageKey = getStorageKey(iframe.src);
+			if (typeof localStorage[storageKey] === 'string')
+			{
+				const dimensions = localStorage[storageKey].split(' ');
+				resizeIframe(iframe, dimensions[0], dimensions[1] || 0);
+			}
+		}
 	}
 
 	function onResizableIframeLoad(e)
 	{
 		const iframe  = e.target,
 		      channel = new MessageChannel,
-		      origin  = iframe.src.substr(0, iframe.src.indexOf('/', 8));
+		      src     = iframe.src,
+		      origin  = src.substr(0, src.indexOf('/', 8));
 		iframe.contentWindow.postMessage('s9e:init', origin, [channel.port2]);
 		channel.port1.onmessage = function (e)
 		{
-			let dimensions = ('' + e.data).split(' ');
+			const data       = ('' + e.data),
+			      dimensions = data.split(' ');
+
 			resizeIframe(iframe, dimensions[0], dimensions[1] || 0);
+			storeIframeData(src, data);
 		};
 	}
 
@@ -353,5 +378,55 @@
 
 		// NOTE: Chrome doesn't seem to support iframe.ontransitionend
 		iframe.addEventListener('transitionend', handleMiniplayerTransition);
+	}
+
+	/**
+	* @param  {string} url
+	* @return {string}
+	*/
+	function getStorageKey(url)
+	{
+		// "https://s9e.github.io/iframe/2/twitter.min.html#1493638827008737282"
+		// should become "s9e/2/twitter#1493638827008737282"
+		return 's9e/' + url.replace(/.*?iframe\/(\d+\/\w+)[^#]*/, '$1');
+	}
+
+	/**
+	* @param {string} src
+	* @param {string} data
+	*/
+	function storeIframeData(src, data)
+	{
+		try
+		{
+			// Clean up local storage some ~10% of the time
+			if (Math.random() < .1)
+			{
+				pruneLocalStorage();
+			}
+			localStorage[getStorageKey(src)] = data;
+		}
+		catch (e)
+		{
+		}
+	}
+
+	function pruneLocalStorage()
+	{
+		// If the storage exceeds the maximum size, remove roughly half the entries created by
+		// this script, selected randomly. We do not need an elaborate eviction strategy, we just
+		// need to make some room
+		let i = localStorage.length || 0;
+		if (i > STORAGE_MAX_SIZE)
+		{
+			while (--i >= 0)
+			{
+				const storageKey = localStorage.key(i);
+				if (/^s9e\//.test(storageKey) && Math.random() < .5)
+				{
+					localStorage.removeItem(storageKey);
+				}
+			}
+		}
 	}
 })(window, document, 'data-s9e-mediaembed', 's9e-miniplayer');
