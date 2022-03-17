@@ -1,87 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <options>
-  <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG" edit_format="textbox" data_type="string">
+  <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG" edit_format="textbox" data_type="string" advanced="0">
     <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="200"/>
   </option>
-  <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_CA" edit_format="textbox" data_type="string">
+  <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_CA" edit_format="textbox" data_type="string" advanced="0">
     <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="201"/>
   </option>
-  <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_DE" edit_format="textbox" data_type="string">
+  <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_DE" edit_format="textbox" data_type="string" advanced="0">
     <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="202"/>
   </option>
-  <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_ES" edit_format="textbox" data_type="string">
+  <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_ES" edit_format="textbox" data_type="string" advanced="0">
     <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="203"/>
   </option>
-  <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_FR" edit_format="textbox" data_type="string">
+  <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_FR" edit_format="textbox" data_type="string" advanced="0">
     <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="204"/>
   </option>
-  <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IN" edit_format="textbox" data_type="string">
+  <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IN" edit_format="textbox" data_type="string" advanced="0">
     <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="205"/>
   </option>
-  <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IT" edit_format="textbox" data_type="string">
+  <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IT" edit_format="textbox" data_type="string" advanced="0">
     <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="206"/>
   </option>
-  <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_JP" edit_format="textbox" data_type="string">
+  <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_JP" edit_format="textbox" data_type="string" advanced="0">
     <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="207"/>
   </option>
-  <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_UK" edit_format="textbox" data_type="string">
+  <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_UK" edit_format="textbox" data_type="string" advanced="0">
     <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="208"/>
   </option>
-  <option option_id="s9e_MediaSites_Amazon_Link" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification">
+  <option option_id="s9e_MediaSites_Amazon_Link" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification" advanced="0">
     <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="101"/>
   </option>
-  <option option_id="s9e_MediaSites_ClickToLoad" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateClickToLoad">
+  <option option_id="s9e_MediaSites_ClickToLoad" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateClickToLoad" advanced="0">
     <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="107"/>
   </option>
-  <option option_id="s9e_MediaSites_ClickToLoad_Oembed" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateClickToLoadOembed">
+  <option option_id="s9e_MediaSites_ClickToLoad_Oembed" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateClickToLoadOembed" advanced="0">
     <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="108"/>
   </option>
-  <option option_id="s9e_MediaSites_Facebook_Background" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification">
+  <option option_id="s9e_MediaSites_Facebook_Background" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification" advanced="0">
     <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="102"/>
   </option>
-  <option option_id="s9e_MediaSites_Footer" edit_format="radio" data_type="string" validation_class="s9e\MediaSites\Setup" validation_method="validateFooter">
+  <option option_id="s9e_MediaSites_Footer" edit_format="radio" data_type="string" validation_class="s9e\MediaSites\Setup" validation_method="validateFooter" advanced="0">
     <default_value>show</default_value>
     <edit_format_params>show={{ phrase('option.s9e_MediaSites_Footer_Show') }}
 hide={{ phrase('option.s9e_MediaSites_Footer_Hide') }}</edit_format_params>
     <relation group_id="s9e_MediaSites" display_order="1"/>
   </option>
-  <option option_id="s9e_MediaSites_Full_Width_Embeds" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification">
+  <option option_id="s9e_MediaSites_Full_Width_Embeds" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification" advanced="0">
     <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="106"/>
   </option>
-  <option option_id="s9e_MediaSites_Markup" edit_format="radio" data_type="string" validation_class="s9e\MediaSites\Setup" validation_method="validateMarkup">
+  <option option_id="s9e_MediaSites_Markup" edit_format="radio" data_type="string" validation_class="s9e\MediaSites\Setup" validation_method="validateMarkup" advanced="0">
     <default_value>media</default_value>
     <edit_format_params>media={{ phrase('option.s9e_MediaSites_Markup_Default') }}
 url={{ phrase('option.s9e_MediaSites_Markup_Url') }}</edit_format_params>
     <relation group_id="mediaEmbedding" display_order="50"/>
     <relation group_id="s9e_MediaSites" display_order="2"/>
   </option>
-  <option option_id="s9e_MediaSites_Miniplayer" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification">
+  <option option_id="s9e_MediaSites_Miniplayer" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification" advanced="0">
     <default_value>1</default_value>
     <relation group_id="s9e_MediaSites" display_order="100"/>
   </option>
-  <option option_id="s9e_MediaSites_Native_GIFs" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateNativePlayer">
+  <option option_id="s9e_MediaSites_Native_GIFs" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateNativePlayer" advanced="0">
     <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="104"/>
   </option>
-  <option option_id="s9e_MediaSites_Native_Paused" edit_format="onoff" data_type="boolean">
+  <option option_id="s9e_MediaSites_Native_Paused" edit_format="onoff" data_type="boolean" advanced="0">
     <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="105"/>
   </option>
-  <option option_id="s9e_MediaSites_YouTube_Privacy" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification">
+  <option option_id="s9e_MediaSites_YouTube_Privacy" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification" advanced="0">
     <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="103"/>
   </option>
