@@ -228,7 +228,13 @@
 
 	function refresh()
 	{
-		if (lastScrollY !== window.scrollY)
+		if (lastScrollY === window.scrollY)
+		{
+			// Reset the scroll direction on click so that tweets expand downward when expanding a
+			// quote after scrolling up
+			scrollDirection = SCROLL_DOWN;
+		}
+		else
 		{
 			hasScrolled     = true;
 			scrollDirection = (lastScrollY > (lastScrollY = window.scrollY)) ? SCROLL_UP : SCROLL_DOWN;
