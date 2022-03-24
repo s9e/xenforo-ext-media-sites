@@ -44,6 +44,9 @@
 	prepareEvents(window.addEventListener);
 	refresh();
 
+	/**
+	* @param {!Function} fn
+	*/
 	function prepareEvents(fn)
 	{
 		const options = { 'capture': true, 'passive': true };
@@ -54,6 +57,9 @@
 		fn('scroll', scheduleRefresh, options);
 	}
 
+	/**
+	* @param {!Element} element
+	*/
 	function isInRange(element)
 	{
 		const rect = element.getBoundingClientRect();
@@ -297,6 +303,9 @@
 		}
 	}
 
+	/**
+	* @param {!Event} e
+	*/
 	function handleMiniplayerClick(e)
 	{
 		const span   = e.target,
@@ -331,6 +340,9 @@
 		}
 	}
 
+	/**
+	* @param {!Event} e
+	*/
 	function handleMiniplayerTransition(e)
 	{
 		const iframe = e.target,
