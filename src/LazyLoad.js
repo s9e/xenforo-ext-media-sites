@@ -394,9 +394,9 @@
 	*/
 	function getStorageKey(url)
 	{
-		// "https://s9e.github.io/iframe/2/twitter.min.html#1493638827008737282"
+		// "https://s9e.github.io/iframe/2/twitter.min.html#1493638827008737282#theme=dark"
 		// should become "s9e/2/twitter#1493638827008737282"
-		return 's9e/' + url.replace(/.*?iframe\/(\d+\/\w+)[^#]*/, '$1');
+		return 's9e/' + url.replace(/.*?iframe\/(\d+\/\w+)[^#]*(#[^#]+)(?:#.*)?/, '$1$2');
 	}
 
 	/**
