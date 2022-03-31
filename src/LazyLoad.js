@@ -17,7 +17,7 @@
 
 	let nodes   = document.querySelectorAll('span[' + dataPrefix + '-iframe]'),
 		i       = 0,
-		dummies = [],
+		proxies = [],
 		top     = 0,
 		bottom  = window.innerHeight,
 		timeout = 0,
@@ -28,7 +28,7 @@
 		localStorage         = {};
 	while (i < nodes.length)
 	{
-		dummies.push(nodes[i++]);
+		proxies.push(nodes[i++]);
 	}
 
 	try
@@ -101,12 +101,12 @@
 	}
 
 	/**
-	* @param {!HTMLSpanElement} dummy
+	* @param {!HTMLSpanElement} proxy
 	*/
-	function loadIframe(dummy)
+	function loadIframe(proxy)
 	{
 		let iframe = document.createElement('iframe'),
-			values = JSON.parse(dummy.getAttribute(dataPrefix + '-iframe')),
+			values = JSON.parse(proxy.getAttribute(dataPrefix + '-iframe')),
 			i      = -1;
 		while (++i < values.length)
 		{
@@ -121,9 +121,9 @@
 			iframe.onload();
 		}
 */
-		const parentNode = dummy.parentNode;
+		const parentNode = proxy.parentNode;
 		prepareMiniplayer(iframe, parentNode);
-		parentNode.replaceChild(iframe, dummy);
+		parentNode.replaceChild(iframe, proxy);
 
 		if (iframe.getAttribute(dataPrefix + '-api') == 2)
 		{
@@ -274,30 +274,30 @@
 			top    = -bottom / ((scrollDirection === SCROLL_DOWN) ? 4 : 2);
 		}
 
-		const newDummies = [];
-		dummies.forEach(
-			function (dummy)
+		const newProxies = [];
+		proxies.forEach(
+			function (proxy)
 			{
-				if (isInRange(dummy))
+				if (isInRange(proxy))
 				{
-					if (dummy.hasAttribute(dataPrefix + '-c2l'))
+					if (proxy.hasAttribute(dataPrefix + '-c2l'))
 					{
-						prepareClickToLoad(dummy);
+						prepareClickToLoad(proxy);
 					}
 					else
 					{
-						loadIframe(dummy);
+						loadIframe(proxy);
 					}
 				}
 				else
 				{
-					newDummies.push(dummy);
+					newProxies.push(proxy);
 				}
 			}
 		);
-		dummies = newDummies;
+		proxies = newProxies;
 
-		if (!dummies.length)
+		if (!proxies.length)
 		{
 			prepareEvents(window.removeEventListener);
 		}
@@ -356,21 +356,21 @@
 	}
 
 	/**
-	* @param {!HTMLSpanElement} dummy
+	* @param {!HTMLSpanElement} proxy
 	*/
-	function prepareClickToLoad(dummy)
+	function prepareClickToLoad(proxy)
 	{
-		if (dummy.hasAttribute(dataPrefix + '-c2l-background'))
+		if (proxy.hasAttribute(dataPrefix + '-c2l-background'))
 		{
-			// Set the background on the dummy's wrapper if applicable
-			let node = (dummy.hasAttribute(dataPrefix)) ? dummy : dummy.parentNode.parentNode;
-			node.style.background = dummy.getAttribute(dataPrefix + '-c2l-background');
+			// Set the background on the proxy's wrapper if applicable
+			let node = (proxy.hasAttribute(dataPrefix)) ? proxy : proxy.parentNode.parentNode;
+			node.style.background = proxy.getAttribute(dataPrefix + '-c2l-background');
 		}
-		dummy.onclick = function (e)
+		proxy.onclick = function (e)
 		{
 			// Don't let the click be handled as a miniplayer-related click
 			e.stopPropagation();
-			loadIframe(dummy);
+			loadIframe(proxy);
 		};
 	}
 
