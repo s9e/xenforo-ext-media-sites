@@ -174,7 +174,7 @@ class Parser
 		'xboxclips'=>[['@(?:gameclips\\.io|xboxclips\\.com)/(?!game/)(?<user>[^/]+)/(?!screenshots/)(?<id>[-0-9a-f]+)@']],
 		'xboxdvr'=>[['!(?:gamer|xbox)dvr\\.com/gamer/(?<user>[^/]+)/video/(?<id>\\d+)!']],
 		'youku'=>[['!youku\\.com/v(?:_show|ideo)/id_(?<id>\\w+=*)!']],
-		'youmaker'=>[['!youmaker\\.com/(?:embed|v(?:ideo)?)/(?<id>[-\\w]+)!']],
+		'youmaker'=>[['!youmaker\\.com/(?:embed|v(?:ideo)?)/(?<id>[-a-z0-9]+)!i']],
 		'youtube'=>[['!youtube\\.com/(?:watch.*?v=|shorts/|v/|attribution_link.*?v%3D)(?<id>[-\\w]+)!','!youtu\\.be/(?<id>[-\\w]+)!','@[#&?]t=(?<t>\\d[\\dhms]*)@','![&?]list=(?<list>[-\\w]+)!'],[],[],['id'=>['s9e\\MediaSites\\Helper::filterIdentifier'],'t'=>['s9e\\MediaSites\\Helper::filterTimestamp']]]
 	];
 
