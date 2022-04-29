@@ -265,6 +265,14 @@ class ParserTest extends TestCase
 				'67207222'
 			],
 			[
+				'https://vimeo.com/703260668/0994c4644c',
+				'703260668:0994c4644c'
+			],
+			[
+				'https://vimeo.com/703260668/0994c4644c#t=11',
+				'703260668:0994c4644c:11'
+			],
+			[
 				'https://www.youtube.com/watch?v=QH2-TGUlwu4',
 				'QH2-TGUlwu4'
 			],

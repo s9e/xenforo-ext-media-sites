@@ -242,6 +242,17 @@ class RendererTest extends TestCase
 				'<span data-s9e-mediaembed="vimeo"><span><iframe allowfullscreen="" scrolling="no" src="//player.vimeo.com/video/67207222#t=90"></iframe></span></span>'
 			],
 			[
+				// XenForo 2.2.9
+				'vimeo',
+				'703260668:0994c4644c',
+				'<span data-s9e-mediaembed="vimeo"><span><iframe allowfullscreen="" scrolling="no" src="//player.vimeo.com/video/703260668?h=0994c4644c"></iframe></span></span>'
+			],
+			[
+				'vimeo',
+				'703260668:0994c4644c:11s',
+				'<span data-s9e-mediaembed="vimeo"><span><iframe allowfullscreen="" scrolling="no" src="//player.vimeo.com/video/703260668?h=0994c4644c#t=11"></iframe></span></span>'
+			],
+			[
 				// From XenForo 1.x add-on, BBcode MediaSites Pack 1.1.9_11
 				'wistia',
 				'thoughtworks.wistia.com/medias/b6al55s35k',

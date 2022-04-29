@@ -37,7 +37,7 @@ class Parser
 			'$id#playlist_id=$playlist_id;track_id=$track_id'
 		],
 		'twitch'      => ['$channel', 'clip:$clip_id', '$video_id:$t'],
-		'vimeo'       => ['$id:$t'],
+		'vimeo'       => ['$id:$h', '$id:$h:$t', '$id:$t'],
 		'youtube'     => ['$id:$t', '$id, list: $list', '$id:$t, list: $list']
 	];
 
