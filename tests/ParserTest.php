@@ -208,6 +208,12 @@ class ParserTest extends TestCase
 				'track:0GjSbSr86nsOLJsibU2cjh'
 			],
 			[
+				// XenForo 2.2.9
+				// https://xenforo.com/community/threads/public-spotify-playlists-not-detected-correctly.204482/
+				'https://open.spotify.com/playlist/37i9dQZF1DZ06evO47cwRq',
+				'playlist:37i9dQZF1DZ06evO47cwRq'
+			],
+			[
 				'https://www.spreaker.com/user/bitcoinpodcasts/blockstreams-bitcoin-primer-ep-1',
 				'episode_id=20872603'
 			],
@@ -265,6 +271,8 @@ class ParserTest extends TestCase
 				'67207222'
 			],
 			[
+				// XenForo 2.2.9
+				// https://xenforo.com/community/threads/vimeo-video-embed-doesnt-work-for-urls-with-a-key-specified.199071/
 				'https://vimeo.com/703260668/0994c4644c',
 				'703260668:0994c4644c'
 			],
