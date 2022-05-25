@@ -98,12 +98,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "16d59896433879644fc8d5bd5d3344735bdeb1d1"
+                "reference": "6d4c3e097a939124de25f6f74c5286d8775ea7d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/16d59896433879644fc8d5bd5d3344735bdeb1d1",
-                "reference": "16d59896433879644fc8d5bd5d3344735bdeb1d1",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/6d4c3e097a939124de25f6f74c5286d8775ea7d6",
+                "reference": "6d4c3e097a939124de25f6f74c5286d8775ea7d6",
                 "shasum": ""
             },
             "require": {
@@ -131,7 +131,7 @@
             "default-branch": true,
             "type": "library",
             "extra": {
-                "version": "2.11.1-dev"
+                "version": "2.11.2-dev"
             },
             "autoload": {
                 "psr-4": {
@@ -165,7 +165,7 @@
                 "issues": "https://github.com/s9e/TextFormatter/issues",
                 "source": "https://github.com/s9e/TextFormatter/tree/master"
             },
-            "time": "2022-04-11T20:23:17+00:00"
+            "time": "2022-05-25T23:09:18+00:00"
         }
     ],
     "packages-dev": [
@@ -241,16 +241,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.4.2",
+            "version": "7.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "ac1ec1cd9b5624694c3a40be801d94137afb12b4"
+                "reference": "74a8602c6faec9ef74b7a9391ac82c5e65b1cdab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ac1ec1cd9b5624694c3a40be801d94137afb12b4",
-                "reference": "ac1ec1cd9b5624694c3a40be801d94137afb12b4",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/74a8602c6faec9ef74b7a9391ac82c5e65b1cdab",
+                "reference": "74a8602c6faec9ef74b7a9391ac82c5e65b1cdab",
                 "shasum": ""
             },
             "require": {
@@ -345,7 +345,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.4.2"
+                "source": "https://github.com/guzzle/guzzle/tree/7.4.3"
             },
             "funding": [
                 {
@@ -361,7 +361,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-20T14:16:28+00:00"
+            "time": "2022-05-25T13:24:33+00:00"
         },
         {
             "name": "guzzlehttp/promises",
