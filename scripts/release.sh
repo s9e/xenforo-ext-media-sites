@@ -2,16 +2,22 @@
 
 line="$(grep -o 'title":\s*"[A-Za-z0-9/]*' addon/addon.json)"
 addonId="${line##*\"}"
+addonDir="target/src/addons/$addonId"
+root="$(realpath $(dirname $0)/..)"
+cmd="php $(realpath $root/target/cmd.php)"
 
-cd "$(dirname $0)/.."
-php scripts/build.php                                  || exit
-rm -rf addon/_output addon/hashes.json                 || exit
-echo "y" | php cmd.php xf-addon:upgrade "$addonId"
-php cmd.php xf-addon:build-release "$addonId"
+cd "$root"
+php "$root/scripts/build.php"                              || exit
+rm -rf "$addonDir/_output" "$addonDir/hashes.json"         || exit
+cp -rf "$root/addon/"[^_]* "$root/addon/_data" "$addonDir" || exit
+echo "y" | $cmd xf-addon:upgrade "$addonId"
+$cmd xf-addon:build-release "$addonId"                     || exit
 
-cd addon/_releases
+cd "$addonDir/_releases"
 file="$(ls -1t *.zip | head -n1)"
 rm -rf upload
 unzip -q "$file"                && \
 advzip -a4 -i100 "$file" upload && \
 rm -rf upload
+echo cp "$file" "$root/addon/_releases"
+mv "$file" "$root/addon/_releases"
