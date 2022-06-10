@@ -127,27 +127,27 @@ class RendererTest extends TestCase
 			[
 				'soundcloud',
 				'id=tracks%2F98282116;track_id=98282116',
-				'<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/98282116&amp;secret_token=" style="height:166px;width:900px"></iframe>'
+				'<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/98282116%3Fsecret_token%3D" style="height:166px;width:900px"></iframe>'
 			],
 			[
 				'soundcloud',
 				'id=andrewbird%2Fthree-white-horses;track_id=59509713',
-				'<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/59509713&amp;secret_token=" style="height:166px;width:900px"></iframe>'
+				'<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/59509713%3Fsecret_token%3D" style="height:166px;width:900px"></iframe>'
 			],
 			[
 				'soundcloud',
 				'id=tenaciousd%2Fsets%2Frize-of-the-fenix%2F;playlist_id=1919974;track_id=44564704',
-				'<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1919974" style="height:450px;width:900px"></iframe>'
+				'<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1919974%3Fsecret_token%3D" style="height:450px;width:900px"></iframe>'
 			],
 			[
 				'soundcloud',
 				'playlists/1919974',
-				'<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1919974" style="height:450px;width:900px"></iframe>'
+				'<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1919974%3Fsecret_token%3D" style="height:450px;width:900px"></iframe>'
 			],
 			[
 				'soundcloud',
 				'tracks/98282116',
-				'<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/98282116&amp;secret_token=" style="height:166px;width:900px"></iframe>'
+				'<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/98282116%3Fsecret_token%3D" style="height:166px;width:900px"></iframe>'
 			],
 			[
 				'soundcloud',
@@ -162,7 +162,7 @@ class RendererTest extends TestCase
 			[
 				'soundcloud',
 				'tenaciousd/sets/rize-of-the-fenix#playlist_id=1919974;track_id=44564704',
-				'<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1919974" style="height:450px;width:900px"></iframe>'
+				'<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1919974%3Fsecret_token%3D" style="height:450px;width:900px"></iframe>'
 			],
 			[
 				'soundcloud',
@@ -172,7 +172,7 @@ class RendererTest extends TestCase
 			[
 				'soundcloud',
 				'tenaciousd/rock-is-dead#track_id=44564712',
-				'<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/44564712&amp;secret_token=" style="height:166px;width:900px"></iframe>'
+				'<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/44564712%3Fsecret_token%3D" style="height:166px;width:900px"></iframe>'
 			],
 			[
 				'spreaker',
