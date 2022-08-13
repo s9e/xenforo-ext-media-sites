@@ -50,16 +50,16 @@
         },
         {
             "name": "s9e/sweetdom",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/SweetDOM.git",
-                "reference": "5fc62bc1f4756650924e5cd1b429afcf34542722"
+                "reference": "9e34ff8f353234daed102274012c840bda56aff2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/SweetDOM/zipball/5fc62bc1f4756650924e5cd1b429afcf34542722",
-                "reference": "5fc62bc1f4756650924e5cd1b429afcf34542722",
+                "url": "https://api.github.com/repos/s9e/SweetDOM/zipball/9e34ff8f353234daed102274012c840bda56aff2",
+                "reference": "9e34ff8f353234daed102274012c840bda56aff2",
                 "shasum": ""
             },
             "require": {
@@ -88,9 +88,9 @@
             ],
             "support": {
                 "issues": "https://github.com/s9e/SweetDOM/issues",
-                "source": "https://github.com/s9e/SweetDOM/tree/2.0.0"
+                "source": "https://github.com/s9e/SweetDOM/tree/2.1.0"
             },
-            "time": "2020-12-08T16:34:58+00:00"
+            "time": "2021-05-24T21:06:33+00:00"
         },
         {
             "name": "s9e/text-formatter",
@@ -98,12 +98,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "69de626522e1849ddb4e97850159c68b7d5076dc"
+                "reference": "87a284e389199a24a59c4cbf62c3b1fdf67db7c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/69de626522e1849ddb4e97850159c68b7d5076dc",
-                "reference": "69de626522e1849ddb4e97850159c68b7d5076dc",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/87a284e389199a24a59c4cbf62c3b1fdf67db7c4",
+                "reference": "87a284e389199a24a59c4cbf62c3b1fdf67db7c4",
                 "shasum": ""
             },
             "require": {
@@ -165,7 +165,7 @@
                 "issues": "https://github.com/s9e/TextFormatter/issues",
                 "source": "https://github.com/s9e/TextFormatter/tree/master"
             },
-            "time": "2022-06-20T20:47:41+00:00"
+            "time": "2022-08-12T21:59:20+00:00"
         }
     ],
     "packages-dev": [
@@ -2605,7 +2605,7 @@
         },
         {
             "name": "symfony/deprecation-contracts",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/deprecation-contracts.git",
@@ -2652,7 +2652,7 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.1.0"
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.1.1"
             },
             "funding": [
                 {

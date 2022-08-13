@@ -168,6 +168,7 @@ class Parser
 		'vocaroo'=>[['!voca(?:\\.ro|roo\\.com)/(?:i/)?(?<id>\\w+)!']],
 		'vox'=>[['!vox.com/.*#ooid=(?<id>[-\\w]+)!']],
 		'washingtonpost'=>[['#washingtonpost\\.com/video/c/\\w+/(?<id>[-0-9a-f]+)#','#washingtonpost\\.com/video/[-/\\w]+/(?<id>[-0-9a-f]+)_video\\.html#']],
+		'wavekit'=>[['#play\\.wavekit\\.app/(?:embed|share)/audio/(?<audio_id>\\w+)#','#play\\.wavekit\\.app/(?:embed|share)/playlist/(?<playlist_id>\\w+)#']],
 		'wistia'=>[['!wistia.com/(?:(?:embed/iframe|medias)/|.*wmediaid=)(?<id>\\w+)!'],[],[['extract'=>['!"type":"(?:\\w+_)?(?<type>audio)!'],'match'=>['!wistia.com/(?:(?:embed/iframe|medias)/|.*wmediaid=)\\w!'],'url'=>'https://fast.wistia.net/embed/iframe/{@id}']]],
 		'wshh'=>[['!worldstar(?:hiphop)?\\.com/(?:emb|featur)ed/(?<id>\\d+)!'],[],[['extract'=>['!(?:v: ?"?|worldstar(?:hiphop)?\\.com/embed/)(?<id>\\d+)!'],'match'=>['!worldstar(?:hiphop)?\\.com/(?:\\w+/)?video\\.php\\?v=\\w+!']]]],
 		'wsj'=>[['@wsj\\.com/[^#]*#!(?<id>[-0-9A-F]{36})@','@wsj\\.com/video/[^/]+/(?<id>[-0-9A-F]{36})@'],[],[['extract'=>['@guid=(?<id>[-0-9A-F]{36})@'],'match'=>['@on\\.wsj\\.com/\\w@']]]],
