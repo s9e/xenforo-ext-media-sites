@@ -302,7 +302,7 @@
   </site>
   <site media_site_id="odysee" site_title="Odysee" site_url="https://odysee.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*odysee\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="odysee"><span><iframe allowfullscreen="" scrolling="no" src="https://odysee.com/$/embed/{{ $name ? $name : '-' }}/{$id}"></iframe></span></span>]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="odysee"><span><iframe allowfullscreen="" scrolling="no" src="https://odysee.com/$/embed/{{ $id ? ($name ? $name : '-') . '/' . $id : $path }}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="orfium" site_title="Orfium" site_url="https://www.orfium.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*orfium\.com/.(?'id'))i]]></match_urls>

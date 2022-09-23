@@ -169,7 +169,7 @@ class ParserTest extends TestCase
 			],
 			[
 				'https://odysee.com/@cop225:6/09_12_2021-Tengo-algo-que-decir.....:2',
-				'id=265551821fd6d6c0289eaf6c1789e7f82cd49203;name=09_12_2021-Tengo-algo-que-decir%2E%2E%2E%2E.'
+				'id=265551821fd6d6c0289eaf6c1789e7f82cd49203;name=09_12_2021-Tengo-algo-que-decir%2E%2E%2E%2E.;path=%40cop225%3A6%2F09_12_2021-Tengo-algo-que-decir%2E%2E%2E%2E.%3A2'
 			],
 			[
 				'https://archive.org/embed/deadco2018-08-25',
