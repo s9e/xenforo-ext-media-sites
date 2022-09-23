@@ -229,7 +229,7 @@ class XenForoTemplate implements TranspilerInterface
 		$replacements = [
 			"(^translate\\(@(\\w+),'(.)','(.)'\\))" => '$$1|replace(\'$2\',\'$3\')',
 
-			"(^\\$(\\w+)(='.*')$)D"                => '$xf.options.s9e_MediaSites_$1=$2',
+			"(^\\$(\\w+)(!=|(=))('.*')$)D"         => '$xf.options.s9e_MediaSites_$1$2$3$4',
 			"(^contains\\(\\$(\\w+,'[^']+')\\)$)D" => 'contains($xf.options.s9e_MediaSites_$1)',
 
 			'(^@(\\w+)$)D'                 => '$$1',
