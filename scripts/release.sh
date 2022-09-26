@@ -19,5 +19,4 @@ rm -rf upload
 unzip -q "$file"                && \
 advzip -a4 -i100 "$file" upload && \
 rm -rf upload
-echo cp "$file" "$root/addon/_releases"
 mv "$file" "$root/addon/_releases"
