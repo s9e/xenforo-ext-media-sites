@@ -2,6 +2,7 @@
 
 namespace s9e\MediaSites\Tests;
 
+use Composer\InstalledVersions;
 use DOMDocument;
 use PHPUnit\Framework\TestCase;
 use XF;
@@ -10,13 +11,15 @@ use s9e\MediaSites\Parser;
 
 abstract class AbstractParserTest extends TestCase
 {
+	protected static string $rootDir = __DIR__ . '/..';
 	protected static $sites = [];
 	public static function setUpBeforeClass(): void
 	{
-		CachingParser::$cacheDir = __DIR__ . '/.cache';
+		static::$rootDir = realpath(InstalledVersions::getRootPackage()['install_path']);
+		CachingParser::$cacheDir = static::$rootDir . '/tests/.cache';
 
 		$dom = new DOMDocument;
-		$dom->load(__DIR__ . '/../addon/_data/bb_code_media_sites.xml');
+		$dom->load(static::$rootDir . '/addon/_data/bb_code_media_sites.xml');
 		foreach ($dom->getElementsByTagName('site') as $site)
 		{
 			$siteId = $site->getAttribute('media_site_id');

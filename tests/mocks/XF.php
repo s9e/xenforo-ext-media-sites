@@ -1,5 +1,7 @@
 <?php
 
+use Composer\InstalledVersions;
+
 class XF
 {
 	public static $options;
@@ -17,8 +19,10 @@ class XF
 			return;
 		}
 
+		$rootDir = realpath(InstalledVersions::getRootPackage()['install_path']);
+
 		$dom = new DOMDocument;
-		$dom->load(__DIR__ . '/../../addon/_data/bb_code_media_sites.xml');
+		$dom->load($rootDir . '/addon/_data/bb_code_media_sites.xml');
 		foreach ($dom->getElementsByTagName('site') as $site)
 		{
 			$siteId   = $site->getAttribute('media_site_id');
