@@ -10,6 +10,11 @@ use s9e\MediaSites\Parser;
 */
 class ParserTest extends AbstractParserTest
 {
+	public function getParserClass(): string
+	{
+		return Parser::class;
+	}
+
 	public function testUnknown()
 	{
 		$this->assertFalse(Parser::match('', '', new BbCodeMediaSite, 'unknown'));

@@ -7,10 +7,12 @@ use DOMDocument;
 use PHPUnit\Framework\TestCase;
 use XF;
 use XF\Entity\BbCodeMediaSite;
-use s9e\MediaSites\Parser;
 
 abstract class AbstractParserTest extends TestCase
 {
+	abstract public function getParserClass(): string;
+	abstract public function getMatchTests(): array;
+
 	protected static string $rootDir = __DIR__ . '/..';
 	protected static $sites = [];
 	public static function setUpBeforeClass(): void
@@ -42,7 +44,7 @@ abstract class AbstractParserTest extends TestCase
 			{
 				continue;
 			}
-			$mediaKey = Parser::match($url, $m['id'], new BbCodeMediaSite, $siteId);
+			$mediaKey = static::getParserClass()::match($url, $m['id'], new BbCodeMediaSite, $siteId);
 			if ($mediaKey !== false)
 			{
 				break;
@@ -51,6 +53,4 @@ abstract class AbstractParserTest extends TestCase
 
 		$this->assertSame($expected, $mediaKey);
 	}
-
-	abstract public function getMatchTests(): array;
 }
