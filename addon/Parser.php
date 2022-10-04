@@ -12,6 +12,7 @@ use XF;
 use XF\BbCode\Helper\Flickr;
 use XF\Entity\BbCodeMediaSite;
 use XF\Repository\Unfurl;
+use XF\Util\File;
 
 class Parser
 {
@@ -529,15 +530,27 @@ class Parser
 	protected static function wget($url, $headers = []): string
 	{
 		$url = preg_replace('(#.*)s', '', $url);
-		if (!isset(self::$cache[$url]))
+		$key = md5(serialize([$url, $headers]));
+		if (!isset(self::$cache[$key]))
 		{
-			$http = XF::config('http');
-			self::$cache[$url] = (isset($http['s9e.client']) && $http['s9e.client'] === 'guzzle')
-			                   ? self::wgetGuzzle($url, $headers)
-			                   : self::wgetCurl($url, $headers);
+			$prefix    = 'compress.zlib://';
+			$cacheFile = File::getTempDir() . '/s9e.' . $key . '.html.gz';
+			if (file_exists($cacheFile))
+			{
+				self::$cache[$key] = file_get_contents($prefix . $cacheFile);
+			}
+			else
+			{
+				$http = XF::config('http');
+				self::$cache[$key] = (isset($http['s9e.client']) && $http['s9e.client'] === 'guzzle')
+				                   ? self::wgetGuzzle($url, $headers)
+				                   : self::wgetCurl($url, $headers);
+
+				file_put_contents($prefix . $cacheFile, self::$cache[$key]);
+			}
 		}
 
-		return self::$cache[$url];
+		return self::$cache[$key];
 	}
 
 	/**

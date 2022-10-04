@@ -16,7 +16,6 @@ abstract class AbstractParserTest extends TestCase
 	public static function setUpBeforeClass(): void
 	{
 		static::$rootDir = realpath(InstalledVersions::getRootPackage()['install_path']);
-		CachingParser::$cacheDir = static::$rootDir . '/tests/.cache';
 
 		$dom = new DOMDocument;
 		$dom->load(static::$rootDir . '/addon/_data/bb_code_media_sites.xml');
@@ -43,7 +42,7 @@ abstract class AbstractParserTest extends TestCase
 			{
 				continue;
 			}
-			$mediaKey = CachingParser::match($url, $m['id'], new BbCodeMediaSite, $siteId);
+			$mediaKey = Parser::match($url, $m['id'], new BbCodeMediaSite, $siteId);
 			if ($mediaKey !== false)
 			{
 				break;
@@ -54,30 +53,4 @@ abstract class AbstractParserTest extends TestCase
 	}
 
 	abstract public function getMatchTests(): array;
-}
-
-class CachingParser extends Parser
-{
-	public static $cacheDir;
-
-	protected static function wget($url, $headers = []): string
-	{
-		// Return the content from the cache if applicable
-		if (isset(self::$cacheDir) && file_exists(self::$cacheDir))
-		{
-			$cacheFile = self::$cacheDir . '/http.' . crc32(serialize([$url, $headers])) . '.html';
-			if (file_exists($cacheFile))
-			{
-				return file_get_contents($cacheFile);
-			}
-		}
-
-		$response = parent::wget($url, $headers);
-		if ($response && isset($cacheFile))
-		{
-			file_put_contents($cacheFile, $response);
-		}
-
-		return $response;
-	}
 }
