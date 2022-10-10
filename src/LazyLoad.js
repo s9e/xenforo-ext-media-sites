@@ -1,4 +1,4 @@
-(function (window, document, dataPrefix, classPrefix)
+((window, document, dataPrefix, classPrefix) =>
 {
 	// Delay in milliseconds between events and checking for visible elements
 	const REFRESH_DELAY = 32;
@@ -58,7 +58,8 @@
 	}
 
 	/**
-	* @param {!Element} element
+	* @param  {!Element} element
+	* @return {boolean}
 	*/
 	function isInRange(element)
 	{
@@ -80,15 +81,15 @@
 	*/
 	function isHiddenInQuote(element, top)
 	{
-		let parentNode = element.parentNode,
-			block      = parentNode;
-		while (parentNode.tagName !== 'BODY')
+		let parentElement = element.parentElement,
+			block         = parentElement;
+		while (parentElement.tagName !== 'BODY')
 		{
-			if (/bbCodeBlock-expandContent/.test(parentNode.className))
+			if (/bbCodeBlock-expandContent/.test(parentElement.className))
 			{
-				block = parentNode;
+				block = parentElement;
 			}
-			parentNode = parentNode.parentNode;
+			parentElement = parentElement.parentElement;
 		}
 
 		return (top > block.getBoundingClientRect().bottom);
@@ -105,9 +106,9 @@
 	*/
 	function loadIframe(proxy)
 	{
-		let iframe = document.createElement('iframe'),
-			values = JSON.parse(proxy.getAttribute(dataPrefix + '-iframe')),
-			i      = -1;
+		let i      = -1,
+			iframe = /** @type {!HTMLIFrameElement} */ (document.createElement('iframe')),
+			values = /** @type {!Array<string>}     */ (JSON.parse(proxy.getAttribute(dataPrefix + '-iframe')));
 		while (++i < values.length)
 		{
 			iframe.setAttribute(values[i], values[++i]);
@@ -147,7 +148,7 @@
 		      src     = iframe.src,
 		      origin  = src.substr(0, src.indexOf('/', 8));
 		iframe.contentWindow.postMessage('s9e:init', origin, [channel.port2]);
-		channel.port1.onmessage = function (e)
+		channel.port1.onmessage = (e) =>
 		{
 			const data       = ('' + e.data),
 			      dimensions = data.split(' ');
@@ -214,7 +215,7 @@
 		{
 			style.transition = 'none';
 			setTimeout(
-				function ()
+				() =>
 				{
 					style.transition = '';
 				},
@@ -276,7 +277,7 @@
 
 		const newProxies = [];
 		proxies.forEach(
-			function (proxy)
+			(proxy) =>
 			{
 				if (isInRange(proxy))
 				{
@@ -308,8 +309,8 @@
 	*/
 	function handleMiniplayerClick(e)
 	{
-		const span   = e.target,
-		      iframe = span.firstChild,
+		const span   = /** @type {!HTMLIFrameElement} */ (e.target),
+		      iframe = /** @type {!HTMLIFrameElement} */ (span.firstChild),
 		      rect   = span.getBoundingClientRect(),
 		      root   = document.documentElement,
 		      style  = iframe.style;
@@ -319,7 +320,7 @@
 		style.right  = (root.clientWidth - rect.right) + 'px';
 		style.width  = rect.width + 'px';
 
-		// Force a layout calc
+		/** @suppress {uselessCode} Force a layout calc (mostly Firefox?) */
 		iframe.offsetHeight;
 
 		if (/inactive/.test(span.className))
@@ -345,8 +346,8 @@
 	*/
 	function handleMiniplayerTransition(e)
 	{
-		const iframe = e.target,
-		      span   = iframe.parentNode;
+		const iframe = /** @type {!HTMLIFrameElement} */ (e.target),
+		      span   = /** @type {!HTMLSpanElement}   */ (iframe.parentElement);
 
 		if (/-tn/.test(span.className))
 		{
@@ -363,10 +364,10 @@
 		if (proxy.hasAttribute(dataPrefix + '-c2l-background'))
 		{
 			// Set the background on the proxy's wrapper if applicable
-			let node = (proxy.hasAttribute(dataPrefix)) ? proxy : proxy.parentNode.parentNode;
-			node.style.background = proxy.getAttribute(dataPrefix + '-c2l-background');
+			let span = /** @type {!HTMLSpanElement} */ ((proxy.hasAttribute(dataPrefix)) ? proxy : proxy.parentElement.parentElement);
+			span.style.background = proxy.getAttribute(dataPrefix + '-c2l-background');
 		}
-		proxy.onclick = function (e)
+		proxy.onclick = (e) =>
 		{
 			// Don't let the click be handled as a miniplayer-related click
 			e.stopPropagation();
@@ -421,6 +422,11 @@
 
 	function pruneLocalStorage()
 	{
+		if (!(localStorage instanceof Storage))
+		{
+			return;
+		}
+
 		// If the storage exceeds the maximum size, remove roughly half the entries created by
 		// this script, selected randomly. We do not need an elaborate eviction strategy, we just
 		// need to make some room
@@ -429,7 +435,7 @@
 		{
 			while (--i >= 0)
 			{
-				const storageKey = localStorage.key(i);
+				const storageKey = localStorage.key(i) || '';
 				if (/^s9e\//.test(storageKey) && Math.random() < .5)
 				{
 					localStorage.removeItem(storageKey);
