@@ -98,12 +98,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "c4f347bc233ac0983ab2ce0b0838b30d69fbfd04"
+                "reference": "9fb6cd493175f6a5bc97d6a35c5a75550aa002ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/c4f347bc233ac0983ab2ce0b0838b30d69fbfd04",
-                "reference": "c4f347bc233ac0983ab2ce0b0838b30d69fbfd04",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/9fb6cd493175f6a5bc97d6a35c5a75550aa002ce",
+                "reference": "9fb6cd493175f6a5bc97d6a35c5a75550aa002ce",
                 "shasum": ""
             },
             "require": {
@@ -131,7 +131,7 @@
             "default-branch": true,
             "type": "library",
             "extra": {
-                "version": "2.12.0-dev"
+                "version": "2.12.1-dev"
             },
             "autoload": {
                 "psr-4": {
@@ -165,7 +165,7 @@
                 "issues": "https://github.com/s9e/TextFormatter/issues",
                 "source": "https://github.com/s9e/TextFormatter/tree/master"
             },
-            "time": "2022-10-01T08:56:19+00:00"
+            "time": "2022-10-10T19:08:58+00:00"
         }
     ],
     "packages-dev": [
