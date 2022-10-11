@@ -85,6 +85,11 @@ class ParserTest extends AbstractParserTest
 				'id=1357764664236750;type=v;user=southamptonfc'
 			],
 			[
+				// Ignore the pfbid value when reconstructing the backward compatible media key
+				'https://www.facebook.com/VICE/posts/pfbid02XdVziPTwhmPU9XzBqkRvU5o7NPXUicAJgVy8kf1a1W51hU7EmgMmCigo9rZWxCjDl',
+				'VICE/posts/6037626766270531'
+			],
+			[
 				// Value automatically adjusted to match XenForo 2.0's format
 				'https://www.flickr.com/photos/8757881@N04/2971804544/lightbox/',
 				'5wBgXo'
