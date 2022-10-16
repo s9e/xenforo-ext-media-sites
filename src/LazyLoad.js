@@ -114,14 +114,7 @@
 			iframe.setAttribute(values[i], values[++i]);
 		}
 		iframe['loading'] = 'eager';
-/*
-		if (iframe.onload)
-		{
-			// Mannually trigger the iframe's onload if the iframe was preloaded by the browser.
-			// That can happen on Chrome when using back/forward navigation
-			iframe.onload();
-		}
-*/
+
 		const parentNode = proxy.parentNode;
 		prepareMiniplayer(iframe, parentNode);
 		parentNode.replaceChild(iframe, proxy);
