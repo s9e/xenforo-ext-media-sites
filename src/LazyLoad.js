@@ -320,10 +320,9 @@
 		style.right  = (root.clientWidth - rect.right) + 'px';
 		style.width  = rect.width + 'px';
 
-		/** @suppress {uselessCode} Force a layout calc (mostly Firefox?) */
-		iframe.offsetHeight;
-
-		if (/inactive/.test(span.className))
+		// Force a layout calc by calling iframe.offsetHeight (Firefox/Chromium)
+		// and make sure it's not considered dead code by Closure Compiler
+		if (iframe.offsetHeight && /inactive/.test(span.className))
 		{
 			span.className = classPrefix + '-active-tn';
 			iframe.removeAttribute('style');
