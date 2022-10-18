@@ -124,10 +124,10 @@
 
 			// Resize the iframe after it's been inserted in the page so it's resized the right way
 			// (upward/downward) and with a transition if visible
-			const storageKey = getStorageKey(iframe.src);
-			if (typeof localStorage[storageKey] === 'string')
+			const storedDimensions = localStorage[getStorageKey(iframe.src)];
+			if (typeof storedDimensions === 'string')
 			{
-				const dimensions = localStorage[storageKey].split(' ');
+				const dimensions = storedDimensions.split(' ');
 				resizeIframe(iframe, dimensions[0], dimensions[1] || 0);
 			}
 		}
