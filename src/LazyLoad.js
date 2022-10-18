@@ -35,7 +35,7 @@
 	{
 		localStorage = window.localStorage;
 	}
-	catch (e)
+	catch
 	{
 	}
 
@@ -115,9 +115,8 @@
 		}
 		iframe['loading'] = 'eager';
 
-		const parentNode = proxy.parentNode;
-		prepareMiniplayer(iframe, parentNode);
-		parentNode.replaceChild(iframe, proxy);
+		prepareMiniplayer(iframe, proxy.parentNode);
+		proxy.replaceWith(iframe);
 
 		if (iframe.getAttribute(dataPrefix + '-api') == 2)
 		{
@@ -407,7 +406,7 @@
 			}
 			localStorage[getStorageKey(src)] = data;
 		}
-		catch (e)
+		catch
 		{
 		}
 	}
