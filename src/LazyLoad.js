@@ -49,12 +49,9 @@
 	*/
 	function prepareEvents(fn)
 	{
-		const options = { 'capture': true, 'passive': true };
-
-		fn('click',  scheduleRefresh, options);
-		fn('load',   scheduleRefresh, options);
-		fn('resize', scheduleRefresh, options);
-		fn('scroll', scheduleRefresh, options);
+		['click', 'load', 'resize', 'scroll'].forEach(
+			(type) => fn(type, scheduleRefresh, { 'capture': true, 'passive': true })
+		);
 	}
 
 	/**
