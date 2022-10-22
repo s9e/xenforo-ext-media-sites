@@ -160,7 +160,8 @@ class AddonBuilder
 		$site->setAttribute('supported',                  1);
 		$site->setAttribute('active',                     1);
 		$site->setAttribute('oembed_enabled',             0);
-		if (isset($siteConfig['oembed']['endpoint'], $siteConfig['oembed']['scheme']))
+		if (isset($siteConfig['oembed']['endpoint'], $siteConfig['oembed']['scheme'])
+		 && !preg_match('(\\{@(?!id\\}))', $siteConfig['oembed']['scheme']))
 		{
 			$site->setAttribute('oembed_api_endpoint', $siteConfig['oembed']['endpoint']);
 			$site->setAttribute('oembed_url_scheme',   str_replace('{@id}', '{$id}', $siteConfig['oembed']['scheme']));
