@@ -71,6 +71,11 @@ class RendererTest extends TestCase
 			],
 			[
 				'facebook',
+				'JustinBieber/posts/pfbid085EF3hFVot3gtBS78vsX1w3oFvoipBdzEp2jeDMENdMcboznaNKJW1JZV924o3dwl',
+				'<iframe data-s9e-mediaembed="facebook" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+\'px\';this.contentWindow.postMessage(\'s9e:init\',\'*\',[c.port2])" scrolling="no" style="height:360px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/facebook.min.html#pfbid085EF3hFVot3gtBS78vsX1w3oFvoipBdzEp2jeDMENdMcboznaNKJW1JZV924o3dwl"></iframe>'
+			],
+			[
+				'facebook',
 				'10151471074398553',
 				'<iframe data-s9e-mediaembed="facebook" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+\'px\';this.contentWindow.postMessage(\'s9e:init\',\'*\',[c.port2])" scrolling="no" style="height:360px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/facebook.min.html#10151471074398553"></iframe>'
 			],
