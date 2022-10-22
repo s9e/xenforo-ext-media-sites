@@ -90,6 +90,10 @@ class ParserTest extends AbstractParserTest
 				'VICE/posts/6037626766270531'
 			],
 			[
+				'https://www.facebook.com/permalink.php?story_fbid=10152253595081467&id=58617016466',
+				'story_fbid=10152253595081467:id=58617016466'
+			],
+			[
 				// Value automatically adjusted to match XenForo 2.0's format
 				'https://www.flickr.com/photos/8757881@N04/2971804544/lightbox/',
 				'5wBgXo'

@@ -18,7 +18,8 @@ class Renderer
 		'dailymotion' => ['(^(?<id>\\w+):(?<t>\\d+))'],
 		'facebook'    => [
 			'(^(?<user>\\w+)/(?<type>p)osts/(?<id>\\d+))',
-			'(^(?<user>\\w+)/posts/pfbid(?<pfbid>\\w+)(?<id>))'
+			'(^(?<user>\\w+)/posts/pfbid(?<pfbid>\\w+)(?<id>))',
+			'(^story_fbid=(?<id>\\d+))'
 		],
 		'twitch'      => [
 			'(^(?<channel>\\w+)$)',
