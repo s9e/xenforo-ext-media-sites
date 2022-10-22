@@ -129,7 +129,7 @@ class Parser
 		'prezi'=>[['#//prezi\\.com/(?!(?:a(?:bout|mbassadors)|c(?:o(?:llaborate|mmunity|ntact)|reate)|exp(?:erts|lore)|ip(?:ad|hone)|jobs|l(?:ear|ogi)n|m(?:ac|obility)|pr(?:es(?:s|ent)|icing)|recommend|support|user|windows|your)/)(?<id>\\w+)/#']],
 		'reddit'=>[['!(?<id>\\w+/comments/\\w+(?:/\\w+/\\w+)?)!']],
 		'rumble'=>[['!rumble\\.com/embed/(?<id>\\w+)!'],[],[['extract'=>['!video"?:"(?<id>\\w+)!'],'match'=>['#rumble\\.com/(?!embed/).#']]]],
-		'rutube'=>[['!rutube\\.ru/(?:play/embed|tracks)/(?<id>\\d+)!'],[],[['extract'=>['!rutube\\.ru/play/embed/(?<id>\\d+)!'],'header'=>'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.0.0 Safari/537.36','match'=>["!rutube\\.ru/video/(?'vid'[0-9a-f]{32})!"],'url'=>'https://rutube.ru/api/oembed/?url=https://rutube.ru/video/{@vid}/']]],
+		'rutube'=>[['!rutube\\.ru/(?:play/embed|tracks)/(?<id>\\d+)!'],[],[['extract'=>['!rutube\\.ru/play/embed/(?<id>\\d+)!'],'match'=>["!rutube\\.ru/video/(?'vid'[0-9a-f]{32})!"],'url'=>'https://rutube.ru/api/oembed/?url=https://rutube.ru/video/{@vid}/']]],
 		'scribd'=>[['!scribd\\.com/(?:mobile/)?(?:doc(?:ument)?|presentation)/(?<id>\\d+)!']],
 		'sendvid'=>[['!sendvid\\.com/(?<id>\\w+)!']],
 		'slideshare'=>[['!slideshare\\.net/[^/]+/[-\\w]+-(?<id>\\d{6,})$!'],[],[['extract'=>['!"presentationId":(?<id>\\d+)!'],'match'=>['@slideshare\\.net/[^/]+/\\w(?![-\\w]+-\\d{6,}$)@']]]],
