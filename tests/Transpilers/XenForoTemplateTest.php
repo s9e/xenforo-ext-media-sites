@@ -184,6 +184,17 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 				'<xsl:value-of select="substring-before(@id,\'/headlines\')"/>',
 				"{{ \$id|split('/headlines')|first() }}"
 			],
+			[
+				'<a>
+					<xsl:attribute name="title">
+						<xsl:choose>
+							<xsl:when test="starts-with(@foo,\'xx\')or starts-with(@bar,\'yy\')">x</xsl:when>
+							<xsl:otherwise>y</xsl:otherwise>
+						</xsl:choose>
+					</xsl:attribute>
+				</a>',
+				"<a title=\"{{ (\$foo|substr(0,2) == 'xx' or \$bar|substr(0,2) == 'yy') ? 'x' : 'y' }}\"></a>"
+			],
 		];
 	}
 }

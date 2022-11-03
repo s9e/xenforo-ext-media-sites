@@ -167,13 +167,20 @@ class XenForoTemplate implements TranspilerInterface
 	{
 		preg_match_all('(<xf:(?:else)?if is="([^"]+)"/?>([^<]*))', $template, $m, PREG_SET_ORDER);
 
-		$expr = '{{ ';
+		$expr = '';
 		foreach ($m as $i => list($match, $condition, $content))
 		{
 			if ($i > 0)
 			{
 				$expr .= '(';
 			}
+
+			// Make sure compound conditions are in parentheses
+			if (preg_match('( (?:and|or) )', $condition))
+			{
+				$condition = '(' . $condition . ')';
+			}
+
 			$expr .= $condition . ' ? ' . $this->convertMixedContent($content) . ' : ';
 		}
 		if (preg_match('(<xf:else/>\\K[^<]*)', $template, $m))
@@ -184,9 +191,9 @@ class XenForoTemplate implements TranspilerInterface
 		{
 			$expr .= "''";
 		}
-		$expr .= str_repeat(')', $i) . ' }}';
+		$expr .= str_repeat(')', $i);
 
-		return $expr;
+		return '{{ ' . $expr . ' }}';
 	}
 
 	/**
@@ -220,8 +227,8 @@ class XenForoTemplate implements TranspilerInterface
 			'(^100\\*\\(@height\\+(\\d+)\\)div@width$)D'        => '100*($height+$1)/$width',
 			"(^contains\\(@(\\w+,'[^']+')\\)$)D"                => 'contains($$1)',
 			"(^not\\(contains\\(@(\\w+,'[^']+')\\)\\)$)D"       => '!contains($$1)',
-			"(^@(\\w+) or ?contains\\(@(\\w+,'[^']+')\\)$)D"    => '($$1 or contains($$2))',
-			"(^@(\\w+) and ?contains\\(('[^']+'),@(\\w+)\\)$)D" => '($$1 and contains($2,$$3))',
+			"(^@(\\w+) or ?contains\\(@(\\w+,'[^']+')\\)$)D"    => '$$1 or contains($$2)',
+			"(^@(\\w+) and ?contains\\(('[^']+'),@(\\w+)\\)$)D" => '$$1 and contains($2,$$3)',
 
 			"(^substring-after\\(@(\\w+),('[^']+')\\)$)"  => '$$1|split($2)|last()',
 			"(^substring-before\\(@(\\w+),('[^']+')\\)$)" => '$$1|split($2)|first()',
