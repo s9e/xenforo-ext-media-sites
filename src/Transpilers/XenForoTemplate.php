@@ -206,13 +206,13 @@ class XenForoTemplate implements TranspilerInterface
 	protected static function convertXPath($expr)
 	{
 		$expr = preg_replace_callback(
-			"(^starts-with\\(@(\\w+),'([^']+)'\\)(?:or ?starts-with\\(@(\\w+),'([^']+)'\\))?$)",
+			"(^starts-with\\(@(\\w+),'([^']+)'\\)((?:or starts-with\\(@(\\w+),'([^']+)'\\))*)$)",
 			function ($m)
 			{
 				$expr = self::convertStartsWith($m[1], $m[2]);
-				if (isset($m[3]))
+				if (!empty($m[3]))
 				{
-					$expr .= ' or ' . self::convertStartsWith($m[3], $m[4]);
+					$expr .= ' or ' . self::convertXPath(substr($m[3], 3));
 				}
 
 				return $expr;
