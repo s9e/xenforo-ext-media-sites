@@ -46,7 +46,7 @@ class XenForoTemplate implements TranspilerInterface
 			'(<xf:(?:else)?if is="\\K[^"]++)',
 			function ($m)
 			{
-				return self::convertXPath($m[0]);
+				return $this->convertXPath($m[0]);
 			},
 			$template
 		);
@@ -54,7 +54,7 @@ class XenForoTemplate implements TranspilerInterface
 			'(<xsl:value-of select="(.*?)"/>)',
 			function ($m)
 			{
-				return '{{ ' . self::convertXPath($m[1]) . ' }}';
+				return '{{ ' . $this->convertXPath($m[1]) . ' }}';
 			},
 			$template
 		);
@@ -199,31 +199,12 @@ class XenForoTemplate implements TranspilerInterface
 
 	/**
 	* Convert an XPath expression to a XenForo expression
-	*
-	* @param  string $expr
-	* @return string
 	*/
-	protected static function convertXPath($expr)
+	protected function convertXPath($expr): string
 	{
-		$expr = preg_replace_callback(
-			"(^starts-with\\(@(\\w+),'([^']+)'\\)((?:or starts-with\\(@(\\w+),'([^']+)'\\))*)$)",
-			function ($m)
-			{
-				$expr = self::convertStartsWith($m[1], $m[2]);
-				if (!empty($m[3]))
-				{
-					$expr .= ' or ' . self::convertXPath(substr($m[3], 3));
-				}
-
-				return $expr;
-			},
-			$expr,
-			1,
-			$cnt
-		);
-		if ($cnt)
+		if (str_starts_with($expr, 'starts-with'))
 		{
-			return $expr;
+			return $this->convertStartsWithExpr($expr);
 		}
 
 		$replacements = [
@@ -251,6 +232,23 @@ class XenForoTemplate implements TranspilerInterface
 		if (!$cnt)
 		{
 			throw new RuntimeException('Cannot convert ' . $expr);
+		}
+
+		return $expr;
+	}
+
+	protected function convertStartsWithExpr(string $expr): string
+	{
+		$regexp = "(^starts-with\\(@(\\w+),'([^']+)'\\)((?:or starts-with\\(@(\\w+),'([^']+)'\\))*)$)";
+		if (!preg_match($regexp, $expr, $m))
+		{
+			throw new RuntimeException('Cannot convert ' . $expr);
+		}
+
+		$expr = $this->convertStartsWith($m[1], $m[2]);
+		if (!empty($m[3]))
+		{
+			$expr .= ' or ' . $this->convertStartsWithExpr(substr($m[3], 3));
 		}
 
 		return $expr;

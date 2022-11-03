@@ -157,7 +157,7 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 				'<xf:if is="$foo|substr(0,3) == \'abc\'">x</xf:if>'
 			],
 			[
-				'<xsl:if test="starts-with(@foo,\'abc\')orstarts-with(@bar,\'xy\')">x</xsl:if>',
+				'<xsl:if test="starts-with(@foo,\'abc\')or starts-with(@bar,\'xy\')">x</xsl:if>',
 				'<xf:if is="$foo|substr(0,3) == \'abc\' or $bar|substr(0,2) == \'xy\'">x</xf:if>'
 			],
 			[
