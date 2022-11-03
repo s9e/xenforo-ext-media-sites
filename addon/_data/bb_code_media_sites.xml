@@ -366,7 +366,7 @@
   </site>
   <site media_site_id="spotify" site_title="Spotify" site_url="https://www.spotify.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:link\.to|open\.|play\.)spotify\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="spotify" allow="encrypted-media" allowfullscreen="" scrolling="no" src="https://open.spotify.com/embed/{$id}{$path}" style="border-radius:12px;height:{{ ($id|substr(0,7) == 'episode' or $id|substr(0,4) == 'show' or $id|substr(0,5) == 'track') ? '152' : '380' }}px;width:900px"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="spotify" allow="encrypted-media" allowfullscreen="" scrolling="no" src="https://open.spotify.com/embed/{$id|replace(':','/')}{$path}" style="border-radius:12px;height:{{ ($id|substr(0,7) == 'episode' or $id|substr(0,4) == 'show' or $id|substr(0,5) == 'track') ? '152' : '380' }}px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="spreaker" site_title="Spreaker" site_url="https://www.spreaker.com" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*spreaker\.com/.(?'id'))i]]></match_urls>
