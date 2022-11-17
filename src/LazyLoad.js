@@ -80,7 +80,7 @@
 	{
 		let parentElement = element.parentElement,
 			block         = parentElement;
-		while (parentElement.tagName !== 'BODY')
+		while (parentElement)
 		{
 			if (/bbCodeBlock-expandContent/.test(parentElement.className))
 			{
@@ -94,8 +94,8 @@
 
 	function scheduleRefresh()
 	{
-		clearTimeout(timeout);
-		timeout = setTimeout(refresh, REFRESH_DELAY);
+		window.clearTimeout(timeout);
+		timeout = window.setTimeout(refresh, REFRESH_DELAY);
 	}
 
 	/**
@@ -132,11 +132,10 @@
 
 	function onResizableIframeLoad(e)
 	{
-		const iframe  = e.target,
+		const iframe  = /** @type {!HTMLIFrameElement} */ (e.target),
 		      channel = new MessageChannel,
-		      src     = iframe.src,
-		      origin  = src.substr(0, src.indexOf('/', 8));
-		iframe.contentWindow.postMessage('s9e:init', origin, [channel.port2]);
+		      src     = iframe.src;
+		iframe.contentWindow.postMessage('s9e:init', '*', [channel.port2]);
 		channel.port1.onmessage = (e) =>
 		{
 			const data       = ('' + e.data),
@@ -148,7 +147,7 @@
 	}
 
 	/**
-	* @param  {!Element} iframe
+	* @param  {!HTMLIFrameElement} iframe
 	* @return {number}
 	*/
 	function getIframePosition(iframe)
@@ -187,9 +186,9 @@
 	}
 
 	/**
-	* @param {!Element}      iframe
-	* @param {number|string} height
-	* @param {number|string} width
+	* @param {!HTMLIFrameElement} iframe
+	* @param {number|string}      height
+	* @param {number|string}      width
 	*/
 	function resizeIframe(iframe, height, width)
 	{
@@ -203,7 +202,7 @@
 		if (iframePosition !== VISIBLE || expandUpward || document.readyState !== 'complete')
 		{
 			style.transition = 'none';
-			setTimeout(
+			window.setTimeout(
 				() =>
 				{
 					style.transition = '';
