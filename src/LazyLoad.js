@@ -124,8 +124,7 @@
 			const storedDimensions = localStorage[getStorageKey(iframe.src)];
 			if (typeof storedDimensions === 'string')
 			{
-				const dimensions = storedDimensions.split(' ');
-				resizeIframe(iframe, dimensions[0], dimensions[1] || 0);
+				resizeIframeFromDimensions(iframe, storedDimensions);
 			}
 		}
 	}
@@ -135,15 +134,14 @@
 		const channel = new MessageChannel,
 		      iframe  = /** @type {!HTMLIFrameElement} */ (e.target),
 		      src     = iframe.src;
-		iframe.contentWindow.postMessage('s9e:init', '*', [channel.port2]);
 		channel.port1.onmessage = (e) =>
 		{
-			const data       = ('' + e.data),
-			      dimensions = data.split(' ');
+			const data = ('' + e.data);
 
-			resizeIframe(iframe, dimensions[0], dimensions[1] || 0);
+			resizeIframeFromDimensions(iframe, data);
 			storeIframeData(src, data);
 		};
+		iframe.contentWindow.postMessage('s9e:init', '*', [channel.port2]);
 	}
 
 	/**
@@ -183,6 +181,17 @@
 		const el = document.querySelector(selector);
 
 		return (el) ? el.getBoundingClientRect()[prop] : -1;
+	}
+
+	/**
+	* @param {!HTMLIFrameElement} iframe
+	* @param {string}             data
+	*/
+	function resizeIframeFromDimensions(iframe, data)
+	{
+		const dimensions = data.split(' ');
+
+		resizeIframe(iframe, dimensions[0], dimensions[1] || 0);
 	}
 
 	/**
