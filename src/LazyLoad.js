@@ -68,7 +68,7 @@
 			return false;
 		}
 
-		return !isHiddenInQuote(element, rect.top);
+		return isInVisibleRangeOfBlock(element, rect.top);
 	}
 
 	/**
@@ -76,7 +76,7 @@
 	* @param  {number}   top
 	* @return {boolean}
 	*/
-	function isHiddenInQuote(element, top)
+	function isInVisibleRangeOfBlock(element, top)
 	{
 		let parentElement = element.parentElement,
 			block         = parentElement;
@@ -89,7 +89,7 @@
 			parentElement = parentElement.parentElement;
 		}
 
-		return (top > block.getBoundingClientRect().bottom);
+		return (top <= block.getBoundingClientRect().bottom);
 	}
 
 	function scheduleRefresh()
