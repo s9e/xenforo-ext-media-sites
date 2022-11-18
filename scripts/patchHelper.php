@@ -1,5 +1,5 @@
 #!/usr/bin/php
-<?php
+<?php declare(strict_types=1);
 
 $filepath = realpath(__DIR__ . '/../addon/Helper.php');
 

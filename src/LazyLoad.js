@@ -132,8 +132,8 @@
 
 	function onResizableIframeLoad(e)
 	{
-		const iframe  = /** @type {!HTMLIFrameElement} */ (e.target),
-		      channel = new MessageChannel,
+		const channel = new MessageChannel,
+		      iframe  = /** @type {!HTMLIFrameElement} */ (e.target),
 		      src     = iframe.src;
 		iframe.contentWindow.postMessage('s9e:init', '*', [channel.port2]);
 		channel.port1.onmessage = (e) =>

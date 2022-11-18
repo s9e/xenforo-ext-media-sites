@@ -10,4 +10,5 @@ then
 	cd ..
 fi
 
-"$BIN" -W VERBOSE --jscomp_error "*" --js src/LazyLoad.js -O ADVANCED --js_output_file src/LazyLoad.min.js
+"$BIN" -W VERBOSE --jscomp_error "*" --js src/LazyLoad.js -O ADVANCED --js_output_file src/LazyLoad.min.js && \
+php scripts/tweakMinifiedJavaScript.php src/LazyLoad.min.js
