@@ -49,7 +49,7 @@
 	*/
 	function prepareEvents(fn)
 	{
-		['click', 'load', 'resize', 'scroll'].forEach(
+		['click', 'load', 'resize', 'scroll', 'visibilitychange'].forEach(
 			(type) => fn(type, scheduleRefresh, { 'capture': true, 'passive': true })
 		);
 	}
@@ -253,6 +253,12 @@
 
 	function refresh()
 	{
+		// Don't load anything if the page is not visible
+		if (document.visibilityState === 'hidden')
+		{
+			return;
+		}
+
 		if (lastScrollY === window.scrollY)
 		{
 			// Reset the scroll direction on click so that tweets expand downward when expanding a
