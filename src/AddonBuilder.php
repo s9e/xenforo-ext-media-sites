@@ -449,6 +449,10 @@ class AddonBuilder
 	*/
 	protected function normalizeSites()
 	{
+		// Revert Mastodon for now
+		$this->sites['mastodon']['scrape'] = [];
+		$this->sites['mastodon']['iframe']['src'] = 'https://s9e.github.io/iframe/2/mastodon.min.html#{@name}/{@id}';
+
 		foreach ($this->sites as $siteId => &$siteConfig)
 		{
 			$siteConfig['extract'] = $this->normalizeRegexps($siteConfig['extract']);
