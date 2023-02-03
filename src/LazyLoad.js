@@ -320,8 +320,17 @@
 
 		style.bottom = (root.clientHeight - rect.bottom) + 'px';
 		style.height = rect.height + 'px';
-		style.right  = (root.clientWidth - rect.right) + 'px';
 		style.width  = rect.width + 'px';
+
+		if (root.dir === 'rtl')
+		{
+			// XenForo flips all layout in RTL mode
+			style.left = rect.left + 'px';
+		}
+		else
+		{
+			style.right = (root.clientWidth - rect.right) + 'px';
+		}
 
 		// Force a layout calc by calling iframe.offsetHeight (Firefox/Chromium)
 		// and make sure it's not considered dead code by Closure Compiler

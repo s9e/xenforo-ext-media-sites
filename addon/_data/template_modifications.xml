@@ -140,8 +140,9 @@ span[data-s9e-mediaembed] > span > iframe,
 span[data-s9e-mediaembed] > span > [data-s9e-mediaembed-iframe]
 {
 	height:   100%;
-	left:     0;
 	position: absolute;
+	// Use "right" so it uses the same positioning property as the miniplayer
+	right:    0;
 	width:    100%;
 }
 
@@ -152,7 +153,7 @@ $0]]></replace>
     <find><![CDATA[(width:\s*\K640px)]]></find>
     <replace><![CDATA[100%]]></replace>
   </modification>
-  <modification type="public" template="core_bbcode.less" modification_key="s9e_MediaSites_Miniplayer" description="Adds a miniplayer button to some video players, limited to the wide layout" execution_order="10" enabled="1" action="preg_replace">
+  <modification type="public" template="core_bbcode.less" modification_key="s9e_MediaSites_Miniplayer" description="Adds a miniplayer button to some video players" execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[(^)]]></find>
     <replace><![CDATA[@media (min-width: @xf-responsiveMedium), (orientation: portrait)
 {
@@ -160,9 +161,9 @@ $0]]></replace>
 	span[data-s9e-mediaembed] > span.s9e-miniplayer-active-tn   > iframe,
 	span[data-s9e-mediaembed] > span.s9e-miniplayer-inactive-tn > iframe
 	{
-		left:       unset;
 		position:   fixed;
-		transition: bottom @xf-animationSpeed, height @xf-animationSpeed, right @xf-animationSpeed, width @xf-animationSpeed;
+		// Replaces the SmoothIframes value
+		transition: all @xf-animationSpeed;
 		// Above the editor's toolbar
 		z-index:    5;
 	}
