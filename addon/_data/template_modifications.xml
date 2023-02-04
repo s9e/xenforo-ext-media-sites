@@ -217,6 +217,14 @@ $0]]></replace>
 	}
 	@media (min-width: @xf-responsiveMedium)
 	{
+		// Flip the miniplayer icon in RTL mode
+		html[dir="rtl"] .s9e-miniplayer-active,
+		html[dir="rtl"] .s9e-miniplayer-active-tn,
+		html[dir="rtl"] .s9e-miniplayer-inactive::after,
+		html[dir="rtl"] .s9e-miniplayer-inactive-tn
+		{
+			background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3e%3cpath d='M5 8v17h22V8z' stroke-width='2' stroke='%23fff' fill='none' stroke-linejoin='round'/%3e%3cpath fill='%23fff' d='M8 16h9v6h-9z'/%3e%3c/svg%3e");
+		}
 		// Declare the active style last as a tiebreaker for CSS specificity
 		.s9e-miniplayer-active::after
 		{
