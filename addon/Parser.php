@@ -111,7 +111,7 @@ class Parser
 		'liveleak'=>[['!liveleak\\.com/(?:e/|view\\?i=)(?<id>\\w+)!'],[],[['extract'=>['!liveleak\\.com/e/(?<id>\\w+)!'],'match'=>['!liveleak\\.com/view\\?t=!']]]],
 		'livestream'=>[['!livestream\\.com/accounts/(?<account_id>\\d+)/events/(?<event_id>\\d+)!','!/videos/(?<video_id>\\d+)!','!original\\.livestream\\.com/(?<channel>\\w+)/video\\?clipId=(?<clip_id>[-\\w]+)!'],[],[['extract'=>['!accounts/(?<account_id>\\d+)/events/(?<event_id>\\d+)!'],'match'=>['@livestream\\.com/(?!accounts/\\d+/events/\\d)@']],['extract'=>['!//original\\.livestream\\.com/(?<channel>\\w+)/video/(?<clip_id>[-\\w]+)!'],'match'=>['!livestre.am!']]]],
 		'mailru'=>[[],[],[['extract'=>['!"itemId": ?"?(?<id>\\d+)!'],'match'=>['!my\\.mail\\.ru/\\w+/\\w+/video/\\w+/\\d!']]]],
-		'mastodon'=>[['#//(?<host>[-.\\w]+)/@(?<name>\\w+)/(?<id>\\d+)#'],['host']],
+		'mastodon'=>[['#//(?<host>[-.\\w]+)/@(?<name>\\w+)/(?<id>\\d+)#'],['host'],[['extract'=>['#"url":"https://(?<host>[-.\\w]+)/@(?<name>\\w+)/(?<id>\\d+)"#'],'match'=>["#^(?'origin'https://[^/]+)/@\\w+@[-.\\w]+/(?'id'\\d+)#"],'url'=>'{@origin}/api/v1/statuses/{@id}']],['host'=>['s9e\\MediaSites\\Helper::filterMastodonHost']]],
 		'medium'=>[['#medium\\.com/(?:s/\\w+/|@?[-\\w]+/)?(?:\\w+-)*(?<id>[0-9a-f]+)(?!\\w)#']],
 		'megaphone'=>[['@megaphone\\.fm/.*?\\?(?:e|selected)=(?<id>\\w+)@','@(?:dcs|player|traffic)\\.megaphone\\.fm/(?<id>\\w+)@','@megaphone\\.link/(?<id>\\w+)@']],
 		'metacafe'=>[['!metacafe\\.com/watch/(?<id>\\d+)!']],

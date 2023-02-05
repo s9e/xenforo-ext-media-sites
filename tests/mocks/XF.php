@@ -72,6 +72,7 @@ class XF
 		}
 
 		$template = self::$templates[$siteId];
+		$template = self::renderIfElse($template, $vars);
 		$template = self::renderTernaries($template, $vars);
 		$template = preg_replace_callback(
 			'(\\{\\$(\\w+)\\})',
@@ -89,6 +90,15 @@ class XF
 	protected static function contains($haystack, $needle)
 	{
 		return strpos($haystack, $needle) !== false;
+	}
+	protected static function renderIfElse($template, array $vars): string
+	{
+		if (preg_match('(^<xf:if is="\\$(\\w+)">(.*)<xf:else/>(.*)</xf:if>$)s', $template, $m))
+		{
+			$template = (!empty($vars[$m[1]])) ? $m[2] : $m[3];
+		}
+
+		return $template;
 	}
 	protected static function renderTernaries($template, array $vars)
 	{

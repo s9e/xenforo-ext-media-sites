@@ -115,6 +115,27 @@ class Setup extends AbstractSetup
 		return ($newValue === 'media' || XF::$versionId >= 2010000);
 	}
 
+	public static function validateMastodonHosts(&$newValue, Option $option)
+	{
+		preg_match_all('(\\S++)', strtolower($newValue) . "\nmastodon.social", $m);
+		$hosts = array_unique($m[0]);
+		sort($hosts, SORT_STRING);
+
+		$newValue = implode("\n", $hosts);
+
+		$site = XF::finder('XF:BbCodeMediaSite')
+			->where('media_site_id', 'mastodon')
+			->where('addon_id',      $option->addon_id)
+			->fetchOne();
+		if ($site)
+		{
+			$site->match_urls = '(^https?://(?:[^./]+\.)*(?:' . implode('|', array_map('preg_quote', $hosts)) . ")/.(?'id'))i";
+			$site->saveIfChanged();
+		}
+
+		return true;
+	}
+
 	public static function validateNativePlayer($newValue, Option $option)
 	{
 		$siteIds = ['gfycat', 'gifs', 'giphy'];

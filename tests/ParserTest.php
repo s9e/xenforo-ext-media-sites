@@ -2,6 +2,7 @@
 
 namespace s9e\MediaSites\Tests;
 
+use XF;
 use XF\Entity\BbCodeMediaSite;
 use s9e\MediaSites\Parser;
 
@@ -133,6 +134,30 @@ class ParserTest extends AbstractParserTest
 			[
 				'http://i.imgur.com/UO1UrIx.mp4',
 				'UO1UrIx'
+			],
+			[
+				'https://mastodon.social/@HackerNewsBot/100181134752056592',
+				'host=mastodon.social;id=100181134752056592;name=HackerNewsBot',
+				function ()
+				{
+					XF::$options = (object) [];
+				}
+			],
+			[
+				'https://mastodon.social/@SwiftOnSecurity@infosec.exchange/109579438826193099',
+				false,
+				function ()
+				{
+					XF::$options = (object) [];
+				}
+			],
+			[
+				'https://mastodon.social/@SwiftOnSecurity@infosec.exchange/109579438826193099',
+				'host=infosec.exchange;id=109579438603578302;name=SwiftOnSecurity',
+				function ()
+				{
+					XF::$options = (object) ['s9e_MediaSites_MastodonHosts' => "infosec.exchange\nmastodon.social"];
+				}
 			],
 			[
 				'https://odysee.com/Deni-Juric-Goal-2-0-ŠIBENIK-vs-SLAVEN-Apr21:8726b01100463c4e254a38c3108ef3e05791aeda',

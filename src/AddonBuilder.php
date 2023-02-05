@@ -106,6 +106,8 @@ class AddonBuilder
 		$this->configurator->templateNormalizer->add(new SplitConditionalAttributes);
 		$this->configurator->templateNormalizer->add(new SwitchCSSWidth);
 
+		$this->patchSites();
+
 		$this->storeVersion();
 		$this->normalizeSites();
 		$this->storeDefaultValues();
@@ -175,6 +177,10 @@ class AddonBuilder
 
 		$template   = (string) $this->tags[$siteId]->template;
 		$xfTemplate = '';
+		if ($siteId === 'mastodon')
+		{
+			$template = '<xsl:choose><xsl:when test="@invalid">@<xsl:value-of select="@name"/>@<xsl:value-of select="@invalid"/>/<xsl:value-of select="@id"/></xsl:when><xsl:otherwise>' . $template . '</xsl:otherwise></xsl:choose>';
+		}
 		try
 		{
 			$xfTemplate = $this->xfTranspiler->transpile($template);
@@ -354,10 +360,10 @@ class AddonBuilder
 	* Generate an array of filter config for given site
 	*
 	* @param  array $config
-	* @param  bool  $builtinOnly Whether to restrict filters to built-in filters only
+	* @param  bool  $helperOnly Whether to restrict filters to s9e\MediaSites\Helper callbacks
 	* @return array
 	*/
-	protected static function getFiltersConfig(array $config, bool $builtinOnly = false)
+	protected static function getFiltersConfig(array $config, bool $helperOnly = false)
 	{
 		$filters = [];
 		if (empty($config['attributes']))
@@ -377,7 +383,7 @@ class AddonBuilder
 				{
 					$filter = 's9e\\MediaSites\\Helper::filter' . ucfirst(substr($filter, 1));
 				}
-				elseif ($builtinOnly)
+				if ($helperOnly && !str_starts_with($filter, 's9e\\MediaSites\\Helper::'))
 				{
 					continue;
 				}
@@ -449,10 +455,6 @@ class AddonBuilder
 	*/
 	protected function normalizeSites()
 	{
-		// Revert Mastodon for now
-		$this->sites['mastodon']['scrape'] = [];
-		$this->sites['mastodon']['iframe']['src'] = 'https://s9e.github.io/iframe/2/mastodon.min.html#{@name}/{@id}';
-
 		foreach ($this->sites as $siteId => &$siteConfig)
 		{
 			$siteConfig['extract'] = $this->normalizeRegexps($siteConfig['extract']);
@@ -505,6 +507,13 @@ class AddonBuilder
 				file_get_contents($filepath)
 			)
 		);
+	}
+
+	protected function patchSites(): void
+	{
+		$callback = 's9e\\MediaSites\\Helper::filterMastodonHost';
+		$this->configurator->MediaEmbed->allowedFilters[] = $callback;
+		$this->sites['mastodon']['attributes']['host']['filterChain'] = [$callback];
 	}
 
 	/**

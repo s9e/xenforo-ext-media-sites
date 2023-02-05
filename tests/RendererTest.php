@@ -115,6 +115,24 @@ class RendererTest extends TestCase
 				'<iframe data-s9e-mediaembed="imgur" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;{let s=this.style,d=e.data.split(\' \');s.height=d[0]+\'px\';s.width=d[1]+\'px\'};this.contentWindow.postMessage(\'s9e:init\',\'*\',[c.port2])" scrolling="no" style="height:400px;width:542px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/imgur.min.html#a/9UGCL"></iframe>'
 			],
 			[
+				'mastodon',
+				'host=mastodon.social;id=100181134752056592;name=HackerNewsBot',
+				'<iframe data-s9e-mediaembed="mastodon" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+\'px\';this.contentWindow.postMessage(\'s9e:init\',\'*\',[c.port2])" scrolling="no" style="height:300px;width:550px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/mastodon.min.html#HackerNewsBot/100181134752056592"></iframe>',
+				[]
+			],
+			[
+				'mastodon',
+				'host=infosec.exchange;id=109579438603578302;name=SwiftOnSecurity',
+				'@SwiftOnSecurity@infosec.exchange/109579438603578302',
+				[]
+			],
+			[
+				'mastodon',
+				'host=infosec.exchange;id=109579438603578302;name=SwiftOnSecurity',
+				'<iframe data-s9e-mediaembed="mastodon" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+\'px\';this.contentWindow.postMessage(\'s9e:init\',\'*\',[c.port2])" scrolling="no" style="height:300px;width:550px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/mastodon.min.html#SwiftOnSecurity@infosec.exchange/109579438603578302"></iframe>',
+				['s9e_MediaSites_MastodonHosts' => "infosec.exchange\nmastodon.social"]
+			],
+			[
 				'reddit',
 				'path=%2Fr%2Fpics%2Fcomments%2F304rms%2F',
 				'<iframe data-s9e-mediaembed="reddit" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+\'px\';this.contentWindow.postMessage(\'s9e:init\',\'*\',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/reddit.min.html#pics/comments/304rms#theme=" style="height:165px;width:800px" data-s9e-mediaembed-api="2"></iframe>'
