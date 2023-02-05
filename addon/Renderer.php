@@ -59,6 +59,7 @@ class Renderer
 		'gifs'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
 		'giphy'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
 		'internetarchive'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
+		'mastodon'=>['host'=>['s9e\\MediaSites\\Helper::filterMastodonHost']],
 		'odysee'=>['name'=>['s9e\\MediaSites\\Helper::filterUrl'],'path'=>['s9e\\MediaSites\\Helper::filterUrl']],
 		'vimeo'=>['t'=>['s9e\\MediaSites\\Helper::filterTimestamp']],
 		'youtube'=>['id'=>['s9e\\MediaSites\\Helper::filterIdentifier'],'t'=>['s9e\\MediaSites\\Helper::filterTimestamp']]
@@ -120,6 +121,18 @@ class Renderer
 				$id += strpos($chars, $digit) * pow(58, $pos);
 			}
 			$vars['id'] = $id;
+		}
+
+		return $vars;
+	}
+
+	protected static function adjustVarsMastodon(array $vars): array
+	{
+		$vars += ['host' => 'mastodon.social'];
+		unset($vars['invalid']);
+		if (Helper::filterMastodonHost($vars['host']) === false)
+		{
+			$vars['invalid'] = $vars['host'];
 		}
 
 		return $vars;

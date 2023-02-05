@@ -5,7 +5,6 @@ namespace s9e\MediaSites\Tests;
 use Composer\InstalledVersions;
 use DOMDocument;
 use PHPUnit\Framework\TestCase;
-use XF;
 use XF\Entity\BbCodeMediaSite;
 
 abstract class AbstractParserTest extends TestCase
@@ -33,9 +32,12 @@ abstract class AbstractParserTest extends TestCase
 	/**
 	* @dataProvider getMatchTests
 	*/
-	public function testMatch($url, $expected, array $config = [])
+	public function testMatch($url, $expected, callable $setup = null)
 	{
-		XF::$config = $config;
+		if (isset($setup))
+		{
+			$setup();
+		}
 
 		$mediaKey = false;
 		foreach (self::$sites as $siteId => $regexp)

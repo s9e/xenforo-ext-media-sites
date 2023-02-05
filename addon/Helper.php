@@ -36,6 +36,20 @@ class Helper
 	}
 
 	/**
+	* Filter a Mastodon host
+	*
+	* @param  string $attrValue Original value
+	* @return mixed             Filtered value, or FALSE if invalid
+	*/
+	public static function filterMastodonHost($attrValue)
+	{
+		$hosts     = explode("\n", XF::options()->s9e_MediaSites_MastodonHosts ?? 'mastodon.social');
+		$attrValue = strtolower($attrValue);
+
+		return in_array($attrValue, $hosts, true) ? $attrValue : false;
+	}
+
+	/**
 	* Filter a timestamp value
 	*
 	* @param  string $attrValue Original value

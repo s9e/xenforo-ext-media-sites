@@ -3,8 +3,10 @@
 namespace s9e\MediaSites\Tests;
 
 use PHPUnit\Framework\TestCase;
+use XF;
 use XF\Template\Templater;
 use s9e\MediaSites\Helper;
+use stdClass;
 
 /**
 * @covers s9e\MediaSites\Helper
@@ -77,6 +79,43 @@ class HelperTest extends TestCase
 				// Replace the iframe's src
 				'<span data-s9e-mediaembed="youtube"><span><iframe data-s9e-mediaembed-c2l="youtube" data-s9e-mediaembed-c2l-src="?autoplay=1" allowfullscreen="" scrolling="no" src="https://www.youtube.com/embed/QH2-TGUlwu4"></iframe></span></span>',
 				'<span data-s9e-mediaembed="youtube"><span><span data-s9e-mediaembed-c2l="youtube" data-s9e-mediaembed-iframe=\'["allowfullscreen","","scrolling","no","src","?autoplay=1"]\'></span></span></span><script></script>'
+			],
+		];
+	}
+
+	/**
+	* @dataProvider getMastodonHostsTests
+	*/
+	public function testMastodonHosts(string $hosts, string $value, false|string $expected)
+	{
+		XF::$options = new stdClass;
+		XF::$options->s9e_MediaSites_MastodonHosts = $hosts;
+
+		$this->assertEquals($expected, Helper::filterMastodonHost($value));
+	}
+
+	public function getMastodonHostsTests()
+	{
+		return [
+			[
+				'mastodon.social',
+				'mastodon.social',
+				'mastodon.social'
+			],
+			[
+				'mastodon.social',
+				'example.org',
+				false
+			],
+			[
+				"example.org\nmastodon.social",
+				'example.org',
+				'example.org'
+			],
+			[
+				"example.org\nmastodon.social",
+				'example.ORG',
+				'example.org'
 			],
 		];
 	}
