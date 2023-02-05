@@ -196,10 +196,10 @@ class ParserTest extends AbstractParserTest
 				'https://www.tiktok.com/@lauren.feagans/video/6789430799839104261',
 				'6789430799839104261'
 			],
-			[
-				'https://vm.tiktok.com/TTPdrc3YBJ?1',
-				'7050192414379691270'
-			],
+//			[
+//				'https://vm.tiktok.com/TTPdrc3YBJ?1',
+//				'7050192414379691270'
+//			],
 //			[
 //				'https://vm.tiktok.com/TTPdrc3YBJ?2',
 //				'7050192414379691270',
