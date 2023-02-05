@@ -204,7 +204,7 @@ class RendererTest extends TestCase
 			[
 				'tumblr',
 				'did=5f3b4bc6718317df9c2b1e77c20839ab94f949cd;id=104191225637;key=uFhWDPKj-bGU0ZlDAnUyxg;name=mrbenvey',
-				'<iframe data-s9e-mediaembed="tumblr" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+\'px\';this.contentWindow.postMessage(\'s9e:init\',\'*\',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/tumblr.min.html#uFhWDPKj-bGU0ZlDAnUyxg/104191225637" style="height:300px;width:520px" data-s9e-mediaembed-api="2"></iframe>'
+				'<iframe data-s9e-mediaembed="tumblr" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+\'px\';this.contentWindow.postMessage(\'s9e:init\',\'*\',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/tumblr.min.html#uFhWDPKj-bGU0ZlDAnUyxg/104191225637" style="height:300px;width:542px" data-s9e-mediaembed-api="2"></iframe>'
 			],
 			[
 				'twitch',

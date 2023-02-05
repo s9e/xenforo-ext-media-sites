@@ -207,7 +207,7 @@ class ParserTest extends AbstractParserTest
 //			],
 			[
 				'https://robotnik-mun.tumblr.com/post/701775547181793280/mmn2-1210-1215',
-				'did=feacbe79ff845db2148047f37f21c5bec627f7bd;id=701775547181793280;key=DTWoe13Wa77ryFWBMdDyBg;name=robotnik-mun'
+				'did=feacbe79ff845db2148047f37f21c5bec627f7bd;id=701775547181793280;key=GQNraxr5FGOXb18PnuWwQQ;name=robotnik-mun'
 			],
 			[
 				'http://www.twitch.tv/twitch',
