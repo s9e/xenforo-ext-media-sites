@@ -23,65 +23,19 @@ use s9e\TextFormatter\Configurator;
 
 class AddonBuilder
 {
-	/**
-	* @var Configurator
-	*/
-	protected $configurator;
-
-	/**
-	* @var array
-	*/
-	protected $defaultValues;
-
-	/**
-	* @var string
-	*/
-	protected $dir;
-
-	/**
-	* @var string
-	*/
-	public $nsRoot = 's9e\\MediaSites';
-
-	/**
-	* @var array
-	*/
-	protected $params;
-
-	/**
-	* @var PHPSource
-	*/
-	protected $phpTranspiler;
-
-	/**
-	* @var array
-	*/
-	protected $phpTemplates = [];
-
-	/**
-	* @var RegexpBuilder
-	*/
-	protected $regexpBuilder;
-
-	/**
-	* @var array
-	*/
-	protected $sites;
-
-	/**
-	* @var string
-	*/
-	protected $version;
-
-	/**
-	* @var integer
-	*/
-	protected $versionId;
-
-	/**
-	* @var XenForoTemplate
-	*/
-	protected $xfTemplate;
+	protected Configurator $configurator;
+	protected array $defaultValues;
+	protected string $dir;
+	public string $nsRoot = 's9e\\MediaSites';
+	protected array $params;
+	protected PHPSource $phpTranspiler;
+	protected array $phpTemplates = [];
+	protected RegexpBuilder $regexpBuilder;
+	protected array $sites;
+	protected array $tags;
+	protected string $version;
+	protected int $versionId;
+	protected XenForoTemplate $xfTranspiler;
 
 	/**
 	* @param string       $dir          Target dir
