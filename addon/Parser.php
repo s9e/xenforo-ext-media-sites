@@ -150,7 +150,7 @@ class Parser
 		'streamja'=>[['@streamja\\.com/(?!login|signup|terms|videos)(?<id>\\w+)@']],
 		'teamcoco'=>[['!teamcoco\\.com/video/(?<id>\\d+)!'],[],[['extract'=>['!embed/v/(?<id>\\d+)!'],'match'=>['!teamcoco\\.com/video/\\D!']]]],
 		'ted'=>[['#ted\\.com/(?<id>(?:talk|playlist)s/[-\\w]+(?:\\.html)?)(?![-\\w]|/transcript)#i']],
-		'telegram'=>[['@//t.me/(?!addstickers/|joinchat/)(?<id>\\w+/\\d+)@']],
+		'telegram'=>[['@//t.me/(?!addstickers/|joinchat/)(?:s/)?(?<id>\\w+/\\d+)@']],
 		'theatlantic'=>[['!theatlantic\\.com/video/index/(?<id>\\d+)!']],
 		'theguardian'=>[['!theguardian\\.com/(?<id>\\w+/video/20(?:0[0-9]|1[0-7])[-/\\w]+)!']],
 		'theonion'=>[['!theonion\\.com/video/[-\\w]+[-,](?<id>\\d+)!']],
