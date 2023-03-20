@@ -113,6 +113,7 @@ class AddonBuilder
 		$site->setAttribute('match_callback_method',      'match');
 		$site->setAttribute('embed_html_callback_class',  $this->nsRoot . '\\Renderer');
 		$site->setAttribute('embed_html_callback_method', 'render');
+		$site->setAttribute('cookie_third_parties',       $siteConfig['cookie_third_parties'] ?? $siteId);
 		$site->setAttribute('supported',                  1);
 		$site->setAttribute('active',                     1);
 		$site->setAttribute('oembed_enabled',             0);
@@ -468,6 +469,23 @@ class AddonBuilder
 		$callback = 's9e\\MediaSites\\Helper::filterMastodonHost';
 		$this->configurator->MediaEmbed->allowedFilters[] = $callback;
 		$this->sites['mastodon']['attributes']['host']['filterChain'] = [$callback];
+
+		$filepath = $this->dir . '/../target/src/XF/_data/bb_code_media_sites.xml';
+		if (file_exists($filepath))
+		{
+			$dom = new DOMDocument;
+			$dom->load($filepath);
+			foreach ($dom->getElementsByTagName('site') as $site)
+			{
+				$siteId = $site->getAttribute('media_site_id');
+				if (!isset($this->sites[$siteId]) || !$site->hasAttribute('cookie_third_parties'))
+				{
+					continue;
+				}
+
+				$this->sites[$siteId]['cookie_third_parties'] = $site->getAttribute('cookie_third_parties');
+			}
+		}
 	}
 
 	/**
