@@ -80,6 +80,11 @@ class HelperTest extends TestCase
 				'<span data-s9e-mediaembed="youtube"><span><iframe data-s9e-mediaembed-c2l="youtube" data-s9e-mediaembed-c2l-src="?autoplay=1" allowfullscreen="" scrolling="no" src="https://www.youtube.com/embed/QH2-TGUlwu4"></iframe></span></span>',
 				'<span data-s9e-mediaembed="youtube"><span><span data-s9e-mediaembed-c2l="youtube" data-s9e-mediaembed-iframe=\'["allowfullscreen","","scrolling","no","src","?autoplay=1"]\'></span></span></span><script></script>'
 			],
+			[
+				// Don't modify markup within a template (used for cookie consent)
+				'<span data-s9e-mediaembed="youtube"><span><iframe data-s9e-mediaembed-c2l="youtube" allowfullscreen="" scrolling="no" src="https://www.youtube.com/embed/QH2-TGUlwu4"></iframe></span></span></template>',
+				'<span data-s9e-mediaembed="youtube"><span><iframe data-s9e-mediaembed-c2l="youtube" allowfullscreen="" scrolling="no" src="https://www.youtube.com/embed/QH2-TGUlwu4"></iframe></span></span></template>'
+			],
 		];
 	}
 
