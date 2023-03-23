@@ -94,4 +94,15 @@ class AddonBuilderTest extends TestCase
 
 		$this->assertStringNotContainsString('max-width', $file);
 	}
+
+	public function testCookieConsent()
+	{
+		$filepath = realpath(__DIR__ . '/../addon/_data/bb_code_media_sites.xml');
+		$file     = file_get_contents($filepath);
+
+		$this->assertMatchesRegularExpression(
+			'(<site media_site_id="youtube"[^>]*? cookie_third_parties="google")',
+			$file
+		);
+	}
 }

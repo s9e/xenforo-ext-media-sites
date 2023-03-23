@@ -470,7 +470,11 @@ class AddonBuilder
 		$this->configurator->MediaEmbed->allowedFilters[] = $callback;
 		$this->sites['mastodon']['attributes']['host']['filterChain'] = [$callback];
 
-		$filepath = $this->dir . '/../target/src/XF/_data/bb_code_media_sites.xml';
+		$this->sites['googledrive']['cookie_third_parties'] = 'google';
+		$this->sites['googleplus']['cookie_third_parties'] = 'google';
+		$this->sites['googlesheets']['cookie_third_parties'] = 'google';
+
+		$filepath = $this->dir . '/../target/src/addons/XF/_data/bb_code_media_sites.xml';
 		if (file_exists($filepath))
 		{
 			$dom = new DOMDocument;
