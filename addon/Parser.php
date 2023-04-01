@@ -154,7 +154,7 @@ class Parser
 		'theatlantic'=>[['!theatlantic\\.com/video/index/(?<id>\\d+)!']],
 		'theguardian'=>[['!theguardian\\.com/(?<id>\\w+/video/20(?:0[0-9]|1[0-7])[-/\\w]+)!']],
 		'theonion'=>[['!theonion\\.com/video/[-\\w]+[-,](?<id>\\d+)!']],
-		'tiktok'=>[['#tiktok\\.com/(?:@[.\\w]+/video|v|(?:i18n/)?share/video)/(?<id>\\d+)#'],[],[['extract'=>['#tiktok\\.com/(?:@[.\\w]+/video|v|(?:i18n/)?/share/video)/(?<id>\\d+)#'],'match'=>['#//v[mt]\\.tiktok\\.com/.#']]]],
+		'tiktok'=>[['#tiktok\\.com/(?:@[.\\w]+/video|v|(?:i18n/)?share/video)/(?<id>\\d+)#'],[],[['extract'=>['#tiktok\\.com/(?:@[.\\w]+/video|v|(?:i18n/)?/share/video)/(?<id>\\d+)#'],'match'=>["#//v[mt]\\.tiktok\\.com/(?'short_id'\\w+)#","#tiktok\\.com/t/(?'short_id'\\w+)#"],'url'=>'https://www.tiktok.com/t/{@short_id}']]],
 		'tmz'=>[['@tmz\\.com/videos/(?<id>\\w+)@']],
 		'tradingview'=>[['!tradingview\\.com/(?:chart/[^/]+|i)/(?<chart>\\w+)!','!tradingview\\.com/symbols/(?<symbol>[-:\\w]+)!']],
 		'traileraddict'=>[[],[],[['extract'=>['@v\\.traileraddict\\.com/(?<id>\\d+)@'],'match'=>['@traileraddict\\.com/(?!tags/)[^/]+/.@']]]],
