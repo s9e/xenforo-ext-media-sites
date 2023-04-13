@@ -23,6 +23,19 @@ class Setup extends AbstractSetup
 		$this->upgrade2050056Step1();
 	}
 
+	public function postInstall(array &$stateChanges)
+	{
+		$this->setDefaultFindInPage();
+	}
+
+	public function postUpgrade($previousVersion, array &$stateChanges)
+	{
+		if ($previousVersion < 2100000)
+		{
+			$this->setDefaultFindInPage();
+		}
+	}
+
 	public function uninstall(array $stepParams = [])
 	{
 		$this->schemaManager()->alterTable(
@@ -163,6 +176,15 @@ class Setup extends AbstractSetup
 			->where('addon_id',      's9e/MediaSites')
 			->where('active',        1)
 			->fetchOne();
+	}
+
+	protected function setDefaultFindInPage()
+	{
+		// Enable FindInPage only if unfurling is enabled
+		if (!empty($this->app()->options()->urlToRichPreview))
+		{
+			$this->app()->repository('XF:Option')->updateOption('s9e_MediaSites_FindInPage', 1);
+		}
 	}
 
 	protected function upgradePosts(array $stepParams, $like, $callback)

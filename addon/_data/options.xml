@@ -52,6 +52,10 @@
     <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="102"/>
   </option>
+  <option option_id="s9e_MediaSites_FindInPage" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification" advanced="0">
+    <default_value>0</default_value>
+    <relation group_id="s9e_MediaSites" display_order="109"/>
+  </option>
   <option option_id="s9e_MediaSites_Footer" edit_format="radio" data_type="string" validation_class="s9e\MediaSites\Setup" validation_method="validateFooter" advanced="0">
     <default_value>show</default_value>
     <edit_format_params>show={{ phrase('option.s9e_MediaSites_Footer_Show') }}

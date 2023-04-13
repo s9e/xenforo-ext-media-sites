@@ -11,6 +11,7 @@ use Exception;
 use XF;
 use XF\BbCode\Helper\Flickr;
 use XF\Entity\BbCodeMediaSite;
+use XF\Repository\BbCodeMediaSite as MediaRepository;
 use XF\Repository\Unfurl;
 use XF\Util\File;
 
@@ -232,6 +233,29 @@ class Parser
 		}
 
 		return self::serializeVars($vars, $siteId);
+	}
+
+	public static function findMatchInPage(string $url, array $where, MediaRepository $repository): ?array
+	{
+		$exprs = [
+			'canonical' => 'link rel="canonical" href|meta property="og:url" content',
+			'embedded'  => 'iframe src'
+		];
+		$regexp = '(<(?:' . str_replace(' ', '[^>]+', implode('|', array_intersect_key($exprs, array_flip($where)))) . ')="([^"]++))';
+
+		$response = static::wget($url) ?: '';
+		preg_match_all($regexp, $response, $m);
+		foreach ($m[1] as $url)
+		{
+			$sites = $repository->findActiveMediaSites()->fetch();
+			$match = $repository->urlMatchesMediaSiteList($url, $sites);
+			if ($match)
+			{
+				return $match;
+			}
+		}
+
+		return null;
 	}
 
 	/**

@@ -288,10 +288,35 @@ $0]]></replace>
     <find><![CDATA[(^)]]></find>
     <replace><![CDATA[#editor_media_form ul
 {
-	max-height: 33vh;
+	max-height: 25vh;
 	overflow-y: scroll;
 }
 $0]]></replace>
+  </modification>
+  <modification type="public" template="editor_dialog_media" modification_key="s9e_MediaSites_FindInPage" description="Modifies the Insert Media dialog to allow searching for embeddable media in given page" execution_order="10" enabled="1" action="preg_replace">
+    <find><![CDATA[((\t*)<xf:textboxrow id="editor_media_url"[^>]*?/>)]]></find>
+    <replace><![CDATA[$0
+
+$1<xf:js>
+$1(fn => {
+$1	console.warn('XF.canonicalizeUrl has been modified by the s9e/MediaSites add-on. If something stops working on this page, try disabling the add-on before reporting the isue.');
+
+$1	XF.canonicalizeUrl = url => {
+$1		if (document.querySelector('#s9e_find_in_page_canonical:checked'))
+$1			url += '&s9e_find_in_page_canonical=1';
+$1		if (document.querySelector('#s9e_find_in_page_embedded:checked'))
+$1			url += '&s9e_find_in_page_embedded=1';
+
+$1		return fn(url);
+$1	};
+$1})(XF.canonicalizeUrl);</xf:js>
+$1<xf:checkboxrow
+$1	label="{{ phrase('s9e_find_in_page') }}"
+$1	hint="{{ phrase('s9e_find_in_page_explain') }}">
+$1	<xf:option id="s9e_find_in_page_canonical" name="s9e_find_in_page_canonical">{{ phrase('s9e_find_in_page_canonical') }}</xf:option>
+$1	<xf:option id="s9e_find_in_page_embedded" name="s9e_find_in_page_embedded">{{ phrase('s9e_find_in_page_embedded') }}</xf:option>
+$1</xf:checkboxrow>
+]]></replace>
   </modification>
   <modification type="public" template="xfmg_media_add.less" modification_key="s9e_MediaSites_InsertMediaScroller_XFMG" description="Adds a scrollbar to the list of media sites in the Insert Media dialog in XFMG" execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[(^)]]></find>

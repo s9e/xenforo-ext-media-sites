@@ -4,6 +4,7 @@ namespace s9e\MediaSites\Tests;
 
 use XF;
 use XF\Entity\BbCodeMediaSite;
+use XF\Repository\BbCodeMediaSite as MediaRepository;
 use s9e\MediaSites\Parser;
 
 /**
@@ -313,6 +314,55 @@ class ParserTest extends AbstractParserTest
 			[
 				'https://YOUTU.BE/QH2-TGUlwu4',
 				'QH2-TGUlwu4'
+			],
+		];
+	}
+
+	/**
+	* @dataProvider getFindInPageTests
+	*/
+	public function testFindInPage(string $url, array $where, ?string $expectedUrl): void
+	{
+		$willReturn = [];
+		if (isset($expectedUrl))
+		{
+			$willReturn[$expectedUrl] = ['url' => $expectedUrl];
+		}
+
+		$repository = new MediaRepository($willReturn);
+		$actual     = static::getParserClass()::findMatchInPage($url, $where, $repository);
+		if (isset($expectedUrl))
+		{
+			$this->assertSame($willReturn[$expectedUrl], $actual);
+		}
+		else
+		{
+			$this->assertNull($actual);
+		}
+	}
+
+	public static function getFindInPageTests(): array
+	{
+		return [
+			[
+				'https://barefootheartmusic.com/track/the-longing',
+				['canonical'],
+				'https://barefootheart.bandcamp.com/track/the-longing'
+			],
+			[
+				'https://barefootheartmusic.com/track/the-longing',
+				['embedded'],
+				null
+			],
+			[
+				'https://barefootheartmusic.com/track/the-longing',
+				['canonical', 'embedded'],
+				'https://barefootheart.bandcamp.com/track/the-longing'
+			],
+			[
+				'https://digg.com/digg-vids/link/jon-stewart-confronted-the-deputy-secretary-of-defense-kathleen-hicks-on-the-defense-budget-and-things-got-spicy-Rvz8KHMzvD',
+				['embedded'],
+				'https://www.youtube.com/embed/50MusF365U0'
 			],
 		];
 	}
