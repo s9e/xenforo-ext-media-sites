@@ -182,7 +182,7 @@ class Parser
 		'xboxdvr'=>[['!(?:gamer|xbox)dvr\\.com/gamer/(?<user>[^/]+)/video/(?<id>\\d+)!']],
 		'youku'=>[['!youku\\.com/v(?:_show|ideo)/id_(?<id>\\w+=*)!']],
 		'youmaker'=>[['!youmaker\\.com/(?:embed|v(?:ideo)?)/(?<id>[-a-z0-9]+)!i']],
-		'youtube'=>[['!youtube\\.com/(?:watch.*?v=|live/|shorts/|v/|attribution_link.*?v%3D)(?<id>[-\\w]+)!','!youtu\\.be/(?<id>[-\\w]+)!','@[#&?]t=(?<t>\\d[\\dhms]*)@','![&?]list=(?<list>[-\\w]+)!'],[],[],['id'=>['s9e\\MediaSites\\Helper::filterIdentifier'],'t'=>['s9e\\MediaSites\\Helper::filterTimestamp']]]
+		'youtube'=>[['!youtube\\.com/(?:watch.*?v=|(?:embed|live|shorts|v)/|attribution_link.*?v%3D)(?<id>[-\\w]+)!','!youtu\\.be/(?<id>[-\\w]+)!','@[#&?]t=(?<t>\\d[\\dhms]*)@','![&?]list=(?<list>[-\\w]+)!'],[],[],['id'=>['s9e\\MediaSites\\Helper::filterIdentifier'],'t'=>['s9e\\MediaSites\\Helper::filterTimestamp']]]
 	];
 
 	/**
