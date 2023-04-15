@@ -85,7 +85,6 @@ class AddonBuilder
 		}
 
 //		$this->patchOptions();
-//		$this->patchPhrases();
 		$this->patchParser();
 		$this->patchRenderer();
 
@@ -361,28 +360,6 @@ class AddonBuilder
 		return '(^https?://(?:[^./]+\\.)*' . $this->regexpBuilder->build($hosts) . "/.(?'id'))i";
 	}
 
-	/**
-	* Collect and return existing phrases
-	*
-	* @return array
-	*/
-	protected function getOldPhrases()
-	{
-		$phrases = [];
-
-		$dom = new DOMDocument;
-		$dom->load($this->dir . '/_data/phrases.xml');
-		foreach ($dom->getElementsByTagName('phrase') as $phrase)
-		{
-			$phrases[$phrase->getAttribute('title')] = [
-				'value'          => $phrase->textContent,
-				'version_id'     => $phrase->getAttribute('version_id'),
-				'version_string' => $phrase->getAttribute('version_string')
-			];
-		}
-
-		return $phrases;
-	}
 
 	/**
 	* Normalize a list of regexps
@@ -490,79 +467,6 @@ class AddonBuilder
 				$this->sites[$siteId]['cookie_third_parties'] = $site->getAttribute('cookie_third_parties');
 			}
 		}
-	}
-
-	/**
-	* Patch the options file with options created from parameters
-	*
-	* @return void
-	*/
-	protected function patchOptions()
-	{
-		$dom  = $this->createDOM('options');
-		$root = $dom->documentElement;
-
-		$order = 100;
-		foreach ($this->params as $paramName => $paramConfig)
-		{
-			$option = $root->appendChild($dom->createElement('option'));
-			$option->setAttribute('option_id',   's9e_MediaSites_' . $paramName);
-			$option->setAttribute('edit_format', 'textbox');
-			$option->setAttribute('data_type',   'string');
-			$option->appendChild($dom->createElement('default_value'))
-			       ->appendChild($dom->createTextNode($paramConfig['value']));
-
-			$relation = $option->appendChild($dom->createElement('relation'));
-			$relation->setAttribute('group_id',      's9e_MediaSites');
-			$relation->setAttribute('display_order', $order++);
-		}
-
-		$dom->save($this->dir . '/_data/options.xml');
-	}
-
-	/**
-	* Patch the phrases file
-	*
-	* @return void
-	*/
-	protected function patchPhrases()
-	{
-		$phrases = [
-			'option_group.s9e_MediaSites'             => 's9e Media Sites',
-			'option_group_description.s9e_MediaSites' => 'Options related to the media sites'
-		];
-		foreach ($this->params as $paramName => $paramConfig)
-		{
-			$optionId = 's9e_MediaSites_' . $paramName;
-			$phrases['option.'         . $optionId] = $paramConfig['title'];
-			$phrases['option_explain.' . $optionId] = '';
-		}
-
-		ksort($phrases);
-		$oldPhrases = $this->getOldPhrases();
-
-		$dom  = $this->createDOM('phrases');
-		$root = $dom->documentElement;
-		foreach ($phrases as $title => $value)
-		{
-			if (isset($oldPhrases[$title]) && $oldPhrases[$title]['value'] === $value)
-			{
-				$versionId = $oldPhrases[$title]['version_id'];
-				$version   = $oldPhrases[$title]['version_string'];
-			}
-			else
-			{
-				$versionId = $this->versionId;
-				$version   = $this->version;
-			}
-
-			$phrase = $root->appendChild($dom->createElement('phrase'));
-			$phrase->setAttribute('title',          $title);
-			$phrase->setAttribute('version_id',     $versionId);
-			$phrase->setAttribute('version_string', $version);
-			$phrase->appendChild($dom->createCDATASection($value));
-		}
-		$dom->save($this->dir . '/_data/phrases.xml');
 	}
 
 	/**
