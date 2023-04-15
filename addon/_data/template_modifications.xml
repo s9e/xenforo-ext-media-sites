@@ -299,13 +299,16 @@ $0]]></replace>
 
 $1<xf:js>
 $1(fn => {
-$1	console.warn('XF.canonicalizeUrl has been modified by the s9e/MediaSites add-on. If something stops working on this page, try disabling the add-on before reporting the isue.');
+$1	console.warn('XF.canonicalizeUrl has been modified by the s9e/MediaSites add-on. If something stops working on this page, try disabling the add-on before reporting the issue.');
 
 $1	XF.canonicalizeUrl = url => {
-$1		if (document.querySelector('#s9e_find_in_page_canonical:checked'))
-$1			url += '&s9e_find_in_page_canonical=1';
-$1		if (document.querySelector('#s9e_find_in_page_embedded:checked'))
-$1			url += '&s9e_find_in_page_embedded=1';
+$1		if (url === 'index.php?editor/media')
+$1		{
+$1			if (document.querySelector('#s9e_find_in_page_canonical:checked'))
+$1				url += '&s9e_find_in_page_canonical=1';
+$1			if (document.querySelector('#s9e_find_in_page_embedded:checked'))
+$1				url += '&s9e_find_in_page_embedded=1';
+$1		}
 
 $1		return fn(url);
 $1	};
