@@ -81,7 +81,7 @@ class AddonBuilder
 			$this->addSite($root, $siteId);
 		}
 
-//		$this->patchOptions();
+		$this->patchCookieConsentPhrases();
 		$this->patchParser();
 		$this->patchRenderer();
 
@@ -437,6 +437,31 @@ XML,
 				file_get_contents($filepath)
 			)
 		);
+	}
+
+	protected function patchCookieConsentPhrases()
+	{
+		$phrases = [];
+
+		$filepath = $this->dir . '/../target/src/addons/XF/_data/phrases.xml';
+		if (file_exists($filepath))
+		{
+			$dom = new DOMDocument;
+			$dom->load($filepath);
+
+			$xpath = new DOMXPath($dom);
+			foreach ($xpath->query('/phrases/phrase[starts-with(@title, "cookie_consent.third_party_")]') as $phrase)
+			{
+				$regexp = '(^cookie_consent\\.third_party_(\\w+?)_(.++))';
+				$title  = $phrase->getAttribute('title');
+				if (preg_match($regexp, $title, $m))
+				{
+					$phrases[$m[1]][$m[2]] = $phrase->textContent;
+				}			}
+			print_r($phrases);
+		}
+
+exit;
 	}
 
 	/**
