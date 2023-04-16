@@ -435,10 +435,9 @@ class AddonBuilder
 				if (preg_match($regexp, $title, $m))
 				{
 					$phrases[$m[1]][$m[2]] = $phrase->textContent;
-				}			}
-			print_r($phrases);
+				}
+			}
 		}
-
 exit;
 	}
 
