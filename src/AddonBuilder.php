@@ -466,6 +466,7 @@ XML,
 	protected function patchCookieConsentPhrases()
 	{
 		$phrases = $this->getDefaultCookieConsentPhrases();
+		print_r($phrases);exit;
 	}
 
 	/**
