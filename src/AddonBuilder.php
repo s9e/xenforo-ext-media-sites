@@ -292,10 +292,7 @@ XML,
 			file_get_contents($filepath),
 			$m
 		);
-		foreach ($m[1] as $k => $title)
-		{
-			$phrases[$title] = $m[0][$k];
-		}
+		$phrases = array_combine($m[1], $m[0]);
 
 		// Remove the phrases that already exist in XenForo
 		$phrases = array_diff_key($phrases, $this->getDefaultCookieConsentPhrases());
@@ -380,19 +377,13 @@ XML,
 		$filepath = $this->dir . '/../target/src/addons/XF/_data/phrases.xml';
 		if (file_exists($filepath))
 		{
-			$dom = new DOMDocument;
-			$dom->load($filepath);
+			preg_match_all(
+				'(<phrase title="(cookie_consent.third_party_[^"]++)".*?</phrase>)s',
+				file_get_contents($filepath),
+				$m
+			);
 
-			$xpath = new DOMXPath($dom);
-			foreach ($xpath->query('/phrases/phrase[starts-with(@title, "cookie_consent.third_party_")]') as $phrase)
-			{
-				$regexp = '(^cookie_consent\\.third_party_(\\w+?)_(.++))';
-				$title  = $phrase->getAttribute('title');
-				if (preg_match($regexp, $title, $m))
-				{
-					$phrases[$m[1]][$m[2]] = $phrase->textContent;
-				}
-			}
+			$phrases = array_combine($m[1], $m[0]);
 		}
 
 		return $phrases;
