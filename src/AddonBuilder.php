@@ -292,7 +292,7 @@ XML,
 			file_get_contents($filepath),
 			$m
 		);
-		$phrases = array_combine($m[1], $m[0]);
+		$phrases = array_combine($m[1], $m[0]) + $phrases;
 
 		// Remove the phrases that already exist in XenForo
 		$phrases = array_diff_key($phrases, $this->getDefaultCookieConsentPhrases());
