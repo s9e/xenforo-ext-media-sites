@@ -263,6 +263,38 @@ XML,
 		return self::exportArray($site);
 	}
 
+	protected function generateCookieConsentPhrases(): string
+	{
+		/** @var array XML representation of each phrase, using its title as key */
+		$phrases = [];
+		foreach ($this->sites as $siteId => $siteConfig)
+		{
+			$title = 'cookie_consent.third_party_' . $siteConfig['cookie_third_parties'];
+			$xml   = '<phrase title="' . htmlspecialchars($title, ENT_NOQUOTES) . '" version_id="' . htmlspecialchars($this->versionId, ENT_NOQUOTES) . '" version_string="' . htmlspecialchars($this->version, ENT_NOQUOTES) . '"><![CDATA[These cookies are set by ' . htmlspecialchars($siteConfig['name'], ENT_NOQUOTES) . ', and may be used for displaying embedded content.]]></phrase>';
+
+			$phrases[$title] = $xml;
+		}
+
+		// Overwrite with existing phrases
+		$filepath = $this->dir . '/_data/phrases.xml';
+		preg_match_all(
+			'(<phrase title="([^"]++)".*?</phrase>)s',
+			file_get_contents($filepath),
+			$m
+		);
+		foreach ($m[1] as $k => $title)
+		{
+			$phrases[$title] = $m[0][$k];
+		}
+
+		// Remove the phrases that already exist in XenForo
+		$phrases = array_diff_key($phrases, $this->getDefaultCookieConsentPhrases());
+
+		ksort($phrases);
+
+		return implode("\n  ", $phrases);
+	}
+
 	/**
 	* Generate and return the PHP source for the parser's config
 	*
@@ -472,41 +504,9 @@ XML,
 	{
 		$this->patchFile(
 			'_data/phrases.xml',
-			'(<phrases>\\s*+\\K.*(?=</phrases>))s',
+			'(<phrases>\\s*+\\K.*?(?=\\s*</phrases>))s',
 			'generateCookieConsentPhrases'
 		);
-	}
-
-	protected function generateCookieConsentPhrases(): string
-	{
-		/** @var array XML representation of each phrase, using its title as key */
-		$phrases = [];
-		foreach ($this->sites as $siteId => $siteConfig)
-		{
-			$title = 'cookie_consent.third_party_' . $siteConfig['cookie_third_parties'];
-			$xml   = '<phrase title="' . htmlspecialchars($title, ENT_NOQUOTES) . '" version_id="' . htmlspecialchars($this->versionId, ENT_NOQUOTES) . '" version_string="' . htmlspecialchars($this->version, ENT_NOQUOTES) . '"><![CDATA[These cookies are set by ' . htmlspecialchars($siteConfig['name'], ENT_NOQUOTES) . ', and may be used for displaying embedded content.]]></phrase>';
-
-			$phrases[$title] = $xml;
-		}
-
-		// Overwrite with existing phrases
-		$filepath = $this->dir . '/_data/phrases.xml';
-		preg_match_all(
-			'(<phrase title="([^"]++)".*?</phrase>)s',
-			file_get_contents($filepath),
-			$m
-		);
-		foreach ($m[1] as $k => $title)
-		{
-			$phrases[$title] = $m[0][$k];
-		}
-
-		// Remove the phrases that already exist in XenForo
-		$phrases = array_diff_key($phrases, $this->getDefaultCookieConsentPhrases());
-
-		ksort($phrases);
-
-		return implode("\n  ", $phrases);
 	}
 
 	/**
