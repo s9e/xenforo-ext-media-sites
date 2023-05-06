@@ -265,12 +265,22 @@ XML,
 
 	protected function generateCookieConsentPhrases(): string
 	{
+		$version   = htmlspecialchars($this->version, ENT_NOQUOTES);
+		$versionId = htmlspecialchars($this->versionId, ENT_NOQUOTES);
+
 		/** @var array XML representation of each phrase, using its title as key */
 		$phrases = [];
 		foreach ($this->sites as $siteId => $siteConfig)
 		{
-			$title = 'cookie_consent.third_party_' . $siteConfig['cookie_third_parties'];
-			$xml   = '<phrase title="' . htmlspecialchars($title, ENT_NOQUOTES) . '" version_id="' . htmlspecialchars($this->versionId, ENT_NOQUOTES) . '" version_string="' . htmlspecialchars($this->version, ENT_NOQUOTES) . '"><![CDATA[These cookies are set by ' . htmlspecialchars($siteConfig['name'], ENT_NOQUOTES) . ', and may be used for displaying embedded content.]]></phrase>';
+			$siteName = htmlspecialchars($siteConfig['name'], ENT_NOQUOTES);
+
+			$title = 'cookie_consent.third_party_label_' . $siteConfig['cookie_third_parties'];
+			$xml   = '<phrase title="' . $title . '" version_id="' . $versionId . '" version_string="' . $version . '"><![CDATA[' . $siteName . ']]></phrase>';
+
+			$phrases[$title] = $xml;
+
+			$title = 'cookie_consent.third_party_description_' . $siteConfig['cookie_third_parties'];
+			$xml   = '<phrase title="' . $title . '" version_id="' . $versionId . '" version_string="' . $version . '"><![CDATA[These cookies are set by ' . $siteName . ', and may be used for displaying embedded content.]]></phrase>';
 
 			$phrases[$title] = $xml;
 		}
