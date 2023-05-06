@@ -561,35 +561,10 @@ XML,
 		$this->configurator->MediaEmbed->allowedFilters[] = $callback;
 		$siteConfig['attributes']['host']['filterChain'] = [$callback];
 
-		return $siteConfig;
-	}
-
-	protected function patchSiteThreads(array $siteConfig): array
-	{
-		$siteConfig['cookie_third_parties'] = 'meta';
-
-		return $siteConfig;
-	}
-
-	protected function patchSiteXenForo(array $siteConfig): array
-	{
-		$callback = 's9e\\MediaSites\\Helper::filterXenForoHost';
-		$this->configurator->MediaEmbed->allowedFilters[] = $callback;
-		$siteConfig['attributes']['host']['filterChain'] = [$callback];
-
-		return $siteConfig;
-	}
-
-	protected function patchSites(): void
-	{
-		foreach ($this->sites as $siteId => $siteConfig)
-		{
-			$methodName = 'patchSite' . ucfirst($siteId);
-			if (is_callable([$this, $methodName]))
-			{
-				$this->sites[$siteId] = $this->$methodName($siteConfig);
-			}
-		}
+		$this->sites['applepodcasts']['cookie_third_parties'] = 'apple';
+		$this->sites['googledrive']['cookie_third_parties']   = 'google';
+		$this->sites['googleplus']['cookie_third_parties']    = 'google';
+		$this->sites['googlesheets']['cookie_third_parties']  = 'google';
 
 		$filepath = $this->dir . '/../target/src/addons/XF/_data/bb_code_media_sites.xml';
 		if (file_exists($filepath))
