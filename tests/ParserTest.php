@@ -2,6 +2,7 @@
 
 namespace s9e\MediaSites\Tests;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use XF;
 use XF\Entity\BbCodeMediaSite;
 use XF\Repository\BbCodeMediaSite as MediaRepository;
