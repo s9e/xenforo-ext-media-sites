@@ -3,17 +3,18 @@
 namespace s9e\AddonBuilder\MediaSites\Tests\Transpilers;
 
 use Exception;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 abstract class AbstractTranspilerTest extends TestCase
 {
 	abstract protected function getTranspiler();
-	abstract public function getTranspilerTests();
+	abstract public static function getTranspilerTests(): array;
 
 	/**
 	* @testdox Transpiler tests
-	* @dataProvider getTranspilerTests
 	*/
+	#[DataProvider('getTranspilerTests')]
 	public function test($original, $expected, $siteConfig = [])
 	{
 		if ($expected instanceof Exception)

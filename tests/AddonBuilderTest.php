@@ -4,6 +4,7 @@ namespace s9e\MediaSites\Tests;
 
 use DOMDocument;
 use DOMXPath;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use XF\Template\Templater;
 use s9e\AddonBuilder\MediaSites\AddonBuilder;
@@ -47,15 +48,13 @@ class AddonBuilderTest extends TestCase
 		rmdir($trgDir);
 	}
 
-	/**
-	* @dataProvider getModificationTests
-	*/
+	#[DataProvider('getModificationTests')]
 	public function testModifications($regexp, $template)
 	{
 		$this->assertMatchesRegularExpression($regexp, $template);
 	}
 
-	public function getModificationTests()
+	public static function getModificationTests(): array
 	{
 		$dom = new DOMDocument;
 		$dom->load(__DIR__ . '/../addon/_data/bb_code_media_sites.xml');

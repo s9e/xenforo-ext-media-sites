@@ -16,7 +16,7 @@ class PHPSourceTest extends AbstractTranspilerTest
 		return new PHPSource(new Configurator);
 	}
 
-	public function getTranspilerTests()
+	public static function getTranspilerTests(): array
 	{
 		return [
 			[

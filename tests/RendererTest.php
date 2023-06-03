@@ -2,6 +2,7 @@
 
 namespace s9e\MediaSites\Tests;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use XF;
 use s9e\MediaSites\Renderer;
@@ -19,9 +20,7 @@ class RendererTest extends TestCase
 		);
 	}
 
-	/**
-	* @dataProvider getRenderTests
-	*/
+	#[DataProvider('getRenderTests')]
 	public function testRender($siteId, $mediaKey, $expected, $options = [], $styleProperties = [])
 	{
 		XF::$options         = (object) $options;
@@ -29,7 +28,7 @@ class RendererTest extends TestCase
 		$this->assertEquals($expected, Renderer::render($mediaKey, [], $siteId));
 	}
 
-	public function getRenderTests()
+	public static function getRenderTests(): array
 	{
 		return [
 			[

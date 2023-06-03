@@ -15,7 +15,7 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 		return new XenForoTemplate;
 	}
 
-	public function getTranspilerTests()
+	public static function getTranspilerTests(): array
 	{
 		return [
 			[

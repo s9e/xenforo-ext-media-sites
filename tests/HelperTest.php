@@ -2,6 +2,7 @@
 
 namespace s9e\MediaSites\Tests;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use XF;
 use XF\Template\Templater;
@@ -13,9 +14,7 @@ use stdClass;
 */
 class HelperTest extends TestCase
 {
-	/**
-	* @dataProvider getReplaceIframesTests
-	*/
+	#[DataProvider('getReplaceIframesTests')]
 	public function testReplaceIframes($original, $expected)
 	{
 		$actual = $original;
@@ -25,7 +24,7 @@ class HelperTest extends TestCase
 		$this->assertEquals($expected, $actual);
 	}
 
-	public function getReplaceIframesTests()
+	public static function getReplaceIframesTests(): array
 	{
 		return [
 			[
@@ -88,9 +87,7 @@ class HelperTest extends TestCase
 		];
 	}
 
-	/**
-	* @dataProvider getMastodonHostsTests
-	*/
+	#[DataProvider('getMastodonHostsTests')]
 	public function testMastodonHosts(string $hosts, string $value, false|string $expected)
 	{
 		XF::$options = new stdClass;
@@ -99,7 +96,7 @@ class HelperTest extends TestCase
 		$this->assertEquals($expected, Helper::filterMastodonHost($value));
 	}
 
-	public function getMastodonHostsTests()
+	public static function getMastodonHostsTests(): array
 	{
 		return [
 			[

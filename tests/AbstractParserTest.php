@@ -4,13 +4,14 @@ namespace s9e\MediaSites\Tests;
 
 use Composer\InstalledVersions;
 use DOMDocument;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use XF\Entity\BbCodeMediaSite;
 
 abstract class AbstractParserTest extends TestCase
 {
 	abstract public function getParserClass(): string;
-	abstract public function getMatchTests(): array;
+	abstract public static function getMatchTests(): array;
 
 	protected static string $rootDir = __DIR__ . '/..';
 	protected static $sites = [];
@@ -29,9 +30,7 @@ abstract class AbstractParserTest extends TestCase
 		}
 	}
 
-	/**
-	* @dataProvider getMatchTests
-	*/
+	#[DataProvider('getMatchTests')]
 	public function testMatch($url, $expected, callable $setup = null)
 	{
 		if (isset($setup))

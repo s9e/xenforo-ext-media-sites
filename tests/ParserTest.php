@@ -39,7 +39,7 @@ class ParserTest extends AbstractParserTest
 		}
 	}
 
-	public function getMatchTests(): array
+	public static function getMatchTests(): array
 	{
 		return [
 			[
@@ -318,9 +318,7 @@ class ParserTest extends AbstractParserTest
 		];
 	}
 
-	/**
-	* @dataProvider getFindInPageTests
-	*/
+	#[DataProvider('getFindInPageTests')]
 	public function testFindInPage(string $url, array $where, ?string $expectedUrl): void
 	{
 		$willReturn = [];
