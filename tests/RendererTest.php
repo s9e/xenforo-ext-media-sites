@@ -10,22 +10,19 @@ use s9e\MediaSites\Renderer;
 /**
 * @covers s9e\MediaSites\Renderer
 */
-class RendererTest extends TestCase
+class RendererTest extends AbstractRendererTest
 {
+	public function getRendererClass(): string
+	{
+		return Renderer::class;
+	}
+
 	public function testUnknown()
 	{
 		$this->assertSame(
 			'<div class="blockMessage blockMessage--error blockMessage--iconic">Template <b>public:_media_site_embed_foo</b> not found. Try rebuilding or reinstalling the s9e/MediaSites add-on.</div>',
 			Renderer::render('foo', [], 'foo')
 		);
-	}
-
-	#[DataProvider('getRenderTests')]
-	public function testRender($siteId, $mediaKey, $expected, $options = [], $styleProperties = [])
-	{
-		XF::$options         = (object) $options;
-		XF::$styleProperties = $styleProperties;
-		$this->assertEquals($expected, Renderer::render($mediaKey, [], $siteId));
 	}
 
 	public static function getRenderTests(): array

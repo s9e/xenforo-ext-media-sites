@@ -17,6 +17,7 @@ encoding="utf-8"?>
 		<testsuite name="MediaSites">
 			<directory>tests</directory>
 			<exclude>tests/AbstractParserTest.php</exclude>
+			<exclude>tests/AbstractRendererTest.php</exclude>
 			<exclude>tests/Transpilers/AbstractTranspilerTest.php</exclude>
 		</testsuite>
 	</testsuites>
