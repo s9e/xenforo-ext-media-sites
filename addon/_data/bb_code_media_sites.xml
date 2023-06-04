@@ -354,7 +354,7 @@
   </site>
   <site media_site_id="slideshare" site_title="SlideShare" site_url="https://www.slideshare.net/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="slideshare" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*slideshare\.net/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="slideshare" style="width:427px"><span style="padding-bottom:83.372365%"><iframe allowfullscreen="" scrolling="no" src="//www.slideshare.net/slideshow/embed_code/{$id}"></iframe></span></span>]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="slideshare" style="width:597px"><span style="padding-bottom:81.407035%"><iframe allowfullscreen="" scrolling="no" src="https://www.slideshare.net/slideshow/embed_code/key/{$key}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="soundcloud" site_title="SoundCloud" site_url="https://soundcloud.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="soundcloud" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*soundcloud\.com/.(?'id'))i]]></match_urls>

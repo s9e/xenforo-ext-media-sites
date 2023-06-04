@@ -138,7 +138,7 @@ class Parser
 		'rutube'=>[['!rutube\\.ru/(?:play/embed/|tracks/.*?v=|video/)(?<id>\\w+)!']],
 		'scribd'=>[['!scribd\\.com/(?:mobile/)?(?:doc(?:ument)?|presentation)/(?<id>\\d+)!']],
 		'sendvid'=>[['!sendvid\\.com/(?<id>\\w+)!']],
-		'slideshare'=>[['!slideshare\\.net/[^/]+/[-\\w]+-(?<id>\\d{6,})$!'],[],[['extract'=>['!data-slideshow-id="(?<id>\\d+)!'],'match'=>['@slideshare\\.net/[^/]+/\\w(?![-\\w]+-\\d{6,}$)@']]]],
+		'slideshare'=>[['!slideshare.net/slideshow/embed_code/key/(?<key>\\w+)$!'],['key'],[['extract'=>['!embed_code/key/(?<key>\\w+)!','!data-slideshow-id="(?<id>\\d+)"!'],'match'=>['@slideshare\\.net/[^/]+/\\w(?![-\\w]+-\\d{6,}$)@']]]],
 		'soundcloud'=>[['@https?://(?:api\\.)?soundcloud\\.com/(?!pages/)(?<id>[-/\\w]+/[-/\\w]+|^[^/]+/[^/]+$)@i','@api\\.soundcloud\\.com/playlists/(?<playlist_id>\\d+)@','@api\\.soundcloud\\.com/tracks/(?<track_id>\\d+)(?:\\?secret_token=(?<secret_token>[-\\w]+))?@','@soundcloud\\.com/(?!playlists/|tracks/)[-\\w]+/(?:sets/)?[-\\w]+/(?=s-)(?<secret_token>[-\\w]+)@'],[],[['extract'=>['@soundcloud(?::/)?:tracks:(?<track_id>\\d+)@'],'header'=>'User-agent: PHP (not Mozilla)','match'=>['@soundcloud\\.com/(?!playlists/\\d|tracks/\\d)[-\\w]+/[-\\w]@']],['extract'=>['@soundcloud(?::/)?/playlists:(?<playlist_id>\\d+)@'],'header'=>'User-agent: PHP (not Mozilla)','match'=>['@soundcloud\\.com/[-\\w]+/sets/@']]]],
 		'sporcle'=>[['#sporcle.com/framed/.*?gid=(?<id>\\w+)#'],[],[['extract'=>['#encodedGameID\\W+(?<id>\\w+)#'],'match'=>['#sporcle\\.com/games/(?!\\w*category/)[-\\w]+/[-\\w]#']]]],
 		'sportsnet'=>[[],[],[['extract'=>['@bc_videos\\s*:\\s*(?<id>\\d+)@'],'match'=>['//']]]],
