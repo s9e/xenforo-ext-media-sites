@@ -441,15 +441,46 @@ class AddonBuilder
 		);
 	}
 
-	protected function patchSites(): void
+	protected function patchSiteGoogledrive(array $siteConfig): array
+	{
+		$siteConfig['cookie_third_parties'] = 'google';
+
+		return $siteConfig;
+	}
+
+	protected function patchSiteGoogleplus(array $siteConfig): array
+	{
+		$siteConfig['cookie_third_parties'] = 'google';
+
+		return $siteConfig;
+	}
+
+	protected function patchSiteGooglesheets(array $siteConfig): array
+	{
+		$siteConfig['cookie_third_parties'] = 'google';
+
+		return $siteConfig;
+	}
+
+	protected function patchSiteMastodon(array $siteConfig): array
 	{
 		$callback = 's9e\\MediaSites\\Helper::filterMastodonHost';
 		$this->configurator->MediaEmbed->allowedFilters[] = $callback;
-		$this->sites['mastodon']['attributes']['host']['filterChain'] = [$callback];
+		$siteConfig['attributes']['host']['filterChain'] = [$callback];
 
-		$this->sites['googledrive']['cookie_third_parties'] = 'google';
-		$this->sites['googleplus']['cookie_third_parties'] = 'google';
-		$this->sites['googlesheets']['cookie_third_parties'] = 'google';
+		return $siteConfig;
+	}
+
+	protected function patchSites(): void
+	{
+		foreach ($this->sites as $siteId => $siteConfig)
+		{
+			$methodName = 'patchSite' . ucfirst($siteId);
+			if (is_callable([$this, $methodName]))
+			{
+				$this->sites[$siteId] = $this->$methodName($siteConfig);
+			}
+		}
 
 		$filepath = $this->dir . '/../target/src/addons/XF/_data/bb_code_media_sites.xml';
 		if (file_exists($filepath))
