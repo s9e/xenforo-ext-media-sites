@@ -14,6 +14,9 @@ else
 }
 $url .= 'limit=100';
 
+// Glory to spez
+ini_set('user_agent', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36');
+
 $response = json_decode(file_get_contents($url), true);
 foreach ($response['data']['children'] as $child)
 {
