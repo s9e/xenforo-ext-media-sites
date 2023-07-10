@@ -202,7 +202,7 @@
   </site>
   <site media_site_id="instagram" site_title="Instagram" site_url="https://instagram.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="meta" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*instagram\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="instagram" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" style="height:540px;width:540px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/instagram.min.html#{$id}{{ property('styleType')=='dark' ? '#theme=dark' : '' }}"></iframe>]]></embed_html>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="instagram" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" style="height:542px;width:542px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/instagram.min.html#{$id}{{ property('styleType')=='dark' ? '#theme=dark' : '' }}"></iframe>]]></embed_html>
   </site>
   <site media_site_id="internetarchive" site_title="Internet Archive" site_url="https://archive.org/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="internetarchive" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*archive\.org/.(?'id'))i]]></match_urls>
@@ -420,6 +420,10 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*theonion\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="theonion"><span><iframe allowfullscreen="" scrolling="no" src="//www.theonion.com/video_embed/?id={$id}"></iframe></span></span>]]></embed_html>
   </site>
+  <site media_site_id="threads" site_title="Threads" site_url="https://www.threads.net/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="meta" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*threads\.net/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="threads" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/threads.min.html#{$id}" style="height:300px;width:550px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
+  </site>
   <site media_site_id="tiktok" site_title="TikTok" site_url="https://www.tiktok.com" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="tiktok" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://www.tiktok.com/oembed?url=" oembed_url_scheme="https://www.tiktok.com/video/{$id}" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*tiktok\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="tiktok" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/tiktok.min.html#{$id}" style="height:740px;width:325px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
@@ -436,9 +440,9 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*traileraddict\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="traileraddict"><span><iframe allowfullscreen="" scrolling="no" src="//v.traileraddict.com/{$id}"></iframe></span></span>]]></embed_html>
   </site>
-  <site media_site_id="trendingviews" site_title="MyDailyFreedom" site_url="https://mydailyfreedom.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="trendingviews" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:mydailyfreedom\.com|trendingviews\.co)/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="trendingviews"><span><iframe allowfullscreen="" scrolling="no" src="https://mydailyfreedom.com/tv/embed/{$id}"></iframe></span></span>]]></embed_html>
+  <site media_site_id="trendingviews" site_title="Trending Views" site_url="https://trendingviews.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="trendingviews" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:mydailyfreedom\.com|trendingviews\.com?)/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="trendingviews"><span><iframe allowfullscreen="" scrolling="no" src="https://trendingviews.com/embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="tumblr" site_title="Tumblr" site_url="https://www.tumblr.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="tumblr" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*tumblr\.com/.(?'id'))i]]></match_urls>

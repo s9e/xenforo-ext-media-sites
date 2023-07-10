@@ -471,6 +471,13 @@ class AddonBuilder
 		return $siteConfig;
 	}
 
+	protected function patchSiteThreads(array $siteConfig): array
+	{
+		$siteConfig['cookie_third_parties'] = 'meta';
+
+		return $siteConfig;
+	}
+
 	protected function patchSites(): void
 	{
 		foreach ($this->sites as $siteId => $siteConfig)
