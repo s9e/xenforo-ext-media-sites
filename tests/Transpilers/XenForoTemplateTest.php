@@ -195,6 +195,10 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 				</a>',
 				"<a title=\"{{ (\$foo|substr(0,2) == 'xx' or \$bar|substr(0,2) == 'yy') ? 'x' : 'y' }}\"></a>"
 			],
+			[
+				'<iframe><xsl:attribute name="src">https://www.youtube.com/embed/<xsl:value-of select="@id"/><xsl:choose><xsl:when test="@clip">?clip=<xsl:value-of select="@clip"/>&amp;clipt=<xsl:value-of select="@clipt"/></xsl:when><xsl:otherwise><xsl:if test="@list">?list=<xsl:value-of select="@list"/></xsl:if><xsl:if test="@t"><xsl:choose><xsl:when test="@list">&amp;</xsl:when><xsl:otherwise>?</xsl:otherwise></xsl:choose>start=<xsl:value-of select="@t"/></xsl:if></xsl:otherwise></xsl:choose></xsl:attribute></iframe>',
+				"<iframe src=\"https://www.youtube.com/embed/{\$id}{{ \$clip ? '?clip=' . \$clip . '&amp;clipt=' . \$clipt : ((\$list ? '?list=' . \$list : '') . (\$t ? (\$list ? '&amp;' : '?') . 'start=' . \$t : '')) }}\"></iframe>"
+			],
 		];
 	}
 }

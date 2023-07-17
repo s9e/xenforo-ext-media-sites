@@ -142,7 +142,7 @@ class XenForoTemplate implements TranspilerInterface
 	{
 		$old      = $template;
 		$template = preg_replace_callback(
-			'(<xf:if is="[^"]+">[^<]*(?:<xf:else.*?/>[^<]*)*</xf:if>)',
+			'(<xf:if is="[^"]+">[^<]*(?:<xf:else[^>]*?/>[^<]*)*</xf:if>)',
 			function ($m)
 			{
 				return $this->convertTernary($m[0]);
@@ -185,7 +185,13 @@ class XenForoTemplate implements TranspilerInterface
 		}
 		if (preg_match('(<xf:else/>\\K[^<]*)', $template, $m))
 		{
-			$expr .= $this->convertMixedContent($m[0]);
+			$else = $this->convertMixedContent($m[0]);
+			if (str_contains($else, ' '))
+			{
+				// Add parentheses if the else clause is more than one token
+				$else = '(' . $else . ')';
+			}
+			$expr .= $else;
 		}
 		else
 		{

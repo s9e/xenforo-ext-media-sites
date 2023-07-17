@@ -39,7 +39,7 @@
   </modification>
   <modification type="public" template="_media_site_embed_youtube" modification_key="s9e_MediaSites_YouTube_ClickToLoad" description="Replaces YouTube's embed with a placeholder until clicked" execution_order="10" enabled="0" action="preg_replace">
     <find><![CDATA[(style="background:([^"]++)" src="([^"]++)")]]></find>
-    <replace><![CDATA[allow="autoplay" style="background:linear-gradient(0deg,rgba(0,0,0,0) 0,rgba(0,0,0,0) 72%,rgba(0,0,0,.04) 79%,rgba(0,0,0,.1) 83%,rgba(0,0,0,.25) 88%,rgba(0,0,0,.67) 100%),$1" src="$2" data-s9e-mediaembed-c2l="youtube" data-s9e-mediaembed-c2l-src="$2{{ ($list || $t) ? '&amp;' : '?' }}autoplay=1"]]></replace>
+    <replace><![CDATA[allow="autoplay" style="background:linear-gradient(0deg,rgba(0,0,0,0) 0,rgba(0,0,0,0) 72%,rgba(0,0,0,.04) 79%,rgba(0,0,0,.1) 83%,rgba(0,0,0,.25) 88%,rgba(0,0,0,.67) 100%),$1" src="$2" data-s9e-mediaembed-c2l="youtube" data-s9e-mediaembed-c2l-src="$2{{ ($clip || $list || $t) ? '&amp;' : '?' }}autoplay=1"]]></replace>
   </modification>
   <modification type="public" template="_media_site_embed_youtube" modification_key="s9e_MediaSites_YouTube_ClickToLoad_Oembed" description="Adds a title to YouTube's placeholder" execution_order="15" enabled="0" action="str_replace">
     <find><![CDATA[data-s9e-mediaembed-c2l="youtube"]]></find>
