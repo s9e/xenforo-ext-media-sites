@@ -112,7 +112,7 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*espn\.(?:go\.)?com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="espn"><span><iframe allowfullscreen="" scrolling="no" src="//www.espn.com/core/video/iframe?id={$id}"></iframe></span></span>]]></embed_html>
   </site>
-  <site media_site_id="facebook" site_title="Facebook" site_url="https://www.facebook.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="meta" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+  <site media_site_id="facebook" site_title="Facebook" site_url="https://www.facebook.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="facebook&#10;meta" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*f(?:acebook\.com|b\.watch)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="facebook" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" style="height:360px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/facebook.min.html#{{ $id ? $type . $id : ('pfbid' . $pfbid) }}"></iframe>]]></embed_html>
   </site>
@@ -200,7 +200,7 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*indiegogo\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="indiegogo" style="width:222px"><span style="padding-bottom:200.45045%"><iframe allowfullscreen="" scrolling="no" src="//www.indiegogo.com/project/{$id}/embedded"></iframe></span></span>]]></embed_html>
   </site>
-  <site media_site_id="instagram" site_title="Instagram" site_url="https://instagram.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="meta" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+  <site media_site_id="instagram" site_title="Instagram" site_url="https://instagram.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="instagram&#10;meta" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*instagram\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="instagram" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" style="height:542px;width:542px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/instagram.min.html#{$id}{{ property('styleType')=='dark' ? '#theme=dark' : '' }}"></iframe>]]></embed_html>
   </site>
@@ -536,7 +536,7 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*youmaker\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="youmaker"><span><iframe allowfullscreen="" scrolling="no" src="https://www.youmaker.com/embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
-  <site media_site_id="youtube" site_title="YouTube" site_url="https://www.youtube.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="google" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://www.youtube.com/oembed" oembed_url_scheme="https://www.youtube.com/watch?v={$id}" oembed_retain_scripts="0">
+  <site media_site_id="youtube" site_title="YouTube" site_url="https://www.youtube.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="youtube" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://www.youtube.com/oembed" oembed_url_scheme="https://www.youtube.com/watch?v={$id}" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*youtu(?:\.be|be\.com)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" scrolling="no" style="background:url(https://i.ytimg.com/vi/{$id}/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/{$id}{{ $clip ? '?clip=' . $clip . '&amp;clipt=' . $clipt : (($list ? '?list=' . $list : '') . ($t ? ($list ? '&amp;' : '?') . 'start=' . $t : '')) }}"></iframe></span></span>]]></embed_html>
   </site>
