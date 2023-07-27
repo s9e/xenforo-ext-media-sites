@@ -100,7 +100,7 @@ class AddonBuilderTest extends TestCase
 		$file     = file_get_contents($filepath);
 
 		$this->assertMatchesRegularExpression(
-			'(<site media_site_id="youtube"[^>]*? cookie_third_parties="google")',
+			'(<site media_site_id="youtube"[^>]*? cookie_third_parties="youtube")',
 			$file
 		);
 	}
