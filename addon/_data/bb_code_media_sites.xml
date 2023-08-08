@@ -457,7 +457,7 @@
     <embed_html><![CDATA[<span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" onload="this.contentWindow.postMessage('','*')" scrolling="no" src="https://s9e.github.io/iframe/2/twitch.min.html#channel={$channel};clip_id={$clip_id};t={$t};video_id={$video_id}" data-s9e-mediaembed-api="2"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="twitter" site_title="Twitter" site_url="https://twitter.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="twitter" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*twitter\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:twitter|x)\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="twitter" allow="autoplay *" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" style="height:273px;width:550px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/twitter.min.html#{$id}{{ property('styleType')=='dark' ? '#theme=dark' : '' }}"></iframe>]]></embed_html>
   </site>
   <site media_site_id="ustream" site_title="Ustream" site_url="https://www.ustream.tv/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="ustream" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
