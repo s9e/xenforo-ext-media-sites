@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <phrases>
   <phrase title="do_not_auto_embed_links_from_this_site" version_id="2050054" version_string="2.5.0 Release Candidate 4"><![CDATA[Do not auto-embed links from this site]]></phrase>
+  <phrase title="link_bbcode_must_not_include_media" version_id="2110001" version_string="2.11.0"><![CDATA[The link BB code must not include any media.]]></phrase>
   <phrase title="option.s9e_MediaSites_AMAZON_ASSOCIATE_TAG" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Amazon Associate tag (.com)]]></phrase>
   <phrase title="option.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_CA" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Amazon Associate tag (.ca)]]></phrase>
   <phrase title="option.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_DE" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Amazon Associate tag (.de)]]></phrase>
@@ -26,6 +27,7 @@
   <phrase title="option.s9e_MediaSites_Miniplayer" version_id="2030070" version_string="2.3.0"><![CDATA[Add a miniplayer button to supported video players in wide layout]]></phrase>
   <phrase title="option.s9e_MediaSites_Native_GIFs" version_id="2050055" version_string="2.5.0 Release Candidate 5"><![CDATA[Replace GIF-like embeds with a native player where possible]]></phrase>
   <phrase title="option.s9e_MediaSites_Native_Paused" version_id="2050055" version_string="2.5.0 Release Candidate 5"><![CDATA[Disable autoplay in native players]]></phrase>
+  <phrase title="option.s9e_MediaSites_Url_Suffix" version_id="2110001" version_string="2.11.0"><![CDATA[Add a link when a custom [URL] BBCode is displayed as embedded media]]></phrase>
   <phrase title="option.s9e_MediaSites_YouTube_Privacy" version_id="2001370" version_string="2.0.13"><![CDATA[Enable YouTube's enhanced privacy mode]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_AMAZON_ASSOCIATE_TAG" version_id="20130" version_string="0.2.1 Beta"><![CDATA[]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_CA" version_id="20130" version_string="0.2.1 Beta"><![CDATA[]]></phrase>
@@ -48,6 +50,7 @@
   <phrase title="option_explain.s9e_MediaSites_Miniplayer" version_id="2030070" version_string="2.3.0"><![CDATA[]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_Native_GIFs" version_id="2050055" version_string="2.5.0 Release Candidate 5"><![CDATA[Native videos have a simpler interface but they are not lazy-loaded and large video files may slow down the page.]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_Native_Paused" version_id="2050055" version_string="2.5.0 Release Candidate 5"><![CDATA[]]></phrase>
+  <phrase title="option_explain.s9e_MediaSites_Url_Suffix" version_id="2110001" version_string="2.11.0"><![CDATA[Include <strong>{$url}</strong> as a placeholder for the link.]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_YouTube_Privacy" version_id="2001370" version_string="2.0.13"><![CDATA[The <a target="_blank" href="https://support.google.com/youtube/answer/171780?hl=en">Privacy Enhanced Mode</a> only relates to tracking of viewer behavior, not ads-serving behavior.]]></phrase>
   <phrase title="option_group.s9e_MediaSites" version_id="2001370" version_string="2.0.13"><![CDATA[s9e/MediaSites]]></phrase>
   <phrase title="option_group_description.s9e_MediaSites" version_id="2001370" version_string="2.0.13"><![CDATA[Options related to the add-on]]></phrase>
