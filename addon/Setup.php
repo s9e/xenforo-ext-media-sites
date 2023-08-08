@@ -221,8 +221,8 @@ class Setup extends AbstractSetup
 
 	protected function updateDefaultEmbedSuffix()
 	{
-		$options = $this->app->options()->autoEmbedMedia;
-		if (empty($options['linkBbCode']))
+		$autoEmbedMediaOptions = $this->app->options()->autoEmbedMedia;
+		if (empty($autoEmbedMediaOptions['linkBbCode']))
 		{
 			return;
 		}
@@ -234,7 +234,7 @@ class Setup extends AbstractSetup
 		}
 
 		$suffix = $option->getOptionValue();
-		$suffix['bbcode'] = $options['linkBbCode'];
+		$suffix['bbcode'] = $autoEmbedMediaOptions['linkBbCode'];
 
 		$option->option_value = $suffix;
 		$option->save();
