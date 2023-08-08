@@ -90,6 +90,15 @@ url={{ phrase('option.s9e_MediaSites_Markup_Url') }}</edit_format_params>
     <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="105"/>
   </option>
+  <option option_id="s9e_MediaSites_Url_Suffix" edit_format="onofftextbox" data_type="array" validation_class="s9e\MediaSites\Setup" validation_method="validateBBCodeSuffix" advanced="1">
+    <default_value>{"bbcode":"[i][size=2][url={$url}]View: {$url}[\/url][\/size][\/i]","enabled":true}</default_value>
+    <edit_format_params>onoff=enabled
+value=bbcode
+default=[i][size=2][url={$url}]View: {$url}[/url][/size][/i]</edit_format_params>
+    <sub_options>bbcode
+enabled</sub_options>
+    <relation group_id="s9e_MediaSites" display_order="4"/>
+  </option>
   <option option_id="s9e_MediaSites_YouTube_Privacy" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification" advanced="0">
     <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="103"/>

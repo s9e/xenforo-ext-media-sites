@@ -26,6 +26,7 @@ class Setup extends AbstractSetup
 	public function postInstall(array &$stateChanges)
 	{
 		$this->setDefaultFindInPage();
+		$this->updateDefaultEmbedSuffix();
 	}
 
 	public function postUpgrade($previousVersion, array &$stateChanges)
@@ -33,6 +34,10 @@ class Setup extends AbstractSetup
 		if ($previousVersion < 2100000)
 		{
 			$this->setDefaultFindInPage();
+		}
+		if ($previousVersion < 2110070)
+		{
+			$this->updateDefaultEmbedSuffix();
 		}
 	}
 
@@ -101,6 +106,22 @@ class Setup extends AbstractSetup
 			's9e_MediaSites_YouTube_ClickToLoad'
 		];
 		self::setTemplateModifications($option, $modifications, (bool) $newValue);
+
+		return true;
+	}
+
+	public static function validateBBCodeSuffix(array &$values, Option $option): bool
+	{
+		if (empty($values['bbcode']))
+		{
+			$values['bbcode'] = '[i][size=2][url={$url}]View: {$url}[/url][/size][/i]';
+		}
+		elseif (stripos($values['bbcode'], 'media=') !== false)
+		{
+			$option->error(XF::phrase('link_bbcode_must_not_include_media'), $option->option_id);
+
+			return false;
+		}
 
 		return true;
 	}
@@ -196,6 +217,27 @@ class Setup extends AbstractSetup
 		$option->option_value = 1;
 		$option->save();
 		self::setTemplateModification($option, 's9e_MediaSites_FindInPage', 1);
+	}
+
+	protected function updateDefaultEmbedSuffix()
+	{
+		$options = $this->app->options()->autoEmbedMedia;
+		if (empty($options['linkBbCode']))
+		{
+			return;
+		}
+
+		$option = $this->app->find('XF:Option', 's9e_MediaSites_Url_Suffix');
+		if (!$option)
+		{
+			return;
+		}
+
+		$suffix = $option->getOptionValue();
+		$suffix['bbcode'] = $options['linkBbCode'];
+
+		$option->option_value = $suffix;
+		$option->save();
 	}
 
 	protected function upgradePosts(array $stepParams, $like, $callback)
