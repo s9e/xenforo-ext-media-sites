@@ -181,12 +181,12 @@ class Setup extends AbstractSetup
 	protected function setDefaultFindInPage()
 	{
 		// Enable FindInPage only if unfurling is enabled
-		if (empty($this->app()->options()->urlToRichPreview))
+		if (empty($this->app->options()->urlToRichPreview))
 		{
 			return;
 		}
 
-		$option = $this->app()->find('XF:Option', 's9e_MediaSites_FindInPage');
+		$option = $this->app->find('XF:Option', 's9e_MediaSites_FindInPage');
 		if (!$option)
 		{
 			// This shouldn't be possible
