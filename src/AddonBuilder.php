@@ -27,7 +27,6 @@ class AddonBuilder
 	protected array $defaultValues;
 	protected string $dir;
 	public string $nsRoot = 's9e\\MediaSites';
-	protected array $params;
 	protected PHPSource $phpTranspiler;
 	protected array $phpTemplates = [];
 	protected RegexpBuilder $regexpBuilder;
@@ -65,7 +64,6 @@ class AddonBuilder
 		$this->storeVersion();
 		$this->normalizeSites();
 		$this->storeDefaultValues();
-		$this->storeParams();
 	}
 
 	/**
@@ -567,33 +565,6 @@ class AddonBuilder
 				}
 			}
 		}
-	}
-
-	/**
-	* Store parameters defined in sites config
-	*
-	* @return void
-	*/
-	protected function storeParams()
-	{
-		$this->params = [];
-		foreach ($this->sites as $siteConfig)
-		{
-			if (empty($siteConfig['parameters']))
-			{
-				continue;
-			}
-			foreach ($siteConfig['parameters'] as $paramName => $paramConfig)
-			{
-				$paramConfig += [
-					'title' => ucfirst(strtolower(strtr($paramName, '_', ' '))),
-					'value' => ''
-				];
-
-				$this->params[$paramName] = $paramConfig;
-			}
-		}
-		ksort($this->params);
 	}
 
 	/**
