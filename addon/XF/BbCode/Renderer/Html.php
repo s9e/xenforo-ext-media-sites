@@ -59,7 +59,10 @@ class Html extends XFCP_Html
 	protected function renderMediaSuffix(array $children, array $options): string
 	{
 		$suffixOptions  = XF::options()->s9e_MediaSites_Url_Suffix ?? [];
-		$suffixOptions += ['bbcode' => '[i][size=2][url={$url}]View: {$url}[/url][/size][/i]', 'enabled' => true];
+		$suffixOptions += [
+			'bbcode'  => '[i][size=2][url={$url}]View: {$url}[/url][/size][/i]',
+			'enabled' => true
+		];
 		if (!$suffixOptions['enabled'])
 		{
 			return '';
@@ -70,8 +73,7 @@ class Html extends XFCP_Html
 		$url = $this->renderSubTreePlain($this->removeMarkupFromSubTree($children), $options);
 
 		// Escape all characters that could interfere with BBCodes as a precaution
-		$url = preg_replace('(\\[(?=/?\\w+[ =\\]]))', '%5B', $url);
-		$url = str_replace('"', '%22', $url);
+		$url = strtr($url, [' ' => '%20', '"' => '%22', "'" => '%27', '[' => '%5B', ']' => '%5D']);
 
 		$bbcodeSuffix = "\n" . str_replace('{$url}', $url, $suffixOptions['bbcode']);
 
