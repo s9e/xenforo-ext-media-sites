@@ -2,59 +2,59 @@
 <options>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG" edit_format="textbox" data_type="string" advanced="0">
     <default_value></default_value>
-    <relation group_id="s9e_MediaSites" display_order="200"/>
+    <relation group_id="s9e_MediaSites" display_order="1000"/>
   </option>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_CA" edit_format="textbox" data_type="string" advanced="0">
     <default_value></default_value>
-    <relation group_id="s9e_MediaSites" display_order="201"/>
+    <relation group_id="s9e_MediaSites" display_order="1001"/>
   </option>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_DE" edit_format="textbox" data_type="string" advanced="0">
     <default_value></default_value>
-    <relation group_id="s9e_MediaSites" display_order="202"/>
+    <relation group_id="s9e_MediaSites" display_order="1002"/>
   </option>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_ES" edit_format="textbox" data_type="string" advanced="0">
     <default_value></default_value>
-    <relation group_id="s9e_MediaSites" display_order="203"/>
+    <relation group_id="s9e_MediaSites" display_order="1003"/>
   </option>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_FR" edit_format="textbox" data_type="string" advanced="0">
     <default_value></default_value>
-    <relation group_id="s9e_MediaSites" display_order="204"/>
+    <relation group_id="s9e_MediaSites" display_order="1004"/>
   </option>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IN" edit_format="textbox" data_type="string" advanced="0">
     <default_value></default_value>
-    <relation group_id="s9e_MediaSites" display_order="205"/>
+    <relation group_id="s9e_MediaSites" display_order="1005"/>
   </option>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IT" edit_format="textbox" data_type="string" advanced="0">
     <default_value></default_value>
-    <relation group_id="s9e_MediaSites" display_order="206"/>
+    <relation group_id="s9e_MediaSites" display_order="1006"/>
   </option>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_JP" edit_format="textbox" data_type="string" advanced="0">
     <default_value></default_value>
-    <relation group_id="s9e_MediaSites" display_order="207"/>
+    <relation group_id="s9e_MediaSites" display_order="1007"/>
   </option>
   <option option_id="s9e_MediaSites_AMAZON_ASSOCIATE_TAG_UK" edit_format="textbox" data_type="string" advanced="0">
     <default_value></default_value>
-    <relation group_id="s9e_MediaSites" display_order="208"/>
+    <relation group_id="s9e_MediaSites" display_order="1008"/>
   </option>
   <option option_id="s9e_MediaSites_Amazon_Link" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification" advanced="0">
     <default_value>0</default_value>
-    <relation group_id="s9e_MediaSites" display_order="101"/>
+    <relation group_id="s9e_MediaSites" display_order="501"/>
   </option>
   <option option_id="s9e_MediaSites_ClickToLoad" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateClickToLoad" advanced="0">
     <default_value>0</default_value>
-    <relation group_id="s9e_MediaSites" display_order="107"/>
+    <relation group_id="s9e_MediaSites" display_order="507"/>
   </option>
   <option option_id="s9e_MediaSites_ClickToLoad_Oembed" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateClickToLoadOembed" advanced="0">
     <default_value>0</default_value>
-    <relation group_id="s9e_MediaSites" display_order="108"/>
+    <relation group_id="s9e_MediaSites" display_order="508"/>
   </option>
   <option option_id="s9e_MediaSites_Facebook_Background" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification" advanced="0">
     <default_value>0</default_value>
-    <relation group_id="s9e_MediaSites" display_order="102"/>
+    <relation group_id="s9e_MediaSites" display_order="502"/>
   </option>
   <option option_id="s9e_MediaSites_FindInPage" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification" advanced="0">
     <default_value>0</default_value>
-    <relation group_id="s9e_MediaSites" display_order="109"/>
+    <relation group_id="s9e_MediaSites" display_order="509"/>
   </option>
   <option option_id="s9e_MediaSites_Footer" edit_format="radio" data_type="string" validation_class="s9e\MediaSites\Setup" validation_method="validateFooter" advanced="0">
     <default_value>show</default_value>
@@ -64,7 +64,7 @@ hide={{ phrase('option.s9e_MediaSites_Footer_Hide') }}</edit_format_params>
   </option>
   <option option_id="s9e_MediaSites_Full_Width_Embeds" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification" advanced="0">
     <default_value>0</default_value>
-    <relation group_id="s9e_MediaSites" display_order="106"/>
+    <relation group_id="s9e_MediaSites" display_order="506"/>
   </option>
   <option option_id="s9e_MediaSites_Markup" edit_format="radio" data_type="string" validation_class="s9e\MediaSites\Setup" validation_method="validateMarkup" advanced="0">
     <default_value>media</default_value>
@@ -76,22 +76,31 @@ url={{ phrase('option.s9e_MediaSites_Markup_Url') }}</edit_format_params>
   <option option_id="s9e_MediaSites_MastodonHosts" edit_format="textbox" data_type="string" validation_class="s9e\MediaSites\Setup" validation_method="validateMastodonHosts" advanced="0">
     <default_value>mastodon.social</default_value>
     <edit_format_params>rows=3</edit_format_params>
-    <relation group_id="s9e_MediaSites" display_order="3"/>
+    <relation group_id="s9e_MediaSites" display_order="100"/>
   </option>
   <option option_id="s9e_MediaSites_Miniplayer" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification" advanced="0">
     <default_value>1</default_value>
-    <relation group_id="s9e_MediaSites" display_order="100"/>
+    <relation group_id="s9e_MediaSites" display_order="500"/>
   </option>
   <option option_id="s9e_MediaSites_Native_GIFs" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateNativePlayer" advanced="0">
     <default_value>0</default_value>
-    <relation group_id="s9e_MediaSites" display_order="104"/>
+    <relation group_id="s9e_MediaSites" display_order="504"/>
   </option>
   <option option_id="s9e_MediaSites_Native_Paused" edit_format="onoff" data_type="boolean" advanced="0">
     <default_value>0</default_value>
-    <relation group_id="s9e_MediaSites" display_order="105"/>
+    <relation group_id="s9e_MediaSites" display_order="505"/>
+  </option>
+  <option option_id="s9e_MediaSites_Url_Suffix" edit_format="onofftextbox" data_type="array" validation_class="s9e\MediaSites\Setup" validation_method="validateBBCodeSuffix" advanced="1">
+    <default_value>{"bbcode":"[i][size=2][url={$url}]View: {$url}[\/url][\/size][\/i]","enabled":true}</default_value>
+    <edit_format_params>onoff=enabled
+value=bbcode
+default=[i][size=2][url={$url}]View: {$url}[/url][/size][/i]</edit_format_params>
+    <sub_options>bbcode
+enabled</sub_options>
+    <relation group_id="s9e_MediaSites" display_order="3"/>
   </option>
   <option option_id="s9e_MediaSites_YouTube_Privacy" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification" advanced="0">
     <default_value>0</default_value>
-    <relation group_id="s9e_MediaSites" display_order="103"/>
+    <relation group_id="s9e_MediaSites" display_order="503"/>
   </option>
 </options>
