@@ -6,7 +6,7 @@
 	"keywords": ["embed","media"],
 	"license": "MIT",
 	"require": {
-		"php":        ">=7.4.0",
+		"php":        ">=8.0.0",
 		"lib-pcre":   ">=7.2",
 		"s9e/text-formatter": "dev-master"
 	},
