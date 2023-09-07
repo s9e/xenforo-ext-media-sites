@@ -163,7 +163,12 @@ class Setup extends AbstractSetup
 			->fetchOne();
 		if ($site)
 		{
-			$site->match_urls = '(^https?://(?:[^./]+\.)*(?:' . implode('|', array_map('preg_quote', $hosts)) . ")/.(?'id'))i";
+			$expr = implode('|', array_map('preg_quote', $hosts));
+			if (count($hosts) > 1)
+			{
+				$expr = '(?:' . $expr . ')';
+			}
+			$site->match_urls = '(^https?://(?:[^./]+\\.)*' . $expr . "/.(?'id'))i";
 			$site->saveIfChanged();
 		}
 
