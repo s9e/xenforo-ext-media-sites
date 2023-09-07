@@ -97,6 +97,7 @@ value=bbcode
 default=[i][size=2][url={$url}]View: {$url}[/url][/size][/i]</edit_format_params>
     <sub_options>bbcode
 enabled</sub_options>
+    <relation group_id="mediaEmbedding" display_order="51"/>
     <relation group_id="s9e_MediaSites" display_order="3"/>
   </option>
   <option option_id="s9e_MediaSites_YouTube_Privacy" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification" advanced="0">
