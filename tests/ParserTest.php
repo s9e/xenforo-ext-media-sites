@@ -2,6 +2,7 @@
 
 namespace s9e\MediaSites\Tests;
 
+use ArrayObject;
 use PHPUnit\Framework\Attributes\DataProvider;
 use XF;
 use XF\Entity\BbCodeMediaSite;
@@ -134,7 +135,7 @@ class ParserTest extends AbstractParserTest
 				'host=mastodon.social;id=100181134752056592;name=HackerNewsBot',
 				function ()
 				{
-					XF::$options = (object) [];
+					XF::$options = new ArrayObject;
 				}
 			],
 			[
@@ -142,7 +143,7 @@ class ParserTest extends AbstractParserTest
 				false,
 				function ()
 				{
-					XF::$options = (object) [];
+					XF::$options = new ArrayObject;
 				}
 			],
 			[
@@ -150,7 +151,7 @@ class ParserTest extends AbstractParserTest
 				'host=infosec.exchange;id=109579438603578302;name=SwiftOnSecurity',
 				function ()
 				{
-					XF::$options = (object) ['s9e_MediaSites_MastodonHosts' => "infosec.exchange\nmastodon.social"];
+					XF::$options = new ArrayObject(['s9e_MediaSites_MastodonHosts' => "infosec.exchange\nmastodon.social"], ArrayObject::ARRAY_AS_PROPS);
 				}
 			],
 			[
