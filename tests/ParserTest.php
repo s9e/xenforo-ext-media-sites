@@ -110,14 +110,6 @@ class ParserTest extends AbstractParserTest
 				'5wBgXo'
 			],
 			[
-				'http://gfycat.com/SereneIllfatedCapybara',
-				'height=338;id=SereneIllfatedCapybara;width=600'
-			],
-			[
-				'http://gfycat.com/sereneillfatedcapybara',
-				'height=338;id=SereneIllfatedCapybara;width=600'
-			],
-			[
 				'http://imgur.com/AsQ0K3P',
 				'AsQ0K3P'
 			],

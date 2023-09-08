@@ -177,7 +177,7 @@ class Setup extends AbstractSetup
 
 	public static function validateNativePlayer($newValue, Option $option)
 	{
-		$siteIds = ['gfycat', 'gifs', 'giphy'];
+		$siteIds = ['gifs', 'giphy'];
 		foreach ($siteIds as $siteId)
 		{
 			$key = 's9e_MediaSites_' . ucfirst($siteId) . '_Native';

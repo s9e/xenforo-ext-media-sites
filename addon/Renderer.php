@@ -44,7 +44,6 @@ class Renderer
 	*/
 	protected static $defaultValues = [
 		'getty'=>['height'=>360,'width'=>640],
-		'gfycat'=>['height'=>360,'width'=>640],
 		'gifs'=>['height'=>360,'width'=>640],
 		'giphy'=>['height'=>360,'width'=>640],
 		'internetarchive'=>['height'=>360,'width'=>640]
@@ -55,7 +54,6 @@ class Renderer
 	*/
 	protected static $filters = [
 		'getty'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
-		'gfycat'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
 		'gifs'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
 		'giphy'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
 		'internetarchive'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],

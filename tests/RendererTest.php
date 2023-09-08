@@ -41,11 +41,6 @@ class RendererTest extends AbstractRendererTest
 				['s9e_MediaSites_AMAZON_ASSOCIATE_TAG' => 'foo-20']
 			],
 			[
-				'gfycat',
-				'height=338;id=SereneIllfatedCapybara;width=600',
-				'<span data-s9e-mediaembed="gfycat" style="width:600px"><span style="padding-bottom:63.666666666667%;padding-bottom:calc(56.333333333333% + 44px)"><iframe allowfullscreen="" scrolling="no" src="//gfycat.com/ifr/SereneIllfatedCapybara?hd=1"></iframe></span></span>'
-			],
-			[
 				'dailymotion',
 				'x5e9eog',
 				'<span data-s9e-mediaembed="dailymotion"><span><iframe allowfullscreen="" scrolling="no" src="//www.dailymotion.com/embed/video/x5e9eog"></iframe></span></span>'
