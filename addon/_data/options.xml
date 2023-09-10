@@ -90,6 +90,14 @@ url={{ phrase('option.s9e_MediaSites_Markup_Url') }}</edit_format_params>
     <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="505"/>
   </option>
+  <option option_id="s9e_MediaSites_Scraping_Client" edit_format="radio" data_type="string" validation_class="s9e\MediaSites\Setup" validation_method="validateScrapingClient" advanced="1">
+    <default_value>auto</default_value>
+    <edit_format_params>auto={{ phrase('option.s9e_MediaSites_Scraping_Auto') }}
+curl={{ phrase('option.s9e_MediaSites_Scraping_Curl') }}
+xenforo={{ phrase('option.s9e_MediaSites_Scraping_XenForo') }}
+none={{ phrase('option.s9e_MediaSites_Scraping_None') }}</edit_format_params>
+    <relation group_id="s9e_MediaSites" display_order="50"/>
+  </option>
   <option option_id="s9e_MediaSites_Url_Suffix" edit_format="onofftextbox" data_type="array" validation_class="s9e\MediaSites\Setup" validation_method="validateBBCodeSuffix" advanced="1">
     <default_value>{"bbcode":"[i][size=2][url={$url}]View: {$url}[\/url][\/size][\/i]","enabled":true}</default_value>
     <edit_format_params>onoff=enabled

@@ -39,6 +39,10 @@ class Setup extends AbstractSetup
 		{
 			$this->updateDefaultEmbedSuffix();
 		}
+		if ($previousVersion < 2120000)
+		{
+			$this->updateScrapingClient();
+		}
 	}
 
 	public function uninstall(array $stepParams = [])
@@ -188,6 +192,12 @@ class Setup extends AbstractSetup
 		return true;
 	}
 
+	public static function validateScrapingClient($newValue, Option $option): bool
+	{
+		// Return true unless this is set to cURL and curl_exec() is not available
+		return ($newValue !== 'curl' || function_exists('curl_exec'));
+	}
+
 	public static function validateTemplateModification($newValue, Option $option)
 	{
 		self::setTemplateModification($option, $option->option_id, (bool) $newValue);
@@ -242,6 +252,25 @@ class Setup extends AbstractSetup
 		$suffix['bbcode'] = $autoEmbedMediaOptions['linkBbCode'];
 
 		$option->option_value = $suffix;
+		$option->save();
+	}
+
+	protected function updateScrapingClient(): void
+	{
+		// We only need to correct the option if the client is set to Guzzle
+		$httpConfig = $this->app->config('http');
+		if (!isset($httpConfig['s9e.client']) || $httpConfig['s9e.client'] !== 'guzzle')
+		{
+			return;
+		}
+
+		$option = $this->app->find('XF:Option', 's9e_MediaSites_Scraping_Client');
+		if (!$option)
+		{
+			return;
+		}
+
+		$option->option_value = 'xenforo';
 		$option->save();
 	}
 

@@ -570,12 +570,22 @@ class Parser
 			}
 			else
 			{
-				$http = XF::config('http');
-				self::$cache[$key] = (isset($http['s9e.client']) && $http['s9e.client'] === 'guzzle')
-				                   ? self::wgetGuzzle($url, $headers)
-				                   : self::wgetCurl($url, $headers);
+				$clientType = XF::options()->s9e_MediaSites_Scraping_Client ?? 'auto';
+				if ($clientType === 'auto')
+				{
+					$clientType = function_exists('curl_exec') ? 'curl' : 'xenforo';
+				}
+				self::$cache[$key] = match ($clientType)
+				{
+					'curl'    => self::wgetCurl($url, $headers),
+					'xenforo' => self::wgetGuzzle($url, $headers),
+					default   => ''
+				};
 
-				file_put_contents($prefix . $cacheFile, self::$cache[$key]);
+				if (self::$cache[$key] !== '')
+				{
+					file_put_contents($prefix . $cacheFile, self::$cache[$key]);
+				}
 			}
 		}
 
