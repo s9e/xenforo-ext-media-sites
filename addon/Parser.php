@@ -132,7 +132,7 @@ class Parser
 		'pinterest'=>[['@pinterest.com/pin/(?<id>\\d+)@','@pinterest.com/(?!_/|discover/|explore/|news_hub/|pin/|search/)(?<id>[-\\w]+/[-\\w]+)@']],
 		'podbean'=>[['!podbean\\.com/(?:[-\\w]+/)*(?:player[-\\w]*/|\\w+/pb-)(?<id>[-\\w]+)!'],[],[['extract'=>['!podbean\\.com/player[^/]*/\\?i=(?<id>[-\\w]+)!'],'match'=>['@podbean\\.com/(?:media/shar)?e/(?!pb-)@']]]],
 		'prezi'=>[['#//prezi\\.com/(?!(?:a(?:bout|mbassadors)|c(?:o(?:llaborate|mmunity|ntact)|reate)|exp(?:erts|lore)|ip(?:ad|hone)|jobs|l(?:ear|ogi)n|m(?:ac|obility)|pr(?:es(?:s|ent)|icing)|recommend|support|user|windows|your)/)(?<id>\\w+)/#']],
-		'reddit'=>[['!(?<id>\\w+/comments/\\w+(?:/\\w+/\\w+)?)!']],
+		'reddit'=>[['!(?<id>\\w+/comments/\\w+(?:/\\w+/\\w+)?)!'],[],[['extract'=>['!(?<id>\\w+/comments/\\w+(?:/\\w+/\\w+)?)!'],'header'=>'User-agent: FreeBSD/11.0 Lynx/56','match'=>['!reddit\\.com/r/[^/]+/s/\\w!']]]],
 		'rumble'=>[['!rumble\\.com/embed/(?<id>\\w+)!'],[],[['extract'=>['!video"?:"(?<id>\\w+)!'],'match'=>['#rumble\\.com/(?!embed/).#']]]],
 		'rutube'=>[['!rutube\\.ru/(?:play/embed/|tracks/.*?v=|video/)(?<id>\\w+)!']],
 		'scribd'=>[['!scribd\\.com/(?:mobile/)?(?:doc(?:ument)?|presentation)/(?<id>\\d+)!']],
