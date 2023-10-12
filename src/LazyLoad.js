@@ -131,15 +131,30 @@
 
 	function onResizableIframeLoad(e)
 	{
-		const channel = new MessageChannel,
-		      iframe  = /** @type {!HTMLIFrameElement} */ (e.target),
-		      src     = iframe.src;
+		const channel    = new MessageChannel,
+		      iframe     = /** @type {!HTMLIFrameElement} */ (e.target),
+		      storageKey = getStorageKey(iframe.src);
 		channel.port1.onmessage = (e) =>
 		{
 			const data = ('' + e.data);
 
-			resizeIframeFromDimensions(iframe, data);
-			storeIframeData(src, data);
+			// Some content providers may send the content's height before everything (e.g. images)
+			// is loaded. If we have a stored height for this iframe and we receive a smaller
+			// number from the embed, we delay the resizing by a few seconds before setting the
+			// height from whichever value is in storage at the time. This provides a grace period
+			// for the embed to load more of its assets and set a more accurate height
+			window.setTimeout(
+				() =>
+				{
+					// Local storage may theoretically get pruned between the timer's creation and
+					// its execution, so we use data as a fallback if there's no stored value
+					resizeIframeFromDimensions(iframe, localStorage[storageKey] || data);
+				},
+				// This comparison will fail on embeds with a variable width but this is a corner
+				// case too rare to be worth the extra bytes of code to handle it
+				(localStorage[storageKey] > +data) ? 5000 : 0
+			);
+			storeIframeData(storageKey, data);
 		};
 		iframe.contentWindow.postMessage('s9e:init', '*', [channel.port2]);
 	}
@@ -412,10 +427,10 @@
 	}
 
 	/**
-	* @param {string} src
+	* @param {string} storageKey
 	* @param {string} data
 	*/
-	function storeIframeData(src, data)
+	function storeIframeData(storageKey, data)
 	{
 		try
 		{
@@ -424,7 +439,7 @@
 			{
 				pruneLocalStorage();
 			}
-			localStorage[getStorageKey(src)] = data;
+			localStorage[storageKey] = data;
 		}
 		catch
 		{
