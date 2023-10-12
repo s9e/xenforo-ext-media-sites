@@ -150,9 +150,10 @@
 					// its execution, so we use data as a fallback if there's no stored value
 					resizeIframeFromDimensions(iframe, localStorage[storageKey] || data);
 				},
-				// This comparison will fail on embeds with a variable width but this is a corner
-				// case too rare to be worth the extra bytes of code to handle it
-				(localStorage[storageKey] > +data) ? 5000 : 0
+				// We use the iframe's current height rather than the stored value because some
+				// providers (e.g. Twitter) send the same bogus value multiple times and we would
+				// compare the stored bogus value against a new instance of the same value
+				(iframe.getBoundingClientRect().height > +(data.split(' ')[0])) ? 5000 : 0
 			);
 			storeIframeData(storageKey, data);
 		};
