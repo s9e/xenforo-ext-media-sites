@@ -324,14 +324,9 @@
 		}
 	}
 
-	/**
-	* @param {!Event} e
-	*/
-	function handleMiniplayerClick(e)
+	function handleMiniplayerClick(iframe, span)
 	{
-		const span   = /** @type {!HTMLIFrameElement} */ (e.target),
-		      iframe = /** @type {!HTMLIFrameElement} */ (span.firstChild),
-		      rect   = span.getBoundingClientRect(),
+		const rect   = span.getBoundingClientRect(),
 		      style  = iframe.style;
 
 		style.bottom = (documentElement.clientHeight - rect.bottom) + 'px';
@@ -366,21 +361,6 @@
 	}
 
 	/**
-	* @param {!Event} e
-	*/
-	function handleMiniplayerTransition(e)
-	{
-		const iframe = /** @type {!HTMLIFrameElement} */ (e.target),
-		      span   = /** @type {!HTMLSpanElement}   */ (iframe.parentElement);
-
-		if (/-tn/.test(span.className))
-		{
-			span.className = span.className.replace('-tn', '');
-			iframe.removeAttribute('style');
-		}
-	}
-
-	/**
 	* @param {!HTMLSpanElement} proxy
 	*/
 	function prepareClickToLoad(proxy)
@@ -407,10 +387,20 @@
 		}
 
 		span.className = classPrefix + '-inactive';
-		span.onclick   = handleMiniplayerClick;
+		span.onclick   = () => handleMiniplayerClick(iframe, span);
 
 		// NOTE: Chrome doesn't seem to support iframe.ontransitionend
-		iframe.addEventListener('transitionend', handleMiniplayerTransition);
+		iframe.addEventListener(
+			'transitionend',
+			() =>
+			{
+				if (/-tn/.test(span.className))
+				{
+					span.className = span.className.replace('-tn', '');
+					iframe.removeAttribute('style');
+				}
+			}
+		);
 	}
 
 	/**
