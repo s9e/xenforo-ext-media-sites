@@ -25,6 +25,7 @@
 		lastScrollY     = window.scrollY,
 		scrollDirection = SCROLL_DOWN,
 		activeMiniplayerSpan = null,
+		documentElement      = document.documentElement,
 		localStorage         = {};
 	while (i < nodes.length)
 	{
@@ -331,21 +332,20 @@
 		const span   = /** @type {!HTMLIFrameElement} */ (e.target),
 		      iframe = /** @type {!HTMLIFrameElement} */ (span.firstChild),
 		      rect   = span.getBoundingClientRect(),
-		      root   = document.documentElement,
 		      style  = iframe.style;
 
-		style.bottom = (root.clientHeight - rect.bottom) + 'px';
+		style.bottom = (documentElement.clientHeight - rect.bottom) + 'px';
 		style.height = rect.height + 'px';
 		style.width  = rect.width + 'px';
 
-		if (root.dir === 'rtl')
+		if (documentElement.dir === 'rtl')
 		{
 			// XenForo flips all layout in RTL mode
 			style.left = rect.left + 'px';
 		}
 		else
 		{
-			style.right = (root.clientWidth - rect.right) + 'px';
+			style.right = (documentElement.clientWidth - rect.right) + 'px';
 		}
 
 		// Force a layout calc by calling iframe.offsetHeight (Firefox/Chromium)
@@ -355,10 +355,7 @@
 			span.className = classPrefix + '-active-tn';
 			iframe.removeAttribute('style');
 
-			if (activeMiniplayerSpan)
-			{
-				activeMiniplayerSpan.click();
-			}
+			activeMiniplayerSpan?.click();
 			activeMiniplayerSpan = span;
 		}
 		else
