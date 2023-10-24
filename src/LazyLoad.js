@@ -212,10 +212,16 @@
 	*/
 	function resizeIframe(iframe, height, width)
 	{
+		const style = iframe.style;
+		if (style.height === height + 'px' && (!width || style.width === width + 'px'))
+		{
+			// Ignore redundant resizings. Those mostly happen with Twitter
+			return;
+		}
+
 		const iframePosition = getIframePosition(iframe),
 		      expandUpward   = (iframePosition === ABOVE || (iframePosition === VISIBLE && scrollDirection === SCROLL_UP)),
-		      oldDistance    = (expandUpward) ? getDistanceFromBottom() : 0,
-		      style          = iframe.style;
+		      oldDistance    = (expandUpward) ? getDistanceFromBottom() : 0;
 
 		// Temporarily disable transitions if the document isn't fully loaded yet, the iframe isn't
 		// visible, or we need to scroll the page
