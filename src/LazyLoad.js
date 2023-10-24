@@ -15,22 +15,16 @@
 	// Max number of items in storage
 	const STORAGE_MAX_SIZE = 100;
 
-	let nodes   = document.querySelectorAll('span[' + dataPrefix + '-iframe]'),
-		i       = 0,
-		proxies = [],
-		top     = 0,
-		bottom  = window.innerHeight,
-		timeout = 0,
-		hasScrolled     = false,
-		lastScrollY     = window.scrollY,
-		scrollDirection = SCROLL_DOWN,
-		activeMiniplayerSpan = null,
+	let activeMiniplayerSpan = null,
+		bottom               = window.innerHeight,
 		documentElement      = document.documentElement,
-		localStorage         = {};
-	while (i < nodes.length)
-	{
-		proxies.push(nodes[i++]);
-	}
+		hasScrolled          = false,
+		lastScrollY          = window.scrollY,
+		localStorage         = {},
+		proxies              = [...document.querySelectorAll('span[' + dataPrefix + '-iframe]')],
+		scrollDirection      = SCROLL_DOWN,
+		top                  = 0,
+		timeout              = 0;
 
 	try
 	{
@@ -264,8 +258,7 @@
 	*/
 	function getDistanceFromBottom()
 	{
-		// NOTE: scrollY has higher IE requirements than scrollBy()
-		return getElementRectProperty('html', 'height') - window.scrollY;
+		return documentElement.scrollHeight - window.scrollY;
 	}
 
 	function refresh()
