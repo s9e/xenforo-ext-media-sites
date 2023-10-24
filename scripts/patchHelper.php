@@ -9,7 +9,7 @@ $new = preg_replace_callback(
 	function ($m)
 	{
 		$js = file_get_contents(__DIR__ . '/../src/LazyLoad.min.js');
-		$js = str_replace("\n", '', $js);
+		$js = strtr($js, ["\n" => '', '\\' => '\\\\', "'" => "\\'"]);
 		$js = trim($js, ';');
 
 		return '<script>' . $js . '</script>';
