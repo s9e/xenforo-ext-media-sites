@@ -246,6 +246,9 @@
 
 		if (expandUpward)
 		{
+			// If we've resized an iframe that's above the viewport and we're suddenly farther away
+			// from the bottom of the page, it means that everything that was in view got pushed
+			// down and we need to scroll down a little bit to catch up
 			const newDistance = getDistanceFromBottom(),
 			      scrollDiff  = newDistance - oldDistance;
 			if (scrollDiff)
