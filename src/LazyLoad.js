@@ -250,7 +250,7 @@
 			      scrollDiff  = newDistance - oldDistance;
 			if (scrollDiff)
 			{
-				window.scrollBy(0, scrollDiff);
+				window.scrollBy({ behavior: 'instant', top: scrollDiff});
 			}
 
 			// Update lastScrollY regardless of scrollDiff because some browsers (Firefox?) may
