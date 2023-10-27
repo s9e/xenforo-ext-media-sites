@@ -1,9 +1,9 @@
-((window, document, dataPrefix, classPrefix) =>
+((window, document, hash, dataPrefix, classPrefix) =>
 {
 	// Delay in milliseconds between events and checking for visible elements
 	const REFRESH_DELAY = 32;
 
-	// Enum indicating an iframe's position in relation to viewport
+	// Enum indicating an iframe's position in relation to visible range (viewport minus header)
 	const ABOVE   = 0;
 	const VISIBLE = 1;
 	const BELOW   = 2;
@@ -16,14 +16,11 @@
 	const STORAGE_MAX_SIZE = 100;
 
 	let activeMiniplayerSpan = null,
-		bottom               = window.innerHeight,
 		documentElement      = document.documentElement,
-		hasScrolled          = false,
 		lastScrollY          = window.scrollY,
 		localStorage         = {},
 		proxies              = [...document.querySelectorAll('span[' + dataPrefix + '-iframe]')],
 		scrollDirection      = SCROLL_DOWN,
-		top                  = 0,
 		timeout              = 0;
 
 	try
@@ -35,9 +32,37 @@
 	}
 
 	// Start loading embeds immediately. It will let dynamic embeds be resized before the document
-	// is fully loaded (and without a transition if readyState !== "complete")
-	prepareEvents(window.addEventListener);
+	// is fully loaded, and without a transition if readyState !== "complete". Unless this script
+	// has been artificially delayed, it will always start with the document in "loading" state and
+	// therefore load embeds within the target range or visible range
 	refresh();
+	prepareEvents(window.addEventListener);
+
+	// Listen for intra-document navigation so we can immediately start loading embeds in the target
+	// range and resize them the correct way
+	/** @suppress {strictMissingProperties} */
+	window.navigation?.addEventListener(
+		'navigate',
+		(e) =>
+		{
+			const destination = e['destination'];
+			if (!destination['sameDocument'])
+			{
+				return;
+			}
+
+			let m = /#.*/.exec(destination['url']);
+			if (m)
+			{
+				// Reset the scrolling direction so the target never expands upward
+				hash            = m[0];
+				lastScrollY     = 0;
+				scrollDirection = SCROLL_DOWN;
+
+				loadIframes(getTargetRange());
+			}
+		}
+	);
 
 	/**
 	* @param {!Function} fn
@@ -50,10 +75,70 @@
 	}
 
 	/**
+	* The loading range is the zone where lazy content is loaded. Before the document is "complete"
+	* it is limited to the target range
+	*
+	* @return {!Array<number>}
+	*/
+	function getLoadingRange()
+	{
+		if (document.readyState !== 'complete')
+		{
+			return getVisibleRange();
+		}
+
+		// Load an extra viewport's worth at the bottom, and between a quarter and half the
+		// viewport's height at the top depending on whether we're scrolling down or up
+		let bottom = window.innerHeight * 2,
+			top    = -bottom / ((scrollDirection === SCROLL_DOWN) ? 4 : 2);
+
+		return [top, bottom];
+	}
+
+	/**
+	* The target range starts wherever the target from the URI fragment (hash) starts up to a
+	* viewport's height below. If there is no valid URI fragment, the visible range is returned
+	*
+	* @return {!Array<number>}
+	*/
+	function getTargetRange()
+	{
+		if (hash)
+		{
+			// Use the top of the URL's target as the boundary
+			let top = document.querySelector(hash)?.getBoundingClientRect().top ?? 0;
+
+			// NOTE: this range may be smaller than the viewport's height if the target is so
+			//       low on the page that it's not at the top of the viewport. It should not
+			//       be an issue as the loading zone will be refreshed once the browser
+			//       scrolls to the target
+			return [top, top + window.innerHeight];
+		}
+
+		return getVisibleRange();
+	}
+
+	/**
+	* @return {!Array<number>}
+	*/
+	function getVisibleRange()
+	{
+		// Adjust the *visible* range to exclude the sticky header. In theory we could also exclude
+		// footer notices but sticky footers have a much lesser impact compared to sticky headers,
+		// as the latter determines in which direction an iframe should be resized
+		let top    = Math.max(0, document.querySelector('.p-navSticky')?.getBoundingClientRect().bottom),
+			bottom = window.innerHeight;
+
+		return [top, bottom];
+	}
+
+	/**
 	* @param  {!Element} element
+	* @param  {number}   top
+	* @param  {number}   bottom
 	* @return {boolean}
 	*/
-	function isInRange(element)
+	function isInRange(element, top, bottom)
 	{
 		const rect = element.getBoundingClientRect();
 
@@ -161,37 +246,22 @@
 	*/
 	function getIframePosition(iframe)
 	{
-		const rect = iframe.getBoundingClientRect();
-		if (rect.bottom > window.innerHeight)
+		// To determine an iframe's position, we use the visible range which is adjusted for the
+		// sticky header. An iframe that starts under (on the Z axis) the header is considered
+		// to be above the visible range
+		const rect          = iframe.getBoundingClientRect(),
+		      [top, bottom] = getVisibleRange();
+
+		if (rect.bottom > bottom)
 		{
 			return BELOW;
 		}
-
-		let top = -1;
-		if (!hasScrolled && location.hash)
+		if (rect.top < top)
 		{
-			// If the page hasn't been scrolled, use the top of the URL's target as the boundary
-			top = getElementRectProperty(location.hash, 'top');
-		}
-		if (top < 0)
-		{
-			// Otherwise, use the bottom of the sticky header as the boundary
-			top = getElementRectProperty('.p-navSticky', 'bottom');
+			return ABOVE;
 		}
 
-		return (rect.top < top) ? ABOVE : VISIBLE;
-	}
-
-	/**
-	* @param  {string} selector
-	* @param  {string} prop
-	* @return {number}
-	*/
-	function getElementRectProperty(selector, prop)
-	{
-		const el = document.querySelector(selector);
-
-		return (el) ? el.getBoundingClientRect()[prop] : -1;
+		return VISIBLE;
 	}
 
 	/**
@@ -223,8 +293,9 @@
 		      expandUpward   = (iframePosition === ABOVE || (iframePosition === VISIBLE && scrollDirection === SCROLL_UP)),
 		      oldDistance    = (expandUpward) ? getDistanceFromBottom() : 0;
 
-		// Temporarily disable transitions if the document isn't fully loaded yet, the iframe isn't
-		// visible, or we need to scroll the page
+		// Temporarily disable transitions if the iframe isn't fully visible, we need to scroll the
+		// page to expand upward, or the document isn't fully loaded yet and we'd rather not spend
+		// time animating things
 		if (iframePosition !== VISIBLE || expandUpward || document.readyState !== 'complete')
 		{
 			style.transition = 'none';
@@ -286,22 +357,18 @@
 		}
 		else
 		{
-			hasScrolled     = true;
 			scrollDirection = (lastScrollY > (lastScrollY = window.scrollY)) ? SCROLL_UP : SCROLL_DOWN;
 		}
+		loadIframes(getLoadingRange());
+	}
 
-		// Refresh the loading zone and extend it if we're done loading the page
-		if (document.readyState === 'complete')
-		{
-			bottom = window.innerHeight * 2;
-			top    = -bottom / ((scrollDirection === SCROLL_DOWN) ? 4 : 2);
-		}
-
-		const newProxies = [];
+	function loadIframes(loadingRange)
+	{
+		const newProxies = [], [top, bottom] = loadingRange;
 		proxies.forEach(
 			(proxy) =>
 			{
-				if (isInRange(proxy))
+				if (isInRange(proxy, top, bottom))
 				{
 					if (proxy.hasAttribute(dataPrefix + '-c2l'))
 					{
@@ -328,8 +395,8 @@
 
 	function handleMiniplayerClick(iframe, span)
 	{
-		const rect   = span.getBoundingClientRect(),
-		      style  = iframe.style;
+		const rect  = span.getBoundingClientRect(),
+		      style = iframe.style;
 
 		style.bottom = (documentElement.clientHeight - rect.bottom) + 'px';
 		style.height = rect.height + 'px';
@@ -459,4 +526,4 @@
 			}
 		}
 	}
-})(window, document, 'data-s9e-mediaembed', 's9e-miniplayer');
+})(window, document, location.hash, 'data-s9e-mediaembed', 's9e-miniplayer');

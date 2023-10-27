@@ -30,3 +30,35 @@ BBCode pitfalls:
  1. The BBCode suffix could be infinitely recursive if `[URL media=...]` is used.
  2. BBCode injection via the URL. Square brackets and quotes can be escaped to mitigate.
  3. Long URLs are not shortened. That's how `autoEmbedMedia` behaves as well.
+
+
+### Lazy loading
+
+#### Special cases
+
+ - An embed can be within the viewport's geometry without being visible:
+     - Hidden in a quote → `isInVisibleRangeOfBlock()`
+     - Hidden in a spoiler → `isInRange()`
+     - Hidden behind the sticky header, or a footer
+ - After scrolling up to a previous post, expanding a quote block should not cause a quoted embed to be resized upwards. This is addressed in `refresh()`.
+ - When using an intradocument link to a previous post, dynamically-sized embeds should not expand upwards. This is addressed via a `navigate` event.
+
+#### Page load timeline
+
+What happens when we navigate to a specific post (at the bottom of a ~5 screens tall page) from the thread list:
+
+ - Chromium:
+     1. `document.readyState` changes to `interactive`
+     2. `scroll` event
+     3. `document.readyState` changes to `complete`
+     4. `load` event
+
+ - Firefox:
+     1. `document.readyState` changes to `interactive`
+     2. `scroll` event
+     3. `document.readyState` changes to `complete`
+     4. `scroll` event
+     5. `load` event
+     6. `scroll` event × 3
+
+The number of scroll events on Firefox depends on the height of the page. It probably also depends on whether/how smooth scrolling is enabled.
