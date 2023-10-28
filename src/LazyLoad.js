@@ -266,23 +266,12 @@
 
 	/**
 	* @param {!HTMLIFrameElement} iframe
-	* @param {string}             data
+	* @param {string}             dimensions Space-separated height and optionally width
 	*/
-	function resizeIframeFromDimensions(iframe, data)
+	function resizeIframeFromDimensions(iframe, dimensions)
 	{
-		const dimensions = data.split(' ');
-
-		resizeIframe(iframe, dimensions[0], dimensions[1] || 0);
-	}
-
-	/**
-	* @param {!HTMLIFrameElement} iframe
-	* @param {number|string}      height
-	* @param {number|string}      width
-	*/
-	function resizeIframe(iframe, height, width)
-	{
-		const style = iframe.style;
+		const [height, width] = [...dimensions.split(' '), 0],
+		      style = iframe.style;
 		if (style.height === height + 'px' && (!width || style.width === width + 'px'))
 		{
 			// Ignore redundant resizings. Those mostly happen with Twitter
