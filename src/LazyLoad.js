@@ -197,7 +197,7 @@
 
 		if (iframe.getAttribute(dataPrefix + '-api') == 2)
 		{
-			iframe.onload = onResizableIframeLoad;
+			iframe.onload = () => prepareResizableIframe(iframe);
 
 			// Resize the iframe after it's been inserted in the page so it's resized the right way
 			// (upward/downward) and with a transition if visible
@@ -209,10 +209,9 @@
 		}
 	}
 
-	function onResizableIframeLoad(e)
+	function prepareResizableIframe(iframe)
 	{
 		const channel    = new MessageChannel,
-		      iframe     = /** @type {!HTMLIFrameElement} */ (e.target),
 		      storageKey = getStorageKey(iframe.src);
 		channel.port1.onmessage = (e) =>
 		{
