@@ -17,6 +17,7 @@
 
 	let activeMiniplayerSpan = null,
 		documentElement      = document.documentElement,
+		hasScrolled          = false,
 		lastScrollY          = window.scrollY,
 		localStorage         = {},
 		proxies              = [...document.querySelectorAll('span[' + dataPrefix + '-iframe]')],
@@ -76,7 +77,7 @@
 
 	/**
 	* The loading range is the zone where lazy content is loaded. Before the document is "complete"
-	* it is limited to the target range
+	* it is limited to the visible range
 	*
 	* @return {!Array<number>}
 	*/
@@ -331,12 +332,6 @@
 
 	function refresh()
 	{
-		// Don't load anything if the page is not visible
-		if (document.visibilityState === 'hidden')
-		{
-			return;
-		}
-
 		if (lastScrollY === window.scrollY)
 		{
 			// Reset the scroll direction on click so that tweets expand downward when expanding a
@@ -345,9 +340,15 @@
 		}
 		else
 		{
+			hasScrolled     = true;
 			scrollDirection = (lastScrollY > (lastScrollY = window.scrollY)) ? SCROLL_UP : SCROLL_DOWN;
 		}
-		loadIframes(getLoadingRange());
+
+		// Don't load anything if the page is not visible
+		if (document.visibilityState !== 'hidden')
+		{
+			loadIframes(hasScrolled ? getLoadingRange() : getTargetRange());
+		}
 	}
 
 	function loadIframes(loadingRange)
