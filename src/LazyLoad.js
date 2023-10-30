@@ -65,7 +65,7 @@
 	/** @suppress {strictMissingProperties} */
 	window.navigation?.addEventListener(
 		'navigatesuccess',
-		(e) =>
+		() =>
 		{
 			inNavigation = false;
 		}
@@ -179,7 +179,7 @@
 		return (top <= block.getBoundingClientRect().bottom);
 	}
 
-	function scheduleRefresh(e)
+	function scheduleRefresh()
 	{
 		window.clearTimeout(timeout);
 		timeout = window.setTimeout(refresh, REFRESH_DELAY);
