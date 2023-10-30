@@ -47,7 +47,6 @@
 		'navigate',
 		(e) =>
 		{
-			inNavigation = true;
 			const destination = e['destination'];
 			if (!destination['sameDocument'])
 			{
@@ -58,6 +57,7 @@
 			if (m)
 			{
 				hash = m[0];
+				inNavigation = true;
 				loadIframes(getTargetRange());
 			}
 		}
