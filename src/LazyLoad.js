@@ -295,10 +295,10 @@
 			expandUpward   = !inNavigation && (iframePosition === ABOVE || (iframePosition === VISIBLE && scrollDirection === SCROLL_UP)),
 			oldDistance    = (expandUpward) ? getDistanceFromBottom() : 0;
 
-		// Temporarily disable transitions if the iframe isn't fully visible, we need to scroll the
-		// page to expand upward, or the document isn't fully loaded yet and we'd rather not spend
-		// time animating things
-		if (iframePosition !== VISIBLE || expandUpward || document.readyState !== 'complete')
+		// Temporarily disable transitions if the iframe isn't fully visible, if we need to scroll
+		// the page to expand upward, or if the document isn't fully loaded yet or we're navigating
+		// links and either way we'd rather not spend time animating things
+		if (iframePosition !== VISIBLE || expandUpward || inNavigation || document.readyState !== 'complete')
 		{
 			style.transition = 'none';
 			window.setTimeout(
