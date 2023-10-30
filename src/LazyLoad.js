@@ -18,6 +18,7 @@
 	let activeMiniplayerSpan = null,
 		documentElement      = document.documentElement,
 		hasScrolled          = false,
+		inNavigation         = false,
 		lastScrollY          = window.scrollY,
 		localStorage         = {},
 		proxies              = [...document.querySelectorAll('span[' + dataPrefix + '-iframe]')],
@@ -46,6 +47,7 @@
 		'navigate',
 		(e) =>
 		{
+			inNavigation = true;
 			const destination = e['destination'];
 			if (!destination['sameDocument'])
 			{
@@ -55,13 +57,17 @@
 			let m = /#.*/.exec(destination['url']);
 			if (m)
 			{
-				// Reset the scrolling direction so the target never expands upward
-				hash            = m[0];
-				lastScrollY     = 0;
-				scrollDirection = SCROLL_DOWN;
-
+				hash = m[0];
 				loadIframes(getTargetRange());
 			}
+		}
+	);
+	/** @suppress {strictMissingProperties} */
+	window.navigation?.addEventListener(
+		'navigatesuccess',
+		(e) =>
+		{
+			inNavigation = false;
 		}
 	);
 
@@ -173,7 +179,7 @@
 		return (top <= block.getBoundingClientRect().bottom);
 	}
 
-	function scheduleRefresh()
+	function scheduleRefresh(e)
 	{
 		window.clearTimeout(timeout);
 		timeout = window.setTimeout(refresh, REFRESH_DELAY);
@@ -278,9 +284,12 @@
 			return;
 		}
 
-		const iframePosition = getIframePosition(iframe),
-		      expandUpward   = (iframePosition === ABOVE || (iframePosition === VISIBLE && scrollDirection === SCROLL_UP)),
-		      oldDistance    = (expandUpward) ? getDistanceFromBottom() : 0;
+		// There are cases where an iframe should expand "upward" without pushing down other content.
+		// However, if we're currently scrolling towards an iframe because of an intra-document link
+		// then we do not want to mess with the scrolling position
+		let iframePosition = getIframePosition(iframe),
+			expandUpward   = !inNavigation && (iframePosition === ABOVE || (iframePosition === VISIBLE && scrollDirection === SCROLL_UP)),
+			oldDistance    = (expandUpward) ? getDistanceFromBottom() : 0;
 
 		// Temporarily disable transitions if the iframe isn't fully visible, we need to scroll the
 		// page to expand upward, or the document isn't fully loaded yet and we'd rather not spend
@@ -298,10 +307,22 @@
 			);
 		}
 
+		// Update the current scrolling position before resizing the iframe
+		lastScrollY = window.scrollY;
 		style.height = height + 'px';
 		if (width)
 		{
 			style.width = width + 'px';
+		}
+
+		// If the scrolling position has not changed, then either the iframe was below the viewport
+		// or the iframe was above the viewport and the browser has already updated the scrolling
+		// position to keep the viewport on the same content, as does Firefox. In that case, we do
+		// not have to update the scrolling position manually and we can turn off expandUpward
+		if (lastScrollY !== window.scrollY)
+		{
+			lastScrollY  = window.scrollY;
+			expandUpward = false;
 		}
 
 		if (expandUpward)

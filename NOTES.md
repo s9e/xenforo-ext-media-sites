@@ -40,8 +40,12 @@ BBCode pitfalls:
      - Hidden in a quote → `isInVisibleRangeOfBlock()`
      - Hidden in a spoiler → `isInRange()`
      - Hidden behind the sticky header, or a footer
+
  - After scrolling up to a previous post, expanding a quote block should not cause a quoted embed to be resized upwards. This is addressed in `refresh()`.
- - When using an intradocument link to a previous post, dynamically-sized embeds should not expand upwards. This is addressed via a `navigate` event by resetting the last scrolling position to 0. Smooth programmatic scrolling (e.g. `window.scrollTo`) may cause the scrolling handler to update the last scrolling position as it scrolls up, and cause the loader to think the user is manually scrolling up but the fact the scrolling handler is debounced and only triggers after ~32 ms of inactivity helps.
+
+ - When using an intradocument link to a previous post, dynamically-sized embeds should not expand upwards. This is addressed via a pair of `navigate` and `navigatesuccess` event that temporarily set a `inNavigation` variable that suppresses the `expandUpward` logic.
+
+ - When an iframe above the viewport is resized, Firefox will automatically adjust the window's scrolling position `window.scrollY` so that content doesn't get pushed out of the viewport. Other browsers need to be adjusted manually.
 
 
 #### Page load timeline
