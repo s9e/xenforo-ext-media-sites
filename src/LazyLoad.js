@@ -8,6 +8,11 @@
 	const VISIBLE = 1;
 	const BELOW   = 2;
 
+	// Start with an initial scroll value of -1, which should be impossible in practice.
+	// It lets us differentiate between a page that has not been scrolled and a page that has been
+	// scrolled back to the top
+	const INITIAL_SCROLL_Y = -1;
+
 	// Enum indicating the scrolling direction
 	const SCROLL_DOWN = 0;
 	const SCROLL_UP   = 1;
@@ -17,9 +22,8 @@
 
 	let activeMiniplayerSpan = null,
 		documentElement      = document.documentElement,
-		hasScrolled          = false,
 		inNavigation         = false,
-		lastScrollY          = window.scrollY,
+		lastScrollY          = INITIAL_SCROLL_Y,
 		localStorage         = {},
 		proxies              = [...document.querySelectorAll('span[' + dataPrefix + '-iframe]')],
 		scrollDirection      = SCROLL_DOWN,
@@ -353,17 +357,11 @@
 
 	function refresh()
 	{
-		if (lastScrollY === window.scrollY)
-		{
-			// Reset the scroll direction on click so that tweets expand downward when expanding a
-			// quote after scrolling up
-			scrollDirection = SCROLL_DOWN;
-		}
-		else
-		{
-			hasScrolled     = true;
-			scrollDirection = (lastScrollY > (lastScrollY = window.scrollY)) ? SCROLL_UP : SCROLL_DOWN;
-		}
+		const hasScrolled = (lastScrollY !== INITIAL_SCROLL_Y);
+
+		// Events that cause a refresh without scrolling the page (e.g. click) will cause the scroll
+		// direction to reset to SCROLL_DOWN
+		scrollDirection = (lastScrollY > (lastScrollY = window.scrollY)) ? SCROLL_UP : SCROLL_DOWN;
 
 		// Don't load anything if the page is not visible
 		if (document.visibilityState !== 'hidden')
