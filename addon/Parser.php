@@ -241,7 +241,7 @@ class Parser
 			'canonical' => 'link rel="canonical" href|meta property="og:url" content',
 			'embedded'  => 'iframe src'
 		];
-		$regexp = '(<(?:' . str_replace(' ', '[^>]+', implode('|', array_intersect_key($exprs, array_flip($where)))) . ')="([^"]++))';
+		$regexp = '(<(?:' . str_replace(' ', '[^>]+?', implode('|', array_intersect_key($exprs, array_flip($where)))) . ')="([^"]++))';
 
 		$response = static::wget($url) ?: '';
 		preg_match_all($regexp, $response, $m);
