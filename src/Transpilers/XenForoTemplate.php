@@ -227,7 +227,7 @@ class XenForoTemplate implements TranspilerInterface
 			"(^contains\\(\\$(\\w+,'[^']+')\\)$)D" => 'contains($xf.options.s9e_MediaSites_$1)',
 
 			'(^@(\\w+)$)D'                 => '$$1',
-			"(^@(\\w+)(='.*')$)D"          => '$$1=$2',
+			"(^@(\\w+)(='[^']*')$)D"       => '$$1=$2',
 			'(^@(\\w+)>(\\d+)$)D'          => '$$1>$2',
 			'(^100\\*@height div@width$)D' => '100*$height/$width',
 			'(^100\\*\\(@height\\+(\\d+)\\)div@width$)D'        => '100*($height+$1)/$width',
@@ -236,6 +236,7 @@ class XenForoTemplate implements TranspilerInterface
 			"(^@(\\w+) or ?contains\\(@(\\w+,'[^']+')\\)$)D"    => '$$1 or contains($$2)',
 			"(^@(\\w+) and ?contains\\(('[^']+'),@(\\w+)\\)$)D" => '$$1 and contains($2,$$3)',
 			"(^@(\\w+) and@(\\w+)!=('[^']++')$)D"               => '$$1 and $$2!=$3',
+			"(^@(\\w+=)('[^']++')(and|or)@(\\w+=)('[^']++')$)D" => '$$1=$2 $3 $$4=$5',
 
 			"(^substring-after\\(@(\\w+),('[^']+')\\)$)"  => '$$1|split($2)|last()',
 			"(^substring-before\\(@(\\w+),('[^']+')\\)$)" => '$$1|split($2)|first()',

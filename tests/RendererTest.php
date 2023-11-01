@@ -58,17 +58,18 @@ class RendererTest extends AbstractRendererTest
 			[
 				'facebook',
 				'FacebookDevelopers/posts/10151471074398553',
-				'<iframe data-s9e-mediaembed="facebook" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+\'px\';this.contentWindow.postMessage(\'s9e:init\',\'*\',[c.port2])" scrolling="no" style="height:360px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/facebook.min.html#FacebookDevelopers/10151471074398553"></iframe>'
+				'<iframe data-s9e-mediaembed="facebook" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+\'px\';this.contentWindow.postMessage(\'s9e:init\',\'*\',[c.port2])" scrolling="no" style="height:360px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/facebook.min.html#FacebookDevelopers/posts/10151471074398553"></iframe>'
 			],
 			[
+				// XF 2.2 format
 				'facebook',
 				'FEUERWERK.net/posts/635809298738949',
-				'<iframe data-s9e-mediaembed="facebook" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+\'px\';this.contentWindow.postMessage(\'s9e:init\',\'*\',[c.port2])" scrolling="no" style="height:360px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/facebook.min.html#FEUERWERK.net/635809298738949"></iframe>'
+				'<iframe data-s9e-mediaembed="facebook" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+\'px\';this.contentWindow.postMessage(\'s9e:init\',\'*\',[c.port2])" scrolling="no" style="height:360px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/facebook.min.html#FEUERWERK.net/posts/635809298738949"></iframe>'
 			],
 			[
 				'facebook',
 				'JustinBieber/posts/pfbid085EF3hFVot3gtBS78vsX1w3oFvoipBdzEp2jeDMENdMcboznaNKJW1JZV924o3dwl',
-				'<iframe data-s9e-mediaembed="facebook" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+\'px\';this.contentWindow.postMessage(\'s9e:init\',\'*\',[c.port2])" scrolling="no" style="height:360px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/facebook.min.html#pfbid085EF3hFVot3gtBS78vsX1w3oFvoipBdzEp2jeDMENdMcboznaNKJW1JZV924o3dwl"></iframe>'
+				'<iframe data-s9e-mediaembed="facebook" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+\'px\';this.contentWindow.postMessage(\'s9e:init\',\'*\',[c.port2])" scrolling="no" style="height:360px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/facebook.min.html#JustinBieber/posts/pfbid085EF3hFVot3gtBS78vsX1w3oFvoipBdzEp2jeDMENdMcboznaNKJW1JZV924o3dwl"></iframe>'
 			],
 			[
 				'facebook',
