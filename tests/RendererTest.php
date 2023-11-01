@@ -81,9 +81,16 @@ class RendererTest extends AbstractRendererTest
 				'<iframe data-s9e-mediaembed="facebook" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+\'px\';this.contentWindow.postMessage(\'s9e:init\',\'*\',[c.port2])" scrolling="no" style="height:360px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/facebook.min.html#video10150451523596807"></iframe>'
 			],
 			[
+				// XF 2.2
 				'facebook',
 				'story_fbid=10152253595081467:id=58617016466',
 				'<iframe data-s9e-mediaembed="facebook" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+\'px\';this.contentWindow.postMessage(\'s9e:init\',\'*\',[c.port2])" scrolling="no" style="height:360px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/facebook.min.html#10152253595081467"></iframe>'
+			],
+			[
+				// XF 2.2
+				'facebook',
+				'TourEiffel/photos/a.300114943359148/3557139670989976',
+				'<iframe data-s9e-mediaembed="facebook" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+\'px\';this.contentWindow.postMessage(\'s9e:init\',\'*\',[c.port2])" scrolling="no" style="height:360px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/facebook.min.html#TourEiffel/posts/3557139670989976"></iframe>'
 			],
 			[
 				'flickr',

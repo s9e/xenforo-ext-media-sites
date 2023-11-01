@@ -17,7 +17,7 @@ class Renderer
 	protected static $customFormats = [
 		'dailymotion' => ['(^(?<id>\\w+):(?<t>\\d+))'],
 		'facebook'    => [
-			'(^(?<user>[\\w.]+)/(?<type>p)osts/(?<id>\\d+))',
+			'(^(?<user>[\\w.]+)/(?<type>p)(?:hoto|ost)s/a\\.\\d+/(?<id>\\d+))',
 			'(^(?<user>[\\w.]+)/posts/pfbid(?<pfbid>\\w+)(?<id>))',
 			'(^story_fbid=(?<id>\\d+))'
 		],
