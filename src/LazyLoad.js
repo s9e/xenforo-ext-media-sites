@@ -3,6 +3,10 @@
 	// Delay in milliseconds between events and checking for visible elements
 	const REFRESH_DELAY = 32;
 
+	// Delay in milliseconds between the last event and assuming the navigation is complete
+	// For reference, XF.config.speed.normal is 400 by default
+	const NAVIGATION_DELAY = 400;
+
 	// Enum indicating an iframe's position in relation to visible range (viewport minus header)
 	const ABOVE   = 0;
 	const VISIBLE = 1;
@@ -25,6 +29,7 @@
 		inNavigation         = false,
 		lastScrollY          = INITIAL_SCROLL_Y,
 		localStorage         = {},
+		navigationTimeout    = 0,
 		proxies              = [...document.querySelectorAll('span[' + dataPrefix + '-iframe]')],
 		scrollDirection      = SCROLL_DOWN,
 		timeout              = 0;
@@ -61,11 +66,29 @@
 			if (m)
 			{
 				hash = m[0];
-				inNavigation = true;
+				startNavigation();
 				loadIframes(getTargetRange());
 			}
 		}
 	);
+
+	function startNavigation()
+	{
+		inNavigation = true;
+		scheduleNavigationEnd();
+	}
+
+	function scheduleNavigationEnd()
+	{
+		window.clearTimeout(navigationTimeout);
+		navigationTimeout = window.setTimeout(
+			() =>
+			{
+				inNavigation = false;
+			},
+			NAVIGATION_DELAY
+		);
+	}
 
 	/**
 	* @param {!Function} fn
@@ -177,12 +200,16 @@
 
 	function scheduleRefresh(e)
 	{
-		// Treat all clicks on a A element as a navigation click. This will be removed when the
-		// Navigation API gets implemented by non-Chrome browsers
-		// https://caniuse.com/mdn-api_navigation
-		if (e.type === 'click' && e.target.tagName === 'A')
+		if (inNavigation)
 		{
-			inNavigation = true;
+			scheduleNavigationEnd();
+		}
+		else if (e.type === 'click' && e.target.tagName === 'A')
+		{
+			// Treat all clicks on a A element as a navigation click. This will be removed when
+			// the Navigation API gets implemented by non-Chrome browsers.
+			// https://caniuse.com/mdn-api_navigation
+			startNavigation();
 		}
 		window.clearTimeout(timeout);
 		timeout = window.setTimeout(refresh, REFRESH_DELAY);
@@ -288,10 +315,10 @@
 		}
 
 		// There are cases where an iframe should expand "upward" without pushing down other content.
-		// However, if we're currently scrolling towards an iframe because of an intra-document link
-		// then we do not want to mess with the scrolling position
+		// However, if the iframe is fully visible because we've just navigated to it via a link then
+		// we don't want it to be pushed outside the viewport either
 		let iframePosition = getIframePosition(iframe),
-			expandUpward   = !inNavigation && (iframePosition === ABOVE || (iframePosition === VISIBLE && scrollDirection === SCROLL_UP)),
+			expandUpward   = (iframePosition === ABOVE || (iframePosition === VISIBLE && scrollDirection === SCROLL_UP && !inNavigation)),
 			oldDistance    = (expandUpward) ? getDistanceFromBottom() : 0;
 
 		// Temporarily disable transitions if the iframe isn't fully visible, if we need to scroll
@@ -357,22 +384,11 @@
 	function refresh()
 	{
 		const hasScrolled = (lastScrollY !== INITIAL_SCROLL_Y);
-		if (inNavigation)
-		{
-			// A refresh happens at least REFRESH_DELAY ms after the last scroll. At that point, we
-			// can estimate that we're done with any kind of navigation. We reset the scroll direction
-			// in case we scrolled up to a dynamic embed; We don't want it to expand upward, posssibly
-			// outside the viewport
-			inNavigation    = false;
-			lastScrollY     = window.scrollY;
-			scrollDirection = SCROLL_DOWN;
-		}
-		else
-		{
-			// Events that cause a refresh without scrolling the page (e.g. click) will cause the scroll
-			// direction to reset to SCROLL_DOWN
-			scrollDirection = (lastScrollY > (lastScrollY = window.scrollY)) ? SCROLL_UP : SCROLL_DOWN;
-		}
+		// Events that cause a refresh without scrolling the page (e.g. click) will cause the scroll
+		// direction to reset to SCROLL_DOWN. We also set it to SCROLL_DOWN during (and immediately
+		// after) navigation in case we scrolled up to a dynamic embed; We don't want it to expand
+		// upward, posssibly outside the viewport
+		scrollDirection = (lastScrollY > (lastScrollY = window.scrollY) && !inNavigation) ? SCROLL_UP : SCROLL_DOWN;
 
 		// Don't load anything if the page is not visible
 		if (document.visibilityState !== 'hidden')
