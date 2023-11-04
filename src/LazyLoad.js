@@ -66,14 +66,6 @@
 			}
 		}
 	);
-	/** @suppress {strictMissingProperties} */
-	window.navigation?.addEventListener(
-		'navigatesuccess',
-		() =>
-		{
-			inNavigation = false;
-		}
-	);
 
 	/**
 	* @param {!Function} fn
@@ -183,8 +175,15 @@
 		return (top <= block.getBoundingClientRect().bottom);
 	}
 
-	function scheduleRefresh()
+	function scheduleRefresh(e)
 	{
+		// Treat all clicks on a A element as a navigation click. This will be removed when the
+		// Navigation API gets implemented by non-Chrome browsers
+		// https://caniuse.com/mdn-api_navigation
+		if (e.type === 'click' && e.target.tagName === 'A')
+		{
+			inNavigation = true;
+		}
 		window.clearTimeout(timeout);
 		timeout = window.setTimeout(refresh, REFRESH_DELAY);
 	}
@@ -358,10 +357,22 @@
 	function refresh()
 	{
 		const hasScrolled = (lastScrollY !== INITIAL_SCROLL_Y);
-
-		// Events that cause a refresh without scrolling the page (e.g. click) will cause the scroll
-		// direction to reset to SCROLL_DOWN
-		scrollDirection = (lastScrollY > (lastScrollY = window.scrollY)) ? SCROLL_UP : SCROLL_DOWN;
+		if (inNavigation)
+		{
+			// A refresh happens at least REFRESH_DELAY ms after the last scroll. At that point, we
+			// can estimate that we're done with any kind of navigation. We reset the scroll direction
+			// in case we scrolled up to a dynamic embed; We don't want it to expand upward, posssibly
+			// outside the viewport
+			inNavigation    = false;
+			lastScrollY     = window.scrollY;
+			scrollDirection = SCROLL_DOWN;
+		}
+		else
+		{
+			// Events that cause a refresh without scrolling the page (e.g. click) will cause the scroll
+			// direction to reset to SCROLL_DOWN
+			scrollDirection = (lastScrollY > (lastScrollY = window.scrollY)) ? SCROLL_UP : SCROLL_DOWN;
+		}
 
 		// Don't load anything if the page is not visible
 		if (document.visibilityState !== 'hidden')
