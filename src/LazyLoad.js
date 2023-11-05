@@ -254,10 +254,10 @@
 			const data = ('' + e.data);
 
 			// Some content providers may send the content's height before everything (e.g. images)
-			// is loaded. If we have a stored height for this iframe and we receive a smaller
-			// number from the embed, we delay the resizing by a few seconds before setting the
-			// height from whichever value is in storage at the time. This provides a grace period
-			// for the embed to load more of its assets and set a more accurate height
+			// is loaded. If we receive a smaller height than current iframe's, we delay the resizing
+			// by a few seconds before setting the height from whichever value is in storage at the
+			// time. This provides a grace period for the embed to load more of its assets and set a
+			// more accurate height
 			window.setTimeout(
 				() =>
 				{
@@ -268,7 +268,7 @@
 				// We use the iframe's current height rather than the stored value because some
 				// providers (e.g. Twitter) send the same bogus value multiple times and we would
 				// compare the stored bogus value against a new instance of the same value
-				(iframe.getBoundingClientRect().height > +(data.split(' ')[0])) ? 5000 : 0
+				(iframe.getBoundingClientRect().height > +(data.split(' ')[0])) ? 4000 : 0
 			);
 			storeIframeData(storageKey, data);
 		};
