@@ -3,9 +3,8 @@
 	// Delay in milliseconds between events and checking for visible elements
 	const REFRESH_DELAY = 32;
 
-	// Delay in milliseconds between the last event and assuming the navigation is complete
-	// For reference, XF.config.speed.normal is 400 by default
-	const NAVIGATION_DELAY = 400;
+	// Delay in milliseconds between the last event and assuming the navigation's scroll is complete
+	const NAVIGATION_DELAY = 200;
 
 	// Enum indicating an iframe's position in relation to visible range (viewport minus header)
 	const ABOVE   = 0;
@@ -345,16 +344,6 @@
 			style.width = width + 'px';
 		}
 
-		// If the scrolling position has not changed, then either the iframe was below the viewport
-		// or the iframe was above the viewport and the browser has already updated the scrolling
-		// position to keep the viewport on the same content, as does Firefox. In that case, we do
-		// not have to update the scrolling position manually and we can turn off expandUpward
-		if (lastScrollY !== window.scrollY)
-		{
-			lastScrollY  = window.scrollY;
-			expandUpward = false;
-		}
-
 		if (expandUpward)
 		{
 			// If we've resized an iframe that's above the viewport and we're suddenly farther away
@@ -364,13 +353,13 @@
 			      scrollDiff  = newDistance - oldDistance;
 			if (scrollDiff)
 			{
-				window.scrollBy({ behavior: 'instant', top: scrollDiff});
+				window.scrollBy({ behavior: 'instant', top: scrollDiff });
 			}
-
-			// Update lastScrollY regardless of scrollDiff because some browsers (Firefox?) may
-			// automatically preserve the scrolling position when an element's height change
-			lastScrollY = window.scrollY;
 		}
+
+		// Update lastScrollY regardless of how the iframe was resized so we guarantee we have the
+		// correct value
+		lastScrollY = window.scrollY;
 	}
 
 	/**
