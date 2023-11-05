@@ -316,9 +316,9 @@
 		// There are cases where an iframe should expand "upward" without pushing down other content.
 		// However, if the iframe is fully visible because we've just navigated to it via a link then
 		// we don't want it to be pushed outside the viewport either
-		let iframePosition = getIframePosition(iframe),
-			expandUpward   = (iframePosition === ABOVE || (iframePosition === VISIBLE && scrollDirection === SCROLL_UP && !inNavigation)),
-			oldDistance    = (expandUpward) ? getDistanceFromBottom() : 0;
+		const iframePosition = getIframePosition(iframe),
+		      expandUpward   = (iframePosition === ABOVE || (iframePosition === VISIBLE && scrollDirection === SCROLL_UP && !inNavigation)),
+		      oldDistance    = (expandUpward) ? getDistanceFromBottom() : 0;
 
 		// Temporarily disable transitions if the iframe isn't fully visible, if we need to scroll
 		// the page to expand upward, or if the document isn't fully loaded yet or we're navigating
@@ -374,6 +374,7 @@
 	function refresh()
 	{
 		const hasScrolled = (lastScrollY !== INITIAL_SCROLL_Y);
+
 		// Events that cause a refresh without scrolling the page (e.g. click) will cause the scroll
 		// direction to reset to SCROLL_DOWN. We also set it to SCROLL_DOWN during (and immediately
 		// after) navigation in case we scrolled up to a dynamic embed; We don't want it to expand
