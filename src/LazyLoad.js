@@ -344,7 +344,8 @@
 			style.width = width + 'px';
 		}
 
-		if (expandUpward)
+		// Do not try to expand upward if we scrolled to the top
+		if (expandUpward && lastScrollY > 0)
 		{
 			// If we've resized an iframe that's above the viewport and we're suddenly farther away
 			// from the bottom of the page, it means that everything that was in view got pushed
