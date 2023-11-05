@@ -11,11 +11,6 @@
 	const VISIBLE = 1;
 	const BELOW   = 2;
 
-	// Start with an initial scroll value of -1, which should be impossible in practice.
-	// It lets us differentiate between a page that has not been scrolled and a page that has been
-	// scrolled back to the top
-	const INITIAL_SCROLL_Y = -1;
-
 	// Enum indicating the scrolling direction
 	const SCROLL_DOWN = 0;
 	const SCROLL_UP   = 1;
@@ -25,8 +20,9 @@
 
 	let activeMiniplayerSpan = null,
 		documentElement      = document.documentElement,
+		hasScrolled          = false,
 		inNavigation         = false,
-		lastScrollY          = INITIAL_SCROLL_Y,
+		lastScrollY          = window.scrollY,
 		localStorage         = {},
 		navigationTimeout    = 0,
 		proxies              = [...document.querySelectorAll('span[' + dataPrefix + '-iframe]')],
@@ -203,6 +199,10 @@
 		{
 			scheduleNavigationEnd();
 		}
+		else if (!hasScrolled && e.type === 'scroll')
+		{
+			hasScrolled = true;
+		}
 		else if (e.type === 'click' && e.target.tagName === 'A')
 		{
 			// Treat all clicks on a A element as a navigation click. This will be removed when
@@ -373,8 +373,6 @@
 
 	function refresh()
 	{
-		const hasScrolled = (lastScrollY !== INITIAL_SCROLL_Y);
-
 		// Events that cause a refresh without scrolling the page (e.g. click) will cause the scroll
 		// direction to reset to SCROLL_DOWN. We also set it to SCROLL_DOWN during (and immediately
 		// after) navigation in case we scrolled up to a dynamic embed; We don't want it to expand
