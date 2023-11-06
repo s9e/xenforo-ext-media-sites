@@ -20,7 +20,6 @@
 
 	let activeMiniplayerSpan = null,
 		documentElement      = document.documentElement,
-		hasScrolled          = false,
 		inNavigation         = false,
 		lastScrollY          = window.scrollY,
 		localStorage         = {},
@@ -38,10 +37,9 @@
 	}
 
 	// Start loading embeds immediately. It will let dynamic embeds be resized before the document
-	// is fully loaded, and without a transition if readyState !== "complete". Unless this script
-	// has been artificially delayed, it will always start with the document in "loading" state and
-	// therefore load embeds within the target range or visible range
-	refresh();
+	// is fully loaded, and without a transition if readyState !== "complete". We manually select
+	// the target range and leave the visible range to event handlers
+	loadIframes(getTargetRange());
 	prepareEvents(window.addEventListener);
 
 	// Listen for intra-document navigation so we can immediately start loading embeds in the target
@@ -96,18 +94,12 @@
 	}
 
 	/**
-	* The loading range is the zone where lazy content is loaded. Before the document is "complete"
-	* it is limited to the visible range
+	* The loading range is the zone where lazy content is loaded: visible viewport + extra buffer
 	*
 	* @return {!Array<number>}
 	*/
 	function getLoadingRange()
 	{
-		if (document.readyState !== 'complete')
-		{
-			return getVisibleRange();
-		}
-
 		// Load an extra viewport's worth at the bottom, and between a quarter and half the
 		// viewport's height at the top depending on whether we're scrolling down or up
 		let bottom = window.innerHeight * 2,
@@ -198,10 +190,6 @@
 		if (inNavigation)
 		{
 			scheduleNavigationEnd();
-		}
-		else if (!hasScrolled && e.type === 'scroll')
-		{
-			hasScrolled = true;
 		}
 		else if (e.type === 'click' && e.target.tagName === 'A')
 		{
@@ -379,10 +367,11 @@
 		// upward, posssibly outside the viewport
 		scrollDirection = (lastScrollY > (lastScrollY = window.scrollY) && !inNavigation) ? SCROLL_UP : SCROLL_DOWN;
 
-		// Don't load anything if the page is not visible
-		if (document.visibilityState !== 'hidden')
+		// Don't load anything unless the page is visible and ready. There is no benefit to loading
+		// iframes during the 'interactive' state
+		if (document.visibilityState !== 'hidden' && document.readyState === 'complete')
 		{
-			loadIframes(hasScrolled ? getLoadingRange() : getTargetRange());
+			loadIframes(getLoadingRange());
 		}
 	}
 
