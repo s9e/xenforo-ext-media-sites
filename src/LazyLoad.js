@@ -139,7 +139,7 @@
 		// Adjust the *visible* range to exclude the sticky header. In theory we could also exclude
 		// footer notices but sticky footers have a much lesser impact compared to sticky headers,
 		// as the latter determines in which direction an iframe should be resized
-		let top    = Math.max(0, document.querySelector('.p-navSticky')?.getBoundingClientRect().bottom),
+		let top    = document.querySelector('.p-navSticky').getBoundingClientRect().bottom ?? 0,
 			bottom = window.innerHeight;
 
 		return [top, bottom];
