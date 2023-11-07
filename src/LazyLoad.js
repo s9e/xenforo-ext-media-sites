@@ -39,7 +39,14 @@
 	// Start loading embeds immediately. It will let dynamic embeds be resized before the document
 	// is fully loaded, and without a transition if readyState !== "complete". We manually select
 	// the target range and leave the visible range to event handlers
-	loadIframes(getTargetRange());
+	if (hash)
+	{
+		startNavigation(hash);
+	}
+	else
+	{
+		loadIframes(getVisibleRange());
+	}
 	prepareEvents(window.addEventListener);
 
 	// Listen for intra-document navigation so we can immediately start loading embeds in the target
@@ -55,20 +62,22 @@
 				return;
 			}
 
-			let m = /#.*/.exec(destination['url']);
+			let m = /#[-\w]+$/.exec(destination['url']);
 			if (m)
 			{
-				hash = m[0];
-				startNavigation();
-				loadIframes(getTargetRange());
+				startNavigation(m[0]);
 			}
 		}
 	);
 
-	function startNavigation()
+	function startNavigation(destinationHash)
 	{
-		inNavigation = true;
-		scheduleNavigationEnd();
+		if (document.querySelector(destinationHash))
+		{
+			inNavigation = true;
+			scheduleNavigationEnd();
+			loadIframes(getTargetRange(destinationHash));
+		}
 	}
 
 	function scheduleNavigationEnd()
@@ -112,23 +121,19 @@
 	* The target range starts wherever the target from the URI fragment (hash) starts up to a
 	* viewport's height below. If there is no valid URI fragment, the visible range is returned
 	*
+	* @param  {string} contentSelector
 	* @return {!Array<number>}
 	*/
-	function getTargetRange()
+	function getTargetRange(contentSelector)
 	{
-		if (hash)
-		{
-			// Use the top of the URL's target as the boundary
-			let top = document.querySelector(hash)?.getBoundingClientRect().top ?? 0;
+		// Use the top of the URL's target as the boundary
+		let top = document.querySelector(contentSelector)?.getBoundingClientRect().top ?? 0;
 
-			// NOTE: this range may be smaller than the viewport's height if the target is so
-			//       low on the page that it's not at the top of the viewport. It should not
-			//       be an issue as the loading zone will be refreshed once the browser
-			//       scrolls to the target
-			return [top, top + window.innerHeight];
-		}
-
-		return getVisibleRange();
+		// NOTE: this range may be smaller than the viewport's height if the target is so
+		//       low on the page that it's not at the top of the viewport. It should not
+		//       be an issue as the loading zone will be refreshed once the browser
+		//       scrolls to the target
+		return [top, top + window.innerHeight];
 	}
 
 	/**
@@ -187,17 +192,27 @@
 
 	function scheduleRefresh(e)
 	{
-		if (inNavigation)
+		let target = e.target, m;
+		if (e.type === 'click' && target.tagName === 'A')
+		{
+			// Assume that any A element with a data-content-selector attribute will scroll to the
+			// target selector
+			const contentSelector = target.dataset['contentSelector'] ?? '';
+			if (/^#[-\w]+$/.test(contentSelector))
+			{
+				startNavigation(contentSelector);
+			}
+			else if ((m = /(.*)(#[-\w]+)$/.exec(target.href))
+			      && m[1] === document.baseURI.replace(/#.*/, ''))
+			{
+				startNavigation(m[2]);
+			}
+		}
+		else if (inNavigation)
 		{
 			scheduleNavigationEnd();
 		}
-		else if (e.type === 'click' && e.target.tagName === 'A')
-		{
-			// Treat all clicks on a A element as a navigation click. This will be removed when
-			// the Navigation API gets implemented by non-Chrome browsers.
-			// https://caniuse.com/mdn-api_navigation
-			startNavigation();
-		}
+
 		window.clearTimeout(timeout);
 		timeout = window.setTimeout(refresh, REFRESH_DELAY);
 	}
