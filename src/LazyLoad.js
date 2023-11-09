@@ -36,60 +36,37 @@
 	{
 	}
 
-	// Start loading embeds immediately. It will let dynamic embeds be resized before the document
-	// is fully loaded, and without a transition if readyState !== "complete". We manually select
-	// the target range and leave the visible range to event handlers
-	if (hash)
+	// NOTE: declaring loadIframes() at the top prevents Closure Compiler from unnecesserily copying
+	//       it in startNavigation()
+	function loadIframes(loadingRange)
 	{
-		startNavigation(hash);
-	}
-	else
-	{
-		loadIframes(getVisibleRange());
-	}
-	prepareEvents(window.addEventListener);
-
-	// Listen for intra-document navigation so we can immediately start loading embeds in the target
-	// range and resize them the correct way
-	/** @suppress {strictMissingProperties} */
-	window.navigation?.addEventListener(
-		'navigate',
-		(e) =>
-		{
-			const destination = e['destination'];
-			if (!destination['sameDocument'])
+		const newProxies = [], [top, bottom] = loadingRange;
+		proxies.forEach(
+			(proxy) =>
 			{
-				return;
+				if (isInRange(proxy, top, bottom))
+				{
+					if (proxy.hasAttribute(dataPrefix + '-c2l'))
+					{
+						prepareClickToLoad(proxy);
+					}
+					else
+					{
+						loadIframe(proxy);
+					}
+				}
+				else
+				{
+					newProxies.push(proxy);
+				}
 			}
-
-			let m = /#[-\w]+$/.exec(destination['url']);
-			if (m)
-			{
-				startNavigation(m[0]);
-			}
-		}
-	);
-
-	function startNavigation(destinationHash)
-	{
-		if (document.querySelector(destinationHash))
-		{
-			inNavigation = true;
-			scheduleNavigationEnd();
-			loadIframes(getTargetRange(destinationHash));
-		}
-	}
-
-	function scheduleNavigationEnd()
-	{
-		window.clearTimeout(navigationTimeout);
-		navigationTimeout = window.setTimeout(
-			() =>
-			{
-				inNavigation = false;
-			},
-			NAVIGATION_DELAY
 		);
+		proxies = newProxies;
+
+		if (!proxies.length)
+		{
+			prepareEvents(window.removeEventListener);
+		}
 	}
 
 	/**
@@ -390,37 +367,6 @@
 		}
 	}
 
-	function loadIframes(loadingRange)
-	{
-		const newProxies = [], [top, bottom] = loadingRange;
-		proxies.forEach(
-			(proxy) =>
-			{
-				if (isInRange(proxy, top, bottom))
-				{
-					if (proxy.hasAttribute(dataPrefix + '-c2l'))
-					{
-						prepareClickToLoad(proxy);
-					}
-					else
-					{
-						loadIframe(proxy);
-					}
-				}
-				else
-				{
-					newProxies.push(proxy);
-				}
-			}
-		);
-		proxies = newProxies;
-
-		if (!proxies.length)
-		{
-			prepareEvents(window.removeEventListener);
-		}
-	}
-
 	function handleMiniplayerClick(iframe, span)
 	{
 		const rect  = span.getBoundingClientRect(),
@@ -554,4 +500,60 @@
 			}
 		}
 	}
+
+	function startNavigation(destinationHash)
+	{
+		if (document.querySelector(destinationHash))
+		{
+			inNavigation = true;
+			scheduleNavigationEnd();
+			loadIframes(getTargetRange(destinationHash));
+		}
+	}
+
+	function scheduleNavigationEnd()
+	{
+		window.clearTimeout(navigationTimeout);
+		navigationTimeout = window.setTimeout(
+			() =>
+			{
+				inNavigation = false;
+			},
+			NAVIGATION_DELAY
+		);
+	}
+
+	// Start loading embeds immediately. It will let dynamic embeds be resized before the document
+	// is fully loaded, and without a transition if readyState !== "complete". We manually select
+	// the target range and leave the visible range to event handlers
+	if (hash)
+	{
+		startNavigation(hash);
+	}
+	else
+	{
+		loadIframes(getVisibleRange());
+	}
+	prepareEvents(window.addEventListener);
+
+	// Listen for intra-document navigation so we can immediately start loading embeds in the target
+	// range and resize them the correct way
+	/** @suppress {strictMissingProperties} */
+	window.navigation?.addEventListener(
+		'navigate',
+		(e) =>
+		{
+			const destination = e['destination'];
+			if (!destination['sameDocument'])
+			{
+				return;
+			}
+
+			let m = /#[-\w]+$/.exec(destination['url']);
+			if (m)
+			{
+				startNavigation(m[0]);
+			}
+		}
+	);
 })(window, document, location.hash, 'data-s9e-mediaembed', 's9e-miniplayer');
