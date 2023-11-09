@@ -183,7 +183,7 @@ class Parser
 		'xboxdvr'=>[['!(?:gamer|xbox)dvr\\.com/gamer/(?<user>[^/]+)/video/(?<id>\\d+)!']],
 		'youku'=>[['!youku\\.com/v(?:_show|ideo)/id_(?<id>\\w+=*)!']],
 		'youmaker'=>[['!youmaker\\.com/(?:embed|v(?:ideo)?)/(?<id>[-a-z0-9]+)!i']],
-		'youtube'=>[['!youtube\\.com/(?:watch.*?v=|(?:embed|live|shorts|v)/|attribution_link.*?v%3D)(?<id>[-\\w]+)!','!youtube-nocookie\\.com/embed/(?<id>[-\\w]+)!','!youtu\\.be/(?<id>[-\\w]+)!','@[#&?]t=(?<t>\\d[\\dhms]*)@','![&?]list=(?<list>[-\\w]+)!'],[],[['extract'=>['@/embed/(?<id>[-\\w]+)\\?clip=(?<clip>[-\\w]+)&amp;clipt=(?<clipt>[-\\w]+)@'],'match'=>['@youtube\\.com/clip/.@']]],['id'=>['s9e\\MediaSites\\Helper::filterIdentifier'],'t'=>['s9e\\MediaSites\\Helper::filterTimestamp']]]
+		'youtube'=>[['!youtube\\.com/(?:watch.*?v=|(?:embed|live|shorts|v)/|attribution_link.*?v%3D)(?<id>[-\\w]+)!','!youtube-nocookie\\.com/embed/(?<id>[-\\w]+)!','!youtu\\.be/(?<id>[-\\w]+)!','@[#&?]t(?:ime_continue)?=(?<t>\\d[\\dhms]*)@','![&?]list=(?<list>[-\\w]+)!'],[],[['extract'=>['@/embed/(?<id>[-\\w]+)\\?clip=(?<clip>[-\\w]+)&amp;clipt=(?<clipt>[-\\w]+)@'],'match'=>['@youtube\\.com/clip/.@']]],['id'=>['s9e\\MediaSites\\Helper::filterIdentifier'],'t'=>['s9e\\MediaSites\\Helper::filterTimestamp']]]
 	];
 
 	/**
