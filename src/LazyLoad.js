@@ -21,7 +21,7 @@
 	let activeMiniplayerSpan = null,
 		documentElement      = document.documentElement,
 		inNavigation         = false,
-		lastScrollY          = window.scrollY,
+		lastScrollY          = 0,
 		localStorage         = {},
 		navigationTimeout    = 0,
 		proxies              = [...document.querySelectorAll('span[' + dataPrefix + '-iframe]')],
