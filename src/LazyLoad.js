@@ -530,10 +530,13 @@
 	{
 		startNavigation(hash);
 	}
-	else
+
+	// If the navigation failed, load iframes in the visible range
+	if (!inNavigation)
 	{
 		loadIframes(getVisibleRange());
 	}
+
 	prepareEvents(window.addEventListener);
 
 	// Listen for intra-document navigation so we can immediately start loading embeds in the target
