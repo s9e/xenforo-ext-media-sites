@@ -245,10 +245,10 @@
 					// its execution, so we use data as a fallback if there's no stored value
 					resizeIframeFromDimensions(iframe, localStorage[storageKey] || data);
 				},
-				// We use the iframe's current height rather than the stored value because some
-				// providers (e.g. Twitter) send the same bogus value multiple times and we would
-				// compare the stored bogus value against a new instance of the same value
-				(iframe.getBoundingClientRect().height > +(data.split(' ')[0])) ? 4000 : 0
+				// We use the cached value in order to immediately resize the embed if it's using
+				// its default dimensions. We use a GTE comparison to account for the possibility
+				// that the provider sends the same bogus value multiple times
+				(localStorage[storageKey] >= +(data.split(' ')[0])) ? 2000 : 0
 			);
 			storeIframeData(storageKey, data);
 		};
