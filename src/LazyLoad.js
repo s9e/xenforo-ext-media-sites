@@ -24,7 +24,7 @@
 		lastScrollY          = 0,
 		localStorage         = {},
 		navigationTimeout    = 0,
-		proxies              = [...document.querySelectorAll('span[' + dataPrefix + '-iframe]')],
+		proxies              = [...document.querySelectorAll(`span[${dataPrefix}-iframe]`)],
 		scrollDirection      = SCROLL_DOWN,
 		timeout              = 0;
 
