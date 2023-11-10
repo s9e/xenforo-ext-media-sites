@@ -14,7 +14,6 @@
   <phrase title="option.s9e_MediaSites_Amazon_Link" version_id="2030470" version_string="2.3.4"><![CDATA[Add a link to Amazon product embeds]]></phrase>
   <phrase title="option.s9e_MediaSites_ClickToLoad" version_id="2060050" version_string="2.6.0 Release Candidate"><![CDATA[Replace embedded video players with a lightweight placeholder where available]]></phrase>
   <phrase title="option.s9e_MediaSites_ClickToLoad_Oembed" version_id="2060070" version_string="2.6.0"><![CDATA[Add a title to the click-to-load placeholders where available]]></phrase>
-  <phrase title="option.s9e_MediaSites_Facebook_Background" version_id="2020170" version_string="2.2.1"><![CDATA[Force Facebook's embeds to have a white background]]></phrase>
   <phrase title="option.s9e_MediaSites_FindInPage" version_id="2090470" version_string="2.9.4"><![CDATA[Allow users to search for embeddable content in remote pages]]></phrase>
   <phrase title="option.s9e_MediaSites_Footer" version_id="2060570" version_string="2.6.5"><![CDATA[Show your support]]></phrase>
   <phrase title="option.s9e_MediaSites_Footer_Hide" version_id="2060570" version_string="2.6.5"><![CDATA[I do not want to display a link to this add-on]]></phrase>
@@ -46,7 +45,6 @@
   <phrase title="option_explain.s9e_MediaSites_Amazon_Link" version_id="2030470" version_string="2.3.4"><![CDATA[Adds a generic link to the product as a fallback if Amazon is blocked by the browser.]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_ClickToLoad" version_id="2050270" version_string="2.5.2"><![CDATA[This will replace YouTube's normal player with a textless thumbnail. Clicking on it will load the embedded player.]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_ClickToLoad_Oembed" version_id="2060070" version_string="2.6.0"><![CDATA[This will add the video's title, retrieved via oEmbed, to the lightweight placeholders.]]></phrase>
-  <phrase title="option_explain.s9e_MediaSites_Facebook_Background" version_id="2020170" version_string="2.2.1"><![CDATA[]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_FindInPage" version_id="2090470" version_string="2.9.4"><![CDATA[When a URL cannot be embedded directly by the "Insert Media" dialog, the user can request that the add-on inspects the remote page to find a supported URL. This means any user allowed to use the "Insert Media" dialog can cause your server to access any remote page, which may be undesirable.]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_Footer" version_id="2001370" version_string="2.0.13"><![CDATA[You may also choose to support the author directly with a voluntary donation <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=6P6985GT2DLGL">in EUR</a> or <a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=ABGFV5AGE98AG">in USD</a>.]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_Full_Width_Embeds" version_id="2031870" version_string="2.3.18"><![CDATA[]]></phrase>

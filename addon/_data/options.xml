@@ -48,10 +48,6 @@
     <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="508"/>
   </option>
-  <option option_id="s9e_MediaSites_Facebook_Background" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification" advanced="0">
-    <default_value>0</default_value>
-    <relation group_id="s9e_MediaSites" display_order="502"/>
-  </option>
   <option option_id="s9e_MediaSites_FindInPage" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification" advanced="0">
     <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="509"/>
