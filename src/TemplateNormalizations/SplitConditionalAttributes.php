@@ -7,7 +7,6 @@
 */
 namespace s9e\AddonBuilder\MediaSites\TemplateNormalizations;
 
-use DOMElement;
 use s9e\TextFormatter\Configurator\TemplateNormalizations\AbstractChooseOptimization;
 
 class SplitConditionalAttributes extends AbstractChooseOptimization
@@ -15,7 +14,7 @@ class SplitConditionalAttributes extends AbstractChooseOptimization
 	/**
 	* {@inheritdoc}
 	*/
-	protected function optimizeChoose()
+	protected function optimizeChoose(): void
 	{
 		if (!$this->hasOtherwise())
 		{
@@ -38,17 +37,13 @@ class SplitConditionalAttributes extends AbstractChooseOptimization
 		}
 
 		// Create the new xsl:attribute
-		$attribute = $this->choose->parentNode->insertBefore(
-			$this->createElement('xsl:attribute'),
-			$this->choose
-		);
-		$attribute->setAttribute('name', $attrNames[0]);
+		$attribute = $this->choose->beforeXslAttribute(name: $attrNames[0]);
 
 		// Create the new xsl:choose
-		$choose = $attribute->appendChild($this->createElement('xsl:choose'));
+		$choose = $attribute->appendXslChoose();
 		foreach ($this->getBranches() as $branch)
 		{
-			$newBranch = $choose->appendChild($this->createElement($branch->nodeName));
+			$newBranch = $choose->appendElement($branch->nodeName);
 			foreach ($branch->attributes as $attribute)
 			{
 				$newBranch->setAttribute($attribute->nodeName, $attribute->nodeValue);
@@ -57,7 +52,7 @@ class SplitConditionalAttributes extends AbstractChooseOptimization
 			{
 				$newBranch->appendChild($branch->firstChild->firstChild);
 			}
-			$branch->removeChild($branch->firstChild);
+			$branch->firstChild->remove();
 		}
 	}
 }

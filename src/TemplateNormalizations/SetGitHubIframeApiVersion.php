@@ -7,7 +7,7 @@
 */
 namespace s9e\AddonBuilder\MediaSites\TemplateNormalizations;
 
-use DOMElement;
+use s9e\SweetDOM\Element;
 use s9e\TextFormatter\Configurator\TemplateNormalizations\AbstractNormalization;
 
 class SetGitHubIframeApiVersion extends AbstractNormalization
@@ -15,14 +15,14 @@ class SetGitHubIframeApiVersion extends AbstractNormalization
 	/**
 	* {@inheritdoc}
 	*/
-	protected $queries = [
+	protected array $queries = [
 		'//iframe[@onload or .//xsl:attribute[@name = "onload"]]'
 	];
 
 	/**
 	* {@inheritdoc}
 	*/
-	protected function normalizeElement(DOMElement $element)
+	protected function normalizeElement(Element $element): void
 	{
 		$regexp = '(https://s9e\\.github\\.io/iframe/(\\d+))';
 		$text   = $element->getAttribute('src') . $element->textContent;

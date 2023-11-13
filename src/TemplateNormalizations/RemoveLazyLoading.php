@@ -7,7 +7,7 @@
 */
 namespace s9e\AddonBuilder\MediaSites\TemplateNormalizations;
 
-use DOMElement;
+use s9e\SweetDOM\Element;
 use s9e\TextFormatter\Configurator\TemplateNormalizations\AbstractNormalization;
 
 class RemoveLazyLoading extends AbstractNormalization
@@ -15,12 +15,12 @@ class RemoveLazyLoading extends AbstractNormalization
 	/**
 	* {@inheritdoc}
 	*/
-	protected $queries = ['//iframe[@loading]'];
+	protected array $queries = ['//iframe[@loading]'];
 
 	/**
 	* {@inheritdoc}
 	*/
-	protected function normalizeElement(DOMElement $element)
+	protected function normalizeElement(Element $element): void
 	{
 		$element->removeAttribute('loading');
 	}

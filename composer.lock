@@ -50,24 +50,25 @@
         },
         {
             "name": "s9e/sweetdom",
-            "version": "2.1.2",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/SweetDOM.git",
-                "reference": "482d42537a1e0ab98924a9d932b724a175302fe8"
+                "reference": "d0a3bb750ccb155bb0ba2cff3679aeed37133e51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/SweetDOM/zipball/482d42537a1e0ab98924a9d932b724a175302fe8",
-                "reference": "482d42537a1e0ab98924a9d932b724a175302fe8",
+                "url": "https://api.github.com/repos/s9e/SweetDOM/zipball/d0a3bb750ccb155bb0ba2cff3679aeed37133e51",
+                "reference": "d0a3bb750ccb155bb0ba2cff3679aeed37133e51",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
-                "php": ">=8.0"
+                "php": ">=8.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^10.0"
+                "phpunit/phpunit": "^10.0",
+                "s9e/repdoc": "dev-wip"
             },
             "type": "library",
             "autoload": {
@@ -88,9 +89,9 @@
             ],
             "support": {
                 "issues": "https://github.com/s9e/SweetDOM/issues",
-                "source": "https://github.com/s9e/SweetDOM/tree/2.1.2"
+                "source": "https://github.com/s9e/SweetDOM/tree/3.0.1"
             },
-            "time": "2023-10-07T13:06:42+00:00"
+            "time": "2023-10-16T21:59:53+00:00"
         },
         {
             "name": "s9e/text-formatter",
@@ -98,21 +99,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "6fb87d7974f830a20f40b2072139ba0bfc32610c"
+                "reference": "3601bb87134cc071fd029c86cfc8ad7c07ba2eee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/6fb87d7974f830a20f40b2072139ba0bfc32610c",
-                "reference": "6fb87d7974f830a20f40b2072139ba0bfc32610c",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/3601bb87134cc071fd029c86cfc8ad7c07ba2eee",
+                "reference": "3601bb87134cc071fd029c86cfc8ad7c07ba2eee",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-filter": "*",
                 "lib-pcre": ">=8.13",
-                "php": "^8.0",
+                "php": "^8.1",
                 "s9e/regexp-builder": "^1.4",
-                "s9e/sweetdom": "^2.0"
+                "s9e/sweetdom": "^3.0"
             },
             "require-dev": {
                 "code-lts/doctum": "*",
@@ -131,7 +132,7 @@
             "default-branch": true,
             "type": "library",
             "extra": {
-                "version": "2.14.3-dev"
+                "version": "2.15.0-dev"
             },
             "autoload": {
                 "psr-4": {
@@ -165,7 +166,7 @@
                 "issues": "https://github.com/s9e/TextFormatter/issues",
                 "source": "https://github.com/s9e/TextFormatter/tree/master"
             },
-            "time": "2023-11-02T12:28:08+00:00"
+            "time": "2023-11-12T21:31:39+00:00"
         }
     ],
     "packages-dev": [

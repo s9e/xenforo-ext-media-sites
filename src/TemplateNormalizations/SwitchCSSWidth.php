@@ -7,9 +7,9 @@
 */
 namespace s9e\AddonBuilder\MediaSites\TemplateNormalizations;
 
-use DOMElement;
-use DOMNode;
-use DOMText;
+use s9e\SweetDOM\Element;
+use s9e\SweetDOM\Node;
+use s9e\SweetDOM\Text;
 use s9e\TextFormatter\Configurator\TemplateNormalizations\AbstractNormalization;
 
 class SwitchCSSWidth extends AbstractNormalization
@@ -17,7 +17,7 @@ class SwitchCSSWidth extends AbstractNormalization
 	/**
 	* {@inheritdoc}
 	*/
-	protected $queries = [
+	protected array $queries = [
 		'//*[@data-s9e-mediaembed][contains(@style, "max-width")]',
 		'//xsl:attribute[@name = "style"][xsl:if or xsl:choose][contains(., "max-width")]//text()'
 	];
@@ -25,26 +25,11 @@ class SwitchCSSWidth extends AbstractNormalization
 	/**
 	* {@inheritdoc}
 	*/
-	protected function normalizeElement(DOMElement $element): void
+	protected function normalizeElement(Element $element): void
 	{
 		$style = $element->getAttribute('style');
 		$style = $this->normalizeStyle($style);
 		$element->setAttribute('style', $style);
-	}
-
-	/**
-	* {@inheritdoc}
-	*/
-	protected function normalizeNode(DOMNode $node): void
-	{
-		if ($node instanceof DOMText)
-		{
-			$this->normalizeTextNode($node);
-		}
-		else
-		{
-			parent::normalizeNode($node);
-		}
 	}
 
 	protected function normalizeStyle(string $style): string
@@ -56,8 +41,8 @@ class SwitchCSSWidth extends AbstractNormalization
 		return $style;
 	}
 
-	protected function normalizeTextNode(DOMText $text): void
+	protected function normalizeText(Text $node): void
 	{
-		$text->nodeValue = $this->normalizeStyle($text->nodeValue);
+		$node->nodeValue = $this->normalizeStyle($node->nodeValue);
 	}
 }

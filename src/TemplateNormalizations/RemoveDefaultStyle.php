@@ -7,10 +7,9 @@
 */
 namespace s9e\AddonBuilder\MediaSites\TemplateNormalizations;
 
-use DOMAttr;
-use DOMElement;
-use DOMNode;
-use DOMText;
+use s9e\SweetDOM\Attr;
+use s9e\SweetDOM\Element;
+use s9e\SweetDOM\Text;
 use s9e\TextFormatter\Configurator\TemplateNormalizations\AbstractNormalization;
 
 class RemoveDefaultStyle extends AbstractNormalization
@@ -47,7 +46,7 @@ class RemoveDefaultStyle extends AbstractNormalization
 	/**
 	* {@inheritdoc}
 	*/
-	protected $queries = [
+	protected array $queries = [
 		'//*[@data-s9e-mediaembed]//@style',
 		'//*[@data-s9e-mediaembed]//xsl:attribute[@name = "style"]//text()'
 	];
@@ -55,7 +54,7 @@ class RemoveDefaultStyle extends AbstractNormalization
 	/**
 	* {@inheritdoc}
 	*/
-	protected function normalizeAttribute(DOMAttr $attribute)
+	protected function normalizeAttribute(Attr $attribute): void
 	{
 		$value = $this->removeDefaultStyle($attribute->value, $attribute);
 		if ($value === '')
@@ -69,27 +68,9 @@ class RemoveDefaultStyle extends AbstractNormalization
 	}
 
 	/**
-	* {@inheritdoc}
-	*/
-	protected function normalizeNode(DOMNode $node)
-	{
-		if ($node instanceof DOMText)
-		{
-			$this->normalizeTextNode($node);
-		}
-		else
-		{
-			parent::normalizeNode($node);
-		}
-	}
-
-	/**
 	* Normalize given text node
-	*
-	* @param  DOMText $node
-	* @return void
 	*/
-	protected function normalizeTextNode(DOMText $node)
+	protected function normalizeText(Text $node): void
 	{
 		$node->textContent = $this->removeDefaultStyle($node->textContent, $node);
 	}
@@ -97,10 +78,10 @@ class RemoveDefaultStyle extends AbstractNormalization
 	/**
 	* Return the default values that apply to given context node
 	*
-	* @param  DOMNode $node Context node
+	* @param  Attr|Text $node Context node
 	* @return array
 	*/
-	protected function getDefaultValues(DOMNode $node)
+	protected function getDefaultValues(Attr|Text $node): array
 	{
 		preg_match_all('(iframe|span)', $node->getNodePath(), $m);
 		$key = implode(' ', $m[0]);
@@ -111,11 +92,11 @@ class RemoveDefaultStyle extends AbstractNormalization
 	/**
 	* Remove the default style from text found in given node
 	*
-	* @param  string  $text Original CSS
-	* @param  DOMNode $node Context node
-	* @return string        Cleaned-up CSS
+	* @param  string    $text Original CSS
+	* @param  Attr|Text $node Context node
+	* @return string          Cleaned-up CSS
 	*/
-	protected function removeDefaultStyle($text, DOMNode $node)
+	protected function removeDefaultStyle(string $text, Attr|Text $node): string
 	{
 		return $this->removeDefaultValues($text, $this->getDefaultValues($node));
 	}
@@ -127,7 +108,7 @@ class RemoveDefaultStyle extends AbstractNormalization
 	* @param  array  $defaults Associative array in the form [property => value]
 	* @return string           Cleaned-up CSS
 	*/
-	protected function removeDefaultValues($text, array $defaults)
+	protected function removeDefaultValues(string $text, array $defaults): string
 	{
 		foreach ($defaults as $k => $v)
 		{
