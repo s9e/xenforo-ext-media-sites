@@ -47,7 +47,6 @@ class AddonBuilder
 
 		$this->phpTranspiler = new PHPSource($this->configurator);
 		$this->phpTranspiler->enableQuickRenderer = false;
-		$this->phpTranspiler->serializer->convertor->features['php80'] = false;
 
 		$this->regexpBuilder = new RegexpBuilder(['delimiter' => '()', 'output' => 'PHP']);
 		$this->sites         = iterator_to_array($this->configurator->MediaEmbed->defaultSites);
