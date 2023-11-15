@@ -50,16 +50,16 @@
         },
         {
             "name": "s9e/sweetdom",
-            "version": "3.0.1",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/SweetDOM.git",
-                "reference": "d0a3bb750ccb155bb0ba2cff3679aeed37133e51"
+                "reference": "dbc5bb736da7cf3c66f36c7e8cb161e59db43090"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/SweetDOM/zipball/d0a3bb750ccb155bb0ba2cff3679aeed37133e51",
-                "reference": "d0a3bb750ccb155bb0ba2cff3679aeed37133e51",
+                "url": "https://api.github.com/repos/s9e/SweetDOM/zipball/dbc5bb736da7cf3c66f36c7e8cb161e59db43090",
+                "reference": "dbc5bb736da7cf3c66f36c7e8cb161e59db43090",
                 "shasum": ""
             },
             "require": {
@@ -89,9 +89,9 @@
             ],
             "support": {
                 "issues": "https://github.com/s9e/SweetDOM/issues",
-                "source": "https://github.com/s9e/SweetDOM/tree/3.0.1"
+                "source": "https://github.com/s9e/SweetDOM/tree/3.1.0"
             },
-            "time": "2023-10-16T21:59:53+00:00"
+            "time": "2023-11-15T02:54:07+00:00"
         },
         {
             "name": "s9e/text-formatter",
@@ -99,12 +99,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "3601bb87134cc071fd029c86cfc8ad7c07ba2eee"
+                "reference": "7574739cb84a43cb9293189560aa4b17539f326c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/3601bb87134cc071fd029c86cfc8ad7c07ba2eee",
-                "reference": "3601bb87134cc071fd029c86cfc8ad7c07ba2eee",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/7574739cb84a43cb9293189560aa4b17539f326c",
+                "reference": "7574739cb84a43cb9293189560aa4b17539f326c",
                 "shasum": ""
             },
             "require": {
@@ -166,7 +166,7 @@
                 "issues": "https://github.com/s9e/TextFormatter/issues",
                 "source": "https://github.com/s9e/TextFormatter/tree/master"
             },
-            "time": "2023-11-12T21:31:39+00:00"
+            "time": "2023-11-15T16:11:15+00:00"
         }
     ],
     "packages-dev": [
@@ -723,16 +723,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "10.1.7",
+            "version": "10.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "355324ca4980b8916c18b9db29f3ef484078f26e"
+                "reference": "84838eed9ded511f61dc3e8b5944a52d9017b297"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/355324ca4980b8916c18b9db29f3ef484078f26e",
-                "reference": "355324ca4980b8916c18b9db29f3ef484078f26e",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/84838eed9ded511f61dc3e8b5944a52d9017b297",
+                "reference": "84838eed9ded511f61dc3e8b5944a52d9017b297",
                 "shasum": ""
             },
             "require": {
@@ -789,7 +789,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
                 "security": "https://github.com/sebastianbergmann/php-code-coverage/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/10.1.7"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/10.1.8"
             },
             "funding": [
                 {
@@ -797,7 +797,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-10-04T15:34:17+00:00"
+            "time": "2023-11-15T13:31:15+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
