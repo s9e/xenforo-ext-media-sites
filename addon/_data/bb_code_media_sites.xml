@@ -186,7 +186,7 @@
   </site>
   <site media_site_id="imdb" site_title="IMDb trailers" site_url="https://www.imdb.com/trailers/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="imdb" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*imdb\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="imdb"><span><iframe allowfullscreen="" scrolling="no" src="//www.imdb.com/video/imdb/vi{$id}/imdb/embed?autoplay=false&amp;width=640"></iframe></span></span>]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="imdb"><span><iframe allowfullscreen="" scrolling="no" src="https://www.imdb.com/video/embed/vi{$id}/?autoplay=false&amp;width=640"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="imgur" site_title="Imgur" site_url="https://imgur.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="imgur" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://api.imgur.com/oembed.json" oembed_url_scheme="https://imgur.com/{$id}" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*imgur\.com/.(?'id'))i]]></match_urls>
@@ -288,10 +288,6 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*nbcnews\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="nbcnews"><span><iframe allowfullscreen="" scrolling="no" src="//www.nbcnews.com/widget/video-embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
-  <site media_site_id="nbcsports" site_title="NBC Sports" site_url="https://www.nbcsports.com/video" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="nbcsports" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*nbcsports\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="nbcsports"><span><iframe allowfullscreen="" scrolling="no" src="//vplayer.nbcsports.com/p/BxmELC/nbcsports_embed/select/media/{$id}?parentUrl="></iframe></span></span>]]></embed_html>
-  </site>
   <site media_site_id="nhl" site_title="NHL Videos and Highlights" site_url="https://www.nhl.com/video" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="nhl" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*nhl\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="nhl"><span><iframe allowfullscreen="" scrolling="no" src="https://www.nhl.com/video/embed{{ $t ? '/t-' . $t : '' }}{{ $c ? '/c-' . $c : '' }}?autostart=false"></iframe></span></span>]]></embed_html>
@@ -375,10 +371,6 @@
   <site media_site_id="steamstore" site_title="Steam store" site_url="https://store.steampowered.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="steamstore" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*store\.steampowered\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="steamstore" allowfullscreen="" scrolling="no" src="//store.steampowered.com/widget/{$id}" style="height:190px;width:900px"></iframe>]]></embed_html>
-  </site>
-  <site media_site_id="stitcher" site_title="Stitcher" site_url="https://www.stitcher.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="stitcher" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*stitcher\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<iframe data-s9e-mediaembed="stitcher" allowfullscreen="" scrolling="no" src="https://www.stitcher.com/embed/{$fid}/{$eid}" style="height:150px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="strawpoll" site_title="Straw Poll" site_url="https://strawpoll.me/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="strawpoll" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*strawpoll\.me/.(?'id'))i]]></match_urls>
