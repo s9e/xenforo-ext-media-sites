@@ -380,10 +380,6 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*streamable\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="streamable"><span><iframe allowfullscreen="" scrolling="no" src="//streamable.com/e/{$id}"></iframe></span></span>]]></embed_html>
   </site>
-  <site media_site_id="streamja" site_title="Streamja" site_url="https://streamja.com" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="streamja" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*streamja\.com/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="streamja"><span><iframe allowfullscreen="" scrolling="no" src="https://streamja.com/embed/{$id}"></iframe></span></span>]]></embed_html>
-  </site>
   <site media_site_id="teamcoco" site_title="Team Coco" site_url="https://teamcoco.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="teamcoco" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*teamcoco\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="teamcoco"><span><iframe allowfullscreen="" scrolling="no" src="//teamcoco.com/embed/v/{$id}"></iframe></span></span>]]></embed_html>
@@ -412,7 +408,7 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*threads\.net/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="threads" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/threads.min.html#{$id}" style="height:300px;width:550px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
   </site>
-  <site media_site_id="tiktok" site_title="TikTok" site_url="https://www.tiktok.com" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="tiktok" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://www.tiktok.com/oembed?url=" oembed_url_scheme="https://www.tiktok.com/video/{$id}" oembed_retain_scripts="0">
+  <site media_site_id="tiktok" site_title="TikTok" site_url="https://www.tiktok.com" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="tiktok" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://www.tiktok.com/oembed" oembed_url_scheme="https://www.tiktok.com/video/{$id}" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*tiktok\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="tiktok" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/tiktok.min.html#{$id}" style="height:740px;width:325px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
   </site>
@@ -444,7 +440,7 @@
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*twitch\.tv/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" onload="this.contentWindow.postMessage('','*')" scrolling="no" src="https://s9e.github.io/iframe/2/twitch.min.html#channel={$channel};clip_id={$clip_id};t={$t};video_id={$video_id}" data-s9e-mediaembed-api="2"></iframe></span></span>]]></embed_html>
   </site>
-  <site media_site_id="twitter" site_title="X" site_url="https://twitter.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="twitter" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+  <site media_site_id="twitter" site_title="X" site_url="https://twitter.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="twitter" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://publish.twitter.com/oembed" oembed_url_scheme="https://twitter.com/user/status/{$id}" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:twitter|x)\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="twitter" allow="autoplay *" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" style="height:350px;width:550px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/twitter.min.html#{$id}{{ property('styleType')=='dark' ? '#theme=dark' : '' }}"></iframe>]]></embed_html>
   </site>
