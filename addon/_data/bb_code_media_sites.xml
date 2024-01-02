@@ -1,527 +1,527 @@
 <?xml version="1.0" encoding="utf-8"?>
 <bb_code_media_sites>
   <site media_site_id="abcnews" site_title="ABC News" site_url="https://abcnews.go.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="abcnews" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*abcnews\.go\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?abcnews\.go\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="abcnews"><span><iframe allowfullscreen="" scrolling="no" src="//abcnews.go.com/video/embed?id={$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="acast" site_title="Acast" site_url="https://play.acast.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="acast" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*acast\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?acast\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="acast" allowfullscreen="" scrolling="no" src="https://embed.acast.com/{$show_id}/{$episode_id}?seek={$t}" style="height:188px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="amazon" site_title="Amazon Product" site_url="https://affiliate-program.amazon.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="amazon" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*amazon\.(?:c(?:a|o(?:\.(?:jp|uk)|m))|de|es|fr|i[nt])/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?amazon\.(?:c(?:a|o(?:\.(?:jp|uk)|m))|de|es|fr|i[nt])/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="amazon" style="width:120px"><span style="padding-bottom:200%"><iframe allowfullscreen="" scrolling="no" style="background:url(https://www.amazon.com/favicon.ico) center no-repeat" src="//ws-{{ $tld=='jp' ? 'fe' : (($tld and contains('desfrinituk',$tld)) ? 'eu' : 'na') }}.assoc-amazon.com/widgets/cm?l=as1&amp;f=ifr&amp;o={{ $tld=='ca' ? '15&amp;t=' . ($xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_CA) : ($tld=='de' ? '3&amp;t=' . ($xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_DE) : ($tld=='es' ? '30&amp;t=' . ($xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_ES) : ($tld=='fr' ? '8&amp;t=' . ($xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_FR) : ($tld=='in' ? '31&amp;t=' . ($xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IN) : ($tld=='it' ? '29&amp;t=' . ($xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IT) : ($tld=='jp' ? '9&amp;t=' . ($xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_JP) : ($tld=='uk' ? '2&amp;t=' . ($xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_UK) : ('1&amp;t=' . ($xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG))))))))) }}&amp;asins={$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="anchor" site_title="Anchor" site_url="https://anchor.fm/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="anchor" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*anchor\.fm/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?anchor\.fm/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="anchor" allowfullscreen="" scrolling="no" src="//anchor.fm/x/embed/episodes/x-{$id}" style="height:102px;width:768px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="applepodcasts" site_title="Apple Podcasts" site_url="https://podcasts.apple.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="applepodcasts" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*podcasts\.apple\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?podcasts\.apple\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="applepodcasts" allow="autoplay *;encrypted-media *" allowfullscreen="" scrolling="no" src="https://embed.podcasts.apple.com/{$country}/podcast/episode/id{$podcast_id}?theme={{property('styleType')}}{{ $episode_id ? '&amp;i=' . $episode_id : '' }}" style="height:{{ $episode_id ? '175' : '450' }}px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="audioboom" site_title="Audioboom" site_url="https://audioboom.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="audioboom" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*audioboo(?:\.f|m\.co)m/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?audioboo(?:\.f|m\.co)m/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="audioboom" allowfullscreen="" scrolling="no" src="//audioboom.com/posts/{$id}/embed/v3" style="height:150px;width:700px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="audiomack" site_title="Audiomack" site_url="https://www.audiomack.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="audiomack" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*audiomack\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?audiomack\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="audiomack" allowfullscreen="" scrolling="no" src="https://www.audiomack.com/embed/{{ $mode=='album' ? 'album' : 'song' }}/{{ $id ? $id : ($artist . '/' . $title) }}" style="height:{{ $mode=='album' ? '400' : '252' }}px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="audius" site_title="Audius" site_url="https://audius.co/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="audius" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*audius\.co/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?audius\.co/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="audius" allowfullscreen="" scrolling="no" src="https://audius.co/embed/{{ $track_id ? 'track/' . $track_id . '?flavor=compact' : ($album_id ? 'album/' . $album_id . '?flavor=card' : ('playlist/' . $playlist_id . '?flavor=card')) }}" style="height:{{ $track_id ? '12' : '48' }}0px;width:{{ $track_id ? '9' : '4' }}00px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="bandcamp" site_title="Bandcamp" site_url="https://bandcamp.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="bandcamp" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*bandcamp\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?bandcamp\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="bandcamp" style="width:400px"><span style="padding-bottom:100%"><iframe allowfullscreen="" scrolling="no" src="//bandcamp.com/EmbeddedPlayer/size=large/minimal=true/{{ $album_id ? 'album=' . $album_id . ($track_num ? '/t=' . $track_num : '') : ('track=' . $track_id) }}{{ property('styleType')=='dark' ? '/bgcol=333333/linkcol=0f91ff' : '' }}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="bbcnews" site_title="BBC News" site_url="https://www.bbc.com/news/video_and_audio/headlines/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="bbcnews" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*bbc\.co(?:\.uk|m)/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?bbc\.co(?:\.uk|m)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[]]></embed_html>
   </site>
   <site media_site_id="bitchute" site_title="BitChute" site_url="https://www.bitchute.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="bitchute" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://www.bitchute.com/oembed/" oembed_url_scheme="https://www.bitchute.com/video/{$id}/" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*bitchute\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?bitchute\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="bitchute"><span><iframe allowfullscreen="" scrolling="no" src="https://www.bitchute.com/embed/{$id}/"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="bleacherreport" site_title="Bleacher Report videos" site_url="https://bleacherreport.com/videos" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="bleacherreport" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*bleacherreport\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?bleacherreport\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="bleacherreport" style="width:320px"><span style="padding-bottom:100%"><iframe allowfullscreen="" scrolling="no" src="//bleacherreport.com/video_embed?id={$id}&amp;library=video-cms"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="brightcove" site_title="Brightcove" site_url="https://www.brightcove.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="brightcove" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:link\.brightcove\.com|players\.brightcove\.net)/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?(?:link\.brightcove\.com|players\.brightcove\.net)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="brightcove"><span><iframe allowfullscreen="" scrolling="no" src="https://{{ $bckey ? 'link.brightcove.com/services/player/bcpid' . $bcpid . '?bckey=' . $bckey . '&amp;bctid=' . $bctid . '&amp;secureConnections=true&amp;secureHTMLConnections=true&amp;autoStart=false&amp;height=360&amp;width=640' : ('players.brightcove.net/' . $bcpid . '/default_default/index.html?videoId=' . $bctid) }}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="bunny" site_title="Bunny Stream" site_url="https://bunny.net/stream/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="bunny" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:iframe\.mediadelivery\.net|video\.bunnycdn\.com)/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?(?:iframe\.mediadelivery\.net|video\.bunnycdn\.com)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="bunny"><span><iframe allowfullscreen="" scrolling="no" src="https://iframe.mediadelivery.net/embed/{$video_library_id}/{$video_id}?autoplay=false"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="castos" site_title="Castos" site_url="https://castos.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="castos" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*castos\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?castos\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="castos" allowfullscreen="" scrolling="no" src="https://player.castos.com/player/{$id}" style="height:150px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="cbsnews" site_title="CBS News Video" site_url="https://www.cbsnews.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="cbsnews" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*cbsnews\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?cbsnews\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="cbsnews"><span style="{{ contains($id,'-') ? '' : ($pid ? 'padding-bottom:62.1875%;padding-bottom:calc(56.25% + 38px)' : ('padding-bottom:62.5%;padding-bottom:calc(56.25% + 40px)')) }}"><xf:if is="contains($id,'-')"><iframe allowfullscreen="" scrolling="no" src="https://www.cbsnews.com/embed/videos/{$id}/"></iframe><xf:elseif is="$pid"/><object data="//www.cbsnews.com/common/video/cbsnews_player.swf" style="height:100%;left:0;position:absolute;width:100%" type="application/x-shockwave-flash" typemustmatch=""><param name="allowfullscreen" value="true"/><param name="flashvars" value="pType=embed&amp;si=254&amp;pid={$pid}"/></object><xf:else/><object data="//i.i.cbsi.com/cnwk.1d/av/video/cbsnews/atlantis2/cbsnews_player_embed.swf" style="height:100%;left:0;position:absolute;width:100%" type="application/x-shockwave-flash" typemustmatch=""><param name="allowfullscreen" value="true"/><param name="flashvars" value="si=254&amp;contentValue={$id}"/></object></xf:if></span></span>]]></embed_html>
   </site>
   <site media_site_id="clyp" site_title="Clyp" site_url="https://clyp.it/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="clyp" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*clyp\.it/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?clyp\.it/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="clyp" allowfullscreen="" scrolling="no" src="https://clyp.it/{$id}/widget" style="height:265px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="cnbc" site_title="CNBC" site_url="https://www.cnbc.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="cnbc" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*cnbc\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?cnbc\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="cnbc"><span><iframe allowfullscreen="" scrolling="no" src="https://player.cnbc.com/p/gZWlPC/cnbc_global?playertype=synd&amp;byGuid={$id}&amp;size=640_360"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="cnn" site_title="CNN" site_url="https://edition.cnn.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="cnn" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*cnn\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?cnn\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="cnn"><span><iframe allowfullscreen="" scrolling="no" src="//fave.api.cnn.io/v1/fav/?video={$id}&amp;customer=cnn&amp;edition=international&amp;env=prod"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="cnnmoney" site_title="CNNMoney" site_url="https://money.cnn.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="cnnmoney" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*money\.cnn\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?money\.cnn\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="cnnmoney" style="width:560px"><span style="padding-bottom:64.285714%"><iframe allowfullscreen="" scrolling="no" src="//money.cnn.com/.element/ssi/video/7.0/players/embed.player.html?videoid=video/{$id}&amp;width=560&amp;height=360"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="codepen" site_title="CodePen" site_url="https://codepen.io/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="codepen" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*codepen\.io/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?codepen\.io/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="codepen" allowfullscreen="" scrolling="no" src="https://codepen.io/{$user}/embed/{$id}?height=400&amp;default-tab=html,result" style="height:400px;width:100%"></iframe>]]></embed_html>
   </site>
   <site media_site_id="comedycentral" site_title="Comedy Central" site_url="https://www.cc.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="comedycentral" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*c(?:c|omedycentral)\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?c(?:c|omedycentral)\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="comedycentral"><span><iframe allowfullscreen="" scrolling="no" src="//media.mtvnservices.com/embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="coub" site_title="Coub" site_url="https://coub.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="coub" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*coub\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?coub\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="coub"><span><iframe allowfullscreen="" scrolling="no" src="//coub.com/embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="dailymotion" site_title="Dailymotion" site_url="https://www.dailymotion.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="dailymotion" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://www.dailymotion.com/services/oembed" oembed_url_scheme="https://www.dailymotion.com/video/{$id}" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*dai(?:\.ly|lymotion\.com)/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?dai(?:\.ly|lymotion\.com)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="dailymotion"><span><iframe allowfullscreen="" scrolling="no" src="//www.dailymotion.com/embed/video/{$id}{{ $t ? '?start=' . $t : '' }}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="democracynow" site_title="Democracy Now!" site_url="https://www.democracynow.org/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="democracynow" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*democracynow\.org/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?democracynow\.org/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="democracynow"><span><iframe allowfullscreen="" scrolling="no" src="//www.democracynow.org/embed/{{ contains($id,'/headlines') ? 'headlines/' . ($id|split('/headlines')|first()) : ($id|substr(0,1) == '2' ? 'story/' . $id : ($id|substr(0,6) == 'shows/' ? 'show/' . ($id|split('/')|last()) : $id)) }}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="dumpert" site_title="dumpert" site_url="https://www.dumpert.nl/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="dumpert" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*dumpert\.nl/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?dumpert\.nl/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="dumpert"><span><iframe allowfullscreen="" scrolling="no" src="//www.dumpert.nl/embed/{$id|replace('/','_')}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="eighttracks" site_title="8tracks" site_url="https://8tracks.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="eighttracks" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*8tracks\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?8tracks\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="eighttracks" style="width:400px"><span style="padding-bottom:100%"><iframe allowfullscreen="" scrolling="no" src="//8tracks.com/mixes/{$id}/player_v3_universal"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="espn" site_title="ESPN" site_url="https://www.espn.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="espn" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*espn\.(?:go\.)?com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?espn\.(?:go\.)?com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="espn"><span><iframe allowfullscreen="" scrolling="no" src="//www.espn.com/core/video/iframe?id={$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="facebook" site_title="Facebook" site_url="https://www.facebook.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="facebook&#10;meta" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*f(?:acebook\.com|b\.watch)/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?f(?:acebook\.com|b\.watch)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="facebook" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" style="height:360px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/facebook.min.html#{{ $user ? $user . '/' . (($type=='r' or $type=='v') ? 'video' : 'post') . 's/' . ($id ? $id : ('pfbid' . $pfbid)) : ($id ? $type . $id : ('pfbid' . $pfbid)) }}"></iframe>]]></embed_html>
   </site>
   <site media_site_id="falstad" site_title="Falstad Circuit Simulator" site_url="https://www.falstad.com/circuit/circuitjs.html" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="falstad" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*falstad\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?falstad\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="falstad" allowfullscreen="" scrolling="no" style="height:500px;max-height:90vh;width:100%" src="https://www.falstad.com/circuit/circuitjs.html?running=false&amp;c{{ $cct ? 'ct=' . $cct : ('tz=' . $ctz) }}"></iframe>]]></embed_html>
   </site>
   <site media_site_id="flickr" site_title="Flickr" site_url="https://www.flickr.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="flickr" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*flic(?:\.kr|kr\.com)/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?flic(?:\.kr|kr\.com)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="flickr" style="width:500px"><span style="padding-bottom:100%"><iframe allowfullscreen="" scrolling="no" src="https://www.flickr.com/photos/_/{$id}/player/"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="foxnews" site_title="Fox News" site_url="https://www.foxnews.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="foxnews" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*video\.foxnews\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?video\.foxnews\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="foxnews"><span><iframe allowfullscreen="" scrolling="no" src="//video.foxnews.com/v/video-embed.html?video_id={$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="funnyordie" site_title="Funny or Die" site_url="https://www.funnyordie.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="funnyordie" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*funnyordie\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?funnyordie\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="funnyordie"><span><iframe allowfullscreen="" scrolling="no" src="//www.funnyordie.com/embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="gamespot" site_title="Gamespot" site_url="https://www.gamespot.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="gamespot" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*gamespot\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?gamespot\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="gamespot"><span><iframe allowfullscreen="" scrolling="no" src="//www.gamespot.com/videos/embed/{$id}/"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="getty" site_title="Getty Images" site_url="https://www.gettyimages.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="getty" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*g(?:ettyimages\.(?:[bs]e|c(?:n|o(?:\.(?:jp|uk)|m(?:\.au)?))|d[ek]|es|fr|i[et]|nl|pt)|ty\.im)/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?g(?:ettyimages\.(?:[bs]e|c(?:n|o(?:\.(?:jp|uk)|m(?:\.au)?))|d[ek]|es|fr|i[et]|nl|pt)|ty\.im)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="getty" style="width:{$width}px"><span style="{{ $width>0 ? 'padding-bottom:' . (100*$height/$width) . '%' : '' }}"><iframe allowfullscreen="" scrolling="no" src="//embed.gettyimages.com/embed/{$id}?et={$et}&amp;tld=com&amp;sig={$sig}&amp;caption=false&amp;ver=1"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="gifs" site_title="Gifs.com" site_url="https://gifs.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="gifs" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*gifs\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?gifs\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="gifs" style="width:{$width}px"><span style="{{ $width>0 ? 'padding-bottom:' . (100*$height/$width) . '%' : '' }}"><iframe allowfullscreen="" scrolling="no" src="//gifs.com/embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="giphy" site_title="GIPHY" site_url="https://giphy.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="giphy" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*giphy\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?giphy\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="giphy" style="width:{$width}px"><span style="{{ $width>0 ? 'padding-bottom:' . (100*$height/$width) . '%' : '' }}"><iframe allowfullscreen="" scrolling="no" src="//giphy.com/embed/{$id}{{ $type=='video' ? '/video' : '' }}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="gist" site_title="GitHub Gist" site_url="https://gist.github.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="gist" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*github\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?github\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="gist" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="" src="https://s9e.github.io/iframe/2/gist.min.html#{$id}" style="height:180px;width:100%" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
   </site>
   <site media_site_id="globalnews" site_title="Global News" site_url="https://globalnews.ca/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="globalnews" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*globalnews\.ca/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?globalnews\.ca/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="globalnews"><span><iframe allowfullscreen="" scrolling="no" src="//globalnews.ca/video/embed/{$id}/"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="gofundme" site_title="GoFundMe" site_url="https://www.gofundme.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="gofundme" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*gofundme\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?gofundme\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="gofundme" style="width:349px"><span style="padding-bottom:118.911175%;padding-bottom:calc(59.312321% + 208px)"><iframe allowfullscreen="" scrolling="no" src="//www.gofundme.com/mvc.php?route=widgets/mediawidget&amp;fund={$id}&amp;image=1&amp;coinfo=1"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="googledrive" site_title="Google Drive" site_url="https://drive.google.com" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="google" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*drive\.google\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?drive\.google\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="googledrive"><span style="padding-bottom:75%"><iframe allowfullscreen="" scrolling="no" src="//drive.google.com/file/d/{$id}/preview"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="googleplus" site_title="Google+" site_url="https://plus.google.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="google" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*plus\.google\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?plus\.google\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="googleplus" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" style="height:240px;width:450px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/googleplus.min.html#{{ $oid ? $oid : ('+' . $name) }}/posts/{$pid}"></iframe>]]></embed_html>
   </site>
   <site media_site_id="googlesheets" site_title="Google Sheets" site_url="https://www.google.com/sheets/about/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="google" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*docs\.google\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?docs\.google\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<xf:if is="$type=='chart'"><span data-s9e-mediaembed="googlesheets" style="width:600px"><span style="padding-bottom:62%"><iframe allowfullscreen="" scrolling="no" src="https://docs.google.com/spreadsheets/d/{$id}/pubchart?oid={$oid}&amp;format=interactive"></iframe></span></span><xf:else/><iframe data-s9e-mediaembed="googlesheets" allowfullscreen="" scrolling="no" style="height:500px;resize:vertical;width:100%" src="https://docs.google.com/spreadsheets/d/{$id}/p{{ $id|substr(0,2) == 'e/' ? 'ubhtml?widget=true&amp;headers=false' : 'review' }}#gid={$gid}"></iframe></xf:if>]]></embed_html>
   </site>
   <site media_site_id="hudl" site_title="Hudl" site_url="https://www.hudl.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="hudl" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*hudl\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?hudl\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="hudl"><span><iframe allowfullscreen="" scrolling="no" src="//www.hudl.com/embed/{{ $id ? 'video/' . $id : ('athlete/' . $athlete . '/highlights/' . $highlight) }}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="hulu" site_title="Hulu" site_url="https://www.hulu.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="hulu" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*hulu\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?hulu\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="hulu"><span><iframe allowfullscreen="" scrolling="no" src="https://secure.hulu.com/embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="ign" site_title="IGN" site_url="https://www.ign.com/videos/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="ign" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*ign\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?ign\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="ign" style="width:468px"><span style="padding-bottom:56.196581%"><iframe allowfullscreen="" scrolling="no" src="//widgets.ign.com/video/embed/content.html?url={$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="imdb" site_title="IMDb trailers" site_url="https://www.imdb.com/trailers/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="imdb" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*imdb\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?imdb\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="imdb"><span><iframe allowfullscreen="" scrolling="no" src="https://www.imdb.com/video/embed/vi{$id}/?autoplay=false&amp;width=640"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="imgur" site_title="Imgur" site_url="https://imgur.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="imgur" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://api.imgur.com/oembed.json" oembed_url_scheme="https://imgur.com/{$id}" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*imgur\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?imgur\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="imgur" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;{let s=this.style,d=e.data.split(' ');s.height=d[0]+'px';s.width=d[1]+'px'};this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" style="height:400px;width:542px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/imgur.min.html#{{ $type=='album' ? 'a/' : '' }}{$id}"></iframe>]]></embed_html>
   </site>
   <site media_site_id="indiegogo" site_title="Indiegogo" site_url="https://www.indiegogo.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="indiegogo" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*indiegogo\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?indiegogo\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="indiegogo" style="width:222px"><span style="padding-bottom:200.45045%"><iframe allowfullscreen="" scrolling="no" src="//www.indiegogo.com/project/{$id}/embedded"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="instagram" site_title="Instagram" site_url="https://instagram.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="instagram&#10;meta" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*instagram\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?instagram\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="instagram" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" style="height:542px;width:542px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/instagram.min.html#{$id}{{ property('styleType')=='dark' ? '#theme=dark' : '' }}"></iframe>]]></embed_html>
   </site>
   <site media_site_id="internetarchive" site_title="Internet Archive" site_url="https://archive.org/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="internetarchive" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*archive\.org/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?archive\.org/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<xf:if is="contains($id,'playlist=1')"><iframe data-s9e-mediaembed="internetarchive" allowfullscreen="" scrolling="no" src="https://archive.org/embed/{$id}&amp;list_height=150" style="height:170px"></iframe><xf:else/><span data-s9e-mediaembed="internetarchive" style="width:{$width}px"><span style="{{ $width>0 ? 'padding-bottom:' . (100*$height/$width) . '%' : '' }}"><iframe allowfullscreen="" scrolling="no" src="https://archive.org/embed/{$id}"></iframe></span></span></xf:if>]]></embed_html>
   </site>
   <site media_site_id="izlesene" site_title="İzlesene" site_url="https://www.izlesene.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="izlesene" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*izlesene\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?izlesene\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="izlesene"><span><iframe allowfullscreen="" scrolling="no" src="//www.izlesene.com/embedplayer/{$id}?autoplay=0"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="jsfiddle" site_title="JSFiddle" site_url="https://jsfiddle.net/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="jsfiddle" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*jsfiddle\.net/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?jsfiddle\.net/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="jsfiddle" allowfullscreen="" scrolling="no" src="//jsfiddle.net/{$id}/{$revision}/embedded/{{property('styleType')}}/" style="height:400px;width:100%"></iframe>]]></embed_html>
   </site>
   <site media_site_id="jwplatform" site_title="JW Platform" site_url="https://www.jwplayer.com/products/jwplatform/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="jwplatform" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*jwplatform\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?jwplatform\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="jwplatform"><span><iframe allowfullscreen="" scrolling="no" src="//content.jwplatform.com/players/{$id}.html"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="kaltura" site_title="Kaltura" site_url="https://corp.kaltura.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="kaltura" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*kaltura\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?kaltura\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="kaltura"><span style="padding-bottom:61.875%;padding-bottom:calc(56.25% + 36px)"><iframe allowfullscreen="" scrolling="no" src="https://cdnapisec.kaltura.com/p/{$partner_id}/sp/{{ $sp ? $sp : ($partner_id . '00') }}/embedIframeJs/uiconf_id/{$uiconf_id}/partner_id/{$partner_id}?iframeembed=true&amp;entry_id={$entry_id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="khl" site_title="Kontinental Hockey League (КХЛ)" site_url="https://www.khl.ru/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="khl" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*video\.khl\.ru/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?video\.khl\.ru/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="khl"><span><iframe allowfullscreen="" scrolling="no" src="//video.khl.ru/iframe/feed/start/{$id}?type_id=18&amp;width=560&amp;height=315"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="kickstarter" site_title="Kickstarter" site_url="https://www.kickstarter.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="kickstarter" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*kickstarter\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?kickstarter\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[]]></embed_html>
   </site>
   <site media_site_id="libsyn" site_title="Libsyn" site_url="https://www.libsyn.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="libsyn" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*libsyn\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?libsyn\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="libsyn" allowfullscreen="" scrolling="no" src="//html5-player.libsyn.com/embed/episode/id/{$id}/thumbnail/no" style="height:90px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="liveleak" site_title="Liveleak" site_url="https://www.liveleak.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="liveleak" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*liveleak\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?liveleak\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="liveleak"><span><iframe allowfullscreen="" scrolling="no" src="//www.liveleak.com/e/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="livestream" site_title="Livestream" site_url="https://new.livestream.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="livestream" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*livestre(?:\.a|am\.co)m/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?livestre(?:\.a|am\.co)m/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="livestream"><span><iframe allowfullscreen="" scrolling="no" src="//{{ $clip_id ? 'cdn.livestream.com/embed/' . $channel . '?layout=4&amp;autoplay=false&amp;clip=' . $clip_id : ('livestream.com/accounts/' . $account_id . '/events/' . $event_id . ($video_id ? '/videos/' . $video_id : '') . '/player?autoPlay=false') }}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="mailru" site_title="Mail.Ru" site_url="https://my.mail.ru/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="mailru" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*my\.mail\.ru/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?my\.mail\.ru/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="mailru"><span><iframe allowfullscreen="" scrolling="no" src="https://my.mail.ru/video/embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="mastodon" site_title="Mastodon" site_url="https://mastodon.social/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="mastodon" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*mastodon\.social/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?mastodon\.social/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<xf:if is="$invalid">@{$name}@{$invalid}/{$id}<xf:else/><iframe data-s9e-mediaembed="mastodon" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" style="height:300px;width:550px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/mastodon.min.html#{$name}{{ ($host and $host!='mastodon.social') ? '@' . $host : '' }}/{$id}"></iframe></xf:if>]]></embed_html>
   </site>
   <site media_site_id="medium" site_title="Medium" site_url="https://medium.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="medium" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*medium\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?medium\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="medium" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/medium.min.html#{$id}" style="height:316px;width:900px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
   </site>
   <site media_site_id="megaphone" site_title="Megaphone" site_url="https://megaphone.fm/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="megaphone" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*megaphone\.(?:fm|link)/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?megaphone\.(?:fm|link)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="megaphone" allowfullscreen="" scrolling="no" style="height:200px;width:900px" src="https://player.megaphone.fm/{$id}{{ property('styleType')=='light' ? '?light=true' : '' }}"></iframe>]]></embed_html>
   </site>
   <site media_site_id="metacafe" site_title="Metacafe" site_url="https://www.metacafe.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="metacafe" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*metacafe\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?metacafe\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="metacafe"><span><iframe allowfullscreen="" scrolling="no" src="//www.metacafe.com/embed/{$id}/"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="mixcloud" site_title="Mixcloud" site_url="https://www.mixcloud.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="mixcloud" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://www.mixcloud.com/oembed/" oembed_url_scheme="https://www.mixcloud.com/{$id}" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*mixcloud\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?mixcloud\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="mixcloud" allowfullscreen="" scrolling="no" style="height:120px;width:900px" src="//www.mixcloud.com/widget/iframe/?feed=%2F{$id}%2F&amp;light={{ property('styleType')!='dark' ? '1' : '' }}"></iframe>]]></embed_html>
   </site>
   <site media_site_id="mlb" site_title="MLB" site_url="https://mlb.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="mlb" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*mlb\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?mlb\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="mlb"><span><iframe allowfullscreen="" scrolling="no" src="https://www.mlb.com/video/share/c-{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="mrctv" site_title="MRCTV" site_url="https://www.mrctv.org/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="mrctv" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*mrctv\.org/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?mrctv\.org/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="mrctv"><span><iframe allowfullscreen="" scrolling="no" src="https://www.mrctv.org/embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="msnbc" site_title="MSNBC" site_url="https://www.msnbc.com/watch" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="msnbc" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*msnbc\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?msnbc\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="msnbc"><span style="{{ contains($id,'_') ? 'padding-bottom:68.75%;padding-bottom:calc(56.25% + 80px)' : '' }}"><iframe allowfullscreen="" scrolling="no" src="{{ contains($id,'_') ? '//player.theplatform.com/p/7wvmTC/MSNBCEmbeddedOffSite?guid=' : 'https://www.msnbc.com/msnbc/embedded-video/' }}{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="natgeochannel" site_title="National Geographic Channel" site_url="https://channel.nationalgeographic.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="natgeochannel" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*channel\.nationalgeographic\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?channel\.nationalgeographic\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="natgeochannel"><span><iframe allowfullscreen="" scrolling="no" src="//channel.nationalgeographic.com/{$id}/embed/"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="natgeovideo" site_title="National Geographic Video" site_url="https://video.nationalgeographic.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="natgeovideo" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*video\.nationalgeographic\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?video\.nationalgeographic\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="natgeovideo"><span><iframe allowfullscreen="" scrolling="no" src="//player.d.nationalgeographic.com/players/ngsvideo/share/?guid={$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="nbcnews" site_title="NBC News" site_url="https://www.nbcnews.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="nbcnews" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*nbcnews\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?nbcnews\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="nbcnews"><span><iframe allowfullscreen="" scrolling="no" src="//www.nbcnews.com/widget/video-embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="nhl" site_title="NHL Videos and Highlights" site_url="https://www.nhl.com/video" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="nhl" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*nhl\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?nhl\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="nhl"><span><iframe allowfullscreen="" scrolling="no" src="https://www.nhl.com/video/embed{{ $t ? '/t-' . $t : '' }}{{ $c ? '/c-' . $c : '' }}?autostart=false"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="npr" site_title="NPR" site_url="https://www.npr.org/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="npr" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*n(?:\.pr|pr\.org)/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?n(?:\.pr|pr\.org)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="npr" allowfullscreen="" scrolling="no" src="//www.npr.org/player/embed/{$i}/{$m}" style="height:228px;width:800px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="nytimes" site_title="The New York Times Video" site_url="https://www.nytimes.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="nytimes" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*nytimes\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?nytimes\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="nytimes" style="width:585px"><span style="padding-bottom:68.376068%"><iframe allowfullscreen="" scrolling="no" src="//graphics8.nytimes.com/video/players/offsite/index.html?videoId={$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="odysee" site_title="Odysee" site_url="https://odysee.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="odysee" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*odysee\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?odysee\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="odysee"><span><iframe allowfullscreen="" scrolling="no" src="https://odysee.com/$/embed/{{ $id ? ($name ? $name : '-') . '/' . $id : $path }}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="orfium" site_title="Orfium" site_url="https://www.orfium.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="orfium" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*orfium\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?orfium\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="orfium" allowfullscreen="" scrolling="no" src="https://www.orfium.com/embedded/{{ $album_id ? 'album/' . $album_id : ($playlist_id ? 'playlist/' . $playlist_id : ($set_id ? 'live-set/' . $set_id : ('track/' . $track_id))) }}" style="height:{{ $album_id ? '550' : '275' }}px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="pastebin" site_title="Pastebin" site_url="https://pastebin.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="pastebin" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*pastebin\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?pastebin\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="pastebin" allowfullscreen="" scrolling="" src="//pastebin.com/embed_iframe.php?i={$id}" style="height:300px;resize:vertical;width:100%"></iframe>]]></embed_html>
   </site>
   <site media_site_id="pinterest" site_title="Pinterest" site_url="https://www.pinterest.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="pinterest" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*pinterest\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?pinterest\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="pinterest" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/pinterest.min.html#{$id}" data-s9e-mediaembed-api="2" style="height:360px;width:{{ contains($id,'/') ? '730' : '345' }}px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="podbean" site_title="Podbean" site_url="https://www.podbean.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="podbean" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*podbean\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?podbean\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="podbean" allowfullscreen="" scrolling="no" src="https://www.podbean.com/player-v2/?i={$id}" style="height:150px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="prezi" site_title="Prezi" site_url="https://prezi.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="prezi" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*prezi\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?prezi\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="prezi" style="width:550px"><span style="padding-bottom:72.727273%"><iframe allowfullscreen="" scrolling="no" src="//prezi.com/embed/{$id}/"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="reddit" site_title="Reddit threads and comments" site_url="https://www.reddit.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="reddit" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*reddit\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?reddit\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="reddit" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/reddit.min.html#{$id}{$path}#theme={{property('styleType')}}" style="height:165px;width:800px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
   </site>
   <site media_site_id="rumble" site_title="Rumble" site_url="https://rumble.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="rumble" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://rumble.com/api/Media/oembed.json" oembed_url_scheme="https://rumble.com/embed/{$id}/" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*rumble\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?rumble\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="rumble"><span><iframe allowfullscreen="" scrolling="no" src="https://rumble.com/embed/{$id}/"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="rutube" site_title="Rutube" site_url="https://rutube.ru/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="rutube" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://rutube.ru/api/oembed/" oembed_url_scheme="https://rutube.ru/video/{$id}/" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*rutube\.ru/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?rutube\.ru/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="rutube"><span><iframe allowfullscreen="" scrolling="no" src="//rutube.ru/play/embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="scribd" site_title="Scribd" site_url="https://www.scribd.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="scribd" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*scribd\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?scribd\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="scribd" allowfullscreen="" scrolling="no" src="https://www.scribd.com/embeds/{$id}/content?view_mode=scroll&amp;show_recommendations=false" style="height:500px;resize:vertical;width:100%"></iframe>]]></embed_html>
   </site>
   <site media_site_id="sendvid" site_title="Sendvid" site_url="https://www.sendvid.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="sendvid" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*sendvid\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?sendvid\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="sendvid"><span><iframe allowfullscreen="" scrolling="no" src="//sendvid.com/embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="slideshare" site_title="SlideShare" site_url="https://www.slideshare.net/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="slideshare" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*slideshare\.net/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?slideshare\.net/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="slideshare" style="width:597px"><span style="padding-bottom:81.407035%"><iframe allowfullscreen="" scrolling="no" src="https://www.slideshare.net/slideshow/embed_code/key/{$key}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="soundcloud" site_title="SoundCloud" site_url="https://soundcloud.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="soundcloud" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*soundcloud\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?soundcloud\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="soundcloud" allowfullscreen="" scrolling="no" src="https://w.soundcloud.com/player/?url={{ $playlist_id ? 'https%3A//api.soundcloud.com/playlists/' . $playlist_id . '%3Fsecret_token%3D' . $secret_token : ($track_id ? 'https%3A//api.soundcloud.com/tracks/' . $track_id . '%3Fsecret_token%3D' . $secret_token : ((!contains($id,'://') ? 'https%3A//soundcloud.com/' : '') . $id)) }}" style="height:{{ ($playlist_id or contains($id,'/sets/')) ? '450' : '166' }}px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="sporcle" site_title="Sporcle" site_url="https://www.sporcle.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="sporcle" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*sporcle\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?sporcle\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="sporcle" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/sporcle.min.html#{$id}" style="height:535px;width:820px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
   </site>
   <site media_site_id="sportsnet" site_title="Sportsnet" site_url="https://www.sportsnet.ca/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="sportsnet" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*sportsnet\.ca/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?sportsnet\.ca/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="sportsnet"><span><iframe allowfullscreen="" scrolling="no" src="//players.brightcove.net/1704050871/rkedLxwfab_default/index.html?videoId={$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="spotify" site_title="Spotify" site_url="https://www.spotify.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="spotify" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:link\.tospotify\.com|open\.spotify\.com|play\.spotify\.com|spotify\.link)/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?(?:link\.tospotify\.com|open\.spotify\.com|play\.spotify\.com|spotify\.link)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="spotify" allow="encrypted-media" allowfullscreen="" scrolling="no" src="https://open.spotify.com/embed/{$id|replace(':','/')}{$path}" style="border-radius:12px;height:{{ ($id|substr(0,7) == 'episode' or $id|substr(0,4) == 'show' or $id|substr(0,5) == 'track') ? '152' : '380' }}px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="spreaker" site_title="Spreaker" site_url="https://www.spreaker.com" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="spreaker" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*spreaker\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?spreaker\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="spreaker" allowfullscreen="" scrolling="no" src="https://widget.spreaker.com/player?episode_id={$episode_id}&amp;show_id={$show_id}&amp;theme={{property('styleType')}}" style="height:{{ $episode_id ? '2' : '4' }}00px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="steamstore" site_title="Steam store" site_url="https://store.steampowered.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="steamstore" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*store\.steampowered\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?store\.steampowered\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="steamstore" allowfullscreen="" scrolling="no" src="//store.steampowered.com/widget/{$id}" style="height:190px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="strawpoll" site_title="Straw Poll" site_url="https://strawpoll.me/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="strawpoll" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*strawpoll\.me/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?strawpoll\.me/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="strawpoll"><span><iframe allowfullscreen="" scrolling="" src="//www.strawpoll.me/embed_1/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="streamable" site_title="Streamable" site_url="https://streamable.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="streamable" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://api.streamable.com/oembed.json" oembed_url_scheme="https://streamable.com/{$id}" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*streamable\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?streamable\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="streamable"><span><iframe allowfullscreen="" scrolling="no" src="//streamable.com/e/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="teamcoco" site_title="Team Coco" site_url="https://teamcoco.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="teamcoco" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*teamcoco\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?teamcoco\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="teamcoco"><span><iframe allowfullscreen="" scrolling="no" src="//teamcoco.com/embed/v/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="ted" site_title="TED Talks" site_url="https://www.ted.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="ted" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*ted\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?ted\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="ted"><span><iframe allowfullscreen="" scrolling="no" src="//embed.ted.com/{$id}{{ !contains($id,'.html') ? '.html' : '' }}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="telegram" site_title="Telegram" site_url="https://telegram.org/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="telegram" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*t\.me/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?t\.me/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="telegram" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" style="height:96px;width:500px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/telegram.min.html#{$id}{{ property('styleType')=='dark' ? '#theme=dark' : '' }}"></iframe>]]></embed_html>
   </site>
   <site media_site_id="theatlantic" site_title="The Atlantic Video" site_url="https://www.theatlantic.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="theatlantic" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*theatlantic\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?theatlantic\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="theatlantic"><span><iframe allowfullscreen="" scrolling="no" src="//www.theatlantic.com/video/iframe/{$id}/"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="theguardian" site_title="The Guardian (obsolete)" site_url="https://www.theguardian.com/video" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="theguardian" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*theguardian\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?theguardian\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="theguardian"><span><iframe allowfullscreen="" scrolling="no" src="//embed.theguardian.com/embed/video/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="theonion" site_title="The Onion" site_url="https://www.theonion.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="theonion" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*theonion\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?theonion\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="theonion"><span><iframe allowfullscreen="" scrolling="no" src="//www.theonion.com/video_embed/?id={$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="threads" site_title="Threads" site_url="https://www.threads.net/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="meta" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*threads\.net/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?threads\.net/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="threads" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/threads.min.html#{$id}" style="height:300px;width:550px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
   </site>
   <site media_site_id="tiktok" site_title="TikTok" site_url="https://www.tiktok.com" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="tiktok" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://www.tiktok.com/oembed" oembed_url_scheme="https://www.tiktok.com/video/{$id}" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*tiktok\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?tiktok\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="tiktok" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/tiktok.min.html#{$id}" style="height:740px;width:325px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
   </site>
   <site media_site_id="tmz" site_title="TMZ" site_url="https://www.tmz.com/videos" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="tmz" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*tmz\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?tmz\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="tmz"><span><iframe allowfullscreen="" scrolling="no" src="//www.kaltura.com/index.php/kwidget/cache_st/133592691/wid/_591531/partner_id/591531/uiconf_id/9071262/entry_id/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="tradingview" site_title="TradingView" site_url="https://www.tradingview.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="tradingview" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*tradingview\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?tradingview\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="tradingview" allowfullscreen="" scrolling="no" style="height:400px;width:100%" src="https://s.tradingview.com/{{ $symbol ? 'widgetembed/?interval=D&amp;symbol=' . ($symbol|replace('-',':')) : ('embed/' . $chart) }}"></iframe>]]></embed_html>
   </site>
   <site media_site_id="traileraddict" site_title="Trailer Addict" site_url="https://www.traileraddict.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="traileraddict" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*traileraddict\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?traileraddict\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="traileraddict"><span><iframe allowfullscreen="" scrolling="no" src="//v.traileraddict.com/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="trendingviews" site_title="Trending Views" site_url="https://trendingviews.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="trendingviews" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:mydailyfreedom\.com|trendingviews\.com?)/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?(?:mydailyfreedom\.com|trendingviews\.com?)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="trendingviews"><span><iframe allowfullscreen="" scrolling="no" src="https://trendingviews.com/embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="tumblr" site_title="Tumblr" site_url="https://www.tumblr.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="tumblr" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*tumblr\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?tumblr\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="tumblr" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/tumblr.min.html#{$key}/{$id}" style="height:300px;width:542px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
   </site>
   <site media_site_id="twentyfoursevensports" site_title="247Sports" site_url="https://247sports.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="twentyfoursevensports" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*247sports\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?247sports\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<xf:if is="$video_id"><span data-s9e-mediaembed="twentyfoursevensports"><span><iframe allowfullscreen="" scrolling="no" src="https://www.cbssports.com/video/player/embed?args=player_id%3D{$video_id}%26channel%3Dmobilevideo%26pcid%3D{$video_id}%26width%3D640%26height%3D360%26autoplay%3Dfalse%26comp_ads_enabled%3Dfalse%26uvpc%3Dhttp%3A%2F%2Fsports.cbsimg.net%2Fvideo%2Fuvp%2Fconfig%2Fv4%2Fuvp_247sports.xml%26uvpc_m%3Dhttp%3A%2F%2Fsports.cbsimg.net%2Fvideo%2Fuvp%2Fconfig%2Fv4%2Fuvp_247sports_m.xml%26partner%3D247%26partner_m%3D247_mobile%26utag%3D247sportssite%26resizable%3Dtrue"></iframe></span></span><xf:else/><iframe data-s9e-mediaembed="twentyfoursevensports" allowfullscreen="" onload="window.addEventListener('message',function(e){if(e.source===this.contentWindow&amp;&amp;e.data.height)this.style.height=e.data.height+'px'})" scrolling="no" src="https://247sports.com/PlayerSport/{$player_id}/Embed/" style="height:200px;width:600px"></iframe></xf:if>]]></embed_html>
   </site>
   <site media_site_id="twitch" site_title="Twitch" site_url="https://www.twitch.tv/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="twitch" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*twitch\.tv/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?twitch\.tv/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="twitch"><span><iframe allowfullscreen="" onload="this.contentWindow.postMessage('','*')" scrolling="no" src="https://s9e.github.io/iframe/2/twitch.min.html#channel={$channel};clip_id={$clip_id};t={$t};video_id={$video_id}" data-s9e-mediaembed-api="2"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="twitter" site_title="X" site_url="https://twitter.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="twitter" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://publish.twitter.com/oembed" oembed_url_scheme="https://twitter.com/user/status/{$id}" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:twitter|x)\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?(?:twitter|x)\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="twitter" allow="autoplay *" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" style="height:350px;width:550px" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/twitter.min.html#{$id}{{ property('styleType')=='dark' ? '#theme=dark' : '' }}"></iframe>]]></embed_html>
   </site>
   <site media_site_id="ustream" site_title="Ustream" site_url="https://www.ustream.tv/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="ustream" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*ustream\.tv/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?ustream\.tv/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="ustream"><span><iframe allowfullscreen="" scrolling="no" src="//www.ustream.tv/embed/{{ $vid ? 'recorded/' . $vid : $cid }}?html5ui"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="vbox7" site_title="VBOX7" site_url="https://vbox7.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="vbox7" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*vbox7\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?vbox7\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="vbox7"><span><iframe allowfullscreen="" scrolling="no" src="//vbox7.com/emb/external.php?vid={$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="veoh" site_title="Veoh" site_url="https://www.veoh.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="veoh" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*veoh\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?veoh\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="veoh"><span style="padding-bottom:62.5%;padding-bottom:calc(56.25% + 40px)"><object data="//www.veoh.com/swf/webplayer/WebPlayer.swf?version=AFrontend.5.7.0.1509&amp;permalinkId=v{$id}&amp;player=videodetailsembedded&amp;videoAutoPlay=0&amp;id=anonymous" style="height:100%;left:0;position:absolute;width:100%" type="application/x-shockwave-flash" typemustmatch=""><param name="allowfullscreen" value="true"/></object></span></span>]]></embed_html>
   </site>
   <site media_site_id="vevo" site_title="Vevo" site_url="https://vevo.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="vevo" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*vevo\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?vevo\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="vevo"><span><iframe allowfullscreen="" scrolling="no" src="https://embed.vevo.com/?isrc={$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="videodetective" site_title="Video Detective" site_url="https://www.videodetective.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="videodetective" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*videodetective\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?videodetective\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="videodetective"><span><iframe allowfullscreen="" scrolling="no" src="//www.videodetective.com/embed/video/?options=false&amp;autostart=false&amp;playlist=none&amp;publishedid={$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="vimeo" site_title="Vimeo" site_url="https://vimeo.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="vimeo" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://vimeo.com/api/oembed.json" oembed_url_scheme="https://vimeo.com/{$id}" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*vimeo\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?vimeo\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="vimeo"><span><iframe allowfullscreen="" scrolling="no" src="//player.vimeo.com/video/{$id}{{ $h ? '?h=' . $h : '' }}{{ $t ? '#t=' . $t : '' }}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="vine" site_title="Vine" site_url="https://vine.co/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="vine" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*vine\.co/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?vine\.co/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="vine" style="width:480px"><span style="padding-bottom:100%"><iframe allowfullscreen="" scrolling="no" src="https://vine.co/v/{$id}/embed/simple?audio=1"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="vk" site_title="VK" site_url="https://vk.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="vk" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*vk(?:\.com|ontakte\.ru)/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?vk(?:\.com|ontakte\.ru)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="vk"><span><iframe allowfullscreen="" scrolling="no" src="//vk.com/video_ext.php?oid={$oid}&amp;id={$vid}&amp;hash={$hash}&amp;hd=1"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="vocaroo" site_title="Vocaroo" site_url="https://vocaroo.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="vocaroo" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*voca(?:\.ro|roo\.com)/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?voca(?:\.ro|roo\.com)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="vocaroo" allowfullscreen="" scrolling="no" src="https://vocaroo.com/embed/{$id}" style="height:80px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="vox" site_title="Vox" site_url="https://www.vox.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="vox" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*vox\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?vox\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="vox"><span><iframe allowfullscreen="" scrolling="no" src="//player.ooyala.com/iframe.html#pbid=a637d53c5c0a43c7bf4e342886b9d8b0&amp;ec={$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="washingtonpost" site_title="Washington Post Video" site_url="https://www.washingtonpost.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="washingtonpost" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*washingtonpost\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?washingtonpost\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="washingtonpost"><span><iframe allowfullscreen="" scrolling="no" src="//www.washingtonpost.com/video/c/embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="wavekit" site_title="Wavekit" site_url="https://wavekit.app/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="wavekit" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*play\.wavekit\.app/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?play\.wavekit\.app/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="wavekit" allowfullscreen="" scrolling="no" src="https://play.wavekit.app/embed/{{ $playlist_id ? 'playlist/' . $playlist_id : ('audio/' . $audio_id) }}" style="height:{{ $playlist_id ? '40' : '17' }}0px;width:900px"></iframe>]]></embed_html>
   </site>
   <site media_site_id="wistia" site_title="Wistia" site_url="https://wistia.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="wistia" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*wistia\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?wistia\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<xf:if is="$type=='audio'"><iframe data-s9e-mediaembed="wistia" allowfullscreen="" scrolling="no" src="https://fast.wistia.net/embed/iframe/{$id}" style="height:218px;width:900px"></iframe><xf:else/><span data-s9e-mediaembed="wistia"><span><iframe allowfullscreen="" scrolling="no" src="https://fast.wistia.net/embed/iframe/{$id}"></iframe></span></span></xf:if>]]></embed_html>
   </site>
   <site media_site_id="wshh" site_title="WorldStarHipHop" site_url="https://www.worldstarhiphop.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="wshh" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*worldstar(?:hiphop)?\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?worldstar(?:hiphop)?\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="wshh"><span><iframe allowfullscreen="" scrolling="no" src="//worldstarhiphop.com/embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="wsj" site_title="The Wall Street Journal Online" site_url="https://www.wsj.com/video/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="wsj" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*wsj\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?wsj\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="wsj" style="width:512px"><span><iframe allowfullscreen="" scrolling="no" src="//video-api.wsj.com/api-video/player/iframe.html?guid={$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="xboxclips" site_title="GameClips.io" site_url="https://gameclips.io/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="xboxclips" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:gameclips\.io|xboxclips\.com)/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?(?:gameclips\.io|xboxclips\.com)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="xboxclips" style="width:560px"><span><iframe allowfullscreen="" scrolling="no" src="//gameclips.io/{$user}/{$id}/embed"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="xboxdvr" site_title="Gamer DVR" site_url="https://gamerdvr.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="xboxdvr" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*(?:gamer|xbox)dvr\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?(?:gamer|xbox)dvr\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="xboxdvr"><span><iframe allowfullscreen="" scrolling="no" src="//gamerdvr.com/gamer/{$user}/video/{$id}/embed"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="youku" site_title="Youku" site_url="https://www.youku.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="youku" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*youku\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?youku\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="youku"><span><iframe allowfullscreen="" scrolling="no" src="//player.youku.com/embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="youmaker" site_title="YouMaker" site_url="https://www.youmaker.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="youmaker" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*youmaker\.com/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?youmaker\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="youmaker"><span><iframe allowfullscreen="" scrolling="no" src="https://www.youmaker.com/embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="youtube" site_title="YouTube" site_url="https://www.youtube.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="youtube" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://www.youtube.com/oembed" oembed_url_scheme="https://www.youtube.com/watch?v={$id}" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]+\.)*youtu(?:\.be|be(?:-nocookie)?\.com)/.(?'id'))i]]></match_urls>
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?youtu(?:\.be|be(?:-nocookie)?\.com)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" scrolling="no" style="background:url(https://i.ytimg.com/vi/{$id}/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/{$id}{{ $clip ? '?clip=' . $clip . '&amp;clipt=' . $clipt : (($list ? '?list=' . $list : '') . ($t ? ($list ? '&amp;' : '?') . 'start=' . $t : '')) }}"></iframe></span></span>]]></embed_html>
   </site>
 </bb_code_media_sites>

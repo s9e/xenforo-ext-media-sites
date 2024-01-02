@@ -354,7 +354,7 @@ class AddonBuilder
 	*/
 	protected function getHostRegexp(array $hosts)
 	{
-		return '(^https?://(?:[^./]+\\.)*' . $this->regexpBuilder->build($hosts) . "/.(?'id'))i";
+		return '(^https?://(?:[^./]++\\.)*?' . $this->regexpBuilder->build($hosts) . "/.(?'id'))i";
 	}
 
 
