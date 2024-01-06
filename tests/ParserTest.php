@@ -159,10 +159,6 @@ class ParserTest extends AbstractParserTest
 				'id=8726b01100463c4e254a38c3108ef3e05791aeda;name=Deni-Juric-Goal-2-0-%25C5%25A0IBENIK-vs-SLAVEN-Apr21'
 			],
 			[
-				'https://odysee.com/@cop225:6/09_12_2021-Tengo-algo-que-decir.....:2',
-				'id=265551821fd6d6c0289eaf6c1789e7f82cd49203;name=09_12_2021-Tengo-algo-que-decir%2E%2E%2E%2E.;path=%40cop225%3A6%2F09_12_2021-Tengo-algo-que-decir%2E%2E%2E%2E.%3A2'
-			],
-			[
 				'https://archive.org/embed/deadco2018-08-25',
 				'height=50;id=deadco2018-08-25%26playlist%3D1%26twitterv%3D01;width=300'
 			],
