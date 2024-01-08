@@ -86,6 +86,23 @@ class AddonBuilder
 		$this->patchRenderer();
 
 		$dom->save($this->dir . '/_data/bb_code_media_sites.xml');
+
+		// Patch Amazon via string manipulation because doing it in DOM messes up the white space
+		$filepath = $this->dir . '/_data/bb_code_media_sites.xml';
+		file_put_contents(
+			$filepath,
+			str_replace(
+				'  <site media_site_id="anchor"',
+				<<<'XML'
+  <site media_site_id="amazon" site_title="Amazon (obsolete)" match_is_regex="1" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" supported="0" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[((?!))]]></match_urls>
+    <embed_html><![CDATA[<a href="https://www.amazon.{{ $tld=='jp' ? 'co.jp' : ($tld=='uk' ? 'co.uk' : (($tld!='' and contains('desfrinit', $tld)) ? $tld : 'com')) }}/dp/{$id}?tag={{ $tld=='ca' ? $xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_CA : ($tld=='de' ? $xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_DE : ($tld=='es' ? $xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_ES : ($tld=='fr' ? $xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_FR : ($tld=='in' ? $xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IN : ($tld=='it' ? $xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IT : ($tld=='jp' ? $xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_JP : ($tld=='uk' ? $xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_UK : $xf.options.s9e_MediaSites_AMAZON_ASSOCIATE_TAG))))))) }}">Amazon product ASIN {$id}</a>]]></embed_html>
+  </site>
+  <site media_site_id="anchor"
+XML,
+				file_get_contents($filepath)
+			)
+		);
 	}
 
 	/**
