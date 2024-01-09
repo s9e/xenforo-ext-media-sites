@@ -56,6 +56,10 @@
     <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?(?:iframe\.mediadelivery\.net|video\.bunnycdn\.com)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="bunny"><span><iframe allowfullscreen="" scrolling="no" src="https://iframe.mediadelivery.net/embed/{$video_library_id}/{$video_id}?autoplay=false"></iframe></span></span>]]></embed_html>
   </site>
+  <site media_site_id="captivate" site_title="Captivate" site_url="https://www.captivate.fm/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="captivate" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?captivate\.fm/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="captivate" allowfullscreen="" scrolling="no" src="https://player.captivate.fm/episode/{$id}?t={$t}" style="border-radius:6px;height:200px;width:900px"></iframe>]]></embed_html>
+  </site>
   <site media_site_id="castos" site_title="Castos" site_url="https://castos.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="castos" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?castos\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="castos" allowfullscreen="" scrolling="no" src="https://player.castos.com/player/{$id}" style="height:150px;width:900px"></iframe>]]></embed_html>

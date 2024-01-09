@@ -63,6 +63,7 @@ class Parser
 		'bleacherreport'=>[[],[],[['extract'=>['!id="video-(?<id>[-\\w]+)!','!video_embed\\?id=(?<id>[-\\w]+)!'],'match'=>['!/articles/.!']]]],
 		'brightcove'=>[['@link\\.brightcove\\.com/services/player/bcpid(?<bcpid>\\d+).*?bckey=(?<bckey>[-,~\\w]+).*?bctid=(?<bctid>\\d+)@','@players\\.brightcove\\.net/(?<bcpid>\\d+)/.*?videoId=(?<bctid>\\d+)@']],
 		'bunny'=>[['@/(?:embed|play)/(?<video_library_id>\\d+)/(?<video_id>[-\\w]+)@']],
+		'captivate'=>[['@//player\\.captivate\\.fm/episode/(?<id>[-\\w]+)(?:\\?t=(?<t>\\d+))?@'],[],[['extract'=>['@//player\\.captivate\\.fm/episode/(?<id>[-\\w]+)@'],'match'=>['@//(?!player\\.)[-\\w]+\\.captivate\\.fm/episode/.@']]]],
 		'castos'=>[['@(?<host>[-\\w]+)\\.castos\\.com/player/(?<id>\\d+)@'],[],[['extract'=>['@(?<host>[-\\w]+)\\.castos\\.com/player/(?<id>\\d+)@'],'match'=>['@castos\\.com/(?:podcasts/[^/]*+/)?episodes/.@']]]],
 		'cbsnews'=>[['#cbsnews\\.com/videos?/(?!watch/)(?<id>[-\\w]+)#','#cbsnews\\.com/video/watch/\\?id=(?<id>\\d+)#']],
 		'clyp'=>[['@clyp\\.it/(?!user/)(?<id>\\w+)@']],
