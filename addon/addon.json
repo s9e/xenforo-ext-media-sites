@@ -2,8 +2,8 @@
     "legacy_addon_id": "",
     "title": "s9e/MediaSites",
     "description": "Improves the performance and usability of media sites, and adds many popular new sites.",
-    "version_id": 2130170,
-    "version_string": "2.13.1",
+    "version_id": 2140000,
+    "version_string": "2.14.0-dev",
     "dev": "JoshyPHP",
     "dev_url": "https://xenforo.com/community/resources/s9e-media-sites.5973/",
     "faq_url": "https://xenforo.com/community/resources/s9e-media-sites.5973/field?field=faq",
@@ -14,8 +14,8 @@
     },
     "require": {
         "XF": [
-            2010470,
-            "XenForo 2.1.4+"
+            2020070,
+            "XenForo 2.2.0+"
         ],
         "php": [
             "8.0.0",
