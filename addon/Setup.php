@@ -57,36 +57,6 @@ class Setup extends AbstractSetup
 		$this->restoreXenForoAddOnData();
 	}
 
-//	public function upgrade2031170Step1(array $stepParams = [])
-//	{
-//		if (!$this->isActive('flickr'))
-//		{
-//			return;
-//		}
-//
-//		$stepParams = $this->upgradePosts(
-//			$stepParams,
-//			'%[MEDIA=flickr]%',
-//			function ($message)
-//			{
-//				return preg_replace_callback(
-//					'(\\[MEDIA=flickr\\]\\K\\d++(?=\\[/MEDIA\\]))',
-//					function ($m)
-//					{
-//						return Flickr::base58_encode($m[0]);
-//					},
-//					$message
-//				);
-//			}
-//		);
-//		if (!empty($stepParams))
-//		{
-//			return $stepParams;
-//		}
-//
-//		$this->restoreXenForoAddOnData();
-//	}
-
 	public function upgrade2050056Step1(array $stepParams = [])
 	{
 		$this->schemaManager()->alterTable(
@@ -272,55 +242,6 @@ class Setup extends AbstractSetup
 
 		$option->option_value = 'xenforo';
 		$option->save();
-	}
-
-	protected function upgradePosts(array $stepParams, $like, $callback)
-	{
-		if (!isset($stepParams['post_id']))
-		{
-			$stepParams['post_id'] = 0;
-			$stepParams['limit']   = 50;
-		}
-
-		$start = microtime(true);
-		$posts = $this->app->finder('XF:Post')
-			->where('post_id', '>',    $stepParams['post_id'])
-			->where('message', 'LIKE', $like)
-			->order('post_id')
-			->limit($stepParams['limit'])
-			->fetch();
-		foreach ($posts as $post)
-		{
-			$old = $post->message;
-			$new = $callback($old);
-			if ($new !== $old)
-			{
-				$editor = $this->app->service('XF:Post\\Editor', $post);
-				$editor->setIsAutomated();
-				$editor->logEdit(false);
-				$editor->logHistory(false);
-				$editor->setMessage($new, false);
-				$editor->save();
-			}
-			$stepParams['post_id'] = $post->post_id;
-		}
-		$end = microtime(true);
-
-		if (count($posts) < $stepParams['limit'])
-		{
-			return;
-		}
-
-		if ($end - $start > 1)
-		{
-			$stepParams['limit'] = max(20, floor($stepParams['limit'] / 2));
-		}
-		elseif ($stepParams['limit'] < 500)
-		{
-			$stepParams['limit'] += 10;
-		}
-
-		return $stepParams;
 	}
 
 	protected function restoreXenForoAddOnData()
