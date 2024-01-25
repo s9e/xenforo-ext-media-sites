@@ -13,6 +13,8 @@ use XF\Mvc\Entity\Entity;
 use XF\Mvc\Entity\Manager;
 use XF\Mvc\Entity\Structure;
 use XF\Template\Templater;
+use const ENT_COMPAT, ENT_NOQUOTES, FILTER_VALIDATE_INT;
+use function array_combine, array_filter, array_rand, explode, filter_var, htmlspecialchars, in_array, intval, json_encode, md5, preg_match, preg_match_all, preg_replace, preg_replace_callback, rawurlencode, str_replace, strpos, strtolower, trim;
 
 class Helper
 {

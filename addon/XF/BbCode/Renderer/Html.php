@@ -8,6 +8,7 @@
 namespace s9e\MediaSites\XF\BbCode\Renderer;
 
 use XF;
+use function is_array, preg_match, str_replace, strpos, strtr;
 
 class Html extends XFCP_Html
 {

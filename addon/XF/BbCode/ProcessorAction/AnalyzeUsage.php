@@ -10,6 +10,7 @@ namespace s9e\MediaSites\XF\BbCode\ProcessorAction;
 use XF;
 use XF\BbCode\Processor;
 use XF\BbCode\ProcessorAction\AnalyzerHooks;
+use function preg_replace;
 
 class AnalyzeUsage extends XFCP_AnalyzeUsage
 {

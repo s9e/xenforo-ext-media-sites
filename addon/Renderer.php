@@ -8,6 +8,7 @@
 namespace s9e\MediaSites;
 
 use XF;
+use function call_user_func, explode, get_called_class, htmlspecialchars, intval, is_callable, is_numeric, pow, preg_match, preg_replace, str_contains, str_split, str_starts_with, strpos, strrev, strstr, strtolower, strtr, substr, trim, ucfirst, urldecode;
 
 class Renderer
 {

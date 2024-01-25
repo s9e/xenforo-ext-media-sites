@@ -13,6 +13,8 @@ use XF\AddOn\StepRunnerUpgradeTrait;
 use XF\BbCode\Helper\Flickr;
 use XF\Db\Schema\Alter;
 use XF\Entity\Option;
+use const SORT_STRING;
+use function array_map, array_unique, count, function_exists, implode, preg_match_all, sort, stripos, strtolower, ucfirst;
 
 class Setup extends AbstractSetup
 {

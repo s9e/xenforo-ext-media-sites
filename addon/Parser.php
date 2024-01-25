@@ -14,6 +14,9 @@ use XF\Entity\BbCodeMediaSite;
 use XF\Repository\BbCodeMediaSite as MediaRepository;
 use XF\Repository\Unfurl;
 use XF\Util\File;
+use const CURLOPT_ENCODING, CURLOPT_FOLLOWLOCATION, CURLOPT_HEADER, CURLOPT_HTTPHEADER, 
+CURLOPT_PROXY, CURLOPT_RETURNTRANSFER, CURLOPT_SSL_VERIFYPEER, CURLOPT_URL;
+use function array_flip, array_intersect_key, array_keys, call_user_func, curl_exec, curl_init, curl_setopt, file_exists, file_get_contents, file_put_contents, function_exists, implode, is_callable, is_numeric, ksort, md5, preg_match, preg_match_all, preg_replace, preg_replace_callback, serialize, sort, str_replace, strlen, strtolower, strtr, trim, ucfirst, urlencode;
 
 class Parser
 {

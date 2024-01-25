@@ -8,6 +8,7 @@
 namespace s9e\MediaSites\XF\BbCode\ProcessorAction;
 
 use XF\BbCode\ProcessorAction\FiltererHooks;
+use function preg_replace;
 
 class LimitTags extends XFCP_LimitTags
 {

@@ -8,6 +8,7 @@
 namespace s9e\MediaSites\XF\Pub\Controller;
 
 use XF;
+use function array_filter, preg_match;
 use s9e\MediaSites\Parser;
 
 class Editor extends XFCP_Editor

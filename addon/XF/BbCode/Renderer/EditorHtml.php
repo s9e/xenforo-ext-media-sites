@@ -7,6 +7,8 @@
 */
 namespace s9e\MediaSites\XF\BbCode\Renderer;
 
+use function is_array;
+
 class EditorHtml extends XFCP_EditorHtml
 {
 	public function renderTagUrl(array $children, $option, array $tag, array $options)
