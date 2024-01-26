@@ -11,6 +11,11 @@ php "$root/scripts/build.php"                              || exit
 rm -rf "$addonDir/_output" "$addonDir/hashes.json"         || exit
 cp -rf "$root/addon/"[^_]* "$root/addon/_data" "$addonDir" || exit
 echo "y" | $cmd xf-addon:upgrade "$addonId"
+if [ -z $(grep "mastodon\\\\.social/\\." "$root/addon/_data/bb_code_media_sites.xml") ];
+then
+	echo "Bad Mastodon";
+	exit;
+fi
 $cmd xf-addon:build-release "$addonId"                     || exit
 
 cd "$addonDir/_releases"
