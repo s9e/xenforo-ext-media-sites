@@ -49,6 +49,15 @@ $0]]></replace>
 						{{ phrase('do_not_auto_embed_links_from_this_site') }}
 					</xf:option>
 				</xf:checkboxrow>
+
+				<xf:if is="$site.media_site_id == 'mastodon'">
+					<hr class="formRowSep" />
+
+					<xf:textarearow name="s9e_mastodon_hosts" value="{$xf.options.s9e_MediaSites_MastodonHosts}" autosize="true" code="true"
+						label="{{ phrase('option.s9e_MediaSites_MastodonHosts') }}"
+						explain="{{ phrase('option_explain.s9e_MediaSites_MastodonHosts') }}"
+						dir="ltr" />
+				</xf:if>
 			</xf:if>
 $0]]></replace>
   </modification>

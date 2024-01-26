@@ -25,6 +25,31 @@ class Setup extends AbstractSetup
 		$this->upgrade2050056Step1();
 	}
 
+	public static function getMastodonRegexp(array $hosts): string
+	{
+		$expr = implode('|', array_map('preg_quote', $hosts));
+		if (count($hosts) > 1)
+		{
+			$expr = '(?:' . $expr . ')';
+		}
+
+		return '(^https?://(?:[^./]++\\.)*?' . $expr . "/.(?'id'))i";
+	}
+
+	public static function normalizeHostInput(string $hosts): string
+	{
+		preg_match_all('(\\S++)', strtolower($hosts), $m);
+		$hosts = array_unique($m[0]);
+		sort($hosts, SORT_STRING);
+
+		return implode("\n", $hosts);
+	}
+
+	public static function normalizeMastodonHosts(string $hosts): string
+	{
+		return self::normalizeHostInput($hosts . "\nmastodon.social");
+	}
+
 	public function postInstall(array &$stateChanges)
 	{
 		$this->setDefaultFindInPage();
@@ -127,11 +152,7 @@ class Setup extends AbstractSetup
 
 	public static function validateMastodonHosts(&$newValue, Option $option)
 	{
-		preg_match_all('(\\S++)', strtolower($newValue) . "\nmastodon.social", $m);
-		$hosts = array_unique($m[0]);
-		sort($hosts, SORT_STRING);
-
-		$newValue = implode("\n", $hosts);
+		$newValue = self::normalizeMastodonHosts($newValue);
 
 		$site = XF::finder('XF:BbCodeMediaSite')
 			->where('media_site_id', 'mastodon')
@@ -139,12 +160,8 @@ class Setup extends AbstractSetup
 			->fetchOne();
 		if ($site)
 		{
-			$expr = implode('|', array_map('preg_quote', $hosts));
-			if (count($hosts) > 1)
-			{
-				$expr = '(?:' . $expr . ')';
-			}
-			$site->match_urls = '(^https?://(?:[^./]+\\.)*' . $expr . "/.(?'id'))i";
+			$hosts = explode("\n", $newValue);
+			$site->match_urls = self::getMastodonRegexp($hosts);
 			$site->saveIfChanged();
 		}
 
