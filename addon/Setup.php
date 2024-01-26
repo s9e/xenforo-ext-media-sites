@@ -20,11 +20,6 @@ class Setup extends AbstractSetup
 {
 	use StepRunnerUpgradeTrait;
 
-	public function install(array $stepParams = [])
-	{
-		$this->upgrade2050056Step1();
-	}
-
 	public static function getMastodonRegexp(array $hosts): string
 	{
 		$expr = implode('|', array_map('preg_quote', $hosts));
@@ -34,6 +29,11 @@ class Setup extends AbstractSetup
 		}
 
 		return '(^https?://(?:[^./]++\\.)*?' . $expr . "/.(?'id'))i";
+	}
+
+	public function install(array $stepParams = [])
+	{
+		$this->upgrade2050056Step1();
 	}
 
 	public static function normalizeHostInput(string $hosts): string
@@ -70,6 +70,7 @@ class Setup extends AbstractSetup
 		{
 			$this->updateScrapingClient();
 		}
+		$this->updateMastodonMediaSite();
 	}
 
 	public function uninstall(array $stepParams = [])
@@ -198,7 +199,7 @@ class Setup extends AbstractSetup
 	{
 		return (bool) $this->app->finder('XF:BbCodeMediaSite')
 			->where('media_site_id', $siteId)
-			->where('addon_id',      's9e/MediaSites')
+			->where('addon_id',      $this->addOn->addon_id)
 			->where('active',        1)
 			->fetchOne();
 	}
@@ -295,5 +296,24 @@ class Setup extends AbstractSetup
 		{
 			self::setTemplateModification($option, $key, $enabled);
 		}
+	}
+
+	protected function updateMastodonMediaSite(): void
+	{
+		$site = $this->app->finder('XF:BbCodeMediaSite')
+			->where('media_site_id', 'mastodon')
+			->where('addon_id',      $this->addOn->addon_id)
+			->fetchOne();
+		if (!$site)
+		{
+			return;
+		}
+
+		$hosts = $this->app->options()->s9e_MediaSites_MastodonHosts ?? 'mastodon.social';
+		$hosts = self::normalizeMastodonHosts($hosts);
+		$hosts = explode("\n", $hosts);
+
+		$site->match_urls = self::getMastodonRegexp($hosts);
+		$site->saveIfChanged();
 	}
 }
