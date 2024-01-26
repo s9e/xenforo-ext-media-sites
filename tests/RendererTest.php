@@ -31,13 +31,13 @@ class RendererTest extends AbstractRendererTest
 			[
 				'amazon',
 				'B002MUC0ZY',
-				'<span data-s9e-mediaembed="amazon" style="width:120px"><span style="padding-bottom:200%"><iframe allowfullscreen="" scrolling="no" style="background:url(https://www.amazon.com/favicon.ico) center no-repeat" src="//ws-na.assoc-amazon.com/widgets/cm?l=as1&amp;f=ifr&amp;o=1&amp;t=&amp;asins=B002MUC0ZY"></iframe></span></span>',
+				'<a href="https://www.amazon.com/dp/B002MUC0ZY?tag=">Amazon product ASIN B002MUC0ZY</a>',
 				['s9e_MediaSites_AMAZON_ASSOCIATE_TAG' => null]
 			],
 			[
 				'amazon',
 				'B002MUC0ZY',
-				'<span data-s9e-mediaembed="amazon" style="width:120px"><span style="padding-bottom:200%"><iframe allowfullscreen="" scrolling="no" style="background:url(https://www.amazon.com/favicon.ico) center no-repeat" src="//ws-na.assoc-amazon.com/widgets/cm?l=as1&amp;f=ifr&amp;o=1&amp;t=foo-20&amp;asins=B002MUC0ZY"></iframe></span></span>',
+				'<a href="https://www.amazon.com/dp/B002MUC0ZY?tag=foo-20">Amazon product ASIN B002MUC0ZY</a>',
 				['s9e_MediaSites_AMAZON_ASSOCIATE_TAG' => 'foo-20']
 			],
 			[

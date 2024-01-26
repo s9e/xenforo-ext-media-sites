@@ -36,10 +36,6 @@
     <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="1008"/>
   </option>
-  <option option_id="s9e_MediaSites_Amazon_Link" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification" advanced="0">
-    <default_value>0</default_value>
-    <relation group_id="s9e_MediaSites" display_order="501"/>
-  </option>
   <option option_id="s9e_MediaSites_ClickToLoad" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateClickToLoad" advanced="0">
     <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="507"/>

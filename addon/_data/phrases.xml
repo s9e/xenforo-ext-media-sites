@@ -11,7 +11,6 @@
   <phrase title="option.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IT" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Amazon Associate tag (.it)]]></phrase>
   <phrase title="option.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_JP" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Amazon Associate tag (.co.jp)]]></phrase>
   <phrase title="option.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_UK" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Amazon Associate tag (.co.uk)]]></phrase>
-  <phrase title="option.s9e_MediaSites_Amazon_Link" version_id="2030470" version_string="2.3.4"><![CDATA[Add a link to Amazon product embeds]]></phrase>
   <phrase title="option.s9e_MediaSites_ClickToLoad" version_id="2060050" version_string="2.6.0 Release Candidate"><![CDATA[Replace embedded video players with a lightweight placeholder where available]]></phrase>
   <phrase title="option.s9e_MediaSites_ClickToLoad_Oembed" version_id="2060070" version_string="2.6.0"><![CDATA[Add a title to the click-to-load placeholders where available]]></phrase>
   <phrase title="option.s9e_MediaSites_FindInPage" version_id="2090470" version_string="2.9.4"><![CDATA[Allow users to search for embeddable content in remote pages]]></phrase>
@@ -42,7 +41,6 @@
   <phrase title="option_explain.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IT" version_id="20130" version_string="0.2.1 Beta"><![CDATA[]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_JP" version_id="20130" version_string="0.2.1 Beta"><![CDATA[]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_UK" version_id="20130" version_string="0.2.1 Beta"><![CDATA[]]></phrase>
-  <phrase title="option_explain.s9e_MediaSites_Amazon_Link" version_id="2030470" version_string="2.3.4"><![CDATA[Adds a generic link to the product as a fallback if Amazon is blocked by the browser.]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_ClickToLoad" version_id="2050270" version_string="2.5.2"><![CDATA[This will replace YouTube's normal player with a textless thumbnail. Clicking on it will load the embedded player.]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_ClickToLoad_Oembed" version_id="2060070" version_string="2.6.0"><![CDATA[This will add the video's title, retrieved via oEmbed, to the lightweight placeholders.]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_FindInPage" version_id="2090470" version_string="2.9.4"><![CDATA[When a URL cannot be embedded directly by the "Insert Media" dialog, the user can request that the add-on inspects the remote page to find a supported URL. This means any user allowed to use the "Insert Media" dialog can cause your server to access any remote page, which may be undesirable.]]></phrase>
