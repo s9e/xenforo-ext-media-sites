@@ -1,16 +1,16 @@
 {
 	"src/XF/BbCode/Helper/AppleMusic.php": "a4db54678ad248ceba00e4e09115285702798866bd199d385f199b66469dcd3a",
 	"src/XF/BbCode/Helper/DailyMotion.php": "24f5a988715248a2daeb3e8e4733c7703bc0b2345754c7a48681a17fa80f158a",
-	"src/XF/BbCode/Helper/Facebook.php": "546d04c09bf8d5be4166ab04db0e5f2bbe72c0fd8d24bd4101a7e3f5774e074c",
+	"src/XF/BbCode/Helper/Facebook.php": "1a353b193fce62245e8f43ae784206cdb451f82012d2f08a64d3816f8d17dda5",
 	"src/XF/BbCode/Helper/Flickr.php": "d7cf5ce0aaac7786ef7c302532bd626d6d7571f85eefe8dd4e9f3cec8fd46d44",
 	"src/XF/BbCode/Helper/Imgur.php": "438ae50d6303c76b57e9b4f2831d8be228fee410363576815e6ceeb467787e28",
 	"src/XF/BbCode/Helper/Misc.php": "25610b5b6f3235850312f5742f634d27da801046e1dc9e394a290e1a33fe4098",
-	"src/XF/BbCode/Helper/Reddit.php": "9e0daa9c787059e501448321a45fa5e6fce39d99361fcb7ec441a40fccedaae2",
+	"src/XF/BbCode/Helper/Reddit.php": "efd60793647955071c37cdce49ab3a017cb1426007d5db4887a0fa97d449e7c9",
 	"src/XF/BbCode/Helper/Soundcloud.php": "a4b075bde5b372a67efdffa3c7ed893e27135d9abbe91bd97d3505e85b609eb0",
 	"src/XF/BbCode/Helper/Spotify.php": "9a2b42f19d08f8dd61e6dd6858179740bbcbe1723167aebffe51888339456ca1",
 	"src/XF/BbCode/Helper/Tumblr.php": "69a81ecfc058dc62a8c9e271089d1599e87147af161f30ef9b6fba94303be02b",
 	"src/XF/BbCode/Helper/Twitch.php": "5b4268c9905ff99363f0fea4a7de3e70c06756e6b9ce5a7f8dd70e6ed52b3ea8",
 	"src/XF/BbCode/Helper/Vimeo.php": "a2a65903b2f2b45d522c323f2aacdda3333e7af2759f379f8afd1804a116ab17",
 	"src/XF/BbCode/Helper/YouTube.php": "5aa262df4ec5ee285358aed5c9a9a399ef49378c5f9400b8d396c6cd7dc4208f",
-	"src/addons/XF/_data/bb_code_media_sites.xml": "0a126557ee3d4e11c34a5433a5c889703de79c6e6272bd37a5ac0c79e338feb2"
+	"src/addons/XF/_data/bb_code_media_sites.xml": "6336fa8c7e7f2316538c775c55aaf9d78baa2d518b283e00efcbcc5ff31461d4"
 }
