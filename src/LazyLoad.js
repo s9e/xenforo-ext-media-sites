@@ -88,8 +88,8 @@
 	{
 		// Load an extra viewport's worth at the bottom, and between a quarter and half the
 		// viewport's height at the top depending on whether we're scrolling down or up
-		let bottom = window.innerHeight * 2,
-			top    = -bottom / ((scrollDirection === SCROLL_DOWN) ? 4 : 2);
+		const bottom = window.innerHeight * 2,
+		      top    = -bottom / ((scrollDirection === SCROLL_DOWN) ? 4 : 2);
 
 		return [top, bottom];
 	}
@@ -104,7 +104,7 @@
 	function getTargetRange(contentSelector)
 	{
 		// Use the top of the URL's target as the boundary
-		let top = document.querySelector(contentSelector)?.getBoundingClientRect().top ?? 0;
+		const top = document.querySelector(contentSelector)?.getBoundingClientRect().top ?? 0;
 
 		// NOTE: this range may be smaller than the viewport's height if the target is so
 		//       low on the page that it's not at the top of the viewport. It should not
@@ -121,8 +121,8 @@
 		// Adjust the *visible* range to exclude the sticky header. In theory we could also exclude
 		// footer notices but sticky footers have a much lesser impact compared to sticky headers,
 		// as the latter determines in which direction an iframe should be resized
-		let top    = document.querySelector('.p-navSticky')?.getBoundingClientRect().bottom ?? 0,
-			bottom = window.innerHeight;
+		const top    = document.querySelector('.p-navSticky')?.getBoundingClientRect().bottom ?? 0,
+		      bottom = window.innerHeight;
 
 		return [top, bottom];
 	}
@@ -218,7 +218,7 @@
 			// Resize the iframe after it's been inserted in the page so it's resized the right way
 			// (upward/downward) and with a transition if visible
 			const storedDimensions = localStorage[getStorageKey(iframe.src)];
-			if (typeof storedDimensions === 'string')
+			if (storedDimensions > '')
 			{
 				resizeIframeFromDimensions(iframe, storedDimensions);
 			}
@@ -552,7 +552,7 @@
 				return;
 			}
 
-			let m = /#[-\w]+$/.exec(destination['url']);
+			const m = /#[-\w]+$/.exec(destination['url']);
 			if (m)
 			{
 				startNavigation(m[0]);
