@@ -196,7 +196,7 @@ class Setup extends AbstractSetup
 		if ($site)
 		{
 			$hosts = explode("\n", $newValue);
-			$site->match_urls = self::getMastodonRegexp($hosts);
+			$site->match_urls = self::getHostRegexp($hosts);
 			$site->saveIfChanged();
 		}
 
