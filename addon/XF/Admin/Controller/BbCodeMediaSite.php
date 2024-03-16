@@ -19,6 +19,10 @@ class BbCodeMediaSite extends XFCP_BbCodeMediaSite
 		{
 			$entityInput += $this->updateMastodonHosts();
 		}
+		elseif ($site->media_site_id === 'xenforo')
+		{
+			$entityInput += $this->updateXenForoHosts();
+		}
 
 		$form = parent::bbCodeMediaSiteSaveProcess($site);
 		$form->basicEntitySave($site, $entityInput);
@@ -41,7 +45,27 @@ class BbCodeMediaSite extends XFCP_BbCodeMediaSite
 			$option->saveIfChanged();
 		}
 
-		$regexp = Setup::getMastodonRegexp(explode("\n", $hosts));
+		$regexp = Setup::getHostRegexp(explode("\n", $hosts));
+
+		return ['match_urls' => $regexp];
+	}
+
+	/**
+	* @return array Fields to update in the BbCodeMediaSiteEntity instance
+	*/
+	protected function updateXenForoHosts(): array
+	{
+		$hosts = $this->filter('s9e_xenforo_hosts', 'string', '');
+		$hosts = Setup::normalizeHostInput($hosts);
+
+		$option = $this->app->find('XF:Option', 's9e_MediaSites_XenForoHosts');
+		if ($option)
+		{
+			$option->option_value = $hosts;
+			$option->saveIfChanged();
+		}
+
+		$regexp = Setup::getHostRegexp(explode("\n", $hosts));
 
 		return ['match_urls' => $regexp];
 	}

@@ -120,7 +120,7 @@ XML,
 		$site = $root->appendChild($root->ownerDocument->createElement('site'));
 		$site->setAttribute('media_site_id',              $siteId);
 		$site->setAttribute('site_title',                 $siteConfig['name']);
-		$site->setAttribute('site_url',                   $siteConfig['homepage']);
+		$site->setAttribute('site_url',                   $siteConfig['homepage'] ?? '');
 		$site->setAttribute('match_is_regex',             1);
 		$site->setAttribute('match_callback_class',       $this->nsRoot . '\\Parser');
 		$site->setAttribute('match_callback_method',      'match');
@@ -148,6 +148,10 @@ XML,
 		if ($siteId === 'mastodon')
 		{
 			$template = '<xsl:choose><xsl:when test="@invalid">@<xsl:value-of select="@name"/>@<xsl:value-of select="@invalid"/>/<xsl:value-of select="@id"/></xsl:when><xsl:otherwise>' . $template . '</xsl:otherwise></xsl:choose>';
+		}
+		elseif ($siteId === 'xenforo')
+		{
+			$template = '<xsl:choose><xsl:when test="@invalid"><xsl:value-of select="@url"/></xsl:when><xsl:otherwise>' . $template . '</xsl:otherwise></xsl:choose>';
 		}
 		try
 		{

@@ -516,6 +516,10 @@
     <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?(?:gamer|xbox)dvr\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="xboxdvr"><span><iframe allowfullscreen="" scrolling="no" src="//gamerdvr.com/gamer/{$user}/video/{$id}/embed"></iframe></span></span>]]></embed_html>
   </site>
+  <site media_site_id="xenforo" site_title="XenForo" site_url="" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="xenforo" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<xf:if is="$invalid">{$url}<xf:else/><iframe data-s9e-mediaembed="xenforo" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" style="height:300px;width:100%" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/xenforo.min.html#{$url}{{ $profile_post_id ? 'profile-posts/' . $profile_post_id : ($resource_id ? 'resources/' . $resource_id : ($xfmg_album_id ? 'media/albums/' . $xfmg_album_id : ('threads/' . $thread_id . ($post_id ? '/post-' . $post_id : '')))) }}"></iframe></xf:if>]]></embed_html>
+  </site>
   <site media_site_id="youku" site_title="Youku" site_url="https://www.youku.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="youku" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?youku\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="youku"><span><iframe allowfullscreen="" scrolling="no" src="//player.youku.com/embed/{$id}"></iframe></span></span>]]></embed_html>
