@@ -120,7 +120,10 @@ XML,
 		$site = $root->appendChild($root->ownerDocument->createElement('site'));
 		$site->setAttribute('media_site_id',              $siteId);
 		$site->setAttribute('site_title',                 $siteConfig['name']);
-		$site->setAttribute('site_url',                   $siteConfig['homepage'] ?? '');
+		if (isset($siteConfig['homepage']))
+		{
+			$site->setAttribute('site_url',               $siteConfig['homepage']);
+		}
 		$site->setAttribute('match_is_regex',             1);
 		$site->setAttribute('match_callback_class',       $this->nsRoot . '\\Parser');
 		$site->setAttribute('match_callback_method',      'match');

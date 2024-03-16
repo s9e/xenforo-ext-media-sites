@@ -38,7 +38,7 @@
 }
 $0]]></replace>
   </modification>
-  <modification type="admin" template="bb_code_media_site_edit" modification_key="s9e_MediaSites_Site_Edit" description="Adds a checkbox to the media site edit form" execution_order="10" enabled="1" action="preg_replace">
+  <modification type="admin" template="bb_code_media_site_edit" modification_key="s9e_MediaSites_Site_Edit" description="Adds add-on options to the media site edit form" execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[(<xf:option name="active".*?</xf:checkboxrow>\K)s]]></find>
     <replace><![CDATA[$0
 
@@ -56,6 +56,15 @@ $0]]></replace>
 					<xf:textarearow name="s9e_mastodon_hosts" value="{$xf.options.s9e_MediaSites_MastodonHosts}" autosize="true" code="true"
 						label="{{ phrase('option.s9e_MediaSites_MastodonHosts') }}"
 						explain="{{ phrase('option_explain.s9e_MediaSites_MastodonHosts') }}"
+						dir="ltr" />
+				</xf:if>
+
+				<xf:if is="$site.media_site_id == 'xenforo'">
+					<hr class="formRowSep" />
+
+					<xf:textarearow name="s9e_xenforo_hosts" value="{$xf.options.s9e_MediaSites_XenForoHosts}" autosize="true" code="true"
+						label="{{ phrase('option.s9e_MediaSites_XenForoHosts') }}"
+						explain="{{ phrase('option_explain.s9e_MediaSites_XenForoHosts') }}"
 						dir="ltr" />
 				</xf:if>
 			</xf:if>
@@ -274,7 +283,7 @@ $0]]></replace>
 }
 $0]]></replace>
   </modification>
-  <modification type="public" template="editor_dialog_media" modification_key="s9e_MediaSites_FindInPage" description="Modifies the Insert Media dialog to allow searching for embeddable media in given page" execution_order="10" enabled="0" action="preg_replace">
+  <modification type="public" template="editor_dialog_media" modification_key="s9e_MediaSites_FindInPage" description="Modifies the Insert Media dialog to allow searching for embeddable media in given page" execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[((\t*)<xf:textboxrow id="editor_media_url"[^>]*?/>)]]></find>
     <replace><![CDATA[$0
 
