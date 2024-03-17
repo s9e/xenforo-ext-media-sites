@@ -180,6 +180,18 @@ class Renderer
 		return $vars;
 	}
 
+	protected static function adjustVarsXenForo(array $vars): array
+	{
+		$vars += ['host' => ''];
+		unset($vars['invalid']);
+		if (Helper::filterXenForoHost($vars['host']) === false)
+		{
+			$vars['invalid'] = $vars['host'];
+		}
+
+		return $vars;
+	}
+
 	/**
 	* Adjust vars for YouTube
 	*
