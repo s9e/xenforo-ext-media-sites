@@ -499,6 +499,15 @@ XML,
 		return $siteConfig;
 	}
 
+	protected function patchSiteXenForo(array $siteConfig): array
+	{
+		$callback = 's9e\\MediaSites\\Helper::filterXenForoHost';
+		$this->configurator->MediaEmbed->allowedFilters[] = $callback;
+		$siteConfig['attributes']['host']['filterChain'] = [$callback];
+
+		return $siteConfig;
+	}
+
 	protected function patchSites(): void
 	{
 		foreach ($this->sites as $siteId => $siteConfig)
