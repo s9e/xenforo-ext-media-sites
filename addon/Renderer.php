@@ -182,11 +182,19 @@ class Renderer
 
 	protected static function adjustVarsXenForo(array $vars): array
 	{
-		$vars += ['host' => ''];
-		unset($vars['invalid']);
-		if (Helper::filterXenForoHost($vars['host']) === false)
+		if (!isset($vars['url']))
 		{
-			$vars['invalid'] = $vars['host'];
+			return ['invalid' => 'No XenForo URL'];
+		}
+		if (!preg_match('(^https://([^/]++)/)', $vars['url'], $m))
+		{
+			return ['invalid' => 'Invalid XenForo URL'];
+		}
+
+		unset($vars['invalid']);
+		if (Helper::filterXenForoHost($m[1]) === false)
+		{
+			$vars['invalid'] = $m[1];
 		}
 
 		return $vars;
