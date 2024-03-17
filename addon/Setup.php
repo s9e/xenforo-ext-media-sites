@@ -156,7 +156,7 @@ class Setup extends AbstractSetup
 	{
 		$newValue = self::normalizeMastodonHosts($newValue);
 
-		return self::updateFederatedHosts('xenforo', $newValue, $option);
+		return self::updateFederatedHosts('mastodon', $newValue, $option);
 	}
 
 	public static function validateNativePlayer($newValue, Option $option)
@@ -189,18 +189,7 @@ class Setup extends AbstractSetup
 	{
 		$newValue = self::normalizeHostInput($newValue);
 
-		$site = XF::finder('XF:BbCodeMediaSite')
-			->where('media_site_id', 'xenforo')
-			->where('addon_id',      $option->addon_id)
-			->fetchOne();
-		if ($site)
-		{
-			$hosts = explode("\n", $newValue);
-			$site->match_urls = self::getHostRegexp($hosts);
-			$site->saveIfChanged();
-		}
-
-		return true;
+		return self::updateFederatedHosts('xenforo', $newValue, $option);
 	}
 
 	protected function isActive($siteId)
