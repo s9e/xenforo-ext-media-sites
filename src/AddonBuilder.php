@@ -154,7 +154,8 @@ XML,
 		}
 		elseif ($siteId === 'xenforo')
 		{
-			$template = '<xsl:choose><xsl:when test="@invalid"><xsl:value-of select="@url"/></xsl:when><xsl:otherwise>' . $template . '</xsl:otherwise></xsl:choose>';
+			preg_match('(<xsl:value-of select="@url"/>.*?</xsl:choose>)s', $template, $m);
+			$template = '<xsl:choose><xsl:when test="@invalid">' . $m[0] . '</xsl:when><xsl:otherwise>' . $template . '</xsl:otherwise></xsl:choose>';
 		}
 		try
 		{
