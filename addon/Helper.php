@@ -100,6 +100,14 @@ class Helper
 		);
 	}
 
+	public static function filterXenForoHost($attrValue)
+	{
+		$hosts     = explode("\n", XF::options()->s9e_MediaSites_XenForoHosts ?? '');
+		$attrValue = strtolower($attrValue);
+
+		return in_array($attrValue, $hosts, true) ? $attrValue : false;
+	}
+
 	/**
 	* Replace iframes in given HTML
 	*

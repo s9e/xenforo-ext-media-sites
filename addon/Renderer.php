@@ -61,6 +61,7 @@ class Renderer
 		'mastodon'=>['host'=>['s9e\\MediaSites\\Helper::filterMastodonHost']],
 		'odysee'=>['name'=>['s9e\\MediaSites\\Helper::filterUrl'],'path'=>['s9e\\MediaSites\\Helper::filterUrl']],
 		'vimeo'=>['t'=>['s9e\\MediaSites\\Helper::filterTimestamp']],
+		'xenforo'=>['content_id'=>['s9e\\MediaSites\\Helper::filterIdentifier'],'host'=>['s9e\\MediaSites\\Helper::filterXenForoHost'],'post_id'=>['s9e\\MediaSites\\Helper::filterUint'],'profile_post_id'=>['s9e\\MediaSites\\Helper::filterUint'],'resource_id'=>['s9e\\MediaSites\\Helper::filterUint'],'thread_id'=>['s9e\\MediaSites\\Helper::filterUint'],'url'=>['s9e\\MediaSites\\Helper::filterUrl'],'xfmg_album_id'=>['s9e\\MediaSites\\Helper::filterUint']],
 		'youtube'=>['id'=>['s9e\\MediaSites\\Helper::filterIdentifier'],'t'=>['s9e\\MediaSites\\Helper::filterTimestamp']]
 	];
 
@@ -174,6 +175,25 @@ class Renderer
 				$vars['track_id'] = $m[1];
 			}
 			$vars['id'] = preg_replace('(#.*)', '', $vars['id']);
+		}
+
+		return $vars;
+	}
+
+	protected static function adjustVarsXenForo(array $vars): array
+	{
+		unset($vars['error']);
+		if (!isset($vars['url']))
+		{
+			$vars['error'] = 'No XenForo URL';
+		}
+		elseif (!preg_match('(^https://([^/]++)/)', $vars['url'], $m))
+		{
+			$vars['error'] = 'Invalid XenForo URL';
+		}
+		elseif (Helper::filterXenForoHost($m[1]) === false)
+		{
+			$vars['error'] = 'Unauthorized XenForo host';
 		}
 
 		return $vars;

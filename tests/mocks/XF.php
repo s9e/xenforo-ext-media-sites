@@ -72,6 +72,7 @@ class XF
 		}
 
 		$template = self::$templates[$siteId];
+		$template = self::renderIf($template, $vars);
 		$template = self::renderIfElse($template, $vars);
 		$template = self::renderTernaries($template, $vars);
 		$template = preg_replace_callback(
@@ -90,6 +91,39 @@ class XF
 	protected static function contains($haystack, $needle)
 	{
 		return strpos($haystack, $needle) !== false;
+	}
+	protected static function renderIf($template, array $vars): string
+	{
+		$old      = $template;
+		$template = preg_replace_callback(
+			'(<xf:if is="\\$(\\w+)">([^<]++)</xf:if>)',
+			fn($m) => isset($vars[$m[1]]) ? $m[2] : '',
+			$template
+		);
+		$template = preg_replace_callback(
+			'(<xf:if is="\\$\\w+">[^<]*+(?:<xf:elseif is="\\$\\w+"/>[^<]*+)*<xf:else/>([^<]*+)</xf:if>)',
+			function ($m) use ($vars)
+			{
+				$default = $m[1];
+				preg_match_all('(is="\\$(\\w+)">([^<]*+))', $m[0], $m);
+				foreach ($m[1] as $i => $varName)
+				{
+					if (isset($vars[$varName]))
+					{
+						return $m[2][$i];
+					}
+				}
+
+				return $default;
+			},
+			$template
+		);
+		if ($template !== $old)
+		{
+			$template = self::renderIf($template, $vars);
+		}
+
+		return $template;
 	}
 	protected static function renderIfElse($template, array $vars): string
 	{

@@ -148,4 +148,44 @@ class HelperTest extends TestCase
 			Helper::filterUrl('http://example.org/<b>.</b>')
 		);
 	}
+
+	#[DataProvider('getXenForoHostsTests')]
+	public function testXenForoHosts(string $hosts, string $value, false|string $expected)
+	{
+		XF::$options = new stdClass;
+		XF::$options->s9e_MediaSites_XenForoHosts = $hosts;
+
+		$this->assertEquals($expected, Helper::filterXenForoHost($value));
+	}
+
+	public static function getXenForoHostsTests(): array
+	{
+		return [
+			[
+				'xenforo.com',
+				'xenforo.com',
+				'xenforo.com'
+			],
+			[
+				'xenforo.com',
+				'example.org',
+				false
+			],
+			[
+				'',
+				'example.org',
+				false
+			],
+			[
+				"example.org\nmastodon.social",
+				'example.org',
+				'example.org'
+			],
+			[
+				"example.org\nmastodon.social",
+				'example.ORG',
+				'example.org'
+			],
+		];
+	}
 }

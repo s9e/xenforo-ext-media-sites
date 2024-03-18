@@ -56,13 +56,13 @@ class SetupTest extends TestCase
 		];
 	}
 
-	#[DataProvider('getGetMastodonRegexpTests')]
-	public function testGetMastodonRegexp(string $expected, array $hosts): void
+	#[DataProvider('getGetHostRegexpTests')]
+	public function testGetHostRegexp(string $expected, array $hosts): void
 	{
-		$this->assertEquals($expected, Setup::getMastodonRegexp($hosts));
+		$this->assertEquals($expected, Setup::getHostRegexp($hosts));
 	}
 
-	public static function getGetMastodonRegexpTests(): array
+	public static function getGetHostRegexpTests(): array
 	{
 		return [
 			[
@@ -72,6 +72,10 @@ class SetupTest extends TestCase
 			[
 				"(^https?://(?:[^./]++\\.)*?(?:example\\.com|mastodon\\.social)/.(?'id'))i",
 				['example.com', 'mastodon.social']
+			],
+			[
+				"(^https?://(?:[^./]++\\.)*?(?!)/.(?'id'))i",
+				[]
 			],
 		];
 	}

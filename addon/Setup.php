@@ -20,9 +20,9 @@ class Setup extends AbstractSetup
 {
 	use StepRunnerUpgradeTrait;
 
-	public static function getMastodonRegexp(array $hosts): string
+	public static function getHostRegexp(array $hosts): string
 	{
-		$expr = implode('|', array_map('preg_quote', $hosts));
+		$expr = implode('|', array_map('preg_quote', $hosts)) ?: '(?!)';
 		if (count($hosts) > 1)
 		{
 			$expr = '(?:' . $expr . ')';
@@ -71,6 +71,7 @@ class Setup extends AbstractSetup
 			$this->updateScrapingClient();
 		}
 		$this->updateMastodonMediaSite();
+		$this->updateXenForoMediaSite();
 	}
 
 	public function uninstall(array $stepParams = [])
@@ -155,18 +156,7 @@ class Setup extends AbstractSetup
 	{
 		$newValue = self::normalizeMastodonHosts($newValue);
 
-		$site = XF::finder('XF:BbCodeMediaSite')
-			->where('media_site_id', 'mastodon')
-			->where('addon_id',      $option->addon_id)
-			->fetchOne();
-		if ($site)
-		{
-			$hosts = explode("\n", $newValue);
-			$site->match_urls = self::getMastodonRegexp($hosts);
-			$site->saveIfChanged();
-		}
-
-		return true;
+		return self::updateFederatedHosts('mastodon', $newValue, $option);
 	}
 
 	public static function validateNativePlayer($newValue, Option $option)
@@ -193,6 +183,13 @@ class Setup extends AbstractSetup
 		self::setTemplateModification($option, $option->option_id, (bool) $newValue);
 
 		return true;
+	}
+
+	public static function validateXenForoHosts(&$newValue, Option $option)
+	{
+		$newValue = self::normalizeHostInput($newValue);
+
+		return self::updateFederatedHosts('xenforo', $newValue, $option);
 	}
 
 	protected function isActive($siteId)
@@ -298,6 +295,22 @@ class Setup extends AbstractSetup
 		}
 	}
 
+	protected static function updateFederatedHosts(string $siteId, &$newValue, Option $option)
+	{
+		$site = XF::finder('XF:BbCodeMediaSite')
+			->where('media_site_id', $siteId)
+			->where('addon_id',      $option->addon_id)
+			->fetchOne();
+		if ($site)
+		{
+			$hosts = explode("\n", $newValue);
+			$site->match_urls = self::getHostRegexp($hosts);
+			$site->saveIfChanged();
+		}
+
+		return true;
+	}
+
 	protected function updateMastodonMediaSite(): void
 	{
 		$site = $this->app->finder('XF:BbCodeMediaSite')
@@ -313,7 +326,26 @@ class Setup extends AbstractSetup
 		$hosts = self::normalizeMastodonHosts($hosts);
 		$hosts = explode("\n", $hosts);
 
-		$site->match_urls = self::getMastodonRegexp($hosts);
+		$site->match_urls = self::getHostRegexp($hosts);
+		$site->saveIfChanged();
+	}
+
+	protected function updateXenForoMediaSite(): void
+	{
+		$site = $this->app->finder('XF:BbCodeMediaSite')
+			->where('media_site_id', 'xenforo')
+			->where('addon_id',      $this->addOn->addon_id)
+			->fetchOne();
+		if (!$site)
+		{
+			return;
+		}
+
+		$hosts = $this->app->options()->s9e_MediaSites_XenForoHosts ?? '';
+		$hosts = self::normalizeHostInput($hosts);
+		$hosts = explode("\n", $hosts);
+
+		$site->match_urls = self::getHostRegexp($hosts);
 		$site->saveIfChanged();
 	}
 }

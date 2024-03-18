@@ -120,7 +120,10 @@ XML,
 		$site = $root->appendChild($root->ownerDocument->createElement('site'));
 		$site->setAttribute('media_site_id',              $siteId);
 		$site->setAttribute('site_title',                 $siteConfig['name']);
-		$site->setAttribute('site_url',                   $siteConfig['homepage']);
+		if (isset($siteConfig['homepage']))
+		{
+			$site->setAttribute('site_url',               $siteConfig['homepage']);
+		}
 		$site->setAttribute('match_is_regex',             1);
 		$site->setAttribute('match_callback_class',       $this->nsRoot . '\\Parser');
 		$site->setAttribute('match_callback_method',      'match');
@@ -148,6 +151,11 @@ XML,
 		if ($siteId === 'mastodon')
 		{
 			$template = '<xsl:choose><xsl:when test="@invalid">@<xsl:value-of select="@name"/>@<xsl:value-of select="@invalid"/>/<xsl:value-of select="@id"/></xsl:when><xsl:otherwise>' . $template . '</xsl:otherwise></xsl:choose>';
+		}
+		elseif ($siteId === 'xenforo')
+		{
+			preg_match('(<xsl:value-of select="@url"/>.*?</xsl:choose>)s', $template, $m);
+			$template = '<xsl:choose><xsl:when test="@error"><xsl:value-of select="@error"/>: ' . $m[0] . '</xsl:when><xsl:otherwise>' . $template . '</xsl:otherwise></xsl:choose>';
 		}
 		try
 		{
@@ -488,6 +496,15 @@ XML,
 	protected function patchSiteThreads(array $siteConfig): array
 	{
 		$siteConfig['cookie_third_parties'] = 'meta';
+
+		return $siteConfig;
+	}
+
+	protected function patchSiteXenForo(array $siteConfig): array
+	{
+		$callback = 's9e\\MediaSites\\Helper::filterXenForoHost';
+		$this->configurator->MediaEmbed->allowedFilters[] = $callback;
+		$siteConfig['attributes']['host']['filterChain'] = [$callback];
 
 		return $siteConfig;
 	}

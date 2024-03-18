@@ -291,6 +291,30 @@ class RendererTest extends AbstractRendererTest
 				'<xf:if is="$type==\'audio\'"><iframe data-s9e-mediaembed="wistia" allowfullscreen="" scrolling="no" src="https://fast.wistia.net/embed/iframe/b6al55s35k" style="height:218px;width:900px"></iframe><xf:else/><span data-s9e-mediaembed="wistia"><span><iframe allowfullscreen="" scrolling="no" src="https://fast.wistia.net/embed/iframe/b6al55s35k"></iframe></span></span></xf:if>'
 			],
 			[
+				'xenforo',
+				'thread_id=217381;url=https%3A%2F%2Fxenforo.com%2Fcommunity%2F',
+				'<iframe data-s9e-mediaembed="xenforo" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+\'px\';this.contentWindow.postMessage(\'s9e:init\',\'*\',[c.port2])" scrolling="no" style="height:300px;width:100%" data-s9e-mediaembed-api="2" src="https://s9e.github.io/iframe/2/xenforo.min.html#https://xenforo.com/community/threads/217381"></iframe>',
+				['s9e_MediaSites_XenForoHosts' => 'xenforo.com']
+			],
+			[
+				'xenforo',
+				'thread_id=217381;url=https%3A%2F%2Fxenforo.com%2Fcommunity%2F',
+				'Unauthorized XenForo host: https://xenforo.com/community/threads/217381',
+				['s9e_MediaSites_XenForoHosts' => '']
+			],
+			[
+				'xenforo',
+				'',
+				'No XenForo URL: threads/',
+				['s9e_MediaSites_XenForoHosts' => '']
+			],
+			[
+				'xenforo',
+				'url=http://.../',
+				'Invalid XenForo URL: http://.../threads/',
+				['s9e_MediaSites_XenForoHosts' => '']
+			],
+			[
 				'youtube',
 				'QH2-TGUlwu4',
 				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" scrolling="no" style="background:url(https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/QH2-TGUlwu4"></iframe></span></span>'
