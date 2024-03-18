@@ -121,4 +121,31 @@ class HelperTest extends TestCase
 			],
 		];
 	}
+
+	public function testFilterIdentifier()
+	{
+		$this->assertEquals('abcd-123_', Helper::filterIdentifier('abcd-123_'));
+		$this->assertFalse(Helper::filterIdentifier('abcd-%20123_'));
+	}
+
+	public function testFilterTimestamp()
+	{
+		$this->assertEquals(3600 + 2 * 60 + 34, Helper::filterTimestamp('1h02m34s'));
+		$this->assertEquals(1234, Helper::filterTimestamp('1234s'));
+		$this->assertFalse(Helper::filterTimestamp('abcd-%20123_'));
+	}
+
+	public function testFilterUint()
+	{
+		$this->assertEquals(1234, Helper::filterUint('1234'));
+		$this->assertFalse(Helper::filterUint('-123'));
+	}
+
+	public function testFilterUrl()
+	{
+		$this->assertEquals(
+			'http://example.org/%3Cb%3E.%3C/b%3E',
+			Helper::filterUrl('http://example.org/<b>.</b>')
+		);
+	}
 }
