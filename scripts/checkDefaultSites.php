@@ -8,7 +8,8 @@ function isMediaSiteFile($hash, $path)
 }
 
 $localPath  = __DIR__ . '/hashes.json';
-$targetPath = __DIR__ . '/../target/src/addons/XF/hashes.json';
+$targetDir  = $_SERVER['argv'][1] ?? __DIR__ . '/../target';
+$targetPath = $targetDir . '/src/addons/XF/hashes.json';
 
 $localHashes  = json_decode(file_get_contents($localPath), true);
 $targetHashes = array_filter(

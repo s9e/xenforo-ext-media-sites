@@ -11,6 +11,7 @@
 	"src/XF/BbCode/Helper/Tumblr.php": "69a81ecfc058dc62a8c9e271089d1599e87147af161f30ef9b6fba94303be02b",
 	"src/XF/BbCode/Helper/Twitch.php": "5b4268c9905ff99363f0fea4a7de3e70c06756e6b9ce5a7f8dd70e6ed52b3ea8",
 	"src/XF/BbCode/Helper/Vimeo.php": "a2a65903b2f2b45d522c323f2aacdda3333e7af2759f379f8afd1804a116ab17",
+	"src/XF/BbCode/Helper/XenForo.php": "b432f9e9e65ef765abee6454d9e64154cb907929d0193aac57b2c556b4eff7a0",
 	"src/XF/BbCode/Helper/YouTube.php": "5aa262df4ec5ee285358aed5c9a9a399ef49378c5f9400b8d396c6cd7dc4208f",
-	"src/addons/XF/_data/bb_code_media_sites.xml": "6336fa8c7e7f2316538c775c55aaf9d78baa2d518b283e00efcbcc5ff31461d4"
+	"src/addons/XF/_data/bb_code_media_sites.xml": "565aa8f3c4106787091b57f3f137b94fc5b8d8b50a5b1a0b10469babd179efab"
 }
