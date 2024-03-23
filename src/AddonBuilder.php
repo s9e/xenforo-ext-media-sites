@@ -40,7 +40,7 @@ class AddonBuilder
 	* @param string       $dir          Target dir
 	* @param Configurator $configurator
 	*/
-	public function __construct($dir = null, Configurator $configurator = null)
+	public function __construct($dir = null, ?Configurator $configurator = null)
 	{
 		$this->configurator  = $configurator ?: new Configurator;
 		$this->dir           = $dir ?: realpath(__DIR__ . '/../addon');
