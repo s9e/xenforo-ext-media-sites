@@ -31,7 +31,7 @@ abstract class AbstractParserTest extends TestCase
 	}
 
 	#[DataProvider('getMatchTests')]
-	public function testMatch($url, $expected, callable $setup = null)
+	public function testMatch($url, $expected, ?callable $setup = null)
 	{
 		if (isset($setup))
 		{
