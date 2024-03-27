@@ -100,7 +100,7 @@ class Parser
 		'hulu'=>[[],[],[['extract'=>['!eid=(?<id>[-\\w]+)!'],'match'=>['!hulu\\.com/watch/!']]]],
 		'ign'=>[['!(?<id>https?://.*?ign\\.com/videos/.+)!i']],
 		'imdb'=>[[],[],[['extract'=>['!imdb\\.com/[/\\w]+?/vi(?<id>\\d+)!'],'match'=>["!imdb\\.com/[/\\w]+?/vi(?'id'\\d+)!"],'url'=>'https://www.imdb.com/video/embed/vi{@id}/']]],
-		'imgur'=>[['@imgur\\.com/(?<id>a/\\w+)@','@i\\.imgur\\.com/(?<id>\\w{5,7})[lms]?\\.@','@imgur\\.com/(?<id>\\w+)(?![\\w./])@'],[],[['extract'=>['@data-id="(?<id>[\\w/]+)"@'],'match'=>["@imgur\\.com/(?![art]/|user/)(?'path'(?:gallery/)?\\w+)(?![\\w.])@"],'url'=>'https://api.imgur.com/oembed.xml?url=/{@path}']]],
+		'imgur'=>[['@imgur\\.com/(?<id>a/\\w+)@','@i\\.imgur\\.com/(?<id>\\w{5,7})[lms]?\\.@','@imgur\\.com/(?!upload\\b)(?<id>\\w+)(?![\\w./])@'],[],[['extract'=>['@data-id="(?<id>[\\w/]+)"@'],'match'=>["@imgur\\.com/(?![art]/|user/)(?'path'(?:gallery/)?\\w+)(?![\\w.])@"],'url'=>'https://api.imgur.com/oembed.xml?url=/{@path}']]],
 		'indiegogo'=>[['!indiegogo\\.com/projects/(?<id>[-\\w]+)!']],
 		'instagram'=>[['!instagram\\.com/(?:p|reel|tv)/(?<id>[-\\w]+)!']],
 		'internetarchive'=>[[],[],[['extract'=>['!meta property="twitter:player" content="https://archive.org/embed/(?<id>[^/"]+)!','!meta property="og:video:width" content="(?<width>\\d+)!','!meta property="og:video:height" content="(?<height>\\d+)!'],'match'=>['!archive\\.org/(?:details|embed)/!']]],['height'=>['s9e\\MediaSites\\Helper::filterUint'],'id'=>['htmlspecialchars_decode'],'width'=>['s9e\\MediaSites\\Helper::filterUint']]],

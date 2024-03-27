@@ -99,12 +99,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "76326598a5b9e188b4791040c672c7fa93b25d94"
+                "reference": "c7609e3219d3016cc49dcb04feae212c2bbdb971"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/76326598a5b9e188b4791040c672c7fa93b25d94",
-                "reference": "76326598a5b9e188b4791040c672c7fa93b25d94",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/c7609e3219d3016cc49dcb04feae212c2bbdb971",
+                "reference": "c7609e3219d3016cc49dcb04feae212c2bbdb971",
                 "shasum": ""
             },
             "require": {
@@ -117,6 +117,7 @@
             },
             "require-dev": {
                 "code-lts/doctum": "*",
+                "friendsofphp/php-cs-fixer": "^3.52",
                 "matthiasmullie/minify": "*",
                 "phpunit/phpunit": "^9.5"
             },
@@ -132,7 +133,7 @@
             "default-branch": true,
             "type": "library",
             "extra": {
-                "version": "2.16.1-dev"
+                "version": "2.17.1-dev"
             },
             "autoload": {
                 "psr-4": {
@@ -166,7 +167,7 @@
                 "issues": "https://github.com/s9e/TextFormatter/issues",
                 "source": "https://github.com/s9e/TextFormatter/tree/master"
             },
-            "time": "2024-03-22T21:31:25+00:00"
+            "time": "2024-03-24T20:55:27+00:00"
         }
     ],
     "packages-dev": [
@@ -324,16 +325,16 @@
         },
         {
             "name": "composer/xdebug-handler",
-            "version": "3.0.3",
+            "version": "3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/xdebug-handler.git",
-                "reference": "ced299686f41dce890debac69273b47ffe98a40c"
+                "reference": "4f988f8fdf580d53bdb2d1278fe93d1ed5462255"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/ced299686f41dce890debac69273b47ffe98a40c",
-                "reference": "ced299686f41dce890debac69273b47ffe98a40c",
+                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/4f988f8fdf580d53bdb2d1278fe93d1ed5462255",
+                "reference": "4f988f8fdf580d53bdb2d1278fe93d1ed5462255",
                 "shasum": ""
             },
             "require": {
@@ -344,7 +345,7 @@
             "require-dev": {
                 "phpstan/phpstan": "^1.0",
                 "phpstan/phpstan-strict-rules": "^1.1",
-                "symfony/phpunit-bridge": "^6.0"
+                "phpunit/phpunit": "^8.5 || ^9.6 || ^10.5"
             },
             "type": "library",
             "autoload": {
@@ -368,9 +369,9 @@
                 "performance"
             ],
             "support": {
-                "irc": "irc://irc.freenode.org/composer",
+                "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/xdebug-handler/issues",
-                "source": "https://github.com/composer/xdebug-handler/tree/3.0.3"
+                "source": "https://github.com/composer/xdebug-handler/tree/3.0.4"
             },
             "funding": [
                 {
@@ -386,7 +387,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-02-25T21:32:43+00:00"
+            "time": "2024-03-26T18:29:49+00:00"
         },
         {
             "name": "friendsofphp/php-cs-fixer",
