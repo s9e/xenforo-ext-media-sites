@@ -50,16 +50,16 @@
         },
         {
             "name": "s9e/sweetdom",
-            "version": "3.4.0",
+            "version": "3.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/SweetDOM.git",
-                "reference": "b07ae8f5fe4ac40a0b734e0e23dbadcc26a161e3"
+                "reference": "ef3a7d2745b30b4ad0d1d3d60be391a3604c69dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/SweetDOM/zipball/b07ae8f5fe4ac40a0b734e0e23dbadcc26a161e3",
-                "reference": "b07ae8f5fe4ac40a0b734e0e23dbadcc26a161e3",
+                "url": "https://api.github.com/repos/s9e/SweetDOM/zipball/ef3a7d2745b30b4ad0d1d3d60be391a3604c69dd",
+                "reference": "ef3a7d2745b30b4ad0d1d3d60be391a3604c69dd",
                 "shasum": ""
             },
             "require": {
@@ -67,6 +67,7 @@
                 "php": "^8.1"
             },
             "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.52",
                 "phpunit/phpunit": "^10.0",
                 "s9e/repdoc": "dev-wip"
             },
@@ -89,9 +90,9 @@
             ],
             "support": {
                 "issues": "https://github.com/s9e/SweetDOM/issues",
-                "source": "https://github.com/s9e/SweetDOM/tree/3.4.0"
+                "source": "https://github.com/s9e/SweetDOM/tree/3.4.1"
             },
-            "time": "2024-01-01T17:22:53+00:00"
+            "time": "2024-03-23T14:03:01+00:00"
         },
         {
             "name": "s9e/text-formatter",
@@ -99,12 +100,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/s9e/TextFormatter.git",
-                "reference": "c7609e3219d3016cc49dcb04feae212c2bbdb971"
+                "reference": "34f3d6e339f5ff2ea8245e676c9069016b5d2669"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/c7609e3219d3016cc49dcb04feae212c2bbdb971",
-                "reference": "c7609e3219d3016cc49dcb04feae212c2bbdb971",
+                "url": "https://api.github.com/repos/s9e/TextFormatter/zipball/34f3d6e339f5ff2ea8245e676c9069016b5d2669",
+                "reference": "34f3d6e339f5ff2ea8245e676c9069016b5d2669",
                 "shasum": ""
             },
             "require": {
@@ -133,7 +134,7 @@
             "default-branch": true,
             "type": "library",
             "extra": {
-                "version": "2.17.1-dev"
+                "version": "2.17.2-dev"
             },
             "autoload": {
                 "psr-4": {
@@ -167,7 +168,7 @@
                 "issues": "https://github.com/s9e/TextFormatter/issues",
                 "source": "https://github.com/s9e/TextFormatter/tree/master"
             },
-            "time": "2024-03-24T20:55:27+00:00"
+            "time": "2024-03-28T11:54:47+00:00"
         }
     ],
     "packages-dev": [
@@ -1364,16 +1365,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.5.15",
+            "version": "10.5.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "86376e05e8745ed81d88232ff92fee868247b07b"
+                "reference": "18f8d4a5f52b61fdd9370aaae3167daa0eeb69cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/86376e05e8745ed81d88232ff92fee868247b07b",
-                "reference": "86376e05e8745ed81d88232ff92fee868247b07b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/18f8d4a5f52b61fdd9370aaae3167daa0eeb69cd",
+                "reference": "18f8d4a5f52b61fdd9370aaae3167daa0eeb69cd",
                 "shasum": ""
             },
             "require": {
@@ -1445,7 +1446,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.15"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.16"
             },
             "funding": [
                 {
@@ -1461,7 +1462,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-03-22T04:17:47+00:00"
+            "time": "2024-03-28T10:08:10+00:00"
         },
         {
             "name": "psr/container",
@@ -4076,5 +4077,5 @@
     "platform-dev": {
         "php": ">=8.1.0"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

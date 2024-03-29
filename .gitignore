@@ -1,4 +1,4 @@
-/.phpunit.cache
+/.*
 /addon/_output
 /addon/_releases
 /src/LazyLoad.min.js
