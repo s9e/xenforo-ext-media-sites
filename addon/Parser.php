@@ -63,7 +63,6 @@ class Parser
 		'bandcamp'=>[[],[],[['extract'=>['!/album=(?<album_id>\\d+)!'],'header'=>'User-agent: PHP (not Mozilla)','match'=>['!bandcamp\\.com/album/.!']],['extract'=>['!"album_id":(?<album_id>\\d+)!','!"track_num":(?<track_num>\\d+)!','!/track=(?<track_id>\\d+)!'],'header'=>'User-agent: PHP (not Mozilla)','match'=>['!bandcamp\\.com/track/.!']]]],
 		'bbcnews'=>[['@bbc\\.co(?:m|\\.uk)/news/(?:av|video_and_audio)/(?:\\w+-)+(?<id>\\d+)@','@bbc\\.co(?:m|\\.uk)/news/(?:av|video_and_audio)/embed/(?<id>\\w+/\\d+)@','@bbc\\.co(?:m|\\.uk)/news/(?:av|video_and_audio)/\\w+/(?<id>\\d+)@','@bbc\\.co(?:m|\\.uk)/news/av-embeds/(?<id>\\d+)@']],
 		'bitchute'=>[['@bitchute\\.com/(?:embed|video)/(?<id>[-\\w]+)@']],
-		'bleacherreport'=>[[],[],[['extract'=>['!id="video-(?<id>[-\\w]+)!','!video_embed\\?id=(?<id>[-\\w]+)!'],'match'=>['!/articles/.!']]]],
 		'brightcove'=>[['@link\\.brightcove\\.com/services/player/bcpid(?<bcpid>\\d+).*?bckey=(?<bckey>[-,~\\w]+).*?bctid=(?<bctid>\\d+)@','@players\\.brightcove\\.net/(?<bcpid>\\d+)/.*?videoId=(?<bctid>\\d+)@']],
 		'bunny'=>[['@/(?:embed|play)/(?<video_library_id>\\d+)/(?<video_id>[-\\w]+)@']],
 		'captivate'=>[['@//player\\.captivate\\.fm/episode/(?<id>[-\\w]+)(?:\\?t=(?<t>\\d+))?@'],[],[['extract'=>['@//player\\.captivate\\.fm/episode/(?<id>[-\\w]+)@'],'match'=>['@//(?!player\\.)[-\\w]+\\.captivate\\.fm/episode/.@']]]],
