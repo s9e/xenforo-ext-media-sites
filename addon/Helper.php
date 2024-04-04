@@ -128,7 +128,7 @@ class Helper
 
 		self::$oembedIds = [];
 		$output = preg_replace_callback(
-			'(<(?:span data-s9e-mediaembed="[^>]++><span[^>]*+>\\K<iframe|iframe data-s9e-mediaembed="[^"]++)[^>]*+></iframe>(?!(?:</span>)*+\\s*+</template>))',
+			'(<(?:span data-(?:template-name="[^"]++" data-)?s9e-mediaembed="[^>]++><span[^>]*+>\\K<iframe|iframe data-(?:template-name="[^"]++" data-)?s9e-mediaembed="[^"]++)[^>]*+></iframe>(?!(?:</span>)*+\\s*+</template>))',
 			function ($m) use (&$cnt)
 			{
 				++$cnt;
@@ -256,6 +256,7 @@ class Helper
 		}
 
 		$attrNames = [
+			'data-template-name',
 			'data-s9e-mediaembed',
 			'data-s9e-mediaembed-c2l',
 			'data-s9e-mediaembed-c2l-background',
