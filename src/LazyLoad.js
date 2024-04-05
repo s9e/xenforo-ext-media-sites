@@ -18,6 +18,9 @@
 	// Max number of items in storage
 	const STORAGE_MAX_SIZE = 100;
 
+	// Whether to implement a custom message handler for On3's iframes
+	const USE_ON3_HANDLER = true;
+
 	let activeMiniplayerSpan = null,
 		documentElement      = document.documentElement,
 		inNavigation         = false,
@@ -207,6 +210,21 @@
 			iframe.setAttribute(values[i], values[++i]);
 		}
 		iframe['loading'] = 'eager';
+
+		if (USE_ON3_HANDLER && iframe.getAttribute(dataPrefix) === 'on3')
+		{
+			/** @suppress {strictMissingProperties} */
+			window.addEventListener(
+				'message',
+				(e) =>
+				{
+					if (e.source === iframe.contentWindow && e.data.height)
+					{
+						resizeIframeFromDimensions(iframe, ((+e.data.height) + 20) + '');
+					}
+				}
+			);
+		}
 
 		prepareMiniplayer(iframe, proxy.parentNode);
 		proxy.replaceWith(iframe);

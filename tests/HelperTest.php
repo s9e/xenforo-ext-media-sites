@@ -89,6 +89,10 @@ class HelperTest extends TestCase
 				'<span data-template-name="_media_site_embed_youtube" data-s9e-mediaembed="youtube"><span><iframe data-s9e-mediaembed-c2l="youtube" data-s9e-mediaembed-c2l-src="?autoplay=1" allowfullscreen="" scrolling="no" src="https://www.youtube.com/embed/QH2-TGUlwu4"></iframe></span></span>',
 				'<span data-template-name="_media_site_embed_youtube" data-s9e-mediaembed="youtube"><span><span data-s9e-mediaembed-c2l="youtube" data-s9e-mediaembed-iframe=\'["allowfullscreen","","scrolling","no","src","?autoplay=1"]\'></span></span></span><script></script>'
 			],
+			[
+				'<iframe data-s9e-mediaembed="on3" allowfullscreen="" onload="let b=this.contentWindow;window.addEventListener(\'message\',a=&gt;{a.source===b&amp;&amp;a.data.height&amp;&amp;(this.style.height=+a.data.height+20+\'px\')});b.postMessage(\'\',\'*\')" scrolling="no" src="https://embed.on3.com/db/150372/industry-comparison/" style="height:476px;width:600px"></iframe>',
+				'<span data-s9e-mediaembed="on3" style="height:476px;width:600px" data-s9e-mediaembed-iframe=\'["data-s9e-mediaembed","on3","allowfullscreen","","onload","this.contentWindow.postMessage(\\"\\",\\"*\\")","scrolling","no","src","https:\/\/embed.on3.com\/db\/150372\/industry-comparison\/","style","height:476px;width:600px"]\'></span><script></script>'
+			],
 		];
 	}
 
