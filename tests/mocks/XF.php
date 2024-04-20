@@ -144,10 +144,16 @@ class XF
 			function ($m) use ($vars)
 			{
 				$php    = $m[1];
+				$php    = str_replace(
+					"((\$xf.visitor.style_variation && \$xf.style.isVariationsEnabled()) ? property_variation('styleType', \$xf.visitor.style_variation) : property('styleType'))",
+					"property('styleType')",
+					$php
+				);
 				$php    = preg_replace('(\\$xf\\.options\\.(\\w+))', 'XF::options()->$1', $php);
 				$php    = preg_replace('(\\$(\\w+))', '$vars["$1"]', $php);
 				$php    = str_replace('contains(', 'XF::contains(', $php);
 				$php    = preg_replace('(^property\\()', 'XF::app()->templater()->getStyle()->getProperty(', $php);
+
 				$result = eval('return ' . $php . ';');
 
 				return $result;
