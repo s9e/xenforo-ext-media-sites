@@ -119,6 +119,7 @@ iframe[data-s9e-mediaembed],
 span[data-s9e-mediaembed] > span > iframe
 {
 	border: 0;
+	color-scheme: auto;
 }
 span[data-s9e-mediaembed] > span
 {
