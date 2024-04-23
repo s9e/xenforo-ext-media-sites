@@ -162,20 +162,19 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 			],
 			[
 				'<hr data-x="{$MEDIAEMBED_THEME}"/>',
-				"<hr data-x=\"{{((\$xf.visitor.style_variation && \$xf.style.isVariationsEnabled()) ? property_variation('styleType', \$xf.visitor.style_variation) : property('styleType'))}}\"/>",
-				'<hr data-x="{{(($xf.visitor.style_variation && $xf.style.isVariationsEnabled()) ? property_variation(\'styleType\', $xf.visitor.style_variation) : property(\'styleType\'))}}"/>',
+				'<hr data-x="{{(($xf.versionId > 2030000 && $xf.visitor.style_variation && $xf.style.isVariationsEnabled()) ? property_variation(\'styleType\', $xf.visitor.style_variation) : property(\'styleType\'))}}"/>',
 			],
 			[
 				'<xsl:if test="$MEDIAEMBED_THEME=\'dark\'">.</xsl:if>',
-				"<xf:if is=\"((\$xf.visitor.style_variation && \$xf.style.isVariationsEnabled()) ? property_variation('styleType', \$xf.visitor.style_variation) : property('styleType'))=='dark'\">.</xf:if>"
+				"<xf:if is=\"((\$xf.versionId > 2030000 && \$xf.visitor.style_variation && \$xf.style.isVariationsEnabled()) ? property_variation('styleType', \$xf.visitor.style_variation) : property('styleType'))=='dark'\">.</xf:if>"
 			],
 			[
 				'<xsl:if test="$MEDIAEMBED_THEME!=\'dark\'">.</xsl:if>',
-				"<xf:if is=\"((\$xf.visitor.style_variation && \$xf.style.isVariationsEnabled()) ? property_variation('styleType', \$xf.visitor.style_variation) : property('styleType'))!='dark'\">.</xf:if>"
+				"<xf:if is=\"((\$xf.versionId > 2030000 && \$xf.visitor.style_variation && \$xf.style.isVariationsEnabled()) ? property_variation('styleType', \$xf.visitor.style_variation) : property('styleType'))!='dark'\">.</xf:if>"
 			],
 			[
 				'<xsl:if test="$MEDIAEMBED_THEME=\'dark\'">.</xsl:if>',
-				"<xf:if is=\"((\$xf.visitor.style_variation && \$xf.style.isVariationsEnabled()) ? property_variation('styleType', \$xf.visitor.style_variation) : property('styleType'))=='dark'\">.</xf:if>"
+				"<xf:if is=\"((\$xf.versionId > 2030000 && \$xf.visitor.style_variation && \$xf.style.isVariationsEnabled()) ? property_variation('styleType', \$xf.visitor.style_variation) : property('styleType'))=='dark'\">.</xf:if>"
 			],
 			[
 				'<xsl:value-of select="substring-after(@id,\'/\')"/>',
