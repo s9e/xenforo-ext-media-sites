@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd "$(dirname $(dirname $(realpath $0)))"
+
 line="$(grep -o 'title":\s*"[A-Za-z0-9/]*' addon/addon.json)"
 addonId="${line##*\"}"
 addonDir="target/src/addons/$addonId"
