@@ -273,16 +273,18 @@ XML,
 		foreach ($this->sites as $siteId => $siteConfig)
 		{
 			$siteName = htmlspecialchars($siteConfig['name'], ENT_NOQUOTES);
+			foreach (explode("\n", $siteConfig['cookie_third_parties']) as $partyId)
+			{
+				$title = 'cookie_consent.third_party_label_' . $partyId;
+				$xml   = '<phrase title="' . $title . '" version_id="' . $versionId . '" version_string="' . $version . '"><![CDATA[' . $siteName . ']]></phrase>';
 
-			$title = 'cookie_consent.third_party_label_' . $siteConfig['cookie_third_parties'];
-			$xml   = '<phrase title="' . $title . '" version_id="' . $versionId . '" version_string="' . $version . '"><![CDATA[' . $siteName . ']]></phrase>';
+				$phrases[$title] = $xml;
 
-			$phrases[$title] = $xml;
+				$title = 'cookie_consent.third_party_description_' . $partyId;
+				$xml   = '<phrase title="' . $title . '" version_id="' . $versionId . '" version_string="' . $version . '"><![CDATA[These cookies are set by ' . $siteName . ', and may be used for displaying embedded content.]]></phrase>';
 
-			$title = 'cookie_consent.third_party_description_' . $siteConfig['cookie_third_parties'];
-			$xml   = '<phrase title="' . $title . '" version_id="' . $versionId . '" version_string="' . $version . '"><![CDATA[These cookies are set by ' . $siteName . ', and may be used for displaying embedded content.]]></phrase>';
-
-			$phrases[$title] = $xml;
+				$phrases[$title] = $xml;
+			}
 		}
 
 		// Overwrite with existing phrases
