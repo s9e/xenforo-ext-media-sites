@@ -81,7 +81,7 @@ class AddonBuilder
 			$this->addSite($root, $siteId);
 		}
 
-//		$this->patchOptions();
+		$this->patchCookieConsentPhrases();
 		$this->patchParser();
 		$this->patchRenderer();
 
@@ -129,7 +129,7 @@ XML,
 		$site->setAttribute('match_callback_method',      'match');
 		$site->setAttribute('embed_html_callback_class',  $this->nsRoot . '\\Renderer');
 		$site->setAttribute('embed_html_callback_method', 'render');
-		$site->setAttribute('cookie_third_parties',       $siteConfig['cookie_third_parties'] ?? $siteId);
+		$site->setAttribute('cookie_third_parties',       $siteConfig['cookie_third_parties']);
 		$site->setAttribute('supported',                  1);
 		$site->setAttribute('active',                     1);
 		$site->setAttribute('oembed_enabled',             0);
@@ -263,6 +263,47 @@ XML,
 		return self::exportArray($site);
 	}
 
+	protected function generateCookieConsentPhrases(): string
+	{
+		$version   = htmlspecialchars($this->version, ENT_NOQUOTES);
+		$versionId = htmlspecialchars($this->versionId, ENT_NOQUOTES);
+
+		/** @var array XML representation of each phrase, using its title as key */
+		$phrases = [];
+		foreach ($this->sites as $siteId => $siteConfig)
+		{
+			$siteName = htmlspecialchars($siteConfig['name'], ENT_NOQUOTES);
+			foreach (explode("\n", $siteConfig['cookie_third_parties']) as $partyId)
+			{
+				$title = 'cookie_consent.third_party_label_' . $partyId;
+				$xml   = '<phrase title="' . $title . '" version_id="' . $versionId . '" version_string="' . $version . '"><![CDATA[' . $siteName . ']]></phrase>';
+
+				$phrases[$title] = $xml;
+
+				$title = 'cookie_consent.third_party_description_' . $partyId;
+				$xml   = '<phrase title="' . $title . '" version_id="' . $versionId . '" version_string="' . $version . '"><![CDATA[These cookies are set by ' . $siteName . ', and may be used for displaying embedded content.]]></phrase>';
+
+				$phrases[$title] = $xml;
+			}
+		}
+
+		// Overwrite with existing phrases
+		$filepath = $this->dir . '/_data/phrases.xml';
+		preg_match_all(
+			'(<phrase title="([^"]++)".*?</phrase>)s',
+			file_get_contents($filepath),
+			$m
+		);
+		$phrases = array_combine($m[1], $m[0]) + $phrases;
+
+		// Remove the phrases that already exist in XenForo
+		$phrases = array_diff_key($phrases, $this->getDefaultCookieConsentPhrases());
+
+		ksort($phrases);
+
+		return implode("\n  ", $phrases);
+	}
+
 	/**
 	* Generate and return the PHP source for the parser's config
 	*
@@ -330,6 +371,24 @@ XML,
 		}
 
 		return $php;
+	}
+
+	protected function getDefaultCookieConsentPhrases(): array
+	{
+		$phrases  = [];
+		$filepath = $this->dir . '/../target/src/addons/XF/_data/phrases.xml';
+		if (file_exists($filepath))
+		{
+			preg_match_all(
+				'(<phrase title="(cookie_consent.third_party_[^"]++)".*?</phrase>)s',
+				file_get_contents($filepath),
+				$m
+			);
+
+			$phrases = array_combine($m[1], $m[0]);
+		}
+
+		return $phrases;
 	}
 
 	/**
@@ -411,6 +470,11 @@ XML,
 	{
 		foreach ($this->sites as $siteId => &$siteConfig)
 		{
+			if (!isset($siteConfig['cookie_third_parties']))
+			{
+				$siteConfig['cookie_third_parties'] = $siteId;
+			}
+
 			$siteConfig['extract'] = $this->normalizeRegexps($siteConfig['extract']);
 			foreach ($siteConfig['scrape'] as &$scrape)
 			{
@@ -436,6 +500,15 @@ XML,
 				strtolower(strtr($this->version, ' ', '-')),
 				file_get_contents($filepath)
 			)
+		);
+	}
+
+	protected function patchCookieConsentPhrases()
+	{
+		$this->patchFile(
+			'_data/phrases.xml',
+			'(<phrases>\\s*+\\K.*?(?=\\s*</phrases>))s',
+			'generateCookieConsentPhrases'
 		);
 	}
 
