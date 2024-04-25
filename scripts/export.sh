@@ -9,6 +9,5 @@ root="$(realpath $(dirname $(dirname $0)))"
 cmd="php $(realpath $root/target/cmd.php)"
 
 cd "$root"
-$cmd xf-dev:export --addon="$addonId"
-#$cmd xf-addon:export "$addonId" || exit
+$cmd xf-dev:export --addon="$addonId" || exit
 /bin/cp -fr "$addonDir/_data" "addon/"
