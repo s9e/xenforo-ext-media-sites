@@ -4,6 +4,7 @@
   <phrase title="cookie_consent.third_party_description_acast" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Acast, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_amazon" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Amazon Product, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_anchor" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Anchor, and may be used for displaying embedded content.]]></phrase>
+  <phrase title="cookie_consent.third_party_description_applepodcasts" version_id="2150570" version_string="2.15.5"><![CDATA[These cookies are set by Apple Podcasts, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_audioboom" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Audioboom, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_audiomack" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Audiomack, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_audius" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Audius, and may be used for displaying embedded content.]]></phrase>
@@ -13,6 +14,7 @@
   <phrase title="cookie_consent.third_party_description_bleacherreport" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Bleacher Report videos, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_brightcove" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Brightcove, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_bunny" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Bunny Stream, and may be used for displaying embedded content.]]></phrase>
+  <phrase title="cookie_consent.third_party_description_captivate" version_id="2150570" version_string="2.15.5"><![CDATA[These cookies are set by Captivate, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_castos" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Castos, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_cbsnews" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by CBS News Video, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_clyp" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Clyp, and may be used for displaying embedded content.]]></phrase>
@@ -26,6 +28,8 @@
   <phrase title="cookie_consent.third_party_description_dumpert" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by dumpert, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_eighttracks" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by 8tracks, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_espn" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by ESPN, and may be used for displaying embedded content.]]></phrase>
+  <phrase title="cookie_consent.third_party_description_facebook
+meta" version_id="2150570" version_string="2.15.5"><![CDATA[These cookies are set by Facebook, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_falstad" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Falstad Circuit Simulator, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_foxnews" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Fox News, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_funnyordie" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Funny or Die, and may be used for displaying embedded content.]]></phrase>
@@ -36,11 +40,14 @@
   <phrase title="cookie_consent.third_party_description_gist" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by GitHub Gist, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_globalnews" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Global News, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_gofundme" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by GoFundMe, and may be used for displaying embedded content.]]></phrase>
+  <phrase title="cookie_consent.third_party_description_google" version_id="2150570" version_string="2.15.5"><![CDATA[These cookies are set by Google Sheets, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_hudl" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Hudl, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_hulu" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Hulu, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_ign" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by IGN, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_imdb" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by IMDb trailers, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_indiegogo" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Indiegogo, and may be used for displaying embedded content.]]></phrase>
+  <phrase title="cookie_consent.third_party_description_instagram
+meta" version_id="2150570" version_string="2.15.5"><![CDATA[These cookies are set by Instagram, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_internetarchive" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Internet Archive, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_izlesene" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by İzlesene, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_jsfiddle" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by JSFiddle, and may be used for displaying embedded content.]]></phrase>
@@ -68,6 +75,7 @@
   <phrase title="cookie_consent.third_party_description_npr" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by NPR, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_nytimes" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by The New York Times Video, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_odysee" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Odysee, and may be used for displaying embedded content.]]></phrase>
+  <phrase title="cookie_consent.third_party_description_on3" version_id="2150570" version_string="2.15.5"><![CDATA[These cookies are set by On3 DB, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_orfium" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Orfium, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_pastebin" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Pastebin, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_podbean" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Podbean, and may be used for displaying embedded content.]]></phrase>
@@ -112,12 +120,14 @@
   <phrase title="cookie_consent.third_party_description_wsj" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by The Wall Street Journal Online, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_xboxclips" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by GameClips.io, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_xboxdvr" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Gamer DVR, and may be used for displaying embedded content.]]></phrase>
+  <phrase title="cookie_consent.third_party_description_xenforo" version_id="2150570" version_string="2.15.5"><![CDATA[These cookies are set by XenForo, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_youku" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by Youku, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_youmaker" version_id="2100112" version_string="2.10.1"><![CDATA[These cookies are set by YouMaker, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_label_abcnews" version_id="2100112" version_string="2.10.1"><![CDATA[ABC News]]></phrase>
   <phrase title="cookie_consent.third_party_label_acast" version_id="2100112" version_string="2.10.1"><![CDATA[Acast]]></phrase>
   <phrase title="cookie_consent.third_party_label_amazon" version_id="2100112" version_string="2.10.1"><![CDATA[Amazon Product]]></phrase>
   <phrase title="cookie_consent.third_party_label_anchor" version_id="2100112" version_string="2.10.1"><![CDATA[Anchor]]></phrase>
+  <phrase title="cookie_consent.third_party_label_applepodcasts" version_id="2150570" version_string="2.15.5"><![CDATA[Apple Podcasts]]></phrase>
   <phrase title="cookie_consent.third_party_label_audioboom" version_id="2100112" version_string="2.10.1"><![CDATA[Audioboom]]></phrase>
   <phrase title="cookie_consent.third_party_label_audiomack" version_id="2100112" version_string="2.10.1"><![CDATA[Audiomack]]></phrase>
   <phrase title="cookie_consent.third_party_label_audius" version_id="2100112" version_string="2.10.1"><![CDATA[Audius]]></phrase>
@@ -127,6 +137,7 @@
   <phrase title="cookie_consent.third_party_label_bleacherreport" version_id="2100112" version_string="2.10.1"><![CDATA[Bleacher Report videos]]></phrase>
   <phrase title="cookie_consent.third_party_label_brightcove" version_id="2100112" version_string="2.10.1"><![CDATA[Brightcove]]></phrase>
   <phrase title="cookie_consent.third_party_label_bunny" version_id="2100112" version_string="2.10.1"><![CDATA[Bunny Stream]]></phrase>
+  <phrase title="cookie_consent.third_party_label_captivate" version_id="2150570" version_string="2.15.5"><![CDATA[Captivate]]></phrase>
   <phrase title="cookie_consent.third_party_label_castos" version_id="2100112" version_string="2.10.1"><![CDATA[Castos]]></phrase>
   <phrase title="cookie_consent.third_party_label_cbsnews" version_id="2100112" version_string="2.10.1"><![CDATA[CBS News Video]]></phrase>
   <phrase title="cookie_consent.third_party_label_clyp" version_id="2100112" version_string="2.10.1"><![CDATA[Clyp]]></phrase>
@@ -140,6 +151,8 @@
   <phrase title="cookie_consent.third_party_label_dumpert" version_id="2100112" version_string="2.10.1"><![CDATA[dumpert]]></phrase>
   <phrase title="cookie_consent.third_party_label_eighttracks" version_id="2100112" version_string="2.10.1"><![CDATA[8tracks]]></phrase>
   <phrase title="cookie_consent.third_party_label_espn" version_id="2100112" version_string="2.10.1"><![CDATA[ESPN]]></phrase>
+  <phrase title="cookie_consent.third_party_label_facebook
+meta" version_id="2150570" version_string="2.15.5"><![CDATA[Facebook]]></phrase>
   <phrase title="cookie_consent.third_party_label_falstad" version_id="2100112" version_string="2.10.1"><![CDATA[Falstad Circuit Simulator]]></phrase>
   <phrase title="cookie_consent.third_party_label_foxnews" version_id="2100112" version_string="2.10.1"><![CDATA[Fox News]]></phrase>
   <phrase title="cookie_consent.third_party_label_funnyordie" version_id="2100112" version_string="2.10.1"><![CDATA[Funny or Die]]></phrase>
@@ -150,11 +163,14 @@
   <phrase title="cookie_consent.third_party_label_gist" version_id="2100112" version_string="2.10.1"><![CDATA[GitHub Gist]]></phrase>
   <phrase title="cookie_consent.third_party_label_globalnews" version_id="2100112" version_string="2.10.1"><![CDATA[Global News]]></phrase>
   <phrase title="cookie_consent.third_party_label_gofundme" version_id="2100112" version_string="2.10.1"><![CDATA[GoFundMe]]></phrase>
+  <phrase title="cookie_consent.third_party_label_google" version_id="2150570" version_string="2.15.5"><![CDATA[Google Sheets]]></phrase>
   <phrase title="cookie_consent.third_party_label_hudl" version_id="2100112" version_string="2.10.1"><![CDATA[Hudl]]></phrase>
   <phrase title="cookie_consent.third_party_label_hulu" version_id="2100112" version_string="2.10.1"><![CDATA[Hulu]]></phrase>
   <phrase title="cookie_consent.third_party_label_ign" version_id="2100112" version_string="2.10.1"><![CDATA[IGN]]></phrase>
   <phrase title="cookie_consent.third_party_label_imdb" version_id="2100112" version_string="2.10.1"><![CDATA[IMDb trailers]]></phrase>
   <phrase title="cookie_consent.third_party_label_indiegogo" version_id="2100112" version_string="2.10.1"><![CDATA[Indiegogo]]></phrase>
+  <phrase title="cookie_consent.third_party_label_instagram
+meta" version_id="2150570" version_string="2.15.5"><![CDATA[Instagram]]></phrase>
   <phrase title="cookie_consent.third_party_label_internetarchive" version_id="2100112" version_string="2.10.1"><![CDATA[Internet Archive]]></phrase>
   <phrase title="cookie_consent.third_party_label_izlesene" version_id="2100112" version_string="2.10.1"><![CDATA[İzlesene]]></phrase>
   <phrase title="cookie_consent.third_party_label_jsfiddle" version_id="2100112" version_string="2.10.1"><![CDATA[JSFiddle]]></phrase>
@@ -182,6 +198,7 @@
   <phrase title="cookie_consent.third_party_label_npr" version_id="2100112" version_string="2.10.1"><![CDATA[NPR]]></phrase>
   <phrase title="cookie_consent.third_party_label_nytimes" version_id="2100112" version_string="2.10.1"><![CDATA[The New York Times Video]]></phrase>
   <phrase title="cookie_consent.third_party_label_odysee" version_id="2100112" version_string="2.10.1"><![CDATA[Odysee]]></phrase>
+  <phrase title="cookie_consent.third_party_label_on3" version_id="2150570" version_string="2.15.5"><![CDATA[On3 DB]]></phrase>
   <phrase title="cookie_consent.third_party_label_orfium" version_id="2100112" version_string="2.10.1"><![CDATA[Orfium]]></phrase>
   <phrase title="cookie_consent.third_party_label_pastebin" version_id="2100112" version_string="2.10.1"><![CDATA[Pastebin]]></phrase>
   <phrase title="cookie_consent.third_party_label_podbean" version_id="2100112" version_string="2.10.1"><![CDATA[Podbean]]></phrase>
@@ -226,6 +243,7 @@
   <phrase title="cookie_consent.third_party_label_wsj" version_id="2100112" version_string="2.10.1"><![CDATA[The Wall Street Journal Online]]></phrase>
   <phrase title="cookie_consent.third_party_label_xboxclips" version_id="2100112" version_string="2.10.1"><![CDATA[GameClips.io]]></phrase>
   <phrase title="cookie_consent.third_party_label_xboxdvr" version_id="2100112" version_string="2.10.1"><![CDATA[Gamer DVR]]></phrase>
+  <phrase title="cookie_consent.third_party_label_xenforo" version_id="2150570" version_string="2.15.5"><![CDATA[XenForo]]></phrase>
   <phrase title="cookie_consent.third_party_label_youku" version_id="2100112" version_string="2.10.1"><![CDATA[Youku]]></phrase>
   <phrase title="cookie_consent.third_party_label_youmaker" version_id="2100112" version_string="2.10.1"><![CDATA[YouMaker]]></phrase>
   <phrase title="do_not_auto_embed_links_from_this_site" version_id="2050054" version_string="2.5.0 Release Candidate 4"><![CDATA[Do not auto-embed links from this site]]></phrase>
