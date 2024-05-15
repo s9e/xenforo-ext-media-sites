@@ -92,7 +92,7 @@ class XenForoTemplate implements TranspilerInterface
 		// Replace the $MEDIAEMBED_THEME parameter with the XenForo style property
 		$template = str_replace(
 			'$xf.options.s9e_MediaSites_MEDIAEMBED_THEME',
-			"((\$xf.versionId > 2030000 && \$xf.visitor.style_variation && \$xf.style.isVariationsEnabled()) ? property_variation('styleType', \$xf.visitor.style_variation) : property('styleType'))", $template
+			"((\$xf.versionId > 2030000 && \$xf.style.isVariationsEnabled()) ? ((\$xf.visitor.style_variation) ? property_variation('styleType', \$xf.visitor.style_variation) : 'auto') : property('styleType'))", $template
 		);
 
 		return $template;
