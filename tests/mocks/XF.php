@@ -145,7 +145,7 @@ class XF
 			{
 				$php    = $m[1];
 				$php    = str_replace(
-					"((\$xf.versionId > 2030000 && \$xf.visitor.style_variation && \$xf.style.isVariationsEnabled()) ? property_variation('styleType', \$xf.visitor.style_variation) : property('styleType'))",
+					"((\$xf.versionId > 2030000 && \$xf.style.isVariationsEnabled()) ? ((\$xf.visitor.style_variation) ? property_variation('styleType', \$xf.visitor.style_variation) : 'auto') : property('styleType'))",
 					"property('styleType')",
 					$php
 				);
