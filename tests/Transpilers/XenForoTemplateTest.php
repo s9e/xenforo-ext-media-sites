@@ -203,6 +203,10 @@ class XenForoTemplateTest extends AbstractTranspilerTest
 				'<xsl:if test="@type=\'r\'or@type=\'v\'">.</xsl:if>',
 				'<xf:if is="$type==\'r\' or $type==\'v\'">.</xf:if>'
 			],
+			[
+				'<xsl:if test="$FOO=\'light\'or$FOO=\'dark\'">.</xsl:if>',
+				'<xf:if is="$xf.options.s9e_MediaSites_FOO==\'light\' or $xf.options.s9e_MediaSites_FOO==\'dark\'">.</xf:if>'
+			],
 		];
 	}
 }
