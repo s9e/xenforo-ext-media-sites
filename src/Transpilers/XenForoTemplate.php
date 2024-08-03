@@ -238,7 +238,7 @@ class XenForoTemplate implements TranspilerInterface
 			'(^100\\*\\(@height\\+(\\d+)\\)div@width$)D'        => '100*($height+$1)/$width',
 			"(^contains\\(@(\\w+,'[^']+')\\)$)D"                => 'contains($$1)',
 			"(^not\\(contains\\(@(\\w+,'[^']+')\\)\\)$)D"       => '!contains($$1)',
-			"(^@(\\w+) or ?contains\\(@(\\w+,'[^']+')\\)$)D"    => '$$1 or contains($$2)',
+			"(^@(\\w+) or ?contains\\(@(\\w+)(,'[^']+')\\)$)D"  => '$$1 or ($$2 and contains($$2$3))',
 			"(^@(\\w+) and ?contains\\(('[^']+'),@(\\w+)\\)$)D" => '$$1 and contains($2,$$3)',
 			"(^@(\\w+) and@(\\w+)!=('[^']++')$)D"               => '$$1 and $$2!=$3',
 			"(^@(\\w+=)('[^']++')(and|or)@(\\w+=)('[^']++')$)D" => '$$1=$2 $3 $$4=$5',
