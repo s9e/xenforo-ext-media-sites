@@ -22,7 +22,11 @@ class Setup extends AbstractSetup
 
 	public static function getHostRegexp(array $hosts): string
 	{
-		$expr = implode('|', array_map('preg_quote', $hosts)) ?: '(?!)';
+		$expr = implode('|', array_map('preg_quote', $hosts));
+		if ($expr === '')
+		{
+			return '((?!))';
+		}
 		if (count($hosts) > 1)
 		{
 			$expr = '(?:' . $expr . ')';
