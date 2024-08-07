@@ -440,6 +440,11 @@ XML,
 	*/
 	protected function getHostRegexp(array $hosts)
 	{
+		if (empty($hosts))
+		{
+			return '((?!))';
+		}
+
 		return '(^https?://(?:[^./]++\\.)*?' . $this->regexpBuilder->build($hosts) . "/.(?'id'))i";
 	}
 
