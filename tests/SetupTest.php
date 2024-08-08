@@ -74,7 +74,7 @@ class SetupTest extends TestCase
 				['example.com', 'mastodon.social']
 			],
 			[
-				"(^https?://(?:[^./]++\\.)*?(?!)/.(?'id'))i",
+				'((?!))',
 				[]
 			],
 		];
