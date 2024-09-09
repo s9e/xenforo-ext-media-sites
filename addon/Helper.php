@@ -128,7 +128,7 @@ class Helper
 
 		self::$oembedIds = [];
 		$output = preg_replace_callback(
-			'(<(?:span data-(?:template-name="[^"]++" data-)?s9e-mediaembed="[^>]++><span[^>]*+>\\K<iframe|iframe data-(?:template-name="[^"]++" data-)?s9e-mediaembed="[^"]++)[^>]*+></iframe>(?!(?:</span>)*+\\s*+</template>))',
+			'(<(?:span data-(?:template-name="[^"]++" data-)?s9e-mediaembed="[^>]++><span[^>]*+>\\K<iframe|iframe data-(?:template-name="[^"]++" data-)?s9e-mediaembed=")[^>]*+></iframe>(?!(?:</span>)*+\\s*+</template>))',
 			function ($m) use (&$cnt)
 			{
 				++$cnt;
