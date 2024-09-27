@@ -121,6 +121,7 @@ class Parser
 		'mlb'=>[['#mlb\\.com/video/(?:[-\\w/]+/)?(?:c-|v|[-\\w]+-c)(?<id>\\d+)#']],
 		'mrctv'=>[[],[],[['extract'=>['!mrctv\\.org/embed/(?<id>\\d+)!'],'match'=>['!mrctv\\.org/videos/.!']]]],
 		'msnbc'=>[[],[],[['extract'=>['@embedded-video/(?!undefined)(?<id>\\w+)@'],'match'=>['@msnbc\\.com/[-\\w]+/watch/@','@on\\.msnbc\\.com/.@']]]],
+		'nachovideo'=>[['!nachovideo\\.com/(?:embed|video)/(?<id>\\d+)\\b!']],
 		'natgeochannel'=>[['@channel\\.nationalgeographic\\.com/(?<id>[-/\\w]+/videos/[-\\w]+)@']],
 		'natgeovideo'=>[[],[],[['extract'=>['@guid="(?<id>[-\\w]+)"@'],'match'=>['@video\\.nationalgeographic\\.com/(?:tv|video)/\\w@']]]],
 		'nbcnews'=>[['!nbcnews\\.com/(?:widget/video-embed/|video/[-\\w]+?-)(?<id>\\d+)!']],

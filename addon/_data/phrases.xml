@@ -60,6 +60,7 @@
   <phrase title="cookie_consent.third_party_description_mlb" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by MLB, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_mrctv" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by MRCTV, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_msnbc" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by MSNBC, and may be used for displaying embedded content.]]></phrase>
+  <phrase title="cookie_consent.third_party_description_nachovideo" version_id="2160700" version_string="2.16.7-dev"><![CDATA[These cookies are set by Trending Views, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_natgeochannel" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by National Geographic Channel, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_natgeovideo" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by National Geographic Video, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_nbcnews" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by NBC News, and may be used for displaying embedded content.]]></phrase>
@@ -173,6 +174,7 @@
   <phrase title="cookie_consent.third_party_label_mlb" version_id="2150600" version_string="2.15.6"><![CDATA[MLB]]></phrase>
   <phrase title="cookie_consent.third_party_label_mrctv" version_id="2150600" version_string="2.15.6"><![CDATA[MRCTV]]></phrase>
   <phrase title="cookie_consent.third_party_label_msnbc" version_id="2150600" version_string="2.15.6"><![CDATA[MSNBC]]></phrase>
+  <phrase title="cookie_consent.third_party_label_nachovideo" version_id="2160700" version_string="2.16.7-dev"><![CDATA[Trending Views]]></phrase>
   <phrase title="cookie_consent.third_party_label_natgeochannel" version_id="2150600" version_string="2.15.6"><![CDATA[National Geographic Channel]]></phrase>
   <phrase title="cookie_consent.third_party_label_natgeovideo" version_id="2150600" version_string="2.15.6"><![CDATA[National Geographic Video]]></phrase>
   <phrase title="cookie_consent.third_party_label_nbcnews" version_id="2150600" version_string="2.15.6"><![CDATA[NBC News]]></phrase>

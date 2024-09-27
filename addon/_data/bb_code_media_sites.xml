@@ -276,6 +276,10 @@
     <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?msnbc\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="msnbc"><span style="{{ contains($id,'_') ? 'padding-bottom:68.75%;padding-bottom:calc(56.25% + 80px)' : '' }}"><iframe allowfullscreen="" scrolling="no" src="{{ contains($id,'_') ? '//player.theplatform.com/p/7wvmTC/MSNBCEmbeddedOffSite?guid=' : 'https://www.msnbc.com/msnbc/embedded-video/' }}{$id}"></iframe></span></span>]]></embed_html>
   </site>
+  <site media_site_id="nachovideo" site_title="Nacho Video" site_url="https://nachovideo.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="nachovideo" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?nachovideo\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="nachovideo"><span><iframe allowfullscreen="" scrolling="no" src="https://nachovideo.com/embed/{$id}"></iframe></span></span>]]></embed_html>
+  </site>
   <site media_site_id="natgeochannel" site_title="National Geographic Channel" site_url="https://channel.nationalgeographic.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="natgeochannel" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?channel\.nationalgeographic\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="natgeochannel"><span><iframe allowfullscreen="" scrolling="no" src="//channel.nationalgeographic.com/{$id}/embed/"></iframe></span></span>]]></embed_html>
