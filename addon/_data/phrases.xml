@@ -10,6 +10,7 @@
   <phrase title="cookie_consent.third_party_description_bandcamp" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by Bandcamp, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_bbcnews" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by BBC News, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_bitchute" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by BitChute, and may be used for displaying embedded content.]]></phrase>
+  <phrase title="cookie_consent.third_party_description_bluesky" version_id="2160870" version_string="2.16.8"><![CDATA[These cookies are set by Bluesky, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_brightcove" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by Brightcove, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_bunny" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by Bunny Stream, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_captivate" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by Captivate, and may be used for displaying embedded content.]]></phrase>
@@ -124,6 +125,7 @@
   <phrase title="cookie_consent.third_party_label_bandcamp" version_id="2150600" version_string="2.15.6"><![CDATA[Bandcamp]]></phrase>
   <phrase title="cookie_consent.third_party_label_bbcnews" version_id="2150600" version_string="2.15.6"><![CDATA[BBC News]]></phrase>
   <phrase title="cookie_consent.third_party_label_bitchute" version_id="2150600" version_string="2.15.6"><![CDATA[BitChute]]></phrase>
+  <phrase title="cookie_consent.third_party_label_bluesky" version_id="2160870" version_string="2.16.8"><![CDATA[Bluesky]]></phrase>
   <phrase title="cookie_consent.third_party_label_brightcove" version_id="2150600" version_string="2.15.6"><![CDATA[Brightcove]]></phrase>
   <phrase title="cookie_consent.third_party_label_bunny" version_id="2150600" version_string="2.15.6"><![CDATA[Bunny Stream]]></phrase>
   <phrase title="cookie_consent.third_party_label_captivate" version_id="2150600" version_string="2.15.6"><![CDATA[Captivate]]></phrase>

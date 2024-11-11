@@ -44,6 +44,10 @@
     <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?bitchute\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="bitchute"><span><iframe allowfullscreen="" scrolling="no" src="https://www.bitchute.com/embed/{$id}/"></iframe></span></span>]]></embed_html>
   </site>
+  <site media_site_id="bluesky" site_title="Bluesky" site_url="https://bsky.app/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="bluesky" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?bsky\.app/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<iframe data-s9e-mediaembed="bluesky" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+'px';this.contentWindow.postMessage('s9e:init','*',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/bluesky.min.html#{$url}#{$embedder}" style="height:600px;width:600px" data-s9e-mediaembed-api="2"></iframe>]]></embed_html>
+  </site>
   <site media_site_id="brightcove" site_title="Brightcove" site_url="https://www.brightcove.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="brightcove" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?(?:link\.brightcove\.com|players\.brightcove\.net)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="brightcove"><span><iframe allowfullscreen="" scrolling="no" src="https://{{ $bckey ? 'link.brightcove.com/services/player/bcpid' . $bcpid . '?bckey=' . $bckey . '&amp;bctid=' . $bctid . '&amp;secureConnections=true&amp;secureHTMLConnections=true&amp;autoStart=false&amp;height=360&amp;width=640' : ('players.brightcove.net/' . $bcpid . '/default_default/index.html?videoId=' . $bctid) }}"></iframe></span></span>]]></embed_html>

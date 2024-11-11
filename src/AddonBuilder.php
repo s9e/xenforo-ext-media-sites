@@ -543,6 +543,19 @@ XML,
 		);
 	}
 
+	protected function patchSiteBluesky(array $siteConfig): array
+	{
+		$callback = 's9e\\MediaSites\\Helper::filterBlueskyEmbedder';
+		$this->configurator->MediaEmbed->allowedFilters[] = $callback;
+		$siteConfig['attributes']['embedder']['filterChain'] = [$callback];
+
+		$callback = 's9e\\MediaSites\\Helper::filterBlueskyUrl';
+		$this->configurator->MediaEmbed->allowedFilters[] = $callback;
+		$siteConfig['attributes']['url']['filterChain'][1] = $callback;
+
+		return $siteConfig;
+	}
+
 	protected function patchSiteGoogledrive(array $siteConfig): array
 	{
 		$siteConfig['cookie_third_parties'] = 'google';

@@ -51,6 +51,16 @@ class Helper
 		return in_array($attrValue, $hosts, true) ? $attrValue : false;
 	}
 
+	public static function filterBlueskyEmbedder($attrValue)
+	{
+		return (preg_match('/^(?:[-\\w]*\\.)*bsky\\.app$/', $attrValue)) ? $attrValue : false;
+	}
+
+	public static function filterBlueskyUrl($attrValue)
+	{
+		return (preg_match('/^at:\\/\\/[.:\\w]+\\/[.\\w]+\\/\\w+$/', $attrValue)) ? $attrValue : false;
+	}
+
 	/**
 	* Filter a timestamp value
 	*

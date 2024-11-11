@@ -54,6 +54,7 @@ class Renderer
 	* @var array
 	*/
 	protected static $filters = [
+		'bluesky'=>['embedder'=>['s9e\\MediaSites\\Helper::filterBlueskyEmbedder'],'url'=>['s9e\\MediaSites\\Helper::filterBlueskyUrl']],
 		'getty'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
 		'gifs'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
 		'giphy'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
