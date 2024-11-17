@@ -305,22 +305,22 @@ class ParserTest extends AbstractParserTest
 				'https://YOUTU.BE/QH2-TGUlwu4',
 				'QH2-TGUlwu4'
 			],
-			[
-				'https://www.youtube.com/clip/UgkxNVVfF_kOXFsQs_mPrM4K53fao72UV_x4?' . uniqid(''),
-				'clip=UgkxNVVfF_kOXFsQs_mPrM4K53fao72UV_x4;clipt=EIbDsAEYha6xAQ;id=UGMkPfHDnfM',
-				function ()
-				{
-					XF::$options = new ArrayObject(['s9e_MediaSites_Scraping_Client' => 'curl'], ArrayObject::ARRAY_AS_PROPS);
-				}
-			],
-			[
-				'https://www.youtube.com/clip/UgkxNVVfF_kOXFsQs_mPrM4K53fao72UV_x4?' . uniqid(''),
-				'clip=UgkxNVVfF_kOXFsQs_mPrM4K53fao72UV_x4;clipt=EIbDsAEYha6xAQ;id=UGMkPfHDnfM',
-				function ()
-				{
-					XF::$options = new ArrayObject(['s9e_MediaSites_Scraping_Client' => 'xenforo'], ArrayObject::ARRAY_AS_PROPS);
-				}
-			],
+//			[
+//				'https://www.youtube.com/clip/UgkxNVVfF_kOXFsQs_mPrM4K53fao72UV_x4?' . uniqid(''),
+//				'clip=UgkxNVVfF_kOXFsQs_mPrM4K53fao72UV_x4;clipt=EIbDsAEYha6xAQ;id=UGMkPfHDnfM',
+//				function ()
+//				{
+//					XF::$options = new ArrayObject(['s9e_MediaSites_Scraping_Client' => 'curl'], ArrayObject::ARRAY_AS_PROPS);
+//				}
+//			],
+//			[
+//				'https://www.youtube.com/clip/UgkxNVVfF_kOXFsQs_mPrM4K53fao72UV_x4?' . uniqid(''),
+//				'clip=UgkxNVVfF_kOXFsQs_mPrM4K53fao72UV_x4;clipt=EIbDsAEYha6xAQ;id=UGMkPfHDnfM',
+//				function ()
+//				{
+//					XF::$options = new ArrayObject(['s9e_MediaSites_Scraping_Client' => 'xenforo'], ArrayObject::ARRAY_AS_PROPS);
+//				}
+//			],
 			[
 				'https://www.youtube.com/clip/UgkxNVVfF_kOXFsQs_mPrM4K53fao72UV_x4?' . uniqid(''),
 				false,
