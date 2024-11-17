@@ -49,6 +49,18 @@ class ParserTest extends AbstractParserTest
 				false
 			],
 			[
+				'https://bsky.app/profile/bsky.app/post/3kkrqzuydho2v',
+				false
+			],
+			[
+				'https://bsky.app/profile/bsky.app/post/3kkrqzuydho2v',
+				'embedder=embed.bsky.app;url=at%3A%2F%2Fdid%3Aplc%3Az72i7hdynmk6r22z27h6tvur%2Fapp.bsky.feed.post%2F3kkrqzuydho2v',
+				function ()
+				{
+					XF::$options = new ArrayObject(['s9e_MediaSites_BlueskyHosts' => 'bsky.app'], ArrayObject::ARRAY_AS_PROPS);
+				}
+			],
+			[
 				'http://us.cnn.com/video/data/2.0/video/bestoftv/2013/10/23/vo-nr-prince-george-christening-arrival.cnn.html',
 				'bestoftv/2013/10/23/vo-nr-prince-george-christening-arrival.cnn'
 			],

@@ -41,6 +41,36 @@ class RendererTest extends AbstractRendererTest
 				['s9e_MediaSites_AMAZON_ASSOCIATE_TAG' => 'foo-20']
 			],
 			[
+				'bluesky',
+				'url=at%3A%2F%2Fdid%3Aplc%3Az72i7hdynmk6r22z27h6tvur%2Fapp.bsky.feed.post%2F3kkrqzuydho2v',
+				'No Bluesky embedder',
+				['s9e_MediaSites_BlueskyHosts' => 'bsky.app']
+			],
+			[
+				'bluesky',
+				'embedder=embed.bsky.app',
+				'No Bluesky URL',
+				['s9e_MediaSites_BlueskyHosts' => 'bsky.app']
+			],
+			[
+				'bluesky',
+				'embedder=embed.bsky.app;url=xxx',
+				'Invalid Bluesky URL',
+				['s9e_MediaSites_BlueskyHosts' => 'bsky.app']
+			],
+			[
+				'bluesky',
+				'embedder=embed.bsky.app;url=at%3A%2F%2Fdid%3Aplc%3Az72i7hdynmk6r22z27h6tvur%2Fapp.bsky.feed.post%2F3kkrqzuydho2v',
+				'Unauthorized Bluesky embedder',
+				['s9e_MediaSites_BlueskyHosts' => '']
+			],
+			[
+				'bluesky',
+				'embedder=embed.bsky.app;url=at%3A%2F%2Fdid%3Aplc%3Az72i7hdynmk6r22z27h6tvur%2Fapp.bsky.feed.post%2F3kkrqzuydho2v',
+				'<iframe data-s9e-mediaembed="bluesky" allowfullscreen="" onload="let c=new MessageChannel;c.port1.onmessage=e=&gt;this.style.height=e.data+\'px\';this.contentWindow.postMessage(\'s9e:init\',\'*\',[c.port2])" scrolling="no" src="https://s9e.github.io/iframe/2/bluesky.min.html#at://did:plc:z72i7hdynmk6r22z27h6tvur/app.bsky.feed.post/3kkrqzuydho2v#embed.bsky.app" style="height:600px;width:600px" data-s9e-mediaembed-api="2"></iframe>',
+				['s9e_MediaSites_BlueskyHosts' => 'bsky.app']
+			],
+			[
 				'dailymotion',
 				'x5e9eog',
 				'<span data-s9e-mediaembed="dailymotion"><span><iframe allowfullscreen="" scrolling="no" src="//www.dailymotion.com/embed/video/x5e9eog"></iframe></span></span>'

@@ -284,7 +284,7 @@ $0]]></replace>
 }
 $0]]></replace>
   </modification>
-  <modification type="public" template="editor_dialog_media" modification_key="s9e_MediaSites_FindInPage" description="Modifies the Insert Media dialog to allow searching for embeddable media in given page" execution_order="10" enabled="0" action="preg_replace">
+  <modification type="public" template="editor_dialog_media" modification_key="s9e_MediaSites_FindInPage" description="Modifies the Insert Media dialog to allow searching for embeddable media in given page" execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[((\t*)<xf:textboxrow id="editor_media_url"[^>]*?/>)]]></find>
     <replace><![CDATA[$0
 

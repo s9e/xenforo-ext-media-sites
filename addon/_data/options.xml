@@ -36,6 +36,11 @@
     <default_value></default_value>
     <relation group_id="s9e_MediaSites" display_order="1008"/>
   </option>
+  <option option_id="s9e_MediaSites_BlueskyHosts" edit_format="textbox" data_type="string" validation_class="s9e\MediaSites\Setup" validation_method="validateBlueskyHosts" advanced="0">
+    <default_value>bsky.app</default_value>
+    <edit_format_params>rows=3</edit_format_params>
+    <relation group_id="s9e_MediaSites" display_order="100"/>
+  </option>
   <option option_id="s9e_MediaSites_ClickToLoad" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateClickToLoad" advanced="0">
     <default_value>0</default_value>
     <relation group_id="s9e_MediaSites" display_order="507"/>
@@ -68,7 +73,7 @@ url={{ phrase('option.s9e_MediaSites_Markup_Url') }}</edit_format_params>
   <option option_id="s9e_MediaSites_MastodonHosts" edit_format="textbox" data_type="string" validation_class="s9e\MediaSites\Setup" validation_method="validateMastodonHosts" advanced="0">
     <default_value>mastodon.social</default_value>
     <edit_format_params>rows=3</edit_format_params>
-    <relation group_id="s9e_MediaSites" display_order="100"/>
+    <relation group_id="s9e_MediaSites" display_order="101"/>
   </option>
   <option option_id="s9e_MediaSites_Miniplayer" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification" advanced="0">
     <default_value>1</default_value>
@@ -103,7 +108,7 @@ enabled</sub_options>
   <option option_id="s9e_MediaSites_XenForoHosts" edit_format="textbox" data_type="string" validation_class="s9e\MediaSites\Setup" validation_method="validateXenForoHosts" advanced="0">
     <default_value></default_value>
     <edit_format_params>rows=3</edit_format_params>
-    <relation group_id="s9e_MediaSites" display_order="101"/>
+    <relation group_id="s9e_MediaSites" display_order="102"/>
   </option>
   <option option_id="s9e_MediaSites_YouTube_Privacy" edit_format="onoff" data_type="boolean" validation_class="s9e\MediaSites\Setup" validation_method="validateTemplateModification" advanced="0">
     <default_value>0</default_value>

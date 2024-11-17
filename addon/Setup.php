@@ -106,17 +106,6 @@ class Setup extends AbstractSetup
 		);
 	}
 
-	public static function validateClickToLoad($newValue, Option $option)
-	{
-		$modifications = [
-			's9e_MediaSites_ClickToLoad_CSS',
-			's9e_MediaSites_YouTube_ClickToLoad'
-		];
-		self::setTemplateModifications($option, $modifications, (bool) $newValue);
-
-		return true;
-	}
-
 	public static function validateBBCodeSuffix(array &$values, Option $option): bool
 	{
 		if (empty($values['bbcode']))
@@ -131,6 +120,24 @@ class Setup extends AbstractSetup
 		}
 
 		return true;
+	}
+
+	public static function validateClickToLoad($newValue, Option $option)
+	{
+		$modifications = [
+			's9e_MediaSites_ClickToLoad_CSS',
+			's9e_MediaSites_YouTube_ClickToLoad'
+		];
+		self::setTemplateModifications($option, $modifications, (bool) $newValue);
+
+		return true;
+	}
+
+	public static function validateBlueskyHosts(&$newValue, Option $option)
+	{
+		$newValue = self::normalizeHostInput($newValue);
+
+		return self::updateFederatedHosts('bluesky', $newValue, $option);
 	}
 
 	public static function validateClickToLoadOembed($newValue, Option $option)

@@ -10,6 +10,7 @@
   <phrase title="cookie_consent.third_party_description_bandcamp" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by Bandcamp, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_bbcnews" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by BBC News, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_bitchute" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by BitChute, and may be used for displaying embedded content.]]></phrase>
+  <phrase title="cookie_consent.third_party_description_bluesky" version_id="2160870" version_string="2.16.8"><![CDATA[These cookies are set by Bluesky, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_brightcove" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by Brightcove, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_bunny" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by Bunny Stream, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_captivate" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by Captivate, and may be used for displaying embedded content.]]></phrase>
@@ -124,6 +125,7 @@
   <phrase title="cookie_consent.third_party_label_bandcamp" version_id="2150600" version_string="2.15.6"><![CDATA[Bandcamp]]></phrase>
   <phrase title="cookie_consent.third_party_label_bbcnews" version_id="2150600" version_string="2.15.6"><![CDATA[BBC News]]></phrase>
   <phrase title="cookie_consent.third_party_label_bitchute" version_id="2150600" version_string="2.15.6"><![CDATA[BitChute]]></phrase>
+  <phrase title="cookie_consent.third_party_label_bluesky" version_id="2160870" version_string="2.16.8"><![CDATA[Bluesky]]></phrase>
   <phrase title="cookie_consent.third_party_label_brightcove" version_id="2150600" version_string="2.15.6"><![CDATA[Brightcove]]></phrase>
   <phrase title="cookie_consent.third_party_label_bunny" version_id="2150600" version_string="2.15.6"><![CDATA[Bunny Stream]]></phrase>
   <phrase title="cookie_consent.third_party_label_captivate" version_id="2150600" version_string="2.15.6"><![CDATA[Captivate]]></phrase>
@@ -239,6 +241,7 @@
   <phrase title="option.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IT" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Amazon Associate tag (.it)]]></phrase>
   <phrase title="option.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_JP" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Amazon Associate tag (.co.jp)]]></phrase>
   <phrase title="option.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_UK" version_id="20130" version_string="0.2.1 Beta"><![CDATA[Amazon Associate tag (.co.uk)]]></phrase>
+  <phrase title="option.s9e_MediaSites_BlueskyHosts" version_id="2170000" version_string="2.17.0-dev"><![CDATA[Bluesky hosts]]></phrase>
   <phrase title="option.s9e_MediaSites_ClickToLoad" version_id="2060050" version_string="2.6.0 Release Candidate"><![CDATA[Replace embedded video players with a lightweight placeholder where available]]></phrase>
   <phrase title="option.s9e_MediaSites_ClickToLoad_Oembed" version_id="2060070" version_string="2.6.0"><![CDATA[Add a title to the click-to-load placeholders where available]]></phrase>
   <phrase title="option.s9e_MediaSites_FindInPage" version_id="2090470" version_string="2.9.4"><![CDATA[Allow users to search for embeddable content in remote pages]]></phrase>
@@ -270,6 +273,7 @@
   <phrase title="option_explain.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_IT" version_id="20130" version_string="0.2.1 Beta"><![CDATA[]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_JP" version_id="20130" version_string="0.2.1 Beta"><![CDATA[]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_AMAZON_ASSOCIATE_TAG_UK" version_id="20130" version_string="0.2.1 Beta"><![CDATA[]]></phrase>
+  <phrase title="option_explain.s9e_MediaSites_BlueskyHosts" version_id="2170000" version_string="2.17.0-dev"><![CDATA[List of domains allowed when embedding content from Bluesky. Each domain must be on a separate line.]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_ClickToLoad" version_id="2050270" version_string="2.5.2"><![CDATA[This will replace YouTube's normal player with a textless thumbnail. Clicking on it will load the embedded player.]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_ClickToLoad_Oembed" version_id="2060070" version_string="2.6.0"><![CDATA[This will add the video's title, retrieved via oEmbed, to the lightweight placeholders.]]></phrase>
   <phrase title="option_explain.s9e_MediaSites_FindInPage" version_id="2090470" version_string="2.9.4"><![CDATA[When a URL cannot be embedded directly by the "Insert Media" dialog, the user can request that the add-on inspects the remote page to find a supported URL. This means any user allowed to use the "Insert Media" dialog can cause your server to access any remote page, which may be undesirable.]]></phrase>

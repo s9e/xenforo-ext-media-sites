@@ -26,6 +26,16 @@ class Helper
 		$structure->columns['s9e_disable_auto_embed'] = ['type' => Entity::BOOL, 'default' => false];
 	}
 
+	public static function filterBlueskyEmbedder($attrValue)
+	{
+		return self::filterFederatedHost($attrValue, XF::options()->s9e_MediaSites_BlueskyHosts ?? '');
+	}
+
+	public static function filterBlueskyUrl($attrValue)
+	{
+		return (preg_match('/^at:\\/\\/[.:\\w]+\\/[.\\w]+\\/\\w+$/', $attrValue)) ? $attrValue : false;
+	}
+
 	/**
 	* Filter an identifier value
 	*
@@ -45,10 +55,7 @@ class Helper
 	*/
 	public static function filterMastodonHost($attrValue)
 	{
-		$hosts     = explode("\n", XF::options()->s9e_MediaSites_MastodonHosts ?? 'mastodon.social');
-		$attrValue = strtolower($attrValue);
-
-		return in_array($attrValue, $hosts, true) ? $attrValue : false;
+		return self::filterFederatedHost($attrValue, XF::options()->s9e_MediaSites_MastodonHosts ?? 'mastodon.social');
 	}
 
 	/**
@@ -102,10 +109,7 @@ class Helper
 
 	public static function filterXenForoHost($attrValue)
 	{
-		$hosts     = explode("\n", XF::options()->s9e_MediaSites_XenForoHosts ?? '');
-		$attrValue = strtolower($attrValue);
-
-		return in_array($attrValue, $hosts, true) ? $attrValue : false;
+		return self::filterFederatedHost($attrValue, XF::options()->s9e_MediaSites_XenForoHosts ?? '');
 	}
 
 	/**
@@ -224,6 +228,24 @@ class Helper
 		{
 			self::$oembedTitles[$siteId][$mediaId] = $oembed->title ?? '';
 		}
+	}
+
+	protected static function filterFederatedHost(string $attrValue, string $hosts)
+	{
+		$hosts     = explode("\n", $hosts);
+		$attrValue = strtolower($attrValue);
+		$host      = $attrValue;
+		while ($host !== '')
+		{
+			if (in_array($host, $hosts, true))
+			{
+				return $attrValue;
+			}
+
+			$host = preg_replace('(^[^\\.]*+\\.*+)', '', $host);
+		}
+
+		return false;
 	}
 
 	protected static function replaceIframe(string $original): string

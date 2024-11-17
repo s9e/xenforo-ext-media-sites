@@ -54,6 +54,7 @@ class Renderer
 	* @var array
 	*/
 	protected static $filters = [
+		'bluesky'=>['embedder'=>['s9e\\MediaSites\\Helper::filterBlueskyEmbedder'],'url'=>['s9e\\MediaSites\\Helper::filterBlueskyUrl']],
 		'getty'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
 		'gifs'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
 		'giphy'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
@@ -98,6 +99,29 @@ class Renderer
 		}
 
 		return $html;
+	}
+
+	protected static function adjustVarsBluesky(array $vars): array
+	{
+		unset($vars['error']);
+		if (!isset($vars['embedder']))
+		{
+			$vars['error'] = 'No Bluesky embedder';
+		}
+		elseif (!isset($vars['url']))
+		{
+			$vars['error'] = 'No Bluesky URL';
+		}
+		elseif (Helper::filterBlueskyEmbedder($vars['embedder']) === false)
+		{
+			$vars['error'] = 'Unauthorized Bluesky embedder';
+		}
+		elseif (Helper::filterBlueskyUrl($vars['url']) === false)
+		{
+			$vars['error'] = 'Invalid Bluesky URL';
+		}
+
+		return $vars;
 	}
 
 	/**

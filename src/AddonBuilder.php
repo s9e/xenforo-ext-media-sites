@@ -150,7 +150,11 @@ XML,
 
 		$template   = (string) $this->tags[$siteId]->template;
 		$xfTemplate = '';
-		if ($siteId === 'mastodon')
+		if ($siteId === 'bluesky')
+		{
+			$template = '<xsl:choose><xsl:when test="@error"><xsl:value-of select="@error"/></xsl:when><xsl:otherwise>' . $template . '</xsl:otherwise></xsl:choose>';
+		}
+		elseif ($siteId === 'mastodon')
 		{
 			$template = '<xsl:choose><xsl:when test="@invalid">@<xsl:value-of select="@name"/>@<xsl:value-of select="@invalid"/>/<xsl:value-of select="@id"/></xsl:when><xsl:otherwise>' . $template . '</xsl:otherwise></xsl:choose>';
 		}
@@ -541,6 +545,19 @@ XML,
 				file_get_contents($filepath)
 			)
 		);
+	}
+
+	protected function patchSiteBluesky(array $siteConfig): array
+	{
+		$callback = 's9e\\MediaSites\\Helper::filterBlueskyEmbedder';
+		$this->configurator->MediaEmbed->allowedFilters[] = $callback;
+		$siteConfig['attributes']['embedder']['filterChain'] = [$callback];
+
+		$callback = 's9e\\MediaSites\\Helper::filterBlueskyUrl';
+		$this->configurator->MediaEmbed->allowedFilters[] = $callback;
+		$siteConfig['attributes']['url']['filterChain'][1] = $callback;
+
+		return $siteConfig;
 	}
 
 	protected function patchSiteGoogledrive(array $siteConfig): array
