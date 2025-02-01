@@ -173,7 +173,7 @@ class Parser
 		'videodetective'=>[['!videodetective\\.com/\\w+/[-\\w]+/(?:trailer/P0*)?(?<id>\\d+)!']],
 		'vimeo'=>[['!vimeo\\.com/(?:channels/[^/]+/|video/)?(?<id>\\d+)(?:/(?<h>\\w+))?\\b!','!#t=(?<t>[\\dhms]+)!'],[],[],['t'=>['s9e\\MediaSites\\Helper::filterTimestamp']]],
 		'vine'=>[['!vine\\.co/v/(?<id>[^/]+)!']],
-		'vk'=>[['!vk(?:\\.com|(?:ontakte|video)\\.ru)/(?:[\\w.]+\\?z=)?video(?<oid>-?\\d+)_(?<vid>\\d+).*?hash=(?<hash>[0-9a-f]+)!','!vk(?:\\.com|(?:ontakte|video)\\.ru)/video_ext\\.php\\?oid=(?<oid>-?\\d+)&id=(?<vid>\\d+)&hash=(?<hash>[0-9a-f]+)!'],[],[['extract'=>['#meta property="og:video" content=".*?oid=(?<oid>-?\\d+).*?id=(?<vid>\\d+).*?hash=(?<hash>[0-9a-f]+)#'],'header'=>['User-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36','Cookie: _ignoreAutoLogin=1'],'match'=>['#^(?!.*?hash=)#']]]],
+		'vk'=>[['!vk(?:\\.com|(?:ontakte|video)\\.ru)/(?:[\\w.]+\\?z=)?video(?<oid>-?\\d+)_(?<vid>\\d+).*?hash=(?<hash>[0-9a-f]+)!','!vk(?:\\.com|(?:ontakte|video)\\.ru)/video_ext\\.php\\?oid=(?<oid>-?\\d+)&id=(?<vid>\\d+)(?:&hash=(?<hash>[0-9a-f]+))?!'],[],[['extract'=>['#meta property="og:video" content=".*?oid=(?<oid>-?\\d+).*?id=(?<vid>\\d+).*?hash=(?<hash>[0-9a-f]+)#'],'header'=>['User-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36','Cookie: _ignoreAutoLogin=1'],'match'=>['#^(?!.*?hash=)#']]]],
 		'vocaroo'=>[['!voca(?:\\.ro|roo\\.com)/(?:i/)?(?<id>\\w+)!']],
 		'vox'=>[['!vox.com/.*#ooid=(?<id>[-\\w]+)!']],
 		'washingtonpost'=>[['#washingtonpost\\.com/video/c/\\w+/(?<id>[-0-9a-f]+)#','#washingtonpost\\.com/video/[-/\\w]+/(?<id>[-0-9a-f]+)_video\\.html#']],
