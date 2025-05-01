@@ -130,6 +130,7 @@ class Parser
 		'npr'=>[[],[],[['extract'=>['!player/embed/(?<i>\\d+)/(?<m>\\d+)!'],'header'=>'Cookie: trackingChoice=false; choiceVersion=1','match'=>['!npr\\.org/[/\\w]+/\\d+!','!n\\.pr/\\w!']]]],
 		'nytimes'=>[['!nytimes\\.com/video/[a-z]+/(?:[a-z]+/)?(?<id>\\d+)!','!nytimes\\.com/video/\\d+/\\d+/\\d+/[a-z]+/(?<id>\\d+)!'],[],[['extract'=>['!/video/movies/(?<id>\\d+)!'],'match'=>["!nytimes\\.com/movie(?:s/movie)?/(?'playlist'\\d+)/[-\\w]+/trailers!"],'url'=>'http://www.nytimes.com/svc/video/api/playlist/{@playlist}?externalId=true']]],
 		'odysee'=>[['#odysee\\.com/(?:\\$/\\w+/)?(?<name>[^:/]+)[:/](?<id>\\w{40})#','#odysee\\.com/(?<path>@[^:/]+:\\w/[^:/]+:\\w)#'],[],[['extract'=>['#"contentUrl".*api/\\w+/streams/\\w+/(?<name>[^/]+)/(?<id>\\w{40})#'],'match'=>['#odysee\\.com/@[^/:]+:\\w+/.#']]],['name'=>['s9e\\MediaSites\\Helper::filterUrl'],'path'=>['s9e\\MediaSites\\Helper::filterUrl']]],
+		'omny'=>[['!omny\\.fm/shows/(?<program_slug>[-\\w]+)/(?<clip_slug>[-\\w]+)!']],
 		'on3'=>[['!/db/(?:[-\\w]*-)?(?<id>[0-9]+)/industry-comparison/!']],
 		'orfium'=>[['@album/(?<album_id>\\d+)@','@playlist/(?<playlist_id>\\d+)@','@live-set/(?<set_id>\\d+)@','@track/(?<track_id>\\d+)@']],
 		'pastebin'=>[['@pastebin\\.com/(?!u/)(?:\\w+(?:\\.php\\?i=|/))?(?<id>\\w+)@']],
