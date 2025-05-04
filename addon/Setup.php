@@ -82,7 +82,7 @@ class Setup extends AbstractSetup
 	{
 		$this->schemaManager()->alterTable(
 			'xf_bb_code_media_site',
-			function (Alter $table)
+			function (Alter $table): void
 			{
 				$table->dropColumns('s9e_disable_auto_embed');
 			}
@@ -94,7 +94,7 @@ class Setup extends AbstractSetup
 	{
 		$this->schemaManager()->alterTable(
 			'xf_bb_code_media_site',
-			function (Alter $table)
+			function (Alter $table): void
 			{
 				if ($table->getColumnDefinition('s9e_disable_auto_embed'))
 				{
