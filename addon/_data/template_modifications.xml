@@ -141,8 +141,17 @@ span[data-s9e-mediaembed] > span > [data-s9e-mediaembed-iframe]
 $0]]></replace>
   </modification>
   <modification type="public" template="core_bbcode.less" modification_key="s9e_MediaSites_Full_Width_Embeds" description="Enables full-width embeds by default" execution_order="20" enabled="0" action="preg_replace">
-    <find><![CDATA[(width:\s*\K640px)]]></find>
-    <replace><![CDATA[100%]]></replace>
+    <find><![CDATA[(^)]]></find>
+    <replace><![CDATA[[data-s9e-mediaembed]:not([style])
+{
+	width: 100%;
+}
+.fancybox__content [data-s9e-mediaembed]:not([style])
+{
+	width: 90vw;
+}
+
+$0]]></replace>
   </modification>
   <modification type="public" template="core_bbcode.less" modification_key="s9e_MediaSites_Miniplayer" description="Adds a miniplayer button to some video players" execution_order="10" enabled="1" action="preg_replace">
     <find><![CDATA[(^)]]></find>
