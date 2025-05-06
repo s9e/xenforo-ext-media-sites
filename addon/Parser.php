@@ -579,12 +579,17 @@ class Parser
 				{
 					$clientType = function_exists('curl_exec') ? 'curl' : 'xenforo';
 				}
-				self::$cache[$key] = match ($clientType)
-				{
-					'curl'    => self::wgetCurl($url, $headers),
-					'xenforo' => self::wgetGuzzle($url, $headers),
-					default   => ''
-				};
+				switch ($clientType) {
+                    case 'curl':
+                        self::$cache[$key] = self::wgetCurl($url, $headers);
+                        break;
+                    case 'xenforo':
+                        self::$cache[$key] = self::wgetGuzzle($url, $headers);
+                        break;
+                    default:
+                        self::$cache[$key] = '';
+                        break;
+                }
 
 				if (self::$cache[$key] !== '')
 				{

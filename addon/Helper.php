@@ -258,7 +258,7 @@ class Helper
 		{
 			unset($attributes['onload']);
 		}
-		elseif (str_starts_with($attributes['src'] ?? '', 'https://embed.on3.com/'))
+		elseif (strncmp($attributes['src'] ?? '', 'https://embed.on3.com/', strlen('https://embed.on3.com/')) === 0)
 		{
 			$attributes['onload'] = 'this.contentWindow.postMessage("","*")';
 		}
