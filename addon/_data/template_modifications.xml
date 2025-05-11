@@ -148,7 +148,7 @@ $0]]></replace>
 }
 .fancybox__content [data-s9e-mediaembed]:not([style])
 {
-	width: 90vw;
+	width: ~"min(85vw, 140vh)";
 }
 
 $0]]></replace>
