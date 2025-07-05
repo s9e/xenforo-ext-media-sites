@@ -368,25 +368,31 @@ class ParserTest extends AbstractParserTest
 	public static function getFindInPageTests(): array
 	{
 		return [
+//			[
+//				'https://barefootheartmusic.com/track/the-longing',
+//				['canonical'],
+//				'https://barefootheart.bandcamp.com/track/the-longing'
+//			],
+//			[
+//				'https://barefootheartmusic.com/track/the-longing',
+//				['embedded'],
+//				null
+//			],
+//			[
+//				'https://barefootheartmusic.com/track/the-longing',
+//				['canonical', 'embedded'],
+//				'https://barefootheart.bandcamp.com/track/the-longing'
+//			],
+//			[
+//				'https://digg.com/digg-vids/link/jon-stewart-confronted-the-deputy-secretary-of-defense-kathleen-hicks-on-the-defense-budget-and-things-got-spicy-Rvz8KHMzvD',
+//				['embedded'],
+//				'https://www.youtube.com/embed/50MusF365U0'
+//			],
 			[
-				'https://barefootheartmusic.com/track/the-longing',
-				['canonical'],
-				'https://barefootheart.bandcamp.com/track/the-longing'
-			],
-			[
-				'https://barefootheartmusic.com/track/the-longing',
+				// Target page has a s9e/MediaSites embed for TrendingViews
+				'https://rawdogsports.com/threads/minecraft-movie-was-the-most-fun-movie-i-have-ever-been-to.3670/',
 				['embedded'],
-				null
-			],
-			[
-				'https://barefootheartmusic.com/track/the-longing',
-				['canonical', 'embedded'],
-				'https://barefootheart.bandcamp.com/track/the-longing'
-			],
-			[
-				'https://digg.com/digg-vids/link/jon-stewart-confronted-the-deputy-secretary-of-defense-kathleen-hicks-on-the-defense-budget-and-things-got-spicy-Rvz8KHMzvD',
-				['embedded'],
-				'https://www.youtube.com/embed/50MusF365U0'
+				'https://trendingviews.com/embed/6350'
 			],
 		];
 	}

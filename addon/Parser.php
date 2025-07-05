@@ -242,15 +242,18 @@ class Parser
 	public static function findMatchInPage(string $url, array $where, MediaRepository $repository): ?array
 	{
 		$exprs = [
-			'canonical' => 'link rel=["\']?canonical["\']? href|meta property=["\']?og:url["\']? content',
-			'embedded'  => 'iframe src'
+			'canonical' => 'link rel=["\']?canonical["\']? href=|meta property=["\']?og:url["\']? content=',
+			'embedded'  => 'iframe src=|span data-s9e-mediaembed-iframe=[^>]+?"src","'
 		];
-		$regexp = '(<(?:' . str_replace(' ', '[^>]+?', implode('|', array_intersect_key($exprs, array_flip($where)))) . ')=["\']?([^"\']++))';
+		$regexp = '(<(?:' . str_replace(' ', '[^>]+?', implode('|', array_intersect_key($exprs, array_flip($where)))) . ')["\']?([^"\']++))';
+			header('X-Regexp: '.$regexp);
 
 		$response = static::wget($url) ?: '';
 		preg_match_all($regexp, $response, $m);
 		foreach ($m[1] as $url)
 		{
+			// Unescape JSON-encoded slashes in data-s9e-mediaembed-iframe attributes
+			$url   = str_replace('\\/', '/', $url);
 			$sites = $repository->findActiveMediaSites()->fetch();
 			$match = $repository->urlMatchesMediaSiteList($url, $sites);
 			if ($match)
