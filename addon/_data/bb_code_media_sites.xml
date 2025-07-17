@@ -96,6 +96,10 @@
     <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?coub\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="coub"><span><iframe allowfullscreen="" scrolling="no" src="//coub.com/embed/{$id}"></iframe></span></span>]]></embed_html>
   </site>
+  <site media_site_id="crankers" site_title="Crankers Videos" site_url="https://crankers.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="crankers" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?crankers\.com/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="crankers"><span><iframe allowfullscreen="" scrolling="no" src="//crankers.com/embed/{$id}"></iframe></span></span>]]></embed_html>
+  </site>
   <site media_site_id="dailymotion" site_title="Dailymotion" site_url="https://www.dailymotion.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="dailymotion" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://www.dailymotion.com/services/oembed" oembed_url_scheme="https://www.dailymotion.com/video/{$id}" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?dai(?:\.ly|lymotion\.com)/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="dailymotion"><span><iframe allowfullscreen="" scrolling="no" src="//www.dailymotion.com/embed/video/{$id}{{ $t ? '?start=' . $t : '' }}"></iframe></span></span>]]></embed_html>
