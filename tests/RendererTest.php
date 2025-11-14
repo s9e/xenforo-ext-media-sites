@@ -347,44 +347,44 @@ class RendererTest extends AbstractRendererTest
 			[
 				'youtube',
 				'QH2-TGUlwu4',
-				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" scrolling="no" style="background:url(https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/QH2-TGUlwu4"></iframe></span></span>'
+				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" referrerpolicy="origin" scrolling="no" style="background:url(https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/QH2-TGUlwu4"></iframe></span></span>'
 			],
 			[
 				'youtube',
 				'QH2-TGUlwu4:95',
-				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" scrolling="no" style="background:url(https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/QH2-TGUlwu4?start=95"></iframe></span></span>'
+				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" referrerpolicy="origin" scrolling="no" style="background:url(https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/QH2-TGUlwu4?start=95"></iframe></span></span>'
 			],
 			[
 				'youtube',
 				'id=QH2-TGUlwu4;m=1;s=35',
-				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" scrolling="no" style="background:url(https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/QH2-TGUlwu4?start=95"></iframe></span></span>'
+				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" referrerpolicy="origin" scrolling="no" style="background:url(https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/QH2-TGUlwu4?start=95"></iframe></span></span>'
 			],
 			[
 				'youtube',
 				'id=QH2-TGUlwu4;t=95',
-				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" scrolling="no" style="background:url(https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/QH2-TGUlwu4?start=95"></iframe></span></span>'
+				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" referrerpolicy="origin" scrolling="no" style="background:url(https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/QH2-TGUlwu4?start=95"></iframe></span></span>'
 			],
 			[
 				'youtube',
 				'id=k-baHBzWe4k;list=PL590L5WQmH8cGD7hVGK_YvAUWdXKfGLJ1',
-				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" scrolling="no" style="background:url(https://i.ytimg.com/vi/k-baHBzWe4k/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/k-baHBzWe4k?list=PL590L5WQmH8cGD7hVGK_YvAUWdXKfGLJ1"></iframe></span></span>'
+				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" referrerpolicy="origin" scrolling="no" style="background:url(https://i.ytimg.com/vi/k-baHBzWe4k/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/k-baHBzWe4k?list=PL590L5WQmH8cGD7hVGK_YvAUWdXKfGLJ1"></iframe></span></span>'
 			],
 			[
 				'youtube',
 				'id=k-baHBzWe4k ',
-				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" scrolling="no" style="background:url(https://i.ytimg.com/vi//hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/"></iframe></span></span>'
+				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" referrerpolicy="origin" scrolling="no" style="background:url(https://i.ytimg.com/vi//hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/"></iframe></span></span>'
 			],
 			[
 				// XenForo 2.2
 				'youtube',
 				'k-baHBzWe4k, list: PL590L5WQmH8cGD7hVGK_YvAUWdXKfGLJ1',
-				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" scrolling="no" style="background:url(https://i.ytimg.com/vi/k-baHBzWe4k/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/k-baHBzWe4k?list=PL590L5WQmH8cGD7hVGK_YvAUWdXKfGLJ1"></iframe></span></span>'
+				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" referrerpolicy="origin" scrolling="no" style="background:url(https://i.ytimg.com/vi/k-baHBzWe4k/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/k-baHBzWe4k?list=PL590L5WQmH8cGD7hVGK_YvAUWdXKfGLJ1"></iframe></span></span>'
 			],
 			[
 				// XenForo 2.2
 				'youtube',
 				'k-baHBzWe4k:90, list: PL590L5WQmH8cGD7hVGK_YvAUWdXKfGLJ1',
-				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" scrolling="no" style="background:url(https://i.ytimg.com/vi/k-baHBzWe4k/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/k-baHBzWe4k?list=PL590L5WQmH8cGD7hVGK_YvAUWdXKfGLJ1&amp;start=90"></iframe></span></span>'
+				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" referrerpolicy="origin" scrolling="no" style="background:url(https://i.ytimg.com/vi/k-baHBzWe4k/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/k-baHBzWe4k?list=PL590L5WQmH8cGD7hVGK_YvAUWdXKfGLJ1&amp;start=90"></iframe></span></span>'
 			],
 		];
 	}

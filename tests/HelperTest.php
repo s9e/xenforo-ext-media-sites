@@ -56,8 +56,8 @@ class HelperTest extends TestCase
 				'<span data-s9e-mediaembed="youtube"><span><span data-s9e-mediaembed-c2l="youtube" data-s9e-mediaembed-iframe=\'["allowfullscreen","","scrolling","no","src","https:\\/\\/www.youtube.com\\/embed\\/QH2-TGUlwu4"]\'></span></span></span><script></script>'
 			],
 			[
-				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" scrolling="no" style="background:url(https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/QH2-TGUlwu4"></iframe></span></span>',
-				'<span data-s9e-mediaembed="youtube"><span><span style="background:url(https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg) 50% 50% / cover" data-s9e-mediaembed-iframe=\'["allowfullscreen","","scrolling","no","style","background:url(https:\\/\\/i.ytimg.com\\/vi\\/QH2-TGUlwu4\\/hqdefault.jpg) 50% 50% \\/ cover","src","https:\\/\\/www.youtube.com\\/embed\\/QH2-TGUlwu4"]\'></span></span></span><script></script>'
+				'<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" referrerpolicy="origin" scrolling="no" style="background:url(https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/QH2-TGUlwu4"></iframe></span></span>',
+				'<span data-s9e-mediaembed="youtube"><span><span style="background:url(https://i.ytimg.com/vi/QH2-TGUlwu4/hqdefault.jpg) 50% 50% / cover" data-s9e-mediaembed-iframe=\'["allowfullscreen","","referrerpolicy","origin","scrolling","no","style","background:url(https:\\/\\/i.ytimg.com\\/vi\\/QH2-TGUlwu4\\/hqdefault.jpg) 50% 50% \\/ cover","src","https:\\/\\/www.youtube.com\\/embed\\/QH2-TGUlwu4"]\'></span></span></span><script></script>'
 			],
 			[
 				// c2l attributes should not be saved in the placeholder

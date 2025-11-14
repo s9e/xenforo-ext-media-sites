@@ -61,6 +61,7 @@ class Renderer
 		'internetarchive'=>['height'=>['s9e\\MediaSites\\Helper::filterUint'],'width'=>['s9e\\MediaSites\\Helper::filterUint']],
 		'mastodon'=>['host'=>['s9e\\MediaSites\\Helper::filterMastodonHost']],
 		'odysee'=>['name'=>['s9e\\MediaSites\\Helper::filterUrl'],'path'=>['s9e\\MediaSites\\Helper::filterUrl']],
+		'peertube'=>['id'=>['s9e\\MediaSites\\Helper::filterIdentifier'],'start'=>['s9e\\MediaSites\\Helper::filterTimestamp']],
 		'vimeo'=>['t'=>['s9e\\MediaSites\\Helper::filterTimestamp']],
 		'xenforo'=>['content_id'=>['s9e\\MediaSites\\Helper::filterIdentifier'],'host'=>['s9e\\MediaSites\\Helper::filterXenForoHost'],'post_id'=>['s9e\\MediaSites\\Helper::filterUint'],'profile_post_id'=>['s9e\\MediaSites\\Helper::filterUint'],'resource_id'=>['s9e\\MediaSites\\Helper::filterUint'],'thread_id'=>['s9e\\MediaSites\\Helper::filterUint'],'url'=>['s9e\\MediaSites\\Helper::filterUrl'],'xfmg_album_id'=>['s9e\\MediaSites\\Helper::filterUint']],
 		'youtube'=>['id'=>['s9e\\MediaSites\\Helper::filterIdentifier'],'t'=>['s9e\\MediaSites\\Helper::filterTimestamp']]

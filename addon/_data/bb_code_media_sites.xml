@@ -244,10 +244,6 @@
     <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?liveleak\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="liveleak"><span><iframe allowfullscreen="" scrolling="no" src="//www.liveleak.com/e/{$id}"></iframe></span></span>]]></embed_html>
   </site>
-  <site media_site_id="livestream" site_title="Livestream" site_url="https://new.livestream.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="livestream" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
-    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?livestre(?:\.a|am\.co)m/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="livestream"><span><iframe allowfullscreen="" scrolling="no" src="//{{ $clip_id ? 'cdn.livestream.com/embed/' . $channel . '?layout=4&amp;autoplay=false&amp;clip=' . $clip_id : ('livestream.com/accounts/' . $account_id . '/events/' . $event_id . ($video_id ? '/videos/' . $video_id : '') . '/player?autoPlay=false') }}"></iframe></span></span>]]></embed_html>
-  </site>
   <site media_site_id="mailru" site_title="Mail.Ru" site_url="https://my.mail.ru/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="mailru" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?my\.mail\.ru/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<span data-s9e-mediaembed="mailru"><span><iframe allowfullscreen="" scrolling="no" src="https://my.mail.ru/video/embed/{$id}"></iframe></span></span>]]></embed_html>
@@ -331,6 +327,10 @@
   <site media_site_id="pastebin" site_title="Pastebin" site_url="https://pastebin.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="pastebin" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?pastebin\.com/.(?'id'))i]]></match_urls>
     <embed_html><![CDATA[<iframe data-s9e-mediaembed="pastebin" allowfullscreen="" scrolling="" src="//pastebin.com/embed_iframe/{$id}" style="height:300px;resize:vertical;width:100%"></iframe>]]></embed_html>
+  </site>
+  <site media_site_id="peertube" site_title="PeerTube" site_url="https://joinpeertube.org/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="peertube" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
+    <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?peertube\.tv/.(?'id'))i]]></match_urls>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="peertube"><span><iframe allowfullscreen="" scrolling="no" src="https://{$host}/videos/embed/{$id}{{ $start ? '?start=' . $start : '' }}"></iframe></span></span>]]></embed_html>
   </site>
   <site media_site_id="pinterest" site_title="Pinterest" site_url="https://www.pinterest.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="pinterest" supported="1" active="1" oembed_enabled="0" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?pinterest\.com/.(?'id'))i]]></match_urls>
@@ -546,6 +546,6 @@
   </site>
   <site media_site_id="youtube" site_title="YouTube" site_url="https://www.youtube.com/" match_is_regex="1" match_callback_class="s9e\MediaSites\Parser" match_callback_method="match" embed_html_callback_class="s9e\MediaSites\Renderer" embed_html_callback_method="render" cookie_third_parties="youtube" supported="1" active="1" oembed_enabled="0" oembed_api_endpoint="https://www.youtube.com/oembed" oembed_url_scheme="https://www.youtube.com/watch?v={$id}" oembed_retain_scripts="0">
     <match_urls><![CDATA[(^https?://(?:[^./]++\.)*?youtu(?:\.be|be(?:-nocookie)?\.com)/.(?'id'))i]]></match_urls>
-    <embed_html><![CDATA[<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" scrolling="no" style="background:url(https://i.ytimg.com/vi/{$id}/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/{$id}{{ $clip ? '?clip=' . $clip . '&amp;clipt=' . $clipt : (($list ? '?list=' . $list : '') . ($t ? ($list ? '&amp;' : '?') . 'start=' . $t : '')) }}"></iframe></span></span>]]></embed_html>
+    <embed_html><![CDATA[<span data-s9e-mediaembed="youtube"><span><iframe allowfullscreen="" referrerpolicy="origin" scrolling="no" style="background:url(https://i.ytimg.com/vi/{$id}/hqdefault.jpg) 50% 50% / cover" src="https://www.youtube.com/embed/{$id}{{ $clip ? '?clip=' . $clip . '&amp;clipt=' . $clipt : (($list ? '?list=' . $list : '') . ($t ? ($list ? '&amp;' : '?') . 'start=' . $t : '')) }}"></iframe></span></span>]]></embed_html>
   </site>
 </bb_code_media_sites>

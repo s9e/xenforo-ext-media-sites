@@ -74,6 +74,7 @@
   <phrase title="cookie_consent.third_party_description_on3" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by On3 DB, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_orfium" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by Orfium, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_pastebin" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by Pastebin, and may be used for displaying embedded content.]]></phrase>
+  <phrase title="cookie_consent.third_party_description_peertube" version_id="2180970" version_string="2.18.9"><![CDATA[These cookies are set by PeerTube, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_podbean" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by Podbean, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_prezi" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by Prezi, and may be used for displaying embedded content.]]></phrase>
   <phrase title="cookie_consent.third_party_description_rumble" version_id="2150600" version_string="2.15.6"><![CDATA[These cookies are set by Rumble, and may be used for displaying embedded content.]]></phrase>
@@ -191,6 +192,7 @@
   <phrase title="cookie_consent.third_party_label_on3" version_id="2150600" version_string="2.15.6"><![CDATA[On3 DB]]></phrase>
   <phrase title="cookie_consent.third_party_label_orfium" version_id="2150600" version_string="2.15.6"><![CDATA[Orfium]]></phrase>
   <phrase title="cookie_consent.third_party_label_pastebin" version_id="2150600" version_string="2.15.6"><![CDATA[Pastebin]]></phrase>
+  <phrase title="cookie_consent.third_party_label_peertube" version_id="2180970" version_string="2.18.9"><![CDATA[PeerTube]]></phrase>
   <phrase title="cookie_consent.third_party_label_podbean" version_id="2150600" version_string="2.15.6"><![CDATA[Podbean]]></phrase>
   <phrase title="cookie_consent.third_party_label_prezi" version_id="2150600" version_string="2.15.6"><![CDATA[Prezi]]></phrase>
   <phrase title="cookie_consent.third_party_label_rumble" version_id="2150600" version_string="2.15.6"><![CDATA[Rumble]]></phrase>
